@@ -1,8 +1,23 @@
 NAME=ex01
-CC=c++ -Wall -Werror -Wextra -std=c++98
+CC=c++ 
+CFLAGS= -Wall -Werror -Wextra -std=c++98
+RM= rm -rf
 SRC=ex01.cpp
 
-OBJ={}
-all=$(NAME)
+OBJ=$(SRC:.cpp=.o)
 
-$(NAME)= 
+all:$(NAME)
+
+
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+clean:
+	$(RM) $(OBJ)
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all

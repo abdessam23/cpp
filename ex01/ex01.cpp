@@ -1,28 +1,18 @@
 #include <iostream>
 #include <string>
-#include "phonebook.h"
+#include "phonebook.hpp"
 #include <iomanip>
-// int checkis_digit(std::string a)
-// {
-//   for (int i; a[i] != '\0' ; i++)
-//   {
-//     if (std::isdigit(a[i]) == 0)
-//       return 0;
-//   }
-//   return 1;
+int checkis_digit(std::string a)
+{
+  for (int i = 0; a[i] != '\0' ; i++)
+  {
+    if (std::isdigit(a[i]) == 0)
+      return 0;
+  }
+  return 1;
 
-//      while (1)
-//       {
-//          std::cout << "Enter phone number :" ;
-//          std::getline(std::cin, a.b[i].PHONE);
-//          if (!checkis_digit(a.b[i].PHONE))
-//           {
-//             std::cout << "please enter only digit"<< std::endl;
-//             continue;
-//           }
-//           break;
-//       }
-// }
+    
+}
 int convertdjt(int c)
 {
   c = c - 48;
@@ -41,15 +31,28 @@ void add_c(phonebook& a){
    for (int i = 0 ; i < 8 ; i++)
    {
       std::cout << "Enter first name :";
-      std::getline(std::cin, a.b[i].fn);
+      std::getline(std::cin, a.b[i].firstname);
       std::cout << "Enter last name :" ;
-      std::getline(std::cin, a.b[i].Ln);
+      std::getline(std::cin, a.b[i].lastname);
       std::cout << "Enter nickname :" ;
-      std::getline(std::cin, a.b[i].NK);
-      std::cout << "Enter phone number :";
-      std::getline(std::cin, a.b[i].PHONE);
+      std::getline(std::cin, a.b[i].nickname);
+       while (1)
+      {
+         std::cout << "Enter phone number :" ;
+         std::getline(std::cin, a.b[i].phonenumber);
+         if (a.b[i].phonenumber == "\0")
+            continue;
+         if (!checkis_digit(a.b[i].phonenumber))
+          {
+            std::cout << "please enter only digit"<< std::endl;
+            continue;
+          }
+          break;
+      }
+      // std::cout << "Enter phone number :";
+      // std::getline(std::cin, a.b[i].phonenumber);
       std::cout << "Enter secret :";
-      std::getline(std::cin, a.b[i].sec);
+      std::getline(std::cin, a.b[i].secret);
       if (i == 7)
       {
           while (1)
@@ -58,7 +61,7 @@ void add_c(phonebook& a){
             std::getline(std::cin,y);
             if (y == "y")
             {
-              i = 6;
+              i = 0;
               break;
             }
             else if ( y != "y" && y != "n" )
@@ -75,26 +78,26 @@ void add_c(phonebook& a){
     int index;
     std::string str;
 
-    if(a.b[0].fn == "\0")
+    if(a.b[0].firstname == "\0")
     {
         std::cout << "the phonebook is empty!" << std::endl;
         return ;
     }
     
-    std::cout << " ------------------------------------------------------" << std::endl;
+    std::cout << " ------------------------------------------------" << std::endl;
     std::cout << " | " << std::setw(5) << "Index"
-              << " | " << std::setw(12) << "First name" 
-              << " | " << std::setw(12) << "Last name" 
-              << " | " << std::setw(12) << "Nickname" << " |" <<std::endl;
-    std::cout << " ------------------------------------------------------" << std::endl;
+              << " | " << std::setw(10) << std::left << "First name" 
+              << " | " << std::setw(10) << "Last name" 
+              << " | " << std::setw(10) << "Nickname" << " |" <<std::endl;
+    std::cout << " ------------------------------------------------" << std::endl;
     for(int i = 0; i < 8;i++)
     {
       std::cout << " | " << std::setw(5) << i 
-                    << " | "<< std::setw(12) << make_it_small(a.b[i].fn)
-                    << " | "<< std::setw(12) << make_it_small(a.b[i].Ln)
-                    << " | "<< std::setw(12) << make_it_small(a.b[i].NK) << " | " << std::endl;
+                    << " | "<< std::setw(10) << make_it_small(a.b[i].firstname)
+                    << " | "<< std::setw(10) << make_it_small(a.b[i].lastname)
+                    << " | "<< std::setw(10) << make_it_small(a.b[i].nickname) << " | " << std::endl;
     }
-    std::cout << " ------------------------------------------------------" << std::endl;
+    std::cout << " ------------------------------------------------" << std::endl;
     while (1)
     {
       std::cout << "enter the index of contact :" ;
@@ -113,18 +116,18 @@ void add_c(phonebook& a){
               << " | " << std::setw(12) << "First name" 
               << " | " << std::setw(12) << "Last name"
               << " | " << std::setw(12) << "Nickname"
-              << " | " << std::setw(12) << "Phonenumber"
-              << " | " << std::setw(12) << "Secret" << " |" <<std::endl;
+              << " | " << std::setw(12) << "Phone number"
+              << " | " << std::setw(12) << "secret" << " | " <<std::endl;
     std::cout << " ------------------------------------------------------------------------------------" << std::endl;
     for(int i = 0; i < 8;i++)
     {
       if (i == index)
           std::cout << " | " << std::setw(5) << i
-                    << " | " << std::setw(12) << make_it_small(a.b[i].fn) 
-                    << " | " << std::setw(12) << make_it_small(a.b[i].Ln)
-                    << " | " << std::setw(12) << make_it_small(a.b[i].NK)
-                    << " | " << std::setw(12) << make_it_small(a.b[i].PHONE) 
-                    << " | " << std::setw(12)<< make_it_small(a.b[i].sec)
+                    << " | " << std::setw(12) << make_it_small(a.b[i].firstname) 
+                    << " | " << std::setw(12) << make_it_small(a.b[i].lastname)
+                    << " | " << std::setw(12) << make_it_small(a.b[i].nickname)
+                    << " | " << std::setw(12) << make_it_small(a.b[i].phonenumber) 
+                    << " | " << std::setw(12)<< make_it_small(a.b[i].secret)
                     << " | " <<std::endl;
     }
     std::cout << " ------------------------------------------------------------------------------------" << std::endl;
@@ -140,7 +143,6 @@ void add_c(phonebook& a){
               return 0;
           if (line == "ADD")
           {
-              
               add_c(a);
           }
            
