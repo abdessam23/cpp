@@ -1,88 +1,160 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 14:24:12 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/01 15:53:12 by abdo             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
-#include <string> 
+#include <string>
+#include "phonebook.h"
+#include <iomanip>
+// int checkis_digit(std::string a)
+// {
+//   for (int i; a[i] != '\0' ; i++)
+//   {
+//     if (std::isdigit(a[i]) == 0)
+//       return 0;
+//   }
+//   return 1;
 
-
-class phonebook{
-    public:
-        char contact[8][5][20];
-   
-};
-
-
-class contact{
-    public:
-   
-        void add(phonebook& a){
-            int i = 0;
-            while (i < 8)
-            {
-    
-                std::cout << "First name :" ;
-                std::cin >> a.contact[i][0];
-                std::cout << "Last name :" ;
-                std::cin >> a.contact[i][1];
-                std::cout << "Nickname :";
-                std::cin >> a.contact[i][2];
-                std::cout << "Phone number :";
-                std::cin >> a.contact[i][3];
-                std::cout << "Secret :";
-                std::cin >> a.contact[i][4];
-                i++;     
-            }
-        }
-        void search(phonebook a)
-        {
-            int index;
-            
-             std::cout << "| index "<< "| First name" << "| Last name " << "| nickname"  << std::endl;
-            for (int i = 0; i < 8; i++)
-            {
-                std::cout  << "|" << i << "     |" << a.contact[i][0] << "|" << a.contact[i][1] << "|" << a.contact[i][2] << "|" <<std::endl;
-            }
-            std::cout << "Enter index of the contact:";
-            std::cin >> index;
-            for (int i = 0; i < 8; i++)
-            {
-                if (i == index)
-                {
-                    std::cout << a.contact[i][0] << "|" << a.contact[i][1] << "|" << a.contact[i][2] << "|" << a.contact[i][3] << "|" << a.contact[i][4] << std::endl;
-                }
-            }
-        }
-};
-
-int main()
+//      while (1)
+//       {
+//          std::cout << "Enter phone number :" ;
+//          std::getline(std::cin, a.b[i].PHONE);
+//          if (!checkis_digit(a.b[i].PHONE))
+//           {
+//             std::cout << "please enter only digit"<< std::endl;
+//             continue;
+//           }
+//           break;
+//       }
+// }
+int convertdjt(int c)
 {
-    contact a;
-    phonebook k;
-    char str[7];
-    while (1)
-    {
-        std::cout << "enter prompt:";
-        std::cin >> str;
-        if(str[0] == 'A')
-        {
-            a.add(k);
-        }
-        else if (str[0] == 'S')
-        {
-            a.search(k);
-        }
-        else
-            break;
+  c = c - 48;
+  return c;
+}
+std::string make_it_small(std::string& str)
+{
+  if (str.length() > 10)
+  {
+    return str.substr(0,10);
+  }
+  return str;
+}
+void add_c(phonebook& a){
+    std::string y;
+   for (int i = 0 ; i < 8 ; i++)
+   {
+      std::cout << "Enter first name :";
+      std::getline(std::cin, a.b[i].fn);
+      std::cout << "Enter last name :" ;
+      std::getline(std::cin, a.b[i].Ln);
+      std::cout << "Enter nickname :" ;
+      std::getline(std::cin, a.b[i].NK);
+      std::cout << "Enter phone number :";
+      std::getline(std::cin, a.b[i].PHONE);
+      std::cout << "Enter secret :";
+      std::getline(std::cin, a.b[i].sec);
+      if (i == 7)
+      {
+          while (1)
+          {
+            std::cout << "If you want to add contact please type y/n : ";
+            std::getline(std::cin,y);
+            if (y == "y")
+            {
+              i = 6;
+              break;
+            }
+            else if ( y != "y" && y != "n" )
+              continue;
+            else
+              break;
+          }
+      }
+      
+   }
+  }
+   void search(phonebook a)
+  {
+    int index;
+    std::string str;
 
+    if(a.b[0].fn == "\0")
+    {
+        std::cout << "the phonebook is empty!" << std::endl;
+        return ;
     }
     
+    std::cout << " ------------------------------------------------------" << std::endl;
+    std::cout << " | " << std::setw(5) << "Index"
+              << " | " << std::setw(12) << "First name" 
+              << " | " << std::setw(12) << "Last name" 
+              << " | " << std::setw(12) << "Nickname" << " |" <<std::endl;
+    std::cout << " ------------------------------------------------------" << std::endl;
+    for(int i = 0; i < 8;i++)
+    {
+      std::cout << " | " << std::setw(5) << i 
+                    << " | "<< std::setw(12) << make_it_small(a.b[i].fn)
+                    << " | "<< std::setw(12) << make_it_small(a.b[i].Ln)
+                    << " | "<< std::setw(12) << make_it_small(a.b[i].NK) << " | " << std::endl;
+    }
+    std::cout << " ------------------------------------------------------" << std::endl;
+    while (1)
+    {
+      std::cout << "enter the index of contact :" ;
+      std::getline(std::cin,str);
+      index = convertdjt(str[0]);
+      if (index < 0 || index > 7)
+      {
+          std::cout << "Enter only digit from 0 to 7" << std::endl;
+          continue;
+      }
+      else
+        break;
+    }
+    std::cout << " ------------------------------------------------------------------------------------" << std::endl;
+    std::cout << " | " << std::setw(5) << "Index"
+              << " | " << std::setw(12) << "First name" 
+              << " | " << std::setw(12) << "Last name"
+              << " | " << std::setw(12) << "Nickname"
+              << " | " << std::setw(12) << "Phonenumber"
+              << " | " << std::setw(12) << "Secret" << " |" <<std::endl;
+    std::cout << " ------------------------------------------------------------------------------------" << std::endl;
+    for(int i = 0; i < 8;i++)
+    {
+      if (i == index)
+          std::cout << " | " << std::setw(5) << i
+                    << " | " << std::setw(12) << make_it_small(a.b[i].fn) 
+                    << " | " << std::setw(12) << make_it_small(a.b[i].Ln)
+                    << " | " << std::setw(12) << make_it_small(a.b[i].NK)
+                    << " | " << std::setw(12) << make_it_small(a.b[i].PHONE) 
+                    << " | " << std::setw(12)<< make_it_small(a.b[i].sec)
+                    << " | " <<std::endl;
+    }
+    std::cout << " ------------------------------------------------------------------------------------" << std::endl;
+  }
+  int prompt(phonebook a)
+  {
+    std::string line;
+      while (1)
+      {
+          std::cout << "Enter prompt : " ;
+          std::getline(std::cin, line);
+          if(line == "\0")
+              return 0;
+          if (line == "ADD")
+          {
+              
+              add_c(a);
+          }
+           
+          else if (line == "SEARCH")
+            search(a);
+          else if (line == "EXIT")
+            return 0;
+          else
+            std::cout << "Please enter a valid prompt : ADD/SEARCH/EXIT" << std::endl;
+      }      
+  } 
+ 
+int main()
+{
+  phonebook a;
+  prompt(a);
 }
