@@ -1,7 +1,7 @@
-#include <iostream>
-#include <string>
+
 #include "phonebook.hpp"
-#include <iomanip>
+
+
 int checkis_digit(std::string a)
 {
   for (int i = 0; a[i] != '\0' ; i++)
@@ -13,6 +13,27 @@ int checkis_digit(std::string a)
 
     
 }
+std::string read_input()
+{
+  int i = 0;
+  std::string str;
+  while(true)
+  {
+    std::getline(std::cin , str);
+    if(std::cin.eof())
+    {
+      std::cout << "\nThe program exit because EOF." << std::endl;
+      exit(0);
+    }
+    if (str == "\0")
+      continue;
+    break;
+  }
+
+  while (str[i] != '\0' && std::isspace(str[i]))
+      i++;
+  return (str.substr(i, str.length()));
+}
 int convertdjt(int c)
 {
   c = c - 48;
@@ -22,7 +43,7 @@ std::string make_it_small(std::string& str)
 {
   if (str.length() > 10)
   {
-    return str.substr(0,10);
+    return str.substr(0,10) + ".";
   }
   return str;
 }
@@ -31,17 +52,23 @@ void add_c(phonebook& a){
    for (int i = 0 ; i < 8 ; i++)
    {
       std::cout << "Enter first name :";
-      std::getline(std::cin, a.b[i].firstname);
+      a.b[i].firstname = read_input();
+      if (a.b[i].firstname == "\0")
+        return;
       std::cout << "Enter last name :" ;
-      std::getline(std::cin, a.b[i].lastname);
+      a.b[i].lastname = read_input();
+      if (a.b[i].lastname == "\0")
+        return;
       std::cout << "Enter nickname :" ;
-      std::getline(std::cin, a.b[i].nickname);
+      a.b[i].nickname = read_input() ;
+       if (a.b[i].nickname == "\0")
+        return;
        while (1)
       {
          std::cout << "Enter phone number :" ;
-         std::getline(std::cin, a.b[i].phonenumber);
-         if (a.b[i].phonenumber == "\0")
-            continue;
+         a.b[i].phonenumber = read_input();
+       
+         
          if (!checkis_digit(a.b[i].phonenumber))
           {
             std::cout << "please enter only digit"<< std::endl;
@@ -49,16 +76,16 @@ void add_c(phonebook& a){
           }
           break;
       }
-      // std::cout << "Enter phone number :";
-      // std::getline(std::cin, a.b[i].phonenumber);
       std::cout << "Enter secret :";
-      std::getline(std::cin, a.b[i].secret);
+      a.b[i].secret = read_input();;
+       if (a.b[i].secret == "\0")
+        return;
       if (i == 7)
       {
           while (1)
           {
             std::cout << "If you want to add contact please type y/n : ";
-            std::getline(std::cin,y);
+            y = read_input();
             if (y == "y")
             {
               i = 0;
@@ -85,8 +112,8 @@ void add_c(phonebook& a){
     }
     
     std::cout << " ------------------------------------------------" << std::endl;
-    std::cout << " | " << std::setw(5) << "Index"
-              << " | " << std::setw(10) << std::left << "First name" 
+    std::cout << " | " << std::setw(5) <<  std::left <<"Index"
+              << " | " << std::setw(10) << "First name" 
               << " | " << std::setw(10) << "Last name" 
               << " | " << std::setw(10) << "Nickname" << " |" <<std::endl;
     std::cout << " ------------------------------------------------" << std::endl;
@@ -100,8 +127,8 @@ void add_c(phonebook& a){
     std::cout << " ------------------------------------------------" << std::endl;
     while (1)
     {
-      std::cout << "enter the index of contact :" ;
-      std::getline(std::cin,str);
+      std::cout << "Enter the index of contact :" ;
+      str = read_input();
       index = convertdjt(str[0]);
       if (index < 0 || index > 7)
       {
@@ -138,9 +165,7 @@ void add_c(phonebook& a){
       while (1)
       {
           std::cout << "Enter prompt : " ;
-          std::getline(std::cin, line);
-          if(line == "\0")
-              return 0;
+          line = read_input();
           if (line == "ADD")
           {
               add_c(a);
