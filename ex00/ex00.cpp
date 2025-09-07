@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 14:24:03 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/04 10:16:37 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/07 16:32:16 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 class megaphone
 {
 public:
-    std::string uppercase(std::string& str)
+    std::string uppercase(std::string str)
     {
         for (int i = 0; str[i] ; i++)
         {
-            if (islower(str[i]))
-                std::toupper(str[i]);
+            if (std::islower(str[i]))
+                str[i] = std::toupper(str[i]);
         }
         return (str);
     }
@@ -49,6 +49,7 @@ int main(int ac, char** argv)
     {
         std::string str =argv[i];
         a.printmega(a.uppercase(str));
+        // a.printmega(" ");
     }
     std::cout << std::endl;
 }
