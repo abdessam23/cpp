@@ -10,4 +10,6 @@ class phonebook
 {
   public:
    contact b[8];
+   int count;
+   phonebook() : count(0){};
 };

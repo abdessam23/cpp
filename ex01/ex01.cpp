@@ -13,25 +13,27 @@ int checkis_digit(std::string a)
 
     
 }
-std::string read_input()
+std::string read_input(std::string des)
 {
   int i = 0;
   std::string str;
   while(true)
   {
+     std::cout << des;
     std::getline(std::cin , str);
     if(std::cin.eof())
     {
-      std::cout << "\nThe program exit because EOF." << std::endl;
+      std::cout << "\n EOF." << std::endl;
       exit(0);
     }
+    while (str[i] != '\0' && std::isspace(str[i]))
+      i++;
     if (str == "\0")
       continue;
     break;
   }
 
-  while (str[i] != '\0' && std::isspace(str[i]))
-      i++;
+  
   return (str.substr(i, str.length()));
 }
 int convertdjt(int c)
@@ -43,62 +45,29 @@ std::string make_it_small(std::string& str)
 {
   if (str.length() > 10)
   {
-    return str.substr(0,10) + ".";
+    return str.substr(0,9) + ".";
   }
   return str;
 }
 void add_c(phonebook& a){
-    std::string y;
-   for (int i = 0 ; i < 8 ; i++)
-   {
-      std::cout << "Enter first name :";
-      a.b[i].firstname = read_input();
-      if (a.b[i].firstname == "\0")
-        return;
-      std::cout << "Enter last name :" ;
-      a.b[i].lastname = read_input();
-      if (a.b[i].lastname == "\0")
-        return;
-      std::cout << "Enter nickname :" ;
-      a.b[i].nickname = read_input() ;
-       if (a.b[i].nickname == "\0")
-        return;
-       while (1)
-      {
-         std::cout << "Enter phone number :" ;
-         a.b[i].phonenumber = read_input();
-       
-         
-         if (!checkis_digit(a.b[i].phonenumber))
-          {
-            std::cout << "please enter only digit"<< std::endl;
-            continue;
-          }
-          break;
-      }
-      std::cout << "Enter secret :";
-      a.b[i].secret = read_input();;
-       if (a.b[i].secret == "\0")
-        return;
-      if (i == 7)
-      {
+      std::string y;
+      int i = a.count % 8;
+      
+          a.b[i].firstname = read_input("Enter first name :");
+          a.b[i].lastname = read_input("Enter last name :");
+          a.b[i].nickname = read_input("Enter nickname :") ;
           while (1)
           {
-            std::cout << "If you want to add contact please type y/n : ";
-            y = read_input();
-            if (y == "y")
+            a.b[i].phonenumber = read_input("Enter phone number :");
+            if (!checkis_digit(a.b[i].phonenumber))
             {
-              i = 0;
-              break;
-            }
-            else if ( y != "y" && y != "n" )
+              std::cout << "please enter only digit"<< std::endl;
               continue;
-            else
-              break;
+            }
+            break;
           }
-      }
-      
-   }
+          a.b[i].secret = read_input("Enter Darkest secret :");
+          a.count++;
   }
    void search(phonebook a)
   {
@@ -127,10 +96,9 @@ void add_c(phonebook& a){
     std::cout << " ------------------------------------------------" << std::endl;
     while (1)
     {
-      std::cout << "Enter the index of contact :" ;
-      str = read_input();
+      str = read_input("Enter the index of contact :");
       index = convertdjt(str[0]);
-      if (index < 0 || index > 7)
+      if (str.length() > 1 || (index < 0 || index > 7))
       {
           std::cout << "Enter only digit from 0 to 7" << std::endl;
           continue;
@@ -144,7 +112,7 @@ void add_c(phonebook& a){
               << " | " << std::setw(12) << "Last name"
               << " | " << std::setw(12) << "Nickname"
               << " | " << std::setw(12) << "Phone number"
-              << " | " << std::setw(12) << "secret" << " | " <<std::endl;
+              << " | " << std::setw(12) << "Darkest secret" << " | " <<std::endl;
     std::cout << " ------------------------------------------------------------------------------------" << std::endl;
     for(int i = 0; i < 8;i++)
     {
@@ -164,8 +132,7 @@ void add_c(phonebook& a){
     std::string line;
       while (1)
       {
-          std::cout << "Enter prompt : " ;
-          line = read_input();
+          line = read_input("Enter prompt : ");
           if (line == "ADD")
           {
               add_c(a);

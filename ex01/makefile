@@ -1,4 +1,4 @@
-NAME=ex01
+NAME=phonebook
 CC=c++ 
 CFLAGS= -Wall -Werror -Wextra -std=c++98
 RM= rm -rf
