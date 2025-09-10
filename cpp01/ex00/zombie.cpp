@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 16:04:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 16:24:11 by abdo             ###   ########.fr       */
+/*   Created: 2025/09/10 16:18:14 by abdo              #+#    #+#             */
+/*   Updated: 2025/09/10 16:42:08 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "zombie.hpp"
 
-int main()
+void Zombie::announce()
 {
-    Zombie stackzombie("ahmed");
-    stackzombie.announce();
-    stackzombie.randomChump("abdo this rundom!");
-    Zombie* heapzombie = newZombie("amazon");
-    heapzombie->announce();
-    heapzombie->randomChump("google");
-    
-    delete heapzombie;
+    std::cout << name << ":  BraiiiiiiinnnzzzZ.." << std::endl;
 }

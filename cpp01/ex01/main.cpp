@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 16:04:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 16:24:11 by abdo             ###   ########.fr       */
+/*   Created: 2025/09/10 17:02:46 by abdo              #+#    #+#             */
+/*   Updated: 2025/09/10 17:03:32 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,5 @@
 
 int main()
 {
-    Zombie stackzombie("ahmed");
-    stackzombie.announce();
-    stackzombie.randomChump("abdo this rundom!");
-    Zombie* heapzombie = newZombie("amazon");
-    heapzombie->announce();
-    heapzombie->randomChump("google");
-    
-    delete heapzombie;
+    Zombie *h = 
 }

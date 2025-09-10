@@ -2,11 +2,11 @@ NAME= zombie
 
 CC= c++
 
-CFLAGS= -Wall -Werror -Wexta -std=c++98
+CFLAGS= -Wall -Werror -Wextra -std=c++98
 
 RM= rm -rf
 
-SRC= newZombie.cpp randomChump.cpp main.cpp
+SRC= newZombie.cpp randomChump.cpp main.cpp zombie.cpp
 
 OBJ= $(SRC:.cpp=.o)
 

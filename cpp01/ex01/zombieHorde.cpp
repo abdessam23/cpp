@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 16:04:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 16:24:11 by abdo             ###   ########.fr       */
+/*   Created: 2025/09/10 16:47:24 by abdo              #+#    #+#             */
+/*   Updated: 2025/09/10 16:59:08 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 
-int main()
+Zombie*  zombieHorde(int N, std::string name)
 {
-    Zombie stackzombie("ahmed");
-    stackzombie.announce();
-    stackzombie.randomChump("abdo this rundom!");
-    Zombie* heapzombie = newZombie("amazon");
-    heapzombie->announce();
-    heapzombie->randomChump("google");
-    
-    delete heapzombie;
+    Zombie* p = new Zombie(N);
+    for (int i = 0; i < N; i++)
+    {
+        p[i].name = name;
+    }
+    return p;
 }
