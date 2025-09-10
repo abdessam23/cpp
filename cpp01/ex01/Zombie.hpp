@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:32:16 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 17:04:13 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/10 17:52:44 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ class Zombie
         std::string name;
         Zombie(int N): N(N) {
         };
+        int get()
+        {
+            return N;
+        }
         ~Zombie()
         {
             std::cout << "all detroyed" << std::endl;

@@ -6,13 +6,16 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:02:46 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 17:03:32 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/10 17:53:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 
 int main()
 {
-    Zombie *h = 
+    Zombie *h = zombieHorde(5,"KOLA");
+    h->announce();
+    std::cout << h->get()<< std::endl;
+    delete h;
 }
