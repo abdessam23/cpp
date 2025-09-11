@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:00:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 17:36:02 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/11 18:38:19 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,9 @@
 void Zombie::announce()
 {
     std::cout << name << std::endl;
+}
+
+void Zombie::setname(std::string str)
+{
+    name = str;
 }

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 16:32:16 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 17:52:44 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/11 18:55:05 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 class Zombie
 {
-    int N;
-    
+    std::string name;
     public:
-        std::string name;
-        Zombie(int N): N(N) {
-        };
-        int get()
-        {
-            return N;
-        }
         ~Zombie()
         {
-            std::cout << "all detroyed" << std::endl;
+            std::cout << "Detroyed!" << std::endl;
         }
+        void setname(std::string str);
         void announce();
 };
 Zombie*  zombieHorde(int N, std::string name);

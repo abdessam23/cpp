@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:02:46 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 17:53:50 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/11 18:54:19 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int main()
 {
-    Zombie *h = zombieHorde(5,"KOLA");
-    h->announce();
-    std::cout << h->get()<< std::endl;
-    delete h;
+    Zombie *h = zombieHorde(16,"Moaer");
+    for(int i = 0 ; i < 16; i++)
+    {
+        std:: cout << "Zombie number " << i << ": ";
+        h[i].announce();
+    }
+    
+    delete[] h;
 }
