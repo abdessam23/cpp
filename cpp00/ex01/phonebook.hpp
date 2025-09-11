@@ -8,8 +8,11 @@
 
 class phonebook
 {
-  public:
-   contact b[8];
-   int count;
-   phonebook() : count(0){};
+    contact b[8];
+    int count;
+    public:
+      phonebook() : count(0){};
+
+      void addcontact(contact& c);
+      contact searchin(int i);
 };
