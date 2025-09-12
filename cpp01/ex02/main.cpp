@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 19:44:16 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/12 18:39:12 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/12 18:55:19 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int main()
     std::string* stringPTR = &str;
     std::string &stringREF = str;
 
-    std::cout <<"Memory address of string : "<< &str << std::endl;
-    std::cout <<"Memory address of pointer to the string : "<< stringPTR << std::endl;
-    std::cout <<"Memory address of reference to the string : "<< &stringREF << std::endl;
+    std::cout <<"The memory address of string : "<< &str << std::endl;
+    std::cout <<"The memory address held by stringPTR : "<< stringPTR << std::endl;
+    std::cout <<"The memory address held by stringREF : "<< &stringREF << std::endl;
     
     std::cout << "=======================================" << std::endl;
     
