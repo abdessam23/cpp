@@ -6,8 +6,8 @@
 class Fixed
 {
     private:
-        int n;
-        float f;
+      
+        int f;
         static const int fraction = 8;
     public:
         Fixed();
@@ -15,7 +15,7 @@ class Fixed
         Fixed(const float a);
         Fixed(const Fixed& a);
         Fixed& operator=(const Fixed& other);
-        friend std::ostream& operator<<(std::ostream &out, Fixed& a);
+        friend std::ostream& operator<<(std::ostream &out, const Fixed& obj);
 
         float toFloat(void) const;
         int toInt( void ) const;
