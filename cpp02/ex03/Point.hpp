@@ -6,25 +6,28 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 11:06:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/19 11:07:32 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/19 17:24:44 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class 
+#include "Fixed.hpp"
+
+class Point
 {
 private:
-    /* data */
+   Fixed x;
+   Fixed y;
 public:
-    (/* args */);
-    ~();
+    Point();
+    Point(float x, float y);
+    Point(Point& a);
+    Point& operator=(const Point& other);
+    ~Point();
+
+    Fixed getx() const;
+    Fixed gety() const;
 };
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
-::(/* args */)
-{
-}
-
-::~()
-{
-}

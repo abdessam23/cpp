@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 16:02:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/19 10:40:52 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/19 16:34:13 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@ Fixed::Fixed(const int n){
 Fixed::Fixed(const float b){
      f = roundf(b * (1 << fraction));
  }
-Fixed::Fixed(const Fixed& a): f(a.f){
-    //  f = a.getRawBits();
-}
-Fixed::~Fixed()
-{
-}
+Fixed::Fixed(const Fixed& a): f(a.f){}
+Fixed::~Fixed(){}
+
 int Fixed::getRawBits() const{
     return f;
 }

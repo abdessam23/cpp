@@ -1,4 +1,4 @@
-NAME=fixed
+NAME=bsp
 
 CC=c++
 
@@ -6,7 +6,7 @@ CFLAGS= -Wall -Werror -Wextra -std=c++98
 
 RM=rm -rf
 
-SRC= main.cpp Fixed.cpp 
+SRC= main.cpp Fixed.cpp  bsp.cpp Point.cpp 
 
 OBJ= $(SRC:.cpp=.o)
 
