@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 15:24:25 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/19 18:46:15 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/20 10:41:13 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int main() 
 {
-    Point a;
-    Point b(a);
+    Point a(2.3, 45);
+    Point b(6.7,47);
     Point c(1.2,3);
-    Point v(4.55,5.4545);
+    Point v(16.55,35.4545);
     std::cout << a.getx() << std::endl;
     std::cout << a.gety() << std::endl;
 

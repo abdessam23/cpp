@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:44:39 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/19 17:34:35 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/20 09:41:53 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 
     has_neg = (f1 < 0) || (f2 < 0) || (f3 < 0);
     has_pos = (f1 > 0) || (f2 > 0) || (f3 < 0);
+    std::cout << "neg : "<< has_neg << std::endl;
+    std::cout << "pos : " << has_pos << std::endl;
+    
     return !(has_pos && has_neg);
 }
