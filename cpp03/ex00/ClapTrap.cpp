@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 11:58:40 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/20 11:58:57 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/26 10:47:06 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ ClapTrap::~ClapTrap()
 }
 
 void ClapTrap::attack(const std::string& target)
-{}
+{
+    std::cout << "ClapTrap "<< name  << "attacks "<<  target<< ", causing" << attack_damage << "points of damage!" << std::endl;
+}
 void ClapTrap::TakeDamage(unsigned int ammount)
 {
     
