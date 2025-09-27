@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/20 11:47:33 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/20 11:57:59 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/27 15:17:23 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ public:
     ~ClapTrap();
 
     void attack(const std::string& target);
-    void TakeDamage(unsigned int ammount);
-    void beRepaired(unsigned int ammount);
+    void TakeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 
