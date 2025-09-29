@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 12:17:18 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/29 13:20:35 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main()
 {
     ScavTrap a("alex");
-    
+    a.guardGate();
+    a.TakeDamage(2);
+    a.attack("modric");
     return 0;
 }
