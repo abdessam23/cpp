@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 14:24:14 by abdo             ###   ########.fr       */
+/*   Created: 2025/09/29 13:25:28 by abdo              #+#    #+#             */
+/*   Updated: 2025/09/29 14:09:55 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "FragTrap.hpp"
 
-int main()
+FragTrap::FragTrap(std::string str): ClapTrap(str){
+    name = str;
+    hit_point = 100;
+    energy_point = 100;
+    attack_damage = 30;
+    std::cout << "The fragtrap constructor " << name << "  is called!" << std::endl;
+}
+
+FragTrap::~FragTrap()
 {
-    ScavTrap a("alex");
-    // a.guardGate();
-    // a.TakeDamage(2);
-    // a.attack("modric");
-    return 0;
+    std::cout << "The fragtrap destructor " << name << " is called!"<< std::endl;
+}
+ 
+void FragTrap::highFivesGuys()
+{
+    std::cout << "Good job high Fives Guys!" << std::endl;
 }
