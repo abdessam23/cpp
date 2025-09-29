@@ -6,15 +6,14 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:25:28 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 13:42:30 by abdo             ###   ########.fr       */
+/*   Updated: 2025/09/29 14:09:55 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string str)
-{
+FragTrap::FragTrap(std::string str): ClapTrap(str){
     name = str;
     hit_point = 100;
     energy_point = 100;
@@ -26,8 +25,8 @@ FragTrap::~FragTrap()
 {
     std::cout << "The fragtrap destructor " << name << " is called!"<< std::endl;
 }
-
+ 
 void FragTrap::highFivesGuys()
 {
-    std::cout << "I don't know what does it mean " << std::endl;
+    std::cout << "Good job high Fives Guys!" << std::endl;
 }
