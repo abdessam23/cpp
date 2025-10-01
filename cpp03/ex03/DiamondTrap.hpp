@@ -6,14 +6,14 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:02:50 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 15:56:06 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/01 16:23:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-class FragTrap: virtual ClapTrap{};
-class ScavTrap: virtual ClapTrap{}; 
+class FragTrap: virtual public ClapTrap{};
+class ScavTrap: virtual public ClapTrap{}; 
 
 class DiamondTrap : public FragTrap,public ScavTrap
 {
@@ -25,8 +25,11 @@ public:
     void whoAmI();
 };
 
-DiamondTrap::DiamondTrap(std::string name): FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name): name(name),ClapTrap(name)
 {
+    hit_point = FragTrap::hit_point;
+    energy_point = ScavTrap::energy_point;
+    attack_damage= FragTrap::attack_damage;
 }
 void DiamondTrap::whoAmI()
 {
