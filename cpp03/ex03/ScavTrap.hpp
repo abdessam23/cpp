@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 16:34:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 13:17:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/01 16:50:15 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {   
     public:
         ScavTrap(std::string name);

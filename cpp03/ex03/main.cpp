@@ -6,17 +6,15 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 14:24:14 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/01 16:46:00 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    ScavTrap a("alex");
-    // a.guardGate();
-    // a.TakeDamage(2);
-    // a.attack("modric");
+    DiamondTrap a("alex");
+    a.whoAmI();
     return 0;
 }
