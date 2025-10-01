@@ -1,4 +1,4 @@
-NAME= scavtrap
+NAME= fragtrap
 
 CC= c++
 
