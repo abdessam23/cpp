@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:02:50 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 16:31:20 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/01 16:40:23 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ public:
 
 DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name),FragTrap(name),name(name)
 {
-    hit_point = FragTrap::hit_point;
-    energy_point = ScavTrap::energy_point;
-    attack_damage= FragTrap::attack_damage;
+    hit_point = 100;
+    energy_point = 50;
+    attack_damage= 30;
     std::cout << "the Diamondtrap constructor is called" << name << std::endl;
 }
 void DiamondTrap::whoAmI()
