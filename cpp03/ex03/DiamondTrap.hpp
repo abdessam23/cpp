@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:02:50 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 16:23:39 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/01 16:31:20 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ public:
     void whoAmI();
 };
 
-DiamondTrap::DiamondTrap(std::string name): name(name),ClapTrap(name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavTrap(name),FragTrap(name),name(name)
 {
     hit_point = FragTrap::hit_point;
     energy_point = ScavTrap::energy_point;
     attack_damage= FragTrap::attack_damage;
+    std::cout << "the Diamondtrap constructor is called" << name << std::endl;
 }
 void DiamondTrap::whoAmI()
 {
-    std::cout << "The DiamondTrap " << name << 
+    std::cout << "The DiamondTrap " << name << ClapTrap::name << std::endl;
 }
 DiamondTrap::~DiamondTrap()
 {
