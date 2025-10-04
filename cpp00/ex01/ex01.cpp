@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:33:23 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/11 18:08:31 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/04 15:08:18 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ std::string read_input(std::string des)
     if (str == "\0" || (des == "Enter phone number :" && !checkis_digit(str)))
     {
       if ((des == "Enter phone number :" && !checkis_digit(str)))
-         std::cout << "please enter only digit"<< std::endl;
+         std::cout << "Please enter only digit"<< std::endl;
       continue;
       
     }
@@ -83,12 +83,12 @@ void add_c(phonebook& a){
 
     if(a.searchin(0).getfirstname() == "\0")
     {
-        std::cout << "the phonebook is empty!" << std::endl;
+        std::cout << "The phonebook is empty!" << std::endl;
         return ;
     }
     
     std::cout << " ------------------------------------------------" << std::endl;
-    std::cout << " | " << std::setw(5) <<  std::left <<"Index"
+    std::cout << " | " << std::setw(5) <<"Index"
               << " | " << std::setw(10) << "First name" 
               << " | " << std::setw(10) << "Last name" 
               << " | " << std::setw(10) << "Nickname" << " |" <<std::endl;
