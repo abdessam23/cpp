@@ -6,12 +6,13 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:41:12 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/05 16:43:19 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/05 18:22:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+
 
 int main()
 {
@@ -23,5 +24,8 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
+    delete j;
+    delete i;
+    delete meta;
     return 0;
 }

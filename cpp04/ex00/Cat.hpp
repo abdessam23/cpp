@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:22:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/05 17:54:31 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/05 18:15:27 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ class Cat: public Animal
     public:
         Cat();
         ~Cat();
-        void Cat::makeSound() override;
+        void makeSound() const override ;
 };
 
