@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:05:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/05 18:17:10 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/05 18:36:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Animal
         std::string type;
     public:
         Animal();
-        ~Animal();
+        virtual ~Animal();
         std::string getType() const;
         virtual void makeSound() const;
 };

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:31:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/05 18:15:41 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/05 18:34:48 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ class Dog :public Animal
     public:
         Dog();
         ~Dog();
-        void makeSound() const override;
+        void makeSound() const;
 };
 

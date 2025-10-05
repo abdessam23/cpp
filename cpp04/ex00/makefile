@@ -6,7 +6,7 @@ CFLAGS= -Wall -Werror -Wextra --std=c++98
 
 RM= rm -rf
 
-SRC= animal.cpp Dog.cpp Cat.cpp main.c
+SRC= animal.cpp Dog.cpp Cat.cpp main.cpp
 
 OBJ=$(SRC:.cpp=.o)
 
