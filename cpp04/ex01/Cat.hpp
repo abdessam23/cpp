@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:22:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/06 13:37:08 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/09 10:34:43 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ class Cat: public Animal
     public:
         Cat();
         ~Cat();
-        void makeSound() const;
 };
 

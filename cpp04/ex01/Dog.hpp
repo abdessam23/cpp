@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:31:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/06 13:34:55 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/09 10:35:02 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ class Dog :public Animal
     public:
         Dog();
         ~Dog();
-        void makeSound() const;
 };
 

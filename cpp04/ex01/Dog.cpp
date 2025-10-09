@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:39:57 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/06 14:33:56 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/09 10:35:10 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,5 @@ Dog::~Dog()
 {
      delete p;
      std::cout << "The Dog Destractor is called!"<< std::endl;
-}
-
-void Dog::makeSound() const
-{
-    std::cout << "Woof!Woof!"<< std::endl;
 }
 
