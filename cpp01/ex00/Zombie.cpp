@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 14:50:49 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/14 17:51:51 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/14 14:36:51 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/14 15:12:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
+Zombie::Zombie(std::string name):name(name)
 {
-    Zombie* p;
-    p = zombieHorde(4,"hoom");
-    for(int i = 0; i < 4; i++)
-    {
-        p[i].announce();
-    }
-    
-    delete[] p;
+    std::cout << "The Zombie "<< name << " constractor is called!" << std::endl;
+}
+
+void Zombie::announce()
+{
+    std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}
+
+Zombie::~Zombie()
+{
+    std::cout << "The Zombie "<< name << " destractor is called!" << std::endl;
 }

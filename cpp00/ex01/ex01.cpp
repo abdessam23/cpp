@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 15:33:23 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/04 15:08:18 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/11 19:00:05 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ std::string make_it_small(std::string str)
   }
   return str;
 }
-void add_c(phonebook& a){
+void add_c(phonebook a){
       contact b;
           b.setfirstname(read_input("Enter first name :"));
           b.setlastname(read_input("Enter last name :"));

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 14:50:49 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/14 17:51:51 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/14 17:34:55 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/14 17:46:56 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int main()
+Zombie* zombieHorde(int N, std::string name)
 {
-    Zombie* p;
-    p = zombieHorde(4,"hoom");
-    for(int i = 0; i < 4; i++)
+    Zombie* ptr = new Zombie[N];
+    int i = 0;
+    while (i < N)
     {
-        p[i].announce();
+        ptr[i].setname(name);
+        i++;
     }
-    
-    delete[] p;
+    return ptr;
 }

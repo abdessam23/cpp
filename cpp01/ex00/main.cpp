@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 16:04:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/10 16:24:11 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/14 14:50:49 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/14 15:10:34 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 
 int main()
 {
-    Zombie stackzombie("ahmed");
-    stackzombie.announce();
-    stackzombie.randomChump("abdo this rundom!");
-    Zombie* heapzombie = newZombie("amazon");
-    heapzombie->announce();
-    heapzombie->randomChump("google");
-    
-    delete heapzombie;
+    Zombie m("hoo");
+    Zombie* p;
+    p = newZombie("moo");
+    randomChump("alex");
+    p->announce();
+    delete p;
 }

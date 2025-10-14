@@ -12,6 +12,6 @@ class phonebook
     int count;
     public:
       phonebook() : count(0){};
-      void addcontact(contact& c);
+      void addcontact(contact c);
       contact searchin(int i);
 };
