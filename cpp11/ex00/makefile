@@ -2,7 +2,7 @@ NAME=zombie
 
 CC = c++ 
 
-RM = rm
+RM = rm -rf
 
 CFLAGS=-Wall -Werror -Wextra -std=c++98
 

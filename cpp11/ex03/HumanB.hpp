@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 17:40:24 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/15 18:49:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/16 13:16:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
    
 public:
     HumanB(std::string name);
-    void setWeapon(Weapon& pb);
+    void setWeapon(Weapon& m);
     void attack();
     ~HumanB();
 };
