@@ -4,7 +4,7 @@ CC = c++
 
 RM = rm -rf
 
-CFLAGS= -std=c++98
+CFLAGS=-Wall -Werror -Wextra -std=c++98
 
 SRC= Sed.cpp  main.cpp
 
