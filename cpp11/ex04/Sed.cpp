@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:42:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/17 18:45:54 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/18 11:44:18 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int Sed::Ft_Replace()
 {
     std::string line;
     size_t pos;
-    
+    std::string newfile = file + ".replace";
     if ((s1.empty() && s2.empty()) || s1.empty())
     {
          std::cerr << "Error: some of strings or all  are empty!"  << std::endl;
         return (0);
     }
-    std::fstream infile(file, std::ios::in);
-    std::ofstream outfile( file + ".replace", std::ios::out);
+    std::fstream infile(file.c_str(), std::ios::in);
     if (!infile.is_open())
     {
         std::cerr << "Error: unable to read from file"<< std::endl;
         return (0);
     }
+    std::ofstream outfile(newfile.c_str(), std::ios::out);
     while (std::getline(infile, line)) {
         pos = 0;
         while ((pos = line.find(s1, pos)) != std::string::npos) {
