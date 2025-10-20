@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 15:03:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/18 17:37:29 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/20 18:23:59 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,46 @@ void Harl::error()
 }
 void  Harl::complain( std::string level)
 {
+    int levelindex = -1;
     const std::string levels[]= {"DEBUG","INFO" ,"WARNING","ERROR"};
-    
-    void (Harl::*f[])() = {&Harl::debug,&Harl::info, &Harl::warning, &Harl::error};
+
     for (int i = 0; i < 4;i++)
     {
         if (levels[i] == level)
         {
-            while (i < 4)
-            {
-               (this->*f[i])();
-               std::cout << std::endl;
-               i++;
-            }
-            return;
+            levelindex = i;
+            break;
         }
     }
-    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+    switch (levelindex)
+    {
+        case 0:
+            this->debug();
+            std::cout << std::endl;
+            this->info();
+            std::cout << std::endl;
+            this->warning();
+            std::cout << std::endl;
+            this->error();
+            break;
+        case 1:
+            this->info();
+            std::cout << std::endl;
+            this->warning();
+            std::cout << std::endl;
+            this->error();
+            break;
+        case 2:
+            this->warning();
+            std::cout << std::endl;
+            this->error();
+            break;
+        case 3:
+            this->error();
+            break;
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            break;
+    }
+    
 }
