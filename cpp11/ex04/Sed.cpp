@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 18:42:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/18 11:44:18 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/21 10:06:27 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int Sed::Ft_Replace()
         std::cerr << "Error: unable to read from file"<< std::endl;
         return (0);
     }
-    std::ofstream outfile(newfile.c_str(), std::ios::out);
+    std::ofstream outfile(newfile.c_str());
     while (std::getline(infile, line)) {
         pos = 0;
         while ((pos = line.find(s1, pos)) != std::string::npos) {

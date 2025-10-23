@@ -3,70 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 18:03:46 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/14 12:12:54 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/16 14:45:14 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/21 14:48:07 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
+#include "Sed.hpp"
 
-std::string ft_replaceit(std::string line, std::string s1, std::string s2)
+int main(int ac,char** argv)
 {
-    std::stringstream ss(line);
-    std::string word;
-    std::string str;
-    std::vector<std::string> words;
-    if (line.empty())
-        return line;
- 
-    while (ss >> word)
+    if (ac != 4)
     {
-        if(word == s1)
-        {
-            word = s2;
-        }
-        words.push_back(word);
+        std::cerr << "Please enter 3 arguments" << std::endl;
+        return (1);
     }
-    for (size_t i = 0; i < words.size();i++)
-    {
-        str += words[i] + " " ;
-    }
-    return str;
-}
-
-
-int main(int arc, char **argv)
-{
-    if (arc != 4)
-    {
-        std::cout  << "please enter three argument."<< std::endl;
-        return 1;
-    }
-    std::fstream inputFile(argv[1]);
-    if (!inputFile.is_open())
-    {
-        std::cout  << "the file does not exist or permission denied" << std::endl;
-        return 1;
-    }
-    std::string  line;
-    std::string file;
-    std::ofstream MyFile("newfile");
-    while (std::getline(inputFile,line))
-    {
-        if(line.find(argv[2]) != std::string::npos)
-        {
-            line  = ft_replaceit(line,argv[2],argv[3]);
-        }
-        MyFile << line + "\n";
-    }
-    inputFile.close();
-    MyFile.close();
-    return 0;
-    
+    std::string file = argv[1];
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+    Sed a(file , s1, s2);
+    if (!a.Ft_Replace())
+        return (1);
+    return (0);
 }

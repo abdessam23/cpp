@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 17:34:55 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/14 17:46:56 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/21 09:18:33 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Zombie* zombieHorde(int N, std::string name)
     int i = 0;
     while (i < N)
     {
-        ptr[i].setname(name);
+        ptr[i].SetName(name);
         i++;
     }
     return ptr;

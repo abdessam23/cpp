@@ -1,26 +1,20 @@
-NAME=war
+NAME=War
 
-CC=c++
+CC = c++ 
 
-CFLAGS= -Wall -Werror -Wextra -std=c++98
+RM = rm -rf
 
-RM=rm -rf 
+CFLAGS=-Wall -Werror -Wextra -std=c++98
 
 SRC= HumanB.cpp HumanA.cpp Weapon.cpp main.cpp
 
-OBJ=$(SRC:.cpp=.o)
+all: $(NAME)
 
-all:$(NAME)
+$(NAME):
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
-$(NAME):$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-%.o:%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
-fclean:clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: clean all

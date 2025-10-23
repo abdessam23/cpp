@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 15:10:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/13 17:01:51 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/15 17:40:24 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/16 13:16:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@
 
 class HumanB
 {
-    private:
-        Weapon *p;
-        std::string name;
-    public:
-        HumanB(std::string name);
-        void setWeapon(Weapon& k);
-        void attack();
+private:
+    std::string name;
+    Weapon *pb;
+   
+public:
+    HumanB(std::string name);
+    void setWeapon(Weapon& m);
+    void attack();
+    ~HumanB();
 };
+
+

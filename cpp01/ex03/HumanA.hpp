@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 15:08:37 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/13 17:04:17 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/15 17:47:28 by aAdo              #+#    #+#             */
+/*   Updated: 2025/10/16 13:27:31 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 class HumanA
 {
-    private:
-        Weapon *p;
-        std::string name;
-    public:
-        HumanA(std::string name, Weapon& w);
-        void attack();
+private:
+    std::string name;
+    Weapon& pA;
+public:
+    HumanA(std::string name,Weapon& pA);
+    void attack();
+    ~HumanA();
 };
-

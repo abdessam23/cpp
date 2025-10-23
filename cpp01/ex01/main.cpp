@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:50:49 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/14 17:51:51 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/21 18:21:27 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 int main()
 {
     Zombie* p;
-    p = zombieHorde(4,"hoom");
-    for(int i = 0; i < 4; i++)
+    int N = 0;
+    p = zombieHorde(N,"hello");
+    if (!p)
+        return 1;
+    for(int i = 0; i < N; i++)
     {
         p[i].announce();
     }
     
     delete[] p;
+    return 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 14:36:51 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/14 17:45:47 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/21 09:18:49 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void Zombie::announce()
 {
     std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
-void Zombie::setname(std::string str)
+void Zombie::SetName(std::string str)
 {
     name = str;
 }

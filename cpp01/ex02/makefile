@@ -1,27 +1,20 @@
-NAME= ex02
+NAME=ex02
 
-CC= c++
+CC = c++ 
 
-CFLAGS= -Wall -Werror -Wextra -std=c++98
+RM = rm -rf
 
-RM= rm -rf
+CFLAGS=-Wall -Werror -Wextra -std=c++98
 
 SRC= main.cpp
 
-OBJ=$(SRC:.cpp=.o)
+all: $(NAME)
 
-all:$(NAME)
+$(NAME): 
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
-$(NAME):$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
-fclean:clean
 	$(RM) $(NAME)
 
-re: fclean all
-
+re: clean all
