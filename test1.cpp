@@ -7,20 +7,29 @@
 
 
 #include <iostream>
+#include<iostream>
 using namespace std;
 
-int main() {
-    int arr[5] = {1, 2, 8,9, 5};
+class Test
+{
+private:
+    static int count;
+public:
+    Test& fun(); 
+};
 
-    int* ptr1 = &arr[1];
+int Test::count = 0;
 
-    // Adding 4 to ptr1 and stored in ptr2
-    int* ptr2 = &arr[5];
+Test& Test::fun()
+{
+    Test::count++;
+    cout << Test::count << " ";
+    return *this;
+}
 
-    // Subtracting ptr2 from ptr1
-    cout << ptr1 << endl;
-    cout << ptr2 << endl;
-    cout << ptr2 - ptr1 << endl;
-
+int main()
+{
+    Test t;
+    t.fun().fun().fun().fun();
     return 0;
 }

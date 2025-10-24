@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 14:50:49 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/21 09:21:17 by abhimi           ###   ########.fr       */
+/*   Created: 2025/10/24 18:33:26 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/24 18:35:03 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+
+class Fixed
 {
-    Zombie m("hoo");
-    Zombie* p;
-    p = newZombie("moo");
-    randomChump("alex");
-    p->announce();
-    delete p;
-}
+    private:
+    int f;
+    static const int fraction = 8;
+    public:
+        Fixed(int n);
+        Fixed(Fixed& a);
+        Fixed& operator=(const Fixed& a);
+        ~Fixed();
+};
