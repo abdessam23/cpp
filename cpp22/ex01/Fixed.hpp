@@ -20,8 +20,10 @@ class Fixed
     int f;
     static const int fraction = 8;
     public:
-        Fixed(int n);
+        Fixed();
         Fixed(Fixed& a);
         Fixed& operator=(const Fixed& a);
         ~Fixed();
+        int getRawBits() const;
+        void setRawBits(const int raw);
 };

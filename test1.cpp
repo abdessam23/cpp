@@ -3,33 +3,16 @@
 #include <vector>
 #include <algorithm>
 
-
-
-
-#include <iostream>
-#include<iostream>
 using namespace std;
 
-class Test
-{
-private:
-    static int count;
-public:
-    Test& fun(); 
-};
-
-int Test::count = 0;
-
-Test& Test::fun()
-{
-    Test::count++;
-    cout << Test::count << " ";
-    return *this;
-}
 
 int main()
 {
-    Test t;
-    t.fun().fun().fun().fun();
+    float a = 1.40000010;
+    float b = 1.4000001250;
+    if (a == b)
+        cout << "yes"<< endl;
+    else
+        cout << "No"<< endl;
     return 0;
 }
