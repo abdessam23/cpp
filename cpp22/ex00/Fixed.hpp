@@ -13,7 +13,7 @@
 #pragma once
 
 #include <iostream>
-#include <cmath>
+
 class Fixed
 {
     private:
@@ -21,14 +21,9 @@ class Fixed
     static const int fraction = 8;
     public:
         Fixed();
-        Fixed(const Fixed& a);
+        Fixed(Fixed& a);
         Fixed& operator=(const Fixed& a);
         ~Fixed();
-        Fixed(const int n);
-        Fixed(const float nb);
         int getRawBits() const;
         void setRawBits(const int raw);
-        float toFloat() const;
-        int toInt() const;
 };
-std::ostream& operator<<(std::ostream& in,const Fixed& a);
