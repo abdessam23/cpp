@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/27 12:59:01 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/27 14:52:42 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,33 @@
 
 Fixed::Fixed(): f(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 Fixed::Fixed(const Fixed& a)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = a;
 }
 Fixed& Fixed::Fixed::operator=(const Fixed& a)
 {
-    std::cout << "Copy assignement Fixed::operator called" << std::endl;
+    // std::cout << "Copy assignement Fixed::operator called" << std::endl;
     this->f = a.f;
     return *this;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called!" << std::endl;
+    // std::cout << "Destructor called!" << std::endl;
 }
 
 Fixed::Fixed(const int n)
 {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     f =n <<fraction;
 }
 Fixed::Fixed(const float nb)
 {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     f =(double)round(nb * (1<<fraction));
 }
 
@@ -57,7 +57,12 @@ std::ostream& operator<<(std::ostream& in, Fixed& a)
 {
         in << a.toFloat() ;
         return in;
-} 
+}
+std::ostream& operator<<(std::ostream& in,const  Fixed& a)
+{
+        in << a.toFloat() ;
+        return in;
+}
 
 float Fixed::toFloat() const 
 {
@@ -69,22 +74,22 @@ int Fixed::toInt() const
     return ((int) f >>fraction);
 }
 
-bool Fixed::operator<(const Fixed& a)
+bool Fixed::operator<(const Fixed& a) const
 {
     return (this->toFloat() < a.toFloat());
 }
 
-bool Fixed::operator>(const Fixed& a)
+bool Fixed::operator>(const Fixed& a) const
 {
     return (this->toFloat() > a.toFloat());
 }
 
-bool Fixed::operator<=(const Fixed& a)
+bool Fixed::operator<=(const Fixed& a) const
 {
     return (this->toFloat() <= a.toFloat());
 }
 
-bool Fixed::operator>=(const Fixed& a)
+bool Fixed::operator>=(const Fixed& a) const
 {
     return (this->toFloat() <= a.toFloat());
 }
@@ -99,42 +104,79 @@ bool Fixed::operator!=(const Fixed& a)
     return (this->toFloat() != a.toFloat());
 }
 
-const Fixed& Fixed::operator+(const Fixed& a)
+Fixed Fixed::operator+(const Fixed& a)
 {
     return Fixed(this->toFloat() + a.toFloat());
 }
 
-const Fixed& Fixed::operator-(const Fixed& a)
+Fixed Fixed::operator-(const Fixed& a)
 {
     return Fixed(this->toFloat() - a.toFloat());
 }
 
-const Fixed& Fixed::operator*(const Fixed& a)
+Fixed Fixed::operator*(const Fixed& a)
 {
     return Fixed(this->toFloat() * a.toFloat());
 }
 
-const Fixed& Fixed::operator/(const Fixed& a)
+Fixed Fixed::operator/(const Fixed& a)
 {
+    if (a.toFloat() == 0)
+        return *this;
     return Fixed(this->toFloat() / a.toFloat());
 }
 
 Fixed&  Fixed::operator++()
 {
-    f++;
+    ++f;
+    return *this;
 }
 
 Fixed& Fixed::operator--()
 {
-    f--;
-}
-
-Fixed& Fixed::operator++(int)
-{
-    ++f;
-}
-
-Fixed& Fixed::operator--(int)
-{
     --f;
+    return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed tmp = *this;
+    ++f;
+    return tmp;
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    --f;
+    return tmp;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    if (a.toFloat() <= b.toFloat())
+        return a;
+    return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a,const Fixed& b)
+{
+    
+    if (a.toFloat() <= b.toFloat())
+        return a;
+    return b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    if (a.toFloat() >= b.toFloat())
+        return a;
+    return b;
+}
+
+const Fixed& Fixed::max(const Fixed& a,const Fixed& b)
+{
+    if (a.toFloat() >= b.toFloat())
+        return a;
+    return b;
 }
