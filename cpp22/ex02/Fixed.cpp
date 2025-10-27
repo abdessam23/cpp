@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/27 15:11:04 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:31:09 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,27 @@
 
 Fixed::Fixed(): f(0)
 {
-    // std::cout << "Default constructor called" << std::endl;
 }
 Fixed::Fixed(const Fixed& a)
 {
-    // std::cout << "Copy constructor called" << std::endl;
     *this = a;
 }
 Fixed& Fixed::Fixed::operator=(const Fixed& a)
 {
-    // std::cout << "Copy assignement Fixed::operator called" << std::endl;
     this->f = a.f;
     return *this;
 }
 
 Fixed::~Fixed()
 {
-    // std::cout << "Destructor called!" << std::endl;
 }
 
 Fixed::Fixed(const int n)
 {
-    // std::cout << "Int constructor called" << std::endl;
     f =n <<fraction;
 }
 Fixed::Fixed(const float nb)
 {
-    // std::cout << "Float constructor called" << std::endl;
     f =(double)round(nb * (1<<fraction));
 }
 

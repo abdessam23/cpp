@@ -38,7 +38,7 @@ class Fixed
         Fixed operator+(const Fixed& a);
         Fixed operator-(const Fixed& a);
 
-         Fixed operator*(const Fixed& a);
+        Fixed operator*(const Fixed& a);
         Fixed operator/(const Fixed& a);
 
         Fixed& operator++() ;
