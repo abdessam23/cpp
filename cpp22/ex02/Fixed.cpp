@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/27 14:52:42 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/27 15:11:04 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,7 @@ void Fixed::setRawBits(const int raw)
 {
     f = raw;
 }
-std::ostream& operator<<(std::ostream& in, Fixed& a)
-{
-        in << a.toFloat() ;
-        return in;
-}
+
 std::ostream& operator<<(std::ostream& in,const  Fixed& a)
 {
         in << a.toFloat() ;
@@ -91,7 +87,7 @@ bool Fixed::operator<=(const Fixed& a) const
 
 bool Fixed::operator>=(const Fixed& a) const
 {
-    return (this->toFloat() <= a.toFloat());
+    return (this->toFloat()  >= a.toFloat());
 }
 
 bool Fixed::operator==(const Fixed& a)
@@ -154,7 +150,7 @@ Fixed Fixed::operator--(int)
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
 {
-    if (a.toFloat() <= b.toFloat())
+    if (a <= b)
         return a;
     return b;
 }
@@ -162,21 +158,21 @@ Fixed& Fixed::min(Fixed& a, Fixed& b)
 const Fixed& Fixed::min(const Fixed& a,const Fixed& b)
 {
     
-    if (a.toFloat() <= b.toFloat())
+    if (a <= b)
         return a;
     return b;
 }
 
 Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
-    if (a.toFloat() >= b.toFloat())
+    if (a >= b)
         return a;
     return b;
 }
 
 const Fixed& Fixed::max(const Fixed& a,const Fixed& b)
 {
-    if (a.toFloat() >= b.toFloat())
-        return a;
+    if (a >= b)
+         return a;
     return b;
 }
