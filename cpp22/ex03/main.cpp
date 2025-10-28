@@ -6,24 +6,21 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 12:16:38 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/27 15:31:28 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/28 18:32:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main(void) 
 {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed(2) );
-    std::cout << a <<std::endl;
-    std::cout << ++a <<std::endl;
-    std::cout << a <<std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
+    Point a(1.2f,2.0f);
+    Point b(4.2f,3.0f);
+    Point c(3.2f,5.0f);
+    Point p(3.04f, 3.45f);
+    bsp(a,b,c,p);
+
 return 0;
 }
 

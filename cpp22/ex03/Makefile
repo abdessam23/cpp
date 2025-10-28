@@ -6,7 +6,7 @@ CFLAGS= -Wall -Werror -Wextra -std=c++98
 
 RM=rm -rf
 
-SRC= Fixed.cpp main.cpp
+SRC= Fixed.cpp Point.cpp bsp.cpp main.cpp
 
 
 all: $(NAME)

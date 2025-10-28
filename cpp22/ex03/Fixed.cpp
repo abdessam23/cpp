@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/28 16:27:39 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/28 17:26:25 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed(const Fixed& a)
 {
     *this = a;
 }
-const Fixed& Fixed::operator=(const Fixed& a)
+Fixed& Fixed::operator=(const Fixed& a)
 {
     if (this != &a)
         this->f = a.f;

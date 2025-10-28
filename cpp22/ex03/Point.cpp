@@ -6,28 +6,11 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:30:37 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/28 16:28:27 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/28 18:09:11 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-
-class Point
-{
-private:
-    Fixed const x;
-    Fixed const  y;
-public:
-    Point();
-    Point(const float x, const float y);
-    Point(Point& p);
-    Point& operator=(Point& a);
-    ~Point();
-    // const Fixed& getX() const;
-    // const Fixed& getY() const;
-    // void setX(const Fixed a);
-    // void setY(const Fixed b);
-};
+#include "Point.hpp"
 
 Point::Point(): x(0),y(0)
 {
@@ -35,32 +18,40 @@ Point::Point(): x(0),y(0)
 Point::Point(const float x, const float y):x(x),y(y)
 {
 }
-Point::Point(Point& p)
+Point::Point(const Point& p)
 {
-    *this = p;
+   if (this != &p)
+    {
+        this->x = p.x;
+        this->y = p.y;
+    }
 }
-Point& Point::operator=(const Point& a)
+Point Point::operator=(const Point& a)
 {
     if (this != &a)
+    {
         this->x = a.x;
+        this->y = a.y;
+    }
+    return *this;
 }
 
-// const Fixed& Point::getX() const
-// {
-//     return x;
-// }
-// const Fixed& Point::getY() const
-// {
-//     return y;
-// }
-// void Point::setX(Fixed a)
-// {
-//     x = a;
-// }
-// void Point::setY(Fixed b)
-// {
-//    y = b;
-// }
+Fixed Point::getX() const
+{
+    return x;
+}
+Fixed Point::getY() const
+{
+    return y;
+}
+void Point::setX(Fixed a)
+{
+    x = a;
+}
+void Point::setY(Fixed b)
+{
+   y = b;
+}
 Point::~Point()
 {
 }
