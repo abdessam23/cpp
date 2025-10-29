@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/28 17:26:25 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/29 13:15:32 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Fixed::Fixed(const int n)
 }
 Fixed::Fixed(const float nb)
 {
-    f =(double)round(nb * (1<<fraction));
+    f =round(nb * (1<<fraction));
 }
 
 int Fixed::getRawBits() const
@@ -57,7 +57,7 @@ std::ostream& operator<<(std::ostream& in,const  Fixed& a)
 
 float Fixed::toFloat() const 
 {
-    return ((double)f /(double) (1<<fraction));
+    return ((float)f /(float)(1<<fraction));
 }
 
 int Fixed::toInt() const
