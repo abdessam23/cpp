@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:30:58 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/29 16:20:55 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/30 10:05:46 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static Fixed calc_area(Point const a, Point const b, Point const c)
 {
     Fixed area = a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * ( a.getY() - b.getY());
+    // Fixed area = a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * ( a.getY() - b.getY());
     if (area < 0)
         area = area * Fixed(-1.0f);
     return area * Fixed(0.5f);
@@ -28,8 +29,9 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     Fixed t4 = calc_area(a,b,c);
     
     Fixed t5 = t1 + t2 + t3;
-   
-    if (abs((t5 - t4).toFloat()) <= 0.01)
+    std::cout << t5  << std::endl;
+    std::cout <<  t5 - t4 << std::endl;
+    if (t5 - t4 == Fixed(0.001f))
     {
         return true;
     }

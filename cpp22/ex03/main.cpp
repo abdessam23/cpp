@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 12:16:38 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/29 14:26:03 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/30 09:55:45 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int main(void) 
 {
-    Point a(1.2f,2.0f);
-    Point b(4.2f,3.0f);
-    Point c(3.2f,5.0f);
+    Point a(1.2,2.0);
+    Point b(4.2,3.0);
+    Point c(3.2,5.0);
     Point p(3.72, 4.3);
     if (bsp(a,b,c,p) == false)
         std::cout << "False" << std::endl;
