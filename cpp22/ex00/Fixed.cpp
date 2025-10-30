@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/25 12:50:58 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/30 16:21:19 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Fixed::~Fixed()
     std::cout << "Destructor called!" << std::endl;
 }
 
-int Fixed::getRawBits() const
+const int Fixed::getRawBits() const
 {
     std::cout << "getRawBits member function called!" << std::endl;
     return f;

@@ -24,6 +24,6 @@ class Fixed
         Fixed(Fixed& a);
         Fixed& operator=(const Fixed& a);
         ~Fixed();
-        int getRawBits() const;
+        const int getRawBits() const;
         void setRawBits(const int raw);
 };

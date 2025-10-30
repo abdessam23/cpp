@@ -23,9 +23,9 @@ class Fixed
         Fixed();
         Fixed(const Fixed& a);
         Fixed& operator=(const Fixed& a);
-        ~Fixed();
         Fixed(const int n);
         Fixed(const float nb);
+        ~Fixed();
         bool operator<(const Fixed& a) const;
         bool operator>(const Fixed& a) const;
 

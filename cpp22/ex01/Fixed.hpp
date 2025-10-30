@@ -26,7 +26,7 @@ class Fixed
         ~Fixed();
         Fixed(const int n);
         Fixed(const float nb);
-        int getRawBits() const;
+        const int getRawBits() const;
         void setRawBits(const int raw);
         float toFloat() const;
         int toInt() const;

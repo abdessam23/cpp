@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:30:37 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/29 15:06:17 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/30 16:03:30 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ Point::Point(const float x, const float y):x(x),y(y)
 Point::Point(const Point& p):x(p.x),y(p.y)
 {
 }
-Point Point::operator=(const Point& )
+Point Point::operator=(Point&)
 {
     return *this;
 }
 
-Fixed Point::getX() const
+const Fixed Point::getX() const
 {
     return x;
 }
-Fixed Point::getY() const
+const Fixed Point::getY() const
 {
     return y;
 }

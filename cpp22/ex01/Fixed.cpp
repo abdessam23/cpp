@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/27 12:51:06 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/30 16:05:33 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Fixed::Fixed(const float nb)
     f =(double)round(nb * (1<<fraction));
 }
 
-int Fixed::getRawBits() const
+const int Fixed::getRawBits() const
 {
     return f;
 }
