@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:23:49 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/30 16:03:40 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/31 09:58:09 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     Point(const Point& p);
     Point operator=(Point&);
     ~Point();
-    const Fixed getX() const;
-    const Fixed getY() const;
+    Fixed getX() const;
+    Fixed getY() const;
 };
 bool bsp( Point const a, Point const b, Point const c, Point const point);

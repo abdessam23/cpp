@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:30:37 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/30 16:03:30 by abdo             ###   ########.fr       */
+/*   Updated: 2025/10/31 09:58:00 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ Point Point::operator=(Point&)
     return *this;
 }
 
-const Fixed Point::getX() const
+Fixed Point::getX() const
 {
     return x;
 }
-const Fixed Point::getY() const
+Fixed Point::getY() const
 {
     return y;
 }
