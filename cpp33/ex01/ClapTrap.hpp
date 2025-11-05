@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:31:24 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/04 11:57:32 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/04 12:30:20 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 class ClapTrap
 {
-    private:
+    protected:
         std::string name;
         unsigned int hit_points;
         unsigned int energy_points;

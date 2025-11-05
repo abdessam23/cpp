@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:26:20 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/04 12:07:33 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/05 15:34:54 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 ClapTrap::ClapTrap():name("bot"),hit_points(10),energy_points(10),attack_damage(0)
 {
-    std::cout << "Default constructor of "<<  name << "  called." << std::endl;
+    std::cout << "ClapTrap Default constructor of "<<  name << "  called." << std::endl;
 }
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-     std::cout << "Copy constructorof "<<  name << "  called." << std::endl;
+     std::cout << "ClapTrap Copy constructorof "<<  name << "  called." << std::endl;
     *this = other;
 }
 ClapTrap::ClapTrap(std::string str):name(str),hit_points(10),energy_points(10),attack_damage(0)
 {
-     std::cout << "Parametrs constructor of "<<  name << " called." << std::endl;
+     std::cout << "ClapTrap Parametrs constructor of "<<  name << " called." << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
@@ -73,7 +73,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         hit_points += amount;
         energy_points--;
-        std::cout << "ClapTrap " << name << " repaired it self , causing " << energy_points << " point of energie!" << std::endl;
+        std::cout << "ClapTrap " << name << " repaired it self , causing " << energy_points << " point of energy!" << std::endl;
     }
     else 
         std::cout  << "there is no energy_points or already die" << std::endl;
