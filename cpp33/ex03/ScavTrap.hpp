@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 13:16:40 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/04 12:11:35 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/06 17:09:43 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
-#include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
-
-
-int main()
+class ScavTrap :virtual public ClapTrap
 {
-    ClapTrap a("koko");
-    ScavTrap b ("ERROR");
-    ClapTrap c = b;
-    a.getName();
-    b.getName();
-    c.getName();
-    
-}
+    private:
+    public:
+    ScavTrap();
+    ScavTrap(const std::string& str);
+    ScavTrap(const ScavTrap& other);
+    ScavTrap& operator=(const ScavTrap& other);
+    ~ScavTrap();
+    void guardGate();
+    virtual void attack(const std::string& target);
+};
+
+

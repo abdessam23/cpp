@@ -6,22 +6,22 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 13:16:40 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 16:10:53 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 
 
 int main()
 {
-    ClapTrap a("koko");
-    ScavTrap b ("ERROR");
-    ClapTrap c = b;
-    a.getName();
-    b.getName();
-    c.getName();
+    DiamondTrap p("robot");
+    DiamondTrap a;
+    
+    p.attack("kol");
+    
+    
     
 }

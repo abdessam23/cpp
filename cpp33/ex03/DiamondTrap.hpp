@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 13:16:40 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/06 15:52:04 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/06 17:10:06 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+#pragma once
+
+#include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-
-
-int main()
+class DiamondTrap: public FragTrap, ScavTrap
 {
-    ClapTrap a("koko");
-    ScavTrap b ("ERROR");
-    ClapTrap c = b;
-    a.getName();
-    b.getName();
-    c.getName();
-    
-}
+private:
+    std::string name;
+public:
+    DiamondTrap();
+    DiamondTrap(const std::string str);
+    DiamondTrap(const DiamondTrap& other);
+    DiamondTrap& operator=(const DiamondTrap& other);
+    ~DiamondTrap();
+    void attack(const std::string& target);
+};
+
+

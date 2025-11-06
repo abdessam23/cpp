@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:26:20 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 10:16:23 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 16:09:28 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,4 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     else 
         std::cout  << "there is no energy_points or already die" << std::endl;
-}
-
-
-void ClapTrap::setHP(unsigned int hp)
-{
-    hit_points = hp;
-}
-void ClapTrap::setEP(unsigned int EP)
-{
-    energy_points = EP;
-}
-void ClapTrap::setAD(unsigned int AD)
-{
-    attack_damage = AD;
 }
