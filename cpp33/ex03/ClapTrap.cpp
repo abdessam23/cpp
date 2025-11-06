@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:26:20 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 16:09:28 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 18:00:51 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap():name("bot"),hit_points(10),energy_points(10),attack_damage(
 }
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-     std::cout << "ClapTrap Copy constructorof "<<  name << "  called." << std::endl;
+     std::cout << "ClapTrap Copy constructor of "<<  name << "  called." << std::endl;
     *this = other;
 }
 ClapTrap::ClapTrap(std::string str):name(str),hit_points(10),energy_points(10),attack_damage(0)

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:52:04 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 17:26:04 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 17:58:34 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class DiamondTrap: public FragTrap, ScavTrap
 {
 private:
     std::string name;
-public:
     DiamondTrap();
+public:
+   
     DiamondTrap(const std::string str);
     DiamondTrap(const DiamondTrap& other);
     DiamondTrap& operator=(const DiamondTrap& other);

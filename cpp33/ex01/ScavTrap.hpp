@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 12:11:35 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 17:11:55 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 17:47:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ class ScavTrap : public ClapTrap
     ~ScavTrap();
     void guardGate();
     void attack(const std::string& target);
-    std::string getName(){ 
-        std::cout << "I'm a child man!" << std::endl;
-        return name;};
 };
 
 
