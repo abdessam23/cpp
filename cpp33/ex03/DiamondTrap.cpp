@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:10:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 18:05:04 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 18:30:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ void DiamondTrap::WhoIam()
 
 DiamondTrap::~DiamondTrap()
 {
+    std::cout << "Destructor of  Diamond " << name << " called" << std::endl; 
 }
