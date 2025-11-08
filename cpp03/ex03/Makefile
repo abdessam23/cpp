@@ -1,22 +1,19 @@
-NAME= diamondtrap
+NAME= DiamondTrap
 
-CC= c++
+CXX= c++
 
-CFLAGS= -Wall -Werror -Wextra -std=c++98 -Wshadow
+CXXFLAGS= -Wall -Werror -Wextra -Wno-shadow -std=c++98
 
-RM= rm -rf 
+RM = rm -rf
 
-SRC= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRC= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 
-OBJ= $(SRC:.cpp=.o)
+OBJ= ClapTrap.o ScavTrap.o FragTrap.o DiamondTrap.o main.o 
 
 all:$(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-%.o:%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	$(RM) $(OBJ)
@@ -24,4 +21,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: clean all
+
+

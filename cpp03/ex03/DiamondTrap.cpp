@@ -5,26 +5,54 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 16:48:38 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 17:10:57 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/06 17:10:15 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/08 16:50:27 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "DiamondTrap.hpp"
 
+DiamondTrap::DiamondTrap():ClapTrap()
+{
+}
 
-DiamondTrap::DiamondTrap(std::string str): ClapTrap(str + "_clap_name"),FragTrap(str),ScavTrap(str), name(str)
+DiamondTrap::DiamondTrap(const std::string str):ClapTrap("_" + str)
 {
-    hit_point = 100;
-    energy_point = 50;
-    attack_damage= 30;
-    std::cout << "the Diamondtrap constructor " << name << " is called" << std::endl;
+    name = str;
+    hit_points = 100;
+    energy_points = 50;
+    attack_damage = 20;
+    std::cout << "Diamond " << name << " created" << std::endl;
 }
-void DiamondTrap::whoAmI()
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other):ClapTrap(other),FragTrap(other),ScavTrap(other)
 {
-    std::cout << "The DiamondTrap " << name << " ClapTrap  " << ClapTrap::name << std::endl;
+    *this = other;
+    std::cout << "Diamond " << name << " copied" << std::endl;
 }
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
+{
+    if (this != &other)
+    {
+        name = other.name;
+        hit_points = other.hit_points;
+        energy_points = other.energy_points;
+        attack_damage = other.attack_damage;
+    }
+    return *this;
+}
+void DiamondTrap::attack(const std::string& target)
+{
+    ScavTrap::attack(target);
+}
+void DiamondTrap::WhoIam()
+{
+    std::cout << "Diamond name is : " << name << " ,Claptrap  name is : " << ClapTrap::name << std::endl;
+}
+
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "The diamondtrap destructor " << name << " is called!" << std::endl;
+    std::cout << "Destructor of  Diamond " << name << " called" << std::endl; 
 }

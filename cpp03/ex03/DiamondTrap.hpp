@@ -5,21 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 15:02:50 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 17:07:10 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/06 15:52:04 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/06 17:58:34 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
 
-class DiamondTrap : public FragTrap,public ScavTrap
+#pragma once
+
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+
+class DiamondTrap: public FragTrap, ScavTrap
 {
 private:
-   std::string name;
+    std::string name;
+    DiamondTrap();
 public:
-    DiamondTrap(std::string str);
+   
+    DiamondTrap(const std::string str);
+    DiamondTrap(const DiamondTrap& other);
+    DiamondTrap& operator=(const DiamondTrap& other);
     ~DiamondTrap();
-    void whoAmI();
+    void attack(const std::string& target);
+    void WhoIam();
 };
 
 

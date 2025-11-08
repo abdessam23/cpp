@@ -5,17 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/29 13:25:46 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 14:23:41 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/06 14:34:16 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/06 17:11:32 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+
+#pragma once
+
+#include "ClapTrap.hpp"
+
 
 class FragTrap : public ClapTrap
 {
     public:
-        FragTrap(std::string str);
-        ~FragTrap();
-        void highFivesGuys();
+    FragTrap();
+    FragTrap(const std::string& str);
+    FragTrap(const FragTrap& other);
+    FragTrap& operator=(const FragTrap& other);
+    ~FragTrap();
+    void highFivesGuys(void);
 };

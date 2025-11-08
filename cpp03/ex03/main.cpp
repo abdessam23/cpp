@@ -5,16 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 16:46:00 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/08 16:49:53 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "DiamondTrap.hpp"
+
+
 
 int main()
 {
-    DiamondTrap a("alex");
-    a.whoAmI();
-    return 0;
+    DiamondTrap p("robot1");
+    DiamondTrap l("robot2");
+ 
+    
+    p.attack("robot3");
+    l.WhoIam();
+    l.attack("robot4");
+ 
 }

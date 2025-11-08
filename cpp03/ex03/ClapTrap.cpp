@@ -5,71 +5,86 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/20 11:58:40 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/01 17:03:43 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/03 12:26:20 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/08 16:25:22 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string str): name(str),hit_point(10),energy_point(10),attack_damage(0)
+ClapTrap::ClapTrap():name("bot"),hit_points(10),energy_points(10),attack_damage(0)
 {
-    std::cout << "ClapTrap " << name << " Constructor called!" << std::endl;
+    std::cout << "ClapTrap Default constructor of "<<  name << "  called." << std::endl;
 }
-
-
+ClapTrap::ClapTrap(const ClapTrap& other)
+{
+     std::cout << "ClapTrap Copy constructor of "<<  name << "  called." << std::endl;
+    *this = other;
+}
+ClapTrap::ClapTrap(std::string str):name(str),hit_points(10),energy_points(10),attack_damage(0)
+{
+     std::cout << "ClapTrap Parametrs constructor of "<<  name << " called." << std::endl;
+}
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+    if (this != &other)
+    {
+        name = other.name;
+        hit_points = other.hit_points;
+        energy_points = other.energy_points;
+        attack_damage = other.attack_damage;
+    }
+    return *this;
+}
 
 ClapTrap::~ClapTrap()
 {
-     std::cout << "ClapTrap " << name << " Destructor called!" << std::endl;
+    std::cout << "Destructor of " <<  name << " called." <<std::endl;
 }
-
-
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (hit_point == 0 || energy_point == 0)
+    if (hit_points == 0 || energy_points == 0)
     {
           std::cout << "ClapTrap " << name
                   << " cannot attack (no Hit point or energy)!" << std::endl;
         return;
     }
-    energy_point--;
+    energy_points--;
     std::cout << "ClapTrap "
               << name  
               << " attacks "
               << target 
-              << ", causing " << attack_damage << " points of damage!" << " (energy point left "<< energy_point <<" )" << std::endl;
+              << ", causing " << attack_damage << " points of damage!" << " (energy point left "<< energy_points <<" )" << std::endl;
 }
 
 
 
-void ClapTrap::TakeDamage(unsigned int amount)
+void ClapTrap::takeDamage(unsigned int amount)
 {
-     if (hit_point == 0)
+     if (hit_points == 0)
     {
-        std::cout << "ClapTrap " << name 
-                  << " is already died" << std::endl;
+        std::cout << "ClapTrap " << name << " is already died" << std::endl;
         return;
     }
-    if (hit_point > amount)     
-        hit_point -= amount;
+    if (hit_points > amount)     
+        hit_points -= amount;
     else
-        hit_point = 0;
-    std::cout << "ClapTrap takes damage! "<< "hit_point: "<< hit_point << " damage: "<< amount  << std::endl;
+        hit_points = 0;
+    std::cout << "ClapTrap takes damage! "<< "hit_point: "<< hit_points << " damage: "<< amount  << std::endl;
 }
 
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-     if (hit_point == 0 || energy_point == 0)
+     if (hit_points == 0 || energy_points == 0)
     {
         std::cout << "ClapTrap " << name 
                   << " cannot repaired  no hit point or energy" << std::endl;
         return;
     }
   
-    hit_point += amount;
-    energy_point--;
-    std::cout << "ClapTrap repaired his hit point! " << "hit_point: "<< hit_point << " energy : "<< energy_point  << std::endl;
+    hit_points += amount;
+    energy_points--;
+    std::cout << "ClapTrap repaired his hit point! " << "hit_point: "<< hit_points << " energy : "<< energy_points  << std::endl;
 }

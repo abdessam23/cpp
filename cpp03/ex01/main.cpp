@@ -5,18 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 14:16:17 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/07 16:34:13 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ScavTrap.hpp"
+
+
 
 int main()
 {
-    ScavTrap a("alex");
-    // a.guardGate();
-    // a.TakeDamage(2);
-    // a.attack("modric");
-    return 0;
+    // ClapTrap a("koko");
+    // ScavTrap b ("ERROR");
+    // ClapTrap c = b;
+
+    ClapTrap f = ScavTrap("ROBOT");
+    // a.attack("goo");
+    // b.attack("hop");
+    f.attack("ERROR");
+    
 }
