@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 15:52:04 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 17:58:34 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/08 18:12:23 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap: public FragTrap, ScavTrap
+class DiamondTrap: public FragTrap,public ScavTrap
 {
 private:
     std::string name;

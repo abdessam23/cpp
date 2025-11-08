@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 12:11:35 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 17:39:58 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/08 18:45:25 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ScavTrap :virtual public ClapTrap
     ScavTrap& operator=(const ScavTrap& other);
     ~ScavTrap();
     void guardGate();
-    virtual void attack(const std::string& target);
+    void attack(const std::string& target);
 };
 
 

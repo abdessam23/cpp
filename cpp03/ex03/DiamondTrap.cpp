@@ -6,23 +6,22 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:10:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/08 16:50:27 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/08 18:20:18 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap():ClapTrap()
+DiamondTrap::DiamondTrap()
 {
 }
 
-DiamondTrap::DiamondTrap(const std::string str):ClapTrap("_" + str)
+DiamondTrap::DiamondTrap(const std::string str):ClapTrap("_" + str),name(str)
 {
-    name = str;
-    hit_points = 100;
-    energy_points = 50;
-    attack_damage = 20;
+    hit_points = FragTrap::hit_points;
+    energy_points = ScavTrap::energy_points;
+    attack_damage = FragTrap::attack_damage;
     std::cout << "Diamond " << name << " created" << std::endl;
 }
 
@@ -54,5 +53,5 @@ void DiamondTrap::WhoIam()
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "Destructor of  Diamond " << name << " called" << std::endl; 
+    std::cout << "Diamond Destructor of " << name << " called" << std::endl; 
 }

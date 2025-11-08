@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/08 16:49:53 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/08 18:52:26 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 
 int main()
 {
-    DiamondTrap p("robot1");
-    DiamondTrap l("robot2");
- 
+    DiamondTrap p("Monster1");
+    // DiamondTrap l("Monster2");
+    FragTrap a = p;
     
-    p.attack("robot3");
-    l.WhoIam();
-    l.attack("robot4");
+
+    a.attack("Monster3");
+    // l.WhoIam();
+    // l.attack("Monster4");
  
 }
