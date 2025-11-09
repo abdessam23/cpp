@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:22:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/09 10:34:43 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/11/09 17:29:16 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
 
-#include "animal.hpp"
 #include "Brain.hpp"
 
 class Cat: public Animal
 {
-    private:
+    private :
         Brain* p;
     public:
         Cat();
+        Cat(const Cat& other);
+        Cat& operator=(const Cat& other);
         ~Cat();
+        void makeSound() const;
 };
 
