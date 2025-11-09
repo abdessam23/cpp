@@ -6,22 +6,23 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/06 15:37:02 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/09 11:49:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "FragTrap.hpp"
 
-
-
 int main()
 {
     FragTrap p("robot");
-    FragTrap a;
+    FragTrap a(p);
     
-    p.attack("kol");
+    FragTrap c("bot");
+    c = a;
     
-    
-    
+    p.highFivesGuys();
+    c.highFivesGuys();
+    c.attack("robot1");
+    c.beRepaired(2);
 }

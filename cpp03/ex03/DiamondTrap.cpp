@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:10:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/08 18:20:18 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/09 11:08:16 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ DiamondTrap::DiamondTrap()
 {
 }
 
-DiamondTrap::DiamondTrap(const std::string str):ClapTrap("_" + str),name(str)
+DiamondTrap::DiamondTrap(const std::string str):ClapTrap(str + "_clap_name"),name(str)
 {
     hit_points = FragTrap::hit_points;
     energy_points = ScavTrap::energy_points;

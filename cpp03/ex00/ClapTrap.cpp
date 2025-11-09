@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:26:20 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/08 16:21:57 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/09 11:24:48 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 }
 ClapTrap::ClapTrap(std::string str):name(str),hit_points(10),energy_points(10),attack_damage(0)
 {
-     std::cout << "Parametrs constructor of "<<  name << " called." << std::endl;
+     std::cout << "Parameterized constructor of "<<  name << " called." << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
@@ -35,6 +35,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
         energy_points = other.energy_points;
         attack_damage = other.attack_damage;
     }
+    std::cout << "Copy assignement OP of  Claptrap " << name << " is called" <<std::endl; 
     return *this;
 }
 
