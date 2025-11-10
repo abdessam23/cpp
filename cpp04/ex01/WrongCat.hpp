@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 13:19:56 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/10 16:12:54 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/09 16:01:01 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/09 16:05:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #pragma once
 
-#include "animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Brain
+class WrongCat: public WrongAnimal
 {
-private:
-    std::string ideas[100];
-public:
-    Brain();
-    Brain(const Brain& other);
-    Brain& operator=(const Brain& other);
-    ~Brain();
+    public:
+        WrongCat();
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
+        ~WrongCat();
+        void makeSound() const;
 };
-
