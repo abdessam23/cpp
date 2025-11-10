@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:22:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/09 17:29:16 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/10 17:59:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ class Cat: public Animal
         Cat& operator=(const Cat& other);
         ~Cat();
         void makeSound() const;
+        std::string getBrain() const;
 };
 

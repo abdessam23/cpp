@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongWrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 16:01:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/09 16:15:52 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/09 16:01:12 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/09 16:02:53 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ class WrongAnimal
         WrongAnimal();
         WrongAnimal(const WrongAnimal& other);
         WrongAnimal& operator=(const WrongAnimal& other);
-       virtual ~WrongAnimal();
+        ~WrongAnimal();
         std::string getType() const;
-        virtual void makeSound() const;
+        void makeSound() const;
 };
-

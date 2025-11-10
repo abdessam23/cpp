@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:37:12 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/09 16:02:39 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/10 17:26:17 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void Animal::makeSound() const
 
 Animal::~Animal()
 {
-    std::cout << "The animal destractor is called!"<< std::endl;
+    std::cout << "The animal destructor is called!"<< std::endl;
 }

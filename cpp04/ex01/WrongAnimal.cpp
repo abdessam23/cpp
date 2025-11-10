@@ -41,5 +41,5 @@ void WrongAnimal::makeSound() const
 
 WrongAnimal::~WrongAnimal()
 {
-    std::cout << "The WrongAnimal destractor is called!"<< std::endl;
+    std::cout << "The WrongAnimal destructor is called!"<< std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:39:57 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/09 14:48:13 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/10 17:26:04 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Dog& Dog::operator=(const Dog& other)
 }
 Dog::~Dog()
 {
-     std::cout << "The Dog Destractor is called!"<< std::endl;
+     std::cout << "The Dog Destructor is called!"<< std::endl;
 }
 void Dog::makeSound() const
 {

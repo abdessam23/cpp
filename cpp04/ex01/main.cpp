@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 18:37:37 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/10 16:40:48 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/10 17:57:19 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-// #include "WrongCat.hpp"
+#include "WrongCat.hpp"
 
 void AnimalTests()
 {
@@ -250,7 +250,7 @@ int main()
 	// AnimalTests();
 	// DogTests();
 	// CatTests();
-	WrongTests();
+	//WrongTests();
 	// PolymorphismTests();
 	// LeaksTest();
 	// ShallowCopyTests1();

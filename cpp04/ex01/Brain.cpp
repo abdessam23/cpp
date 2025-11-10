@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:32:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/10 16:21:44 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/10 17:26:58 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ Brain& Brain::operator=(const Brain& other)
 }
 Brain::~Brain()
 {
-    std::cout << "The brain destractor is called!" << std::endl;
+    std::cout << "The brain destructor is called!" << std::endl;
 }

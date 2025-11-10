@@ -34,7 +34,7 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 }
 WrongCat::~WrongCat()
 {
-     std::cout << "The WrongCat Destractor is called!"<< std::endl;
+     std::cout << "The WrongCat Destructor is called!"<< std::endl;
 }
 void WrongCat::makeSound() const
 {
