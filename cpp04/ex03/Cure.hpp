@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:05:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 15:51:30 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/11 15:36:26 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/11 16:09:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AMateria.hpp"
 
-#include <iostream>
-
-class Animal
+class Cure: public AMateria
 {
-    protected:
-       std::string type;
     public:
-        AAnimal();
-        Animal(const Animal& other);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal();
-        std::string getType() const;
-        virtual void makeSound() const = 0;
+        Cure();
+        Cure(const std::string& type);
+        Cure(const Cure& other);
+        Cure& operator=(const Cure& other);
+        ~Cure();
+        AMateria* clone() const;
+        // void use(ICharacter& target);
 };
-
-

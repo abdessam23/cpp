@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:05:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 15:51:30 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/11 15:48:59 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/11 17:39:02 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
-#include <iostream>
-
-class Animal
+int main()
 {
-    protected:
-       std::string type;
-    public:
-        AAnimal();
-        Animal(const Animal& other);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal();
-        std::string getType() const;
-        virtual void makeSound() const = 0;
-};
-
-
+    Cure a;
+    AMateria &f = a;
+    std::cout << f.clone()->getType() << std::endl;
+    return 0;
+}

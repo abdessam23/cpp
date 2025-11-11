@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 16:05:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 15:51:30 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/11 14:37:46 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/11 15:24:02 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AMateria.hpp"
 
-#include <iostream>
+AMateria::AMateria()
+{}
 
-class Animal
+AMateria::AMateria(std::string const &type)
 {
-    protected:
-       std::string type;
-    public:
-        AAnimal();
-        Animal(const Animal& other);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal();
-        std::string getType() const;
-        virtual void makeSound() const = 0;
-};
-
-
+    this->type  = type; 
+}
+AMateria::AMateria(const AMateria& other)
+{
+    this->type = other.type;
+}
+AMateria& AMateria::operator=(const AMateria& other)
+{
+    if (this != &other)
+    {
+        this->type = other.type;
+    }
+    return *this;
+}
+std::string const& AMateria::getType() const
+{
+    return type;
+}
