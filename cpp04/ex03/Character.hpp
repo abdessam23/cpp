@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 17:31:04 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 20:15:11 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/11 20:21:26 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Character::Character(const Character& other):name(other.name)
 {
     for(int i = 0; i< 4 ;i++)
     {
-        inventory[i] =  other.inventory[i];
+        *inventory[i] =  *other.inventory[i];
     }
 }
 
@@ -60,7 +60,7 @@ Character::Character(const Character& other):name(other.name)
         }
         for(int i = 0; i< 4 ;i++)
         {
-            inventory[i] =  other.inventory[i];
+            *inventory[i] =  *other.inventory[i];
         }
     }
     return *this;
@@ -73,6 +73,10 @@ Character::Character(const std::string& name):name(name)
         inventory[i] = NULL ;
     }
 }
+void Character::equip(AMateria* m)
+{
+    void equip(AMateria* m);
+}
 std::string const& Character::getName() const
 {
     return name;
@@ -80,4 +84,9 @@ std::string const& Character::getName() const
 
 Character::~Character()
 {
+      for (int i = 0; i < 4 ;i++)
+        {
+            if (inventory[i] != NULL)
+                delete inventory[i];
+        }
 }
