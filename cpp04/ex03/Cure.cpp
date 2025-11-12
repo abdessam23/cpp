@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:07:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 16:12:52 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 11:30:32 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ AMateria* Cure::clone() const
     return (new Cure());
 }
 
-// void Ice::use(ICharacter& target)
-// {
-//     std::cout << "* heals " << target << "’s wounds *" << std::endl;
-// }
+void   Cure::use(ICharacter& target)
+{
+    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+}

@@ -6,11 +6,12 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 14:37:46 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 15:24:02 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 12:13:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+
 
 AMateria::AMateria()
 {}
@@ -34,4 +35,14 @@ AMateria& AMateria::operator=(const AMateria& other)
 std::string const& AMateria::getType() const
 {
     return type;
+}
+
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "AMateria type " << target.getName() << std::endl;
+}
+
+AMateria::~AMateria()
+{
+    
 }

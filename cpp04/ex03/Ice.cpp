@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:39:14 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/11 17:39:24 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 11:30:55 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ AMateria* Ice::clone() const
     return (new Ice());
 }
 
-// void Ice::use(ICharacter& target)
-// {
-//     std::cout << "* shoots an ice bolt at " << target << " *" << std::endl;
-// }
+void Ice::use(ICharacter& target)
+{
+    std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
