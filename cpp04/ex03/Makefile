@@ -6,7 +6,7 @@ CXXFLAGS= -Wall -Werror -Wextra --std=c++98
 
 RM= rm -rf
 
-SRC= AMateria.cpp Cure.cpp Ice.cpp  Character.cpp main.cpp
+SRC= AMateria.cpp Cure.cpp Ice.cpp  MateriaSource.cpp Character.cpp main.cpp
 
 OBJ=$(SRC:.cpp=.o)
 

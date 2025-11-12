@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:38:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/10 18:01:08 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:30:41 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat():p(new Brain())
     type = "Cat";
     std::cout << "The Cat  constractor is called!"<< std::endl;
 }
-Cat::Cat(const Cat& other):Animal(other)
+Cat::Cat(const Cat& other):AAnimal(other)
 {
     this->type = other.type;
     this->p = new Brain(*other.p);

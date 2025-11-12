@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal():type("")
+AAnimal::AAnimal():type("")
 {
-    std::cout << "The animal constractor is called!"<< std::endl;
+    std::cout << "The AAnimal constractor is called!"<< std::endl;
 }
-Animal::Animal(const Animal& other):type(other.type)
+AAnimal::AAnimal(const AAnimal& other):type(other.type)
 {
-    std:: cout << "Copy constructor of animal " << type << " called" << std::endl;
+    std:: cout << "Copy constructor of AAnimal " << type << " called" << std::endl;
 }
-Animal& Animal::operator=(const Animal& other)
+AAnimal& AAnimal::operator=(const AAnimal& other)
 {
     if (this != &other)
     {
         type ="A_" + other.type;
     }
-    std:: cout << "Copy assignment OP of animal " << type << " called" << std::endl;
+    std:: cout << "Copy assignment OP of AAnimal " << type << " called" << std::endl;
     return *this;
 }
 
-std::string Animal::getType() const
+std::string AAnimal::getType() const
 {
     return type;
 }
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-    std::cout << "The animal destructor is called!"<< std::endl;
+    std::cout << "The AAnimal destructor is called!"<< std::endl;
 }

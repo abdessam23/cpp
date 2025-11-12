@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:39:57 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/10 17:27:15 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:30:31 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog():p(new Brain())
     type = "Dog";
     std::cout << "The Dog  constractor is called!"<< std::endl;
 }
-Dog::Dog(const Dog& other):Animal(other)
+Dog::Dog(const Dog& other):AAnimal(other)
 {
     this->type = other.type;
     this->p = new Brain(*other.p);

@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/12 12:00:02 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/12 15:19:13 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/12 13:26:51 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/12 15:12:41 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-Character::Character():name("")
+MateriaSource::MateriaSource()
 {
-    for (int i = 0; i < 4 ;i++)
+    for(int i = 0; i < 4; i++)
     {
-        slot[i] = NULL;
+        slot[i] = NULL ;
     }
 }
-
-Character::Character(const Character& other):name(other.name)
+MateriaSource::MateriaSource(const MateriaSource& other)
 {
-    for(int i = 0; i < 4 ;i++)
+     for(int i = 0; i< 4 ;i++)
     {
         if (other.slot[i])
                 slot[i] = other.slot[i]->clone();
-        else
-            slot[i] = NULL;
+            else
+                slot[i] = NULL;
     }
 }
-
- Character& Character::operator=(const Character& other)
+MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
     if (this != &other)
     {
-        this->name = other.name;
         for (int i = 0; i < 4 ;i++)
         {
             if (slot[i] != NULL)
@@ -52,17 +49,17 @@ Character::Character(const Character& other):name(other.name)
     }
     return *this;
 }
-
-Character::Character(const std::string& name):name(name)
+MateriaSource::~MateriaSource()
 {
-    for(int i = 0; i < 4; i++)
+    for (int i = 0; i < 4 ;i++)
     {
-        slot[i] = NULL ;
+        if (slot[i] != NULL)
+            delete slot[i];
     }
 }
-void Character::equip(AMateria* m)
+void MateriaSource::learnMateria(AMateria* m)
 {
-    if (!m)
+     if (!m)
         return;
     for(int i = 0; i < 4 ;i++)
     {
@@ -74,38 +71,11 @@ void Character::equip(AMateria* m)
         }
     }
 }
-
-void Character::use(int idx, ICharacter& target)
+AMateria* MateriaSource::createMateria(std::string const& type)
 {
-    if (idx < 0 || idx > 3 || !slot[idx])
-        return;
-    slot[idx]->use(target);
-}
-std::string const& Character::getName() const
-{
-    return name;
-}
-
-void Character::unequip(int idx)
-{
-    if (idx < 0 || idx > 3)
-        return;
-    for (int i = 0; i < 4 ;i++)
-    {
-            if (i == idx)
-            {
-                slot[i] = NULL;
-                return;
-            }
-                
-    }
-    
-}
-Character::~Character()
-{
-    for (int i = 0; i < 4 ;i++)
-    {
-        if (slot[i] != NULL)
-            delete slot[i];
-    }
+    if (type == "cure")
+        return (new Cure(type));
+    else if (type == "ice")
+        return (new Ice(type));
+    return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:07:17 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/12 11:30:32 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:24:41 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ AMateria* Cure::clone() const
 
 void   Cure::use(ICharacter& target)
 {
-    std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

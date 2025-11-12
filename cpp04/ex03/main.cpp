@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:48:59 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/12 12:21:47 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:14:38 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,24 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 
-int main()
-{
-    Cure a;
-    AMateria &f = a;
-    std::cout << f.clone()->getType() << std::endl;
-    Character h("alex");
-    // ICharacter *p = &a;
-    std::cout << h.getName() <<std::endl;
- 
-    return 0;
-}
+    int main()
+    {
+        IMateriaSource* src = new MateriaSource();
+        src->learnMateria(new Ice());
+        src->learnMateria(new Cure());
+        ICharacter* me = new Character("me");
+        AMateria* tmp;
+        tmp = src->createMateria("ice");
+        me->equip(tmp);
+        tmp = src->createMateria("cure");
+        me->equip(tmp);
+        ICharacter* bob = new Character("bob");
+        me->use(0, *bob);
+        me->use(1, *bob);
+        delete bob;
+        delete me;
+        delete src;
+        return 0;
+    }

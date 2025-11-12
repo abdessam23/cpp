@@ -6,7 +6,7 @@ CXXFLAGS= -Wall -Werror -Wextra --std=c++98
 
 RM= rm -rf
 
-SRC= animal.cpp Dog.cpp Cat.cpp Brain.cpp WrongCat.cpp  WrongAnimal.cpp main.cpp
+SRC= AAnimal.cpp  Dog.cpp Cat.cpp Brain.cpp WrongCat.cpp  WrongAnimal.cpp main.cpp
 
 OBJ=$(SRC:.cpp=.o)
 

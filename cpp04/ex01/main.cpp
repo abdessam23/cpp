@@ -6,35 +6,11 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 18:37:37 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/10 17:57:19 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 15:41:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
 #include "Brain.hpp"
-
-
-// int main()
-// {
-//     const Animal* j = new Dog();
-//     std::std::cout << std::endl;
-//     const Animal* i = new Cat();
-//     Dog a;
-//     Dog b ;
-//     b = a ;
-//     std::std::cout << std::endl;
-//     i->makeSound();
-//     std::std::cout << std::endl;
-//     j->makeSound();
-//     std::std::cout << std::endl;
-//     b.makeSound();
-//     delete j;//should not create a leak
-//     std::std::cout << std::endl;
-//     delete i;
-//     return 0;
-// }
-
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
@@ -155,7 +131,7 @@ void PolymorphismTests()
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << "\n";
-	i->makeSound(); //will output the cat sound!
+	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
 	std::cout << "\n";
@@ -188,72 +164,14 @@ void LeaksTest()
 	}
 }
 
-// void ShallowCopyTests1()
-// {
-// 	Brain *c = new Brain();
-// 	std::cout << "\n";
-// 	c->ideas[0] = "hello";
-// 	Dog a;
-// 	std::cout << "\n";
-// 	a.SetBrain(c);
-// 	Dog b = a;
-// 	std::cout << "\n";
-
-// 	std::cout << a.GetBrain()->ideas[0] << endl;
-// 	std::cout << b.GetBrain()->ideas[0] << endl;
-// 	std::cout << "\n";
-// 	c->ideas[0] = "Hi";
-// 	std::cout << a.GetBrain()->ideas[0] << endl;
-// 	std::cout << b.GetBrain()->ideas[0] << endl;
-// 	std::cout << "\n";
-// }
-
-// void ShallowCopyTests2()
-// {
-// 	Brain *c = new Brain();
-// 	std::cout << "\n";
-// 	c->ideas[0] = "hello";
-// 	Dog a;
-// 	std::cout << "\n";
-// 	a.SetBrain(c);
-// 	std::cout << "\n";
-// 	Dog b;
-// 	std::cout << "\n";
-// 	b = a;
-// 	std::cout << "\n";
-// 	std::cout << a.GetBrain()->ideas[0] << endl;
-// 	std::cout << b.GetBrain()->ideas[0] << endl;
-// 	std::cout << "\n";
-// 	c->ideas[0] = "Hi";
-// 	std::cout << a.GetBrain()->ideas[0] << endl;
-// 	std::cout << b.GetBrain()->ideas[0] << endl;
-// 	std::cout << "\n";
-// }
-
-/*
-Brain* GetBrain();
-void SetBrain(Brain* brain);
-Brain* Dog::GetBrain()
-{
-	return brain;
-}
-
-void Dog::SetBrain(Brain *brain)
-{
-	delete this->brain;
-	this->brain = brain;
-}
-*/
 
 int main()
 {
-	// AnimalTests();
-	// DogTests();
-	// CatTests();
-	//WrongTests();
-	// PolymorphismTests();
-	// LeaksTest();
-	// ShallowCopyTests1();
-	// ShallowCopyTests2();
+	AnimalTests();
+	DogTests();
+	CatTests();
+	WrongTests();
+	PolymorphismTests();
+	LeaksTest();
 
 }
