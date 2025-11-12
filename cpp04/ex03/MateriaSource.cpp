@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 13:26:51 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/12 15:12:41 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 16:03:34 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void MateriaSource::learnMateria(AMateria* m)
     {
         if (slot[i] == NULL)
         {
-            slot[i] = m->clone();
-            delete m;
+            slot[i] = m;
             return;   
         }
     }

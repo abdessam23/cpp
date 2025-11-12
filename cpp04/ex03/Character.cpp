@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 12:00:02 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/12 15:19:13 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/12 16:02:25 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void Character::equip(AMateria* m)
     {
         if (slot[i] == NULL)
         {
-            slot[i] = m->clone();
-            delete m;
+            slot[i] = m;
             return;   
         }
     }
+    delete m;
 }
 
 void Character::use(int idx, ICharacter& target)
