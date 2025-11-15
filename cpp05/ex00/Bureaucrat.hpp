@@ -6,36 +6,43 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/14 11:50:02 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/15 15:19:49 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#pragma once
 
 #include <iostream>
 
 #include <exception>
 
-class Bureaucrat : public std::exception
+class Bureaucrat
 {
 private:
-   const std::string name;
+   std::string name;
    int grade;
+   Bureaucrat();
 public:
-    Bureaucrat();
-    Bureaucrat(const std::string name,int grade): name(name)
-    {
-        if (grade < 1 || grade > 150)
-        {
-            throw exception::
-        }
-    }
+    
+    Bureaucrat(const std::string name,int grade);
+    Bureaucrat(const Bureaucrat& other);
+    Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
+    const std::string getName() const;
+    int getGrade() const;
+    void increase();
+    void decrease();
+    class GradeTooHighException: public std::exception
+    {
+        const char* what();
+    };
+    
+    class GradeTooLowException: public std::exception
+    {
+        const char* what();
+        
+    };
+    
 };
 
-Bureaucrat::Bureaucrat()
-{
-}
-
-Bureaucrat::~Bureaucrat()
-{
-}
