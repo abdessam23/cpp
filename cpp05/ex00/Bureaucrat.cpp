@@ -12,6 +12,7 @@
 
 
 #include "Bureaucrat.hpp"
+#include <stdexcept>
 
 Bureaucrat::Bureaucrat()
 {
@@ -77,11 +78,11 @@ void Bureaucrat::decrease()
         throw Bureaucrat::GradeTooLowException();
     }
 }
-const char* Bureaucrat::GradeTooHighException::what()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
     return "Grade too Hight .";
 }
-const char* Bureaucrat::GradeTooLowException::what()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade too Low .";
 }

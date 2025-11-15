@@ -16,6 +16,7 @@
 #include <iostream>
 
 #include <exception>
+#include <string>
 
 class Bureaucrat
 {
@@ -35,12 +36,16 @@ public:
     void decrease();
     class GradeTooHighException: public std::exception
     {
-        const char* what();
+    public: 
+        const char* what() const throw();
+        ~GradeTooHighException() throw(){};
     };
     
     class GradeTooLowException: public std::exception
     {
-        const char* what();
+    public: 
+        const char* what() const throw();
+        ~GradeTooLowException() throw() {};
     };
     
 };
