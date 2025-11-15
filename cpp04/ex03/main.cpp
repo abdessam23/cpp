@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 15:48:59 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/12 16:20:23 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/13 17:33:37 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "Character.hpp"
 #define cout std::cout
 #define endl std::endl
+
 void IceTests()
 {
 	cout << "=====Ice Tests=====\n";
@@ -82,12 +83,14 @@ void CharacterTests()
 		ch.equip(new Ice());
 		ch.equip(new Cure());
         ch.equip(new Cure());
+		ch.equip(new Cure());
+		ch.equip(new Ice());
 
 		ch2 = ch;
 		
 		ch.use(0, ch2);
 		cout << "\n";
-		ch.use(1, ch2);
+		ch.use(3, ch2);
 		cout << "\n";
 	}
 }
@@ -96,10 +99,15 @@ void FinalTest()
 {
 	cout << "\n=====Final Test=====\n";
 	{
+		
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
-		
+		MateriaSource a;
+		MateriaSource b;
+		a = b;
+		IMateriaSource* t = &a;
+		t->learnMateria(new Ice());
 		ICharacter* me = new Character("me");
 		
 		AMateria* tmp;
@@ -107,12 +115,12 @@ void FinalTest()
 		me->equip(tmp);
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
-
 		ICharacter* bob = new Character("bob");
 	
 		me->use(0, *bob);
 		me->use(1, *bob);
-	
+		me->use(2, *bob);
+		me->use(3, *bob);
 		delete bob;
 		delete me;
 		delete src;
@@ -123,7 +131,7 @@ int main()
 {
 	// IceTests();
 	// CureTests();
-	// CharacterTests();
-	FinalTest();
+	CharacterTests();
+	// FinalTest();
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/15 15:23:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/15 16:18:13 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@
 
 int main()
 {
-    
+    Bureaucrat a("brr", 150);
     try
     {
-       Bureaucrat a("operator", 160);
+       a.decrease();
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
 }

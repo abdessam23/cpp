@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/15 15:19:49 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/15 15:36:30 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ public:
     class GradeTooLowException: public std::exception
     {
         const char* what();
-        
     };
     
 };
