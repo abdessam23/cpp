@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/15 15:36:30 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/16 17:09:55 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ public:
     void decrease();
     class GradeTooHighException: public std::exception
     {
-        const char* what();
+        const char* what() const throw();
     };
     
     class GradeTooLowException: public std::exception
     {
-        const char* what();
+        const char* what() const throw();
     };
     
 };

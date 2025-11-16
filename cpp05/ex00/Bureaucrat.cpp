@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/15 16:05:28 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/16 17:10:44 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,16 @@ void Bureaucrat::decrease()
         throw Bureaucrat::GradeTooLowException();
     }
 }
-const char* Bureaucrat::GradeTooHighException::what()
+
+const char* Bureaucrat::GradeTooHighException::what()  const throw()
 {
     return "Grade too Hight .";
 }
-const char* Bureaucrat::GradeTooLowException::what()
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "Grade too Low .";
 }
-
 
 Bureaucrat::~Bureaucrat()
 {
