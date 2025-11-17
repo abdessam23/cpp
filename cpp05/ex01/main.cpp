@@ -6,23 +6,29 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/15 16:18:13 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/17 15:58:22 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 
 int main()
 {
-    Bureaucrat a("brr", 150);
+    
+
     try
     {
-       a.decrease();
+        Bureaucrat a("Boss", 2);
+        Form b("contract",0,0,3);
+        a.signForm(b);   
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    
+    
+    
 }

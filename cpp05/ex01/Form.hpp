@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:11 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/17 15:28:02 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/17 15:41:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+class Bureaucrat;
 
 class Form
 {
@@ -39,8 +40,8 @@ class Form
         };
         
         const std::string getName() const;
-        const int get_Gts() const;
-        const int get_Gtx() const;
+        int get_Gts() const;
+        int get_Gtx() const;
         bool getSign();
         
 };

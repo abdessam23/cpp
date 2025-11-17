@@ -2,9 +2,9 @@ NAME=Form
 
 CXX=c++
 
-CXXFLAGS= -Wall -Werror -Wextra  -g --std=c++98
+CXXFLAGS=-Wall -Werror -Wextra  -g --std=c++98
 
-RM= rm -rf
+RM=rm -rf
 
 SRC= Bureaucrat.cpp Form.cpp main.cpp
 
@@ -17,7 +17,7 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-fclean: clean
+fclean:clean
 	$(RM) $(NAME)
 
 re : fclean all
