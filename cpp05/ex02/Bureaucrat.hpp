@@ -6,18 +6,18 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/17 15:38:41 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 12:31:00 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 #include <exception>
-class Form;
+class AForm;
 class Bureaucrat
 {
 private:
@@ -35,7 +35,8 @@ public:
     void increase();
     void decrease();
 
-    void signForm(Form& obj);
+    void signAForm(AForm& obj);
+    void executeAForm(AForm const & AForm) const;
     class GradeTooHighException: public std::exception
     {
         const char* what() const throw();
