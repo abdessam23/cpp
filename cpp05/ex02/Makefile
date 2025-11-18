@@ -1,4 +1,4 @@
-NAME=Form
+NAME=AForm
 
 CXX=c++
 
@@ -6,9 +6,9 @@ CXXFLAGS=-Wall -Werror -Wextra  -g --std=c++98
 
 RM=rm -rf
 
-SRC= Bureaucrat.cpp Form.cpp main.cpp
+SRC=  ShrubberyCreationForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp  AForm.cpp main.cpp
 
-OBJ= Bureaucrat.o Form.o main.o 
+OBJ= Bureaucrat.o AForm.o PresidentialPardonForm.o RobotomyRequestForm.o ShrubberyCreationForm.o main.o 
 
 all: $(NAME)
 

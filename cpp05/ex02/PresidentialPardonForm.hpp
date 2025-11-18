@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 12:28:40 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 14:37:45 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 15:05:56 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,3 @@ class PresidentialPardonForm : public AForm
         ~PresidentialPardonForm();
 };
     
-PresidentialPardonForm::PresidentialPardonForm(std::string name):AForm(name,0,25,5)
-{
-}
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other):AForm(other)
-{
-    *this = other;
-}
-PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& other)
-{
-    if (this != &other)
-    {
-        setName(other.getName());
-        set_Gts(other.get_Gts());
-        set_Gtx(other.get_Gtx());
-        setSign(other.getSign());
-    }
-    return *this;
-}
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-}
