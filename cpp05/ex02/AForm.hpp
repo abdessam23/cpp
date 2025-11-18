@@ -21,11 +21,12 @@ class AForm
     private:
         const std::string name;
         bool n;
-        const int grade_to_s;
-        const int grade_to_x;
+        int grade_to_s;
+        int grade_to_x;
         AForm();
+         AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
     public:
-        AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
+        // AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);
         ~AForm();
@@ -43,6 +44,10 @@ class AForm
         int get_Gts() const;
         int get_Gtx() const;
         bool getSign();
+        void  setName(std::string& name);
+        void set_Gts(int n1);
+        void set_Gtx(int n2);
+        void setSign(bool n3);
         
 };
 std::ostream& operator<<(std::ostream& out, AForm& obj);

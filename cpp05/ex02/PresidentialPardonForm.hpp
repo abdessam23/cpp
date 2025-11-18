@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 12:28:40 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 12:29:15 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:07:30 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@
 
 #include "AForm.hpp"
 
-class PresidentialPardonForm
+class PresidentialPardonForm :public AForm
 {
-private:
-    /* data */
-public:
-    PresidentialPardonForm(/* args */);
-    ~PresidentialPardonForm();
+    private:
+    public:
+        PresidentialPardonForm();
+        ~PresidentialPardonForm();
 };
 
 PresidentialPardonForm::PresidentialPardonForm(/* args */)

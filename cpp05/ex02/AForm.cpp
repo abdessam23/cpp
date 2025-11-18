@@ -80,7 +80,22 @@ const char* AForm::GradeTooLowException::what() const throw()
 AForm::~AForm()
 {
 }
-
+void   AForm::setName(std::string& name)
+{
+    name = name;
+}
+void AForm::set_Gts(int n1)
+{
+    grade_to_s = n1;
+}
+void  AForm::set_Gtx(int n2)
+{
+    grade_to_x = n2;
+}
+void  AForm::setSign(bool n3)
+{
+    n = n3;
+}
 std::ostream& operator<<(std::ostream& out, AForm& obj)
 {
     out << obj.getName() << " grade to sign : " << obj.get_Gts() << " grade to execute : " << obj.get_Gtx() << " signed : ";
