@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 13:08:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 15:03:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 18:50:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(ShrubberyCreationForm& other);
         ShrubberyCreationForm& operator=(ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
-        void execute(Bureaucrat const & executor) const;
+        void execute(const Bureaucrat& executor) const;
 };
     
 

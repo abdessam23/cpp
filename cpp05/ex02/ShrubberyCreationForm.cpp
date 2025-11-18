@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:03:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 17:00:14 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 18:52:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& o
     return *this;
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
     executor.signAForm(*this);
 }
