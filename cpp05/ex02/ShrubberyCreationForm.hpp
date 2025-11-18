@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 13:08:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 13:14:52 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 13:28:36 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 class ShrubberyCreationForm : public AForm
 {
     public:
-        ShrubberyCreationForm(const std::string name,bool n);
+        ShrubberyCreationForm(std::string name);
         ~ShrubberyCreationForm();
 };
     
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string name,bool n) 
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name) 
 {
-    set
+    AForm::setName(name);
+    AForm::set_Gts(145);
+    AForm::set_Gtx(137);
+    AForm::setSign(0);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

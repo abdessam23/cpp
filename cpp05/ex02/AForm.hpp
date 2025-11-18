@@ -19,14 +19,14 @@ class Bureaucrat;
 class AForm
 {
     private:
-        const std::string name;
+        std::string name;
         bool n;
         int grade_to_s;
         int grade_to_x;
         AForm();
-         AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
+         
     public:
-        // AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
+        AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);
         ~AForm();
