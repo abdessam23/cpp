@@ -40,7 +40,7 @@ AForm& AForm::operator=(const AForm& other)
     return *this;
 }
 
-const std::string AForm::getName() const
+std::string AForm::getName()
 {
     return name;
 }
@@ -80,7 +80,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 AForm::~AForm()
 {
 }
-void   AForm::setName(std::string& name)
+void   AForm::setName(std::string name)
 {
     name = name;
 }
