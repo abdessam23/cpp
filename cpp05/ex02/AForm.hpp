@@ -30,7 +30,7 @@ class AForm
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);
         ~AForm();
-        void beSigned(Bureaucrat& obj);
+        void beSigned(const Bureaucrat& obj);
         class GradeTooHighException: public std::exception
         {
             const char* what() const throw();
@@ -40,14 +40,14 @@ class AForm
             const char* what() const throw();
         };
         virtual void execute(Bureaucrat const & executor) const  = 0 ;
-        std::string getName();
+        std::string getName() const;
         int get_Gts() const;
         int get_Gtx() const;
-        bool getSign();
+        bool getSign() const;
         void  setName(std::string name);
         void set_Gts(int n1);
         void set_Gtx(int n2);
         void setSign(bool n3);
         
 };
-std::ostream& operator<<(std::ostream& out, AForm& obj);
+std::ostream& operator<<(std::ostream& out,const AForm& obj);

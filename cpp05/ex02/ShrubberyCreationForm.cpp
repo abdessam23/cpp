@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:03:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 15:13:12 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 17:00:14 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& o
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    std::cout << executor.getName() << std::endl;
+    executor.signAForm(*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()

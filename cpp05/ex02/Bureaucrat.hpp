@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 12:31:00 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/18 17:13:59 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ public:
     void increase();
     void decrease();
 
-    void signAForm(AForm& obj);
-    void executeAForm(AForm const & AForm) const;
+    void signAForm(const AForm& obj);
+    void executeAForm(AForm const& AForm) const;
     class GradeTooHighException: public std::exception
     {
         const char* what() const throw();
@@ -48,5 +48,5 @@ public:
     };
     
 };
-std::ostream& operator<<(std::ostream& out, Bureaucrat& obj);
+std::ostream& operator<<(std::ostream& out,const Bureaucrat& obj);
 

@@ -40,7 +40,7 @@ AForm& AForm::operator=(const AForm& other)
     return *this;
 }
 
-std::string AForm::getName()
+std::string AForm::getName() const
 {
     return name;
 }
@@ -55,11 +55,11 @@ int AForm::get_Gtx() const
     return grade_to_x;
 }
 
-bool AForm::getSign()
+bool AForm::getSign() const
 {
     return n;
 }
-void AForm::beSigned(Bureaucrat& obj)
+void AForm::beSigned(const Bureaucrat& obj)
 {
     if (obj.getGrade() <= grade_to_s)
     {
@@ -96,7 +96,7 @@ void  AForm::setSign(bool n3)
 {
     n = n3;
 }
-std::ostream& operator<<(std::ostream& out, AForm& obj)
+std::ostream& operator<<(std::ostream& out,const AForm& obj)
 {
     out << obj.getName() << " grade to sign : " << obj.get_Gts() << " grade to execute : " << obj.get_Gtx() << " signed : ";
     if (obj.getSign())
