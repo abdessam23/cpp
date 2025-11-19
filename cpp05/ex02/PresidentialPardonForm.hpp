@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 12:28:40 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 15:05:56 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 12:16:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm(PresidentialPardonForm& other);
         PresidentialPardonForm& operator=(PresidentialPardonForm& other);
         ~PresidentialPardonForm();
+        void execute(const Bureaucrat& executor) const;
 };
     

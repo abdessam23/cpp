@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:20:57 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 15:09:21 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 12:16:42 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm(RobotomyRequestForm& other);
         RobotomyRequestForm& operator=(RobotomyRequestForm& other);
         ~RobotomyRequestForm();
+        void execute(const Bureaucrat& executor) const;
 };
     
 

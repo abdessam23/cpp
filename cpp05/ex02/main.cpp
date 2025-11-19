@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 15:28:25 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 12:15:27 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main()
         Bureaucrat b("boss",145);
         ShrubberyCreationForm a("contrat");
         a.beSigned(b);
+        a.execute(b);
     }
     catch(const std::exception& e)
     {
