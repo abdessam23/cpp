@@ -39,6 +39,11 @@ class AForm
         {
             const char* what() const throw();
         };
+        class signedExecpt : public std::exception
+        {
+            public:
+            const char* what() const throw();
+        };
         virtual void execute(Bureaucrat const & executor) const  = 0 ;
         std::string getName() const;
         int get_Gts() const;

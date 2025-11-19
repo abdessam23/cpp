@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:03:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 15:22:24 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 15:55:14 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     {
         throw ShrubberyCreationForm::signedExecpt();
     }
-    if (executor.getGrade() > this->get_Gts())
+    if (executor.getGrade() > this->get_Gtx())
         throw ShrubberyCreationForm::GradeTooLowException();
     std::string target = this->getName() + "_shrubbery";
     std::ofstream file(target.c_str());
@@ -72,10 +72,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
         file << "\n\n\n";
     }    
 }
-const char* ShrubberyCreationForm::signedExecpt::what() const throw()
-{
-    return "the form not signed\n";
-}
+
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:05:33 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 12:18:01 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 15:47:01 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,13 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
-    if (this->getSign() && executor.getGrade() <= this->get_Gts())
+    if (!this->getSign())
     {
-        std:: cout << executor << "Execute " << std::endl;
+        throw PresidentialPardonForm::signedExecpt();
     }
-    else
+    if (executor.getGrade() > this->get_Gts())
         throw PresidentialPardonForm::GradeTooLowException();
+    std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
