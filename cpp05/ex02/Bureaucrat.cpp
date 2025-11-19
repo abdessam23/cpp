@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 12:10:18 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 15:04:10 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,23 +89,31 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 void Bureaucrat::signAForm(AForm& obj)
 {
-   
-    if (obj.getSign())
+    try
     {
-        std::cout << *this << " signed " << obj << std::endl;
+        obj.beSigned(*this);
+        std::cout << this->getName() << " signed " << obj.getName() << std::endl;
+    
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cerr << *this << " couldn't signed " << obj << " because : ";
+        std::cerr << this->getName() << " couldn't signed " << obj.getName() << " because : " << e.what() << '\n';
     }
-    obj.beSigned(*this);
+    
+    
 }
 
 void Bureaucrat::executeAForm(AForm const& Form) const
 {
-    Form.execute(*this);
-    std:: cout << *this  << " executed "  << Form; 
-    
+    try{
+        
+        Form.execute(*this);
+        std:: cout << this->getName() << " executed "  << Form.getName(); 
+    }
+    catch(const std::exception& e)
+    {
+         std::cerr << this->getName() << " couldn't execute " << Form.getName() << " because : " << e.what();
+    }
 }
 Bureaucrat::~Bureaucrat()
 {
