@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/18 18:52:49 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/19 12:03:53 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat
         void increase();
         void decrease();
     
-        void signAForm(const AForm& obj);
+        void signAForm(AForm& obj);
         void executeAForm(AForm const& AForm) const;
         class GradeTooHighException: public std::exception
         {
