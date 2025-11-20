@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:21:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/20 13:25:06 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/20 13:27:53 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ class Intern
     private:
     public:
         Intern();
+        Intern(const Intern& other);
+        Intern& operator=(const Intern& other);
         ~Intern();
         AForm* makeForm(std::string s1,std::string s2);
 };
