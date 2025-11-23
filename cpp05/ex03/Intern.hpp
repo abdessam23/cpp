@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:21:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 12:55:55 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/23 14:07:06 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,21 @@ class Intern
 Intern::Intern()
 {
 }
+
+Intern::Intern(const Intern& other)
+{
+    *this = other;
+}
+Intern& Intern::operator=(const Intern& other)
+{
+    if (this != &other)
+    {
+        *this = other;
+    }
+    return *this;
+}
+
+
 AForm* makeForm(std::string form,std::string target)
 {
        try
