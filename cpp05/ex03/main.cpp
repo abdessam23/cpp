@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 14:09:05 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/23 15:00:46 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 int main()
 {
 
-someRandomIntern;
-rrf;
-rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+Intern someRandomIntern;
+
+    AForm* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
     // try
     // {
     //     Bureaucrat b("boss",45);

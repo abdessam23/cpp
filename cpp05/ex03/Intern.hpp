@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:21:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 14:07:06 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/23 15:02:35 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ AForm* makeForm(std::string form,std::string target)
        try
     {
        AForm* aform;
-        if (form == "Shrubbery")
+        if (form == "shrubbery creation")
            aform = new ShrubberyCreationForm(target);
-        else if (form == "Robotomy")
+        else if (form == "robotomy request")
            aform = new RobotomyRequestForm(target);
-        else if (form == "Presidential")
+        else if (form == "presidential pardon")
            aform = new PresidentialPardonForm(target);
         else
             throw(Intern::Internexcept());
