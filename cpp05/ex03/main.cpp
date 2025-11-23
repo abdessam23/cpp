@@ -6,15 +6,12 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 15:00:46 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/23 15:21:34 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
+
 #include "Intern.hpp"
 
 int main()
@@ -22,7 +19,8 @@ int main()
 
 Intern someRandomIntern;
 
-    AForm* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    AForm* rrf = someRandomIntern.makeForm("presidential pardon", "home");
+    delete rrf;
 
     // try
     // {

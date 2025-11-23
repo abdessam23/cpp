@@ -2,13 +2,14 @@ NAME=AForm
 
 CXX=c++
 
-CXXFLAGS= --std=c++98
+CXXFLAGS= -Wall -Werror -Wextra --std=c++98
 
 RM=rm -rf
 
-SRC=  ShrubberyCreationForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp  AForm.cpp main.cpp
+SRC=  ShrubberyCreationForm.cpp Bureaucrat.cpp PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp  AForm.cpp Intern.cpp main.cpp
 
-OBJ= Bureaucrat.o AForm.o PresidentialPardonForm.o RobotomyRequestForm.o ShrubberyCreationForm.o main.o 
+OBJ= Bureaucrat.o AForm.o PresidentialPardonForm.o RobotomyRequestForm.o ShrubberyCreationForm.o Intern.o main.o 
 
 all: $(NAME)
 
