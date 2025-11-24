@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/24 11:23:29 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/24 18:40:19 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,34 @@ ScalarConverter::~ScalarConverter()
 
 void ScalarConverter::convert(std::string str)
 {
-    for (int i = 0; i <str.length();i++)
+    // if(str.length() > 1 || isdigit(str[0]))
+    // {
+    //     std::cout << "Char: "<< "Non displayable." <<std::endl;
+    // }
+    // else
+    //     std::cout << "Char: " << str[0] <<std::endl;
+    // for (int i = 0; i <str.length();i++)
+    // {
+    //     // int n = static_cast<int>(str[i]);
+    //     std::cout << "int : " <<str[i] <<std::endl;
+    // }
+    try
     {
-        std::cout << "int : " <<(int)str[i] << std::endl;
+        int n = std::stoi(str);
+        std::cout << n <<std::endl;
     }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
 }
 
+const char* ScalarConverter::convertexcpt::what() const throw()
+{
+    return "impossible";
+}
 
 int main(int ac, char **argv)
 {

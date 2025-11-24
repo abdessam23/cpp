@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 10:41:32 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/24 11:23:41 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/24 18:35:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,11 @@ class ScalarConverter
         ScalarConverter& operator=(const ScalarConverter& other);
         ~ScalarConverter();
         static void convert(std::string str);
+        class convertexcpt: public std::exception
+        {
+            public:
+            const char* what() const throw();
+        };
+        
 };
 
