@@ -6,12 +6,12 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/24 18:40:19 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/24 21:29:43 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-
+#include <cmath>
 ScalarConverter::ScalarConverter()
 {
 }
@@ -33,22 +33,60 @@ ScalarConverter::~ScalarConverter()
 }
 
 void ScalarConverter::convert(std::string str)
-{
-    // if(str.length() > 1 || isdigit(str[0]))
-    // {
-    //     std::cout << "Char: "<< "Non displayable." <<std::endl;
-    // }
-    // else
-    //     std::cout << "Char: " << str[0] <<std::endl;
-    // for (int i = 0; i <str.length();i++)
-    // {
-    //     // int n = static_cast<int>(str[i]);
-    //     std::cout << "int : " <<str[i] <<std::endl;
-    // }
+{ 
+    try {
+        if (str.length() > 1 && !std::isnan(std::stod(str)))
+        {
+            std::cout << "char : "<< "'*'" <<std::endl;
+        }
+        else if (isprint(str[0]) && !isdigit(str[0]) &&  str.length() == 1 )
+            std::cout << "char : "<< str[0] <<std::endl;
+        else 
+            throw(ScalarConverter::convertexcpt());
+        
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "char: "<< e.what() << '\n';
+    }
     try
     {
         int n = std::stoi(str);
-        std::cout << n <<std::endl;
+        std::cout << "int: "<< n <<std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::string s = e.what();
+        if(s == "stoi")
+        {
+            std::cerr<< "int : " << "impossible" << '\n';
+            
+        }
+    }
+
+    try
+    {
+        float n = std::stof(str);
+        if (std::isnan(std::stod(str)) || std::isinf(std::stod(str)))
+        {
+            std::cout << "float: "<< n<<"f"<<std::endl;
+        }
+        else
+            std::cout << "float: "<< n << ".0f"<<std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        double n = std::stod(str);
+        if (std::isnan(std::stod(str)) || std::isinf(std::stod(str)))
+        {
+            std::cout << "double: "<< n<<std::endl;
+        }
+        else
+            std::cout << "double: "<< n <<".0"<<std::endl;
     }
     catch(const std::exception& e)
     {
