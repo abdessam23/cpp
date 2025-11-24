@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 15:21:34 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/24 09:43:00 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,12 @@
 int main()
 {
 
-Intern someRandomIntern;
-
-    AForm* rrf = someRandomIntern.makeForm("presidential pardon", "home");
+    Intern someRandomIntern;
+    AForm* rrf = someRandomIntern.makeForm("presidential pardon", "boss");
+    AForm* rf = someRandomIntern.makeForm("shrubbery creation", "home");
+    AForm* f = someRandomIntern.makeForm("robotomy request", "robot");
+    
     delete rrf;
-
-    // try
-    // {
-    //     Bureaucrat b("boss",45);
-    //     ShrubberyCreationForm a("contrat");
-    //     RobotomyRequestForm l("robot");
-    //     // a.beSigned(b);
-    //     // a.execute(b);
-    //     l.beSigned(b);
-    //     l.execute(b);
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << '\n';
-    // }
+    delete rf;
+    delete f;
 }
