@@ -2,7 +2,7 @@ NAME=AForm
 
 CXX=c++
 
-CXXFLAGS= --std=c++98
+CXXFLAGS= -Wall -Werror -Wextra  --std=c++98
 
 RM=rm -rf
 
