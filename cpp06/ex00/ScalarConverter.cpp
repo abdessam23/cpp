@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/25 11:52:29 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/25 14:33:42 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScalarConverter::~ScalarConverter()
 void ScalarConverter::convert(std::string str)
 { 
     try {
-        if (str.length() > 1 && !std::isnan(std::stod(str)))
+        if (str.length() > 1 && !std::isnan(std::atof(str.c_str())))
         {
             std::cout << "char : "<< "'*'" <<std::endl;
         }
@@ -51,7 +51,7 @@ void ScalarConverter::convert(std::string str)
     }
     try
     {
-        int n = std::stoi(str);
+        int n = std::atoi(str.c_str());
         std::cout << "int: "<< n <<std::endl;
     }
     catch(const std::exception& e)
@@ -66,8 +66,8 @@ void ScalarConverter::convert(std::string str)
 
     try
     {
-        float n = std::stof(str);
-        if (std::isnan(std::stod(str)) || std::isinf(std::stod(str)))
+        float n = std::atof(str.c_str());
+        if (std::isnan(std::atof(str.c_str())) || std::isinf(std::atof(str.c_str())))
         {
             std::cout << "float: "<< n<<"f"<<std::endl;
         }
@@ -80,8 +80,8 @@ void ScalarConverter::convert(std::string str)
     }
     try
     {
-        double n = std::stod(str);
-        if (std::isnan(std::stod(str)) || std::isinf(std::stod(str)))
+        double n = std::atof(str.c_str());
+        if (std::isnan(std::atof(str.c_str())) || std::isinf(std::atof(str.c_str())))
         {
             std::cout << "double: "<< n<<std::endl;
         }
