@@ -1,3 +1,4 @@
+
 NAME=war
 
 CC=c++
@@ -24,3 +25,4 @@ fclean:clean
 	$(RM) $(NAME)
 
 re: fclean all
+

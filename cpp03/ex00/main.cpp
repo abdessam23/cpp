@@ -5,25 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/27 16:02:50 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/25 12:28:29 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ClapTrap.hpp"
+
 
 int main()
 {
-    ClapTrap robot("Alex");
-    ClapTrap enemy("Bob");
+    ClapTrap alex("alex");
+    ClapTrap bob("bob");
+    ClapTrap pp = bob;
+    ClapTrap k;
+    k = alex;
+    k.attack("bob");
+    
+    pp.attack("joj");
+    bob.takeDamage(2);
+    alex.attack("bob");
+    alex.beRepaired(3);
 
-    robot.attack("Bob"); 
-    enemy.TakeDamage(3); 
-    enemy.beRepaired(5); 
-    for (int i = 0; i < 11; i++)
-        robot.attack("Bob");
-    enemy.TakeDamage(20);
-    enemy.attack("Alex");    
-    enemy.beRepaired(5);  
-    return 0;
+    
+    
 }

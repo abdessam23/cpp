@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/13 14:53:35 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/13 17:03:48 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/15 17:49:16 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/25 12:21:58 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,17 @@ void HumanA::attack()
 {
     std::cout << name << " attacks with their " << p->gettype() << std::endl;
 }
+
+
+HumanA::HumanA(std::string name,Weapon& pA): name(name),pA(pA)
+{
+}
+void HumanA::attack()
+{
+    std::cout << name << " attacks with their "<< pA.getType() << std::endl;
+}
+
+HumanA::~HumanA()
+{
+}
+

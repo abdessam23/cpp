@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 18:56:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/13 16:57:32 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/15 17:52:59 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/25 12:23:57 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
@@ -24,7 +23,9 @@ int main()
         bob.attack();
     }
     {
-        Weapon club = Weapon("crude spiked club");
+
+       Weapon club = Weapon("crude spiked club");
+
         HumanB jim("Jim");
         jim.setWeapon(club);
         jim.attack();
@@ -33,4 +34,3 @@ int main()
     }
     return 0;
 }
-

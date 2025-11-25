@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 15:42:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/29 14:24:14 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/25 12:34:15 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 int main()
 {
-    ScavTrap a("alex");
-    // a.guardGate();
-    // a.TakeDamage(2);
-    // a.attack("modric");
-    return 0;
+
+    FragTrap p("robot");
+    FragTrap a(p);
+    
+    FragTrap c("bot");
+    c = a;
+    
+    p.highFivesGuys();
+    c.highFivesGuys();
+    c.attack("robot1");
+    c.beRepaired(2);
 }
+

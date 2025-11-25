@@ -3,6 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 15:10:13 by abdo              #+#    #+#             */
@@ -55,6 +56,16 @@ void Harl::complain( std::string level)
     std::cout << "nothing " << std::endl;
 }
 
+=======
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/18 14:36:41 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/22 10:36:42 by abhimi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Harl.hpp"
+>>>>>>> master
 
 int main()
 {
@@ -63,4 +74,10 @@ int main()
     a.complain("INFO");
     a.complain("WARNING");
     a.complain("ERROR");
+<<<<<<< HEAD
 }
+=======
+    a.complain("nolog");
+    a.complain("");
+}
+>>>>>>> master

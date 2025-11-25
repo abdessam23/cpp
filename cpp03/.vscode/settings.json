@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "ostream": "cpp",
         "array": "cpp",
         "atomic": "cpp",
@@ -46,4 +47,9 @@
         "typeinfo": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
+=======
+        "typeinfo": "cpp",
+        "iostream": "cpp"
+    }
+>>>>>>> master
 }

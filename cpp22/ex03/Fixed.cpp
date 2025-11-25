@@ -1,0 +1,172 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/29 13:15:32 by abdo             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+Fixed::Fixed(): f(0)
+{
+}
+Fixed::Fixed(const Fixed& a)
+{
+    *this = a;
+}
+Fixed& Fixed::operator=(const Fixed& a)
+{
+    if (this != &a)
+        this->f = a.f;
+    return *this;
+}
+
+Fixed::~Fixed()
+{
+}
+
+Fixed::Fixed(const int n)
+{
+    f =n <<fraction;
+}
+Fixed::Fixed(const float nb)
+{
+    f =round(nb * (1<<fraction));
+}
+
+int Fixed::getRawBits() const
+{
+    return f;
+}
+
+void Fixed::setRawBits(const int raw)
+{
+    f = raw;
+}
+
+std::ostream& operator<<(std::ostream& in,const  Fixed& a)
+{
+        in << a.toFloat() ;
+        return in;
+}
+
+float Fixed::toFloat() const 
+{
+    return ((float)f /(float)(1<<fraction));
+}
+
+int Fixed::toInt() const
+{
+    return ((int) f >>fraction);
+}
+
+bool Fixed::operator<(const Fixed& a) const
+{
+    return (this->toFloat() < a.toFloat());
+}
+
+bool Fixed::operator>(const Fixed& a) const
+{
+    return (this->toFloat() > a.toFloat());
+}
+
+bool Fixed::operator<=(const Fixed& a) const
+{
+    return (this->toFloat() <= a.toFloat());
+}
+
+bool Fixed::operator>=(const Fixed& a) const
+{
+    return (this->toFloat()  >= a.toFloat());
+}
+
+bool Fixed::operator==(const Fixed& a)
+{
+    return (this->toFloat() == a.toFloat());
+}
+
+bool Fixed::operator!=(const Fixed& a)
+{
+    return (this->toFloat() != a.toFloat());
+}
+
+Fixed Fixed::operator+(const Fixed& a)
+{
+    return Fixed(this->toFloat() + a.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& a)
+{
+    return Fixed(this->toFloat() - a.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& a)
+{
+    return Fixed(this->toFloat() * a.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& a)
+{
+    if (a.toFloat() == 0)
+        return *this;
+    return Fixed(this->toFloat() / a.toFloat());
+}
+
+Fixed&  Fixed::operator++()
+{
+    ++f;
+    return *this;
+}
+
+Fixed& Fixed::operator--()
+{
+    --f;
+    return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed tmp = *this;
+    ++f;
+    return tmp;
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    --f;
+    return tmp;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    if (a <= b)
+        return a;
+    return b;
+}
+
+const Fixed& Fixed::min(const Fixed& a,const Fixed& b)
+{
+    if (a <= b)
+        return a;
+    return b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    if (a >= b)
+        return a;
+    return b;
+}
+
+const Fixed& Fixed::max(const Fixed& a,const Fixed& b)
+{
+    if (a >= b)
+         return a;
+    return b;
+}
