@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/24 21:29:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/25 11:52:29 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,3 @@ const char* ScalarConverter::convertexcpt::what() const throw()
     return "impossible";
 }
 
-int main(int ac, char **argv)
-{
-    if (ac != 2)
-        return 1;
-    ScalarConverter::convert(argv[1]);
-}
