@@ -5,32 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 15:24:25 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/20 10:41:13 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/25 12:16:38 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/31 10:15:41 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Point.hpp"
 
-
-int main() 
+int main(void) 
 {
-    Point a(2.3, 45);
-    Point b(6.7,47);
-    Point c(1.2,3);
-    Point v(16.55,35.4545);
-    std::cout << a.getx() << std::endl;
-    std::cout << a.gety() << std::endl;
-
-    std::cout << b.getx() << std::endl;
-    std::cout << b.gety() << std::endl;
-    
-    std::cout << c.getx() << std::endl;
-    std::cout << c.gety() << std::endl;
-    if (bsp(a,b,c,v))
-        std::cout << "true" <<std::endl;
+    Point a(-13.002067014197, 11.1510504054576);
+    Point b(-11.0550226150025, -9.0765775144043);
+    Point c(27.994034502177, 1.2355465231724);
+    Point p(-11.0550226150025, -9.0765775144043);
+    if (!bsp(a,b,c,p))
+        std::cout << "False" << std::endl;
     else 
-         std::cout << "false" <<std::endl;
-    return 0;
+        std::cout << "True" << std::endl;
+return 0;
 }
+

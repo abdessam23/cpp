@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 17:10:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/25 12:37:08 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 18:30:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ DiamondTrap::DiamondTrap()
 {
 }
 
-DiamondTrap::DiamondTrap(const std::string str):ClapTrap(str + "_clap_name"),name(str)
+DiamondTrap::DiamondTrap(const std::string str):ClapTrap("_" + str)
 {
-    hit_points = FragTrap::hit_points;
-    energy_points = ScavTrap::energy_points;
-    attack_damage = FragTrap::attack_damage;
+    name = str;
+    hit_points = 100;
+    energy_points = 50;
+    attack_damage = 20;
     std::cout << "Diamond " << name << " created" << std::endl;
 }
 
@@ -44,14 +45,14 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 }
 void DiamondTrap::attack(const std::string& target)
 {
-    ScavTrap::attack(target);
+    std::cout << "Diamond " << name << " attack " << target << std::endl;
 }
 void DiamondTrap::WhoIam()
 {
-    std::cout << "Diamond name is : " << name << " ,Claptrap  name is : " << ClapTrap::name << std::endl;
+    std::cout << "Diamond my name is : " << name << " ,Claptrap  my name is : " << ClapTrap::name << std::endl;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "Diamond Destructor of " << name << " called" << std::endl; 
+    std::cout << "Destructor of  Diamond " << name << " called" << std::endl; 
 }

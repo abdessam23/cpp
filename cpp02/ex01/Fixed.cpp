@@ -5,54 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 16:02:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/18 15:45:17 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/30 16:05:33 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(): f(0){
+Fixed::Fixed(): f(0)
+{
     std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(const int n){
-     std::cout << "Int constructor called" << std::endl;
-     f = n << fraction;
-}
-Fixed::Fixed(const float b){
-     std::cout << "Float constructor called" << std::endl;
-     f = roundf(b * (1 << fraction));
- }
-Fixed::Fixed(const Fixed& a){
-     std::cout << "Copy constructor called" << std::endl;
-     f = a.f;
-}
-Fixed::~Fixed()
+Fixed::Fixed(const Fixed& a)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
+    *this = a;
 }
-
-Fixed& Fixed::operator=(const Fixed& other){
-    std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &other)
-    {
-        this->f = other.f;
-    }
+Fixed& Fixed::operator=(const Fixed& a)
+{
+    std::cout << "Copy assignement operator called" << std::endl;
+    this->f = a.f;
     return *this;
 }
 
-std::ostream& operator<<(std::ostream &out, const Fixed& obj)
+Fixed::~Fixed()
 {
-    out << obj.toFloat();
-    return out;
+    std::cout << "Destructor called!" << std::endl;
 }
 
-float Fixed::toFloat( void ) const
+Fixed::Fixed(const int n)
 {
-    return (float)f / (1 << fraction);
+    std::cout << "Int constructor called" << std::endl;
+    f =n <<fraction;
 }
-int Fixed::toInt( void ) const
+Fixed::Fixed(const float nb)
 {
-    return f >> fraction;  
+    std::cout << "Float constructor called" << std::endl;
+    f =(double)round(nb * (1<<fraction));
+}
+
+const int Fixed::getRawBits() const
+{
+    return f;
+}
+void Fixed::setRawBits(const int raw)
+{
+    f = raw;
+}
+std::ostream& operator<<(std::ostream& in,const Fixed& a)
+{
+        in << a.toFloat() ;
+        return in;
+} 
+
+float Fixed::toFloat() const 
+{
+    return ((double)f /(double) (1<<fraction));
+}
+int Fixed::toInt() const
+{
+    return ((int) f >>fraction);
 }
 

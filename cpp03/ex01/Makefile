@@ -19,10 +19,8 @@ $(NAME): $(OBJ)
 clean:
 	$(RM) $(OBJ)
 
-fclean: clean
+fclean:
 	$(RM) $(NAME)
 
-
 re: clean all
-
 

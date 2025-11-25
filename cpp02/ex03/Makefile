@@ -1,4 +1,4 @@
-NAME=bsp
+NAME=Fixed
 
 CC=c++
 
@@ -6,22 +6,15 @@ CFLAGS= -Wall -Werror -Wextra -std=c++98
 
 RM=rm -rf
 
-SRC= main.cpp Fixed.cpp  bsp.cpp Point.cpp 
+SRC= Fixed.cpp Point.cpp bsp.cpp main.cpp
 
-OBJ= $(SRC:.cpp=.o)
 
-all:$(NAME)
+all: $(NAME)
 
-$(NAME):$(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
-%.o:%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME):
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
-	$(RM) $(OBJ)
-
-fclean:clean
 	$(RM) $(NAME)
 
-re: fclean all
+re: clean all

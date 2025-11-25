@@ -1,4 +1,3 @@
-
 NAME= FragTrap
 
 CXX= c++
@@ -11,6 +10,7 @@ SRC= ClapTrap.cpp FragTrap.cpp main.cpp
 
 OBJ= ClapTrap.o FragTrap.o main.o
 
+
 all:$(NAME)
 
 $(NAME): $(OBJ)
@@ -20,7 +20,7 @@ $(NAME): $(OBJ)
 clean:
 	$(RM) $(OBJ)
 
-fclean: clean
+fclean:
 	$(RM) $(NAME)
-re: clean all
 
+re: clean all

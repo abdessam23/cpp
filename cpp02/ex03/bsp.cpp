@@ -5,30 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 16:44:39 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/20 09:41:53 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/28 15:30:58 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/31 11:12:41 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Fixed sign(Point const& c1,Point const&  c2, Point const& c3)
+static Fixed calc_area(Point const a, Point const b, Point const c)
 {
-    return ((c1.getx() - c3.getx()) * (c2.gety() - c3.gety()) - (c2.getx() - c3.getx()) * (c1.gety() - c3.gety()));
+    Fixed area = a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * ( a.getY() - b.getY());
+    if (area < Fixed(0))
+        area = area * Fixed(-1);
+    return area * Fixed(0.5f);
 }
+
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-    Fixed f1,f2,f3;
-    bool has_neg, has_pos;
-    
-    f1 = sign(point, a, b);
-    f2 = sign(point, b, c);
-    f3 = sign(point, c, a);
+    Fixed t1 = calc_area(a,b,point);
+    Fixed t2 = calc_area(a,c,point);
+    Fixed t3 = calc_area(c,b,point);
+    Fixed t4 = calc_area(a,b,c);   
+    Fixed t5 = t1 + t2 + t3;
 
-    has_neg = (f1 < 0) || (f2 < 0) || (f3 < 0);
-    has_pos = (f1 > 0) || (f2 > 0) || (f3 < 0);
-    std::cout << "neg : "<< has_neg << std::endl;
-    std::cout << "pos : " << has_pos << std::endl;
-    
-    return !(has_pos && has_neg);
+    if (t1 == Fixed(0) || t2 == Fixed(0) || t3 == Fixed(0))
+        return false;
+    if ((t5 - t4) <= Fixed(0.01f))
+    {
+        return true;
+    }
+    return false;
 }
+
+

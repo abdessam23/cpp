@@ -5,29 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 11:06:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/09/19 17:24:44 by abdo             ###   ########.fr       */
+/*   Created: 2025/10/28 17:23:49 by abdo              #+#    #+#             */
+/*   Updated: 2025/10/31 09:58:09 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#pragma once
 
 #include "Fixed.hpp"
 
 class Point
 {
 private:
-   Fixed x;
-   Fixed y;
+    const Fixed x;
+    const Fixed y;
 public:
     Point();
-    Point(float x, float y);
-    Point(Point& a);
-    Point& operator=(const Point& other);
+    Point(const float x, const float y);
+    Point(const Point& p);
+    Point operator=(Point&);
     ~Point();
-
-    Fixed getx() const;
-    Fixed gety() const;
+    Fixed getX() const;
+    Fixed getY() const;
 };
 bool bsp( Point const a, Point const b, Point const c, Point const point);
-

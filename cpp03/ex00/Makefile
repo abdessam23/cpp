@@ -1,4 +1,3 @@
-
 NAME= ClapTrap
 
 CXX= c++
@@ -10,6 +9,7 @@ RM = rm -rf
 SRC= ClapTrap.cpp  main.cpp
 OBJ= ClapTrap.o main.o
 
+
 all:$(NAME)
 
 $(NAME): $(OBJ)
@@ -19,9 +19,8 @@ $(NAME): $(OBJ)
 clean:
 	$(RM) $(OBJ)
 
-fclean: clean
+fclean:
 	$(RM) $(NAME)
 
 re: clean all
-
 

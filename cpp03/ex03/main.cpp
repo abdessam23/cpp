@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 12:18:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/25 12:38:03 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 18:03:20 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,15 @@
 
 int main()
 {
-    DiamondTrap p("Monster1");
-    DiamondTrap l("Monster2");
-    ClapTrap *a = &p;
-    DiamondTrap v = p;
-    DiamondTrap f("foo");
+    DiamondTrap p("robot");
+    DiamondTrap L(p);
+    DiamondTrap K("OK");
+    
+    K = L;
+    
+    p.attack("kol");
+    p.WhoIam();
+    L.attack("boot");
 
-    f = p;
-
-    a->attack("Monster3");
-    l.WhoIam();
-    l.attack("Monster4");
-    v.highFivesGuys();
-    v.guardGate();
-    v.beRepaired(3);
-    f.WhoIam();
+    K.attack("DD");
 }

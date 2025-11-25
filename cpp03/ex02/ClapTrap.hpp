@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:31:24 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/25 12:33:17 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/06 17:11:24 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 class ClapTrap
 {
-
     protected:
         std::string name;
         unsigned int hit_points;
@@ -32,6 +31,10 @@ class ClapTrap
         virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+        void setHP(unsigned int hp);
+        void setEP(unsigned int EP);
+        void setAD(unsigned int AD);
+        
 };
 
 
