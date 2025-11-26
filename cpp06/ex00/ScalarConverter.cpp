@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/25 14:33:42 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/26 13:16:39 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScalarConverter::~ScalarConverter()
 void ScalarConverter::convert(std::string str)
 { 
     try {
-        if (str.length() > 1 && !std::isnan(std::atof(str.c_str())))
+        if (str.length() > 1 && !std::isnan(atof(str.c_str())))
         {
             std::cout << "char : "<< "'*'" <<std::endl;
         }
@@ -51,46 +51,56 @@ void ScalarConverter::convert(std::string str)
     }
     try
     {
-        int n = std::atoi(str.c_str());
-        std::cout << "int: "<< n <<std::endl;
+        if (isdigit(str[0]))
+        {
+            int n = atoi(str.c_str());
+            std::cout << "int: "<< n <<std::endl;
+        }
+        else
+            throw (ScalarConverter::convertexcpt());
     }
     catch(const std::exception& e)
     {
-        std::string s = e.what();
-        if(s == "stoi")
-        {
-            std::cerr<< "int : " << "impossible" << '\n';
-            
-        }
+            std::cerr<< "int : " << e.what() << '\n';
     }
 
     try
     {
-        float n = std::atof(str.c_str());
-        if (std::isnan(std::atof(str.c_str())) || std::isinf(std::atof(str.c_str())))
+        if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
         {
-            std::cout << "float: "<< n<<"f"<<std::endl;
+            float n = atof(str.c_str());
+            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())))
+            {
+                std::cout << "float: "<< n<<"f"<<std::endl;
+            }
+            else
+                std::cout << "float: "<< n << ".0f"<<std::endl;  
         }
         else
-            std::cout << "float: "<< n << ".0f"<<std::endl;
+            throw(ScalarConverter::convertexcpt());
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "float: "<< e.what() << '\n';
     }
     try
     {
-        double n = std::atof(str.c_str());
-        if (std::isnan(std::atof(str.c_str())) || std::isinf(std::atof(str.c_str())))
+        if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
         {
-            std::cout << "double: "<< n<<std::endl;
+            double n = atof(str.c_str());
+            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())))
+            {
+                std::cout << "double: "<< n<<std::endl;
+            }
+            else
+                std::cout << "double: "<< n <<".0"<<std::endl;   
         }
         else
-            std::cout << "double: "<< n <<".0"<<std::endl;
+            throw(ScalarConverter::convertexcpt());
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Double: "<< e.what() << '\n';
     }
     
     

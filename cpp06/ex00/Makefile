@@ -7,7 +7,7 @@ CXXFLAGS= -Wall -Wextra -Werror --std=c++98
 RM = rm -rf 
 SRC= ScalarConverter.cpp main.cpp 
 
-OBJ=ScalarConverter.o main.OBJ
+OBJ=ScalarConverter.o main.o
 
 all:$(NAME)
 
