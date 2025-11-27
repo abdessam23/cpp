@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/26 13:49:50 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/27 14:44:37 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void ScalarConverter::convert(std::string str)
         if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
         {
             float n = atof(str.c_str());
-            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())))
+            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
             {
                 std::cout << "float: "<< n <<"f"<<std::endl;
             }
@@ -88,7 +88,7 @@ void ScalarConverter::convert(std::string str)
         if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
         {
             double n = atof(str.c_str());
-            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())))
+            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
             {
                 std::cout << "double: "<< n<<std::endl;
             }
