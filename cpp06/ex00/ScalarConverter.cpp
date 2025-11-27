@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/27 15:33:27 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/27 17:38:57 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void ScalarConverter::convert(std::string str)
     }
     catch(const std::exception& e)
     {
-            std::cerr<< "int : " << e.what() << '\n';
+            std::cerr<< "int : " << e.what() << "\n";
     }
 
     try
@@ -81,8 +81,7 @@ void ScalarConverter::convert(std::string str)
     }
     catch(const std::exception& e)
     {
-        
-        std::cerr << "float: "<< e.what() << '\n';
+        std::cerr << "float: "<< e.what() << "\n";
     }
     try
     {
@@ -101,7 +100,7 @@ void ScalarConverter::convert(std::string str)
     }
     catch(const std::exception& e)
     {
-        std::cerr << "Double: "<< e.what() << '\n';
+        std::cerr << "Double: "<< e.what() << "\n";
     }
     
     
