@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 11:49:25 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/29 15:36:05 by abdo             ###   ########.fr       */
+/*   Created: 2025/11/29 15:35:26 by abdo              #+#    #+#             */
+/*   Updated: 2025/11/29 15:41:38 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include  <cstdint>
-#include <fstream>
+#include "Serializer.hpp"
 
 
-struct Data
+
+Serializer::Serializer()
 {
-    int n = 8;
-    char p = 'e';
-    std::string s = "data.bin";
-};
-
-class Serializer
+}
+uintptr_t Serializer::serialize(Data* ptr)
 {
-private:
-    Serializer();
-public:
-    static uintptr_t serialize(Data* ptr);
-    static Data* deserialize(uintptr_t raw);
-    ~Serializer();
-};
+    uintptr_t raw = reinterpret_cast<uintptr_t>(ptr);
+    return raw;
+}
 
+
+Data* Serializer::deserialize(uintptr_t raw)
+{
+    Data* p = reinterpret_cast<Data*>(&raw);
+    return p;
+}
+
+Serializer::~Serializer()
+{
+}
