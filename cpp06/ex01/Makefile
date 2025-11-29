@@ -9,7 +9,7 @@ SRC= Serializer.cpp main.cpp
 
 OBJ=Serializer.o main.o
 
-all:
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
