@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:49:25 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/29 15:36:05 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/29 16:15:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 struct Data
 {
-    int n = 8;
+    int n = 0;
     char p = 'e';
-    std::string s = "data.bin";
+    std::string s = "";
 };
 
 class Serializer
