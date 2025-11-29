@@ -6,20 +6,21 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:49:25 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/29 16:15:12 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/29 17:08:06 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include  <cstdint>
-#include <fstream>
 
+#pragma once
+#include <iostream>
+#include <stdint.h>
+#include <string>
 
 struct Data
 {
-    int n = 0;
-    char p = 'e';
-    std::string s = "";
+    int n ;
+    char p;
+    std::string s;
 };
 
 class Serializer
