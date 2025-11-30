@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:06:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/29 17:10:03 by abdo             ###   ########.fr       */
+/*   Updated: 2025/11/30 23:13:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int main()
     ptr.n = 5;
     ptr.p = 65;
     ptr.s = "hello";
+    
     uintptr_t b =  Serializer::serialize(&ptr);
     std::cout << "intptr : " << b <<std::endl;
+    std::cout << "int : " << ptr.n<<std::endl;
     std::cout << "char : " << ptr.p <<std::endl;
     std::cout << "string : " << ptr.s <<std::endl;
     Data* deserialize = Serializer::deserialize(b);
