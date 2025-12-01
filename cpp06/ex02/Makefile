@@ -12,4 +12,6 @@ OBJ=
 
 all:$(NAME)
 
+$(NAME):
+
 
