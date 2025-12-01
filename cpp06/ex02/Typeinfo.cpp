@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/01 12:42:46 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/01 12:53:56 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void identify(Base& p)
     {
         std::cout << e.what() << std::endl;
     }
+
+    
     try{
         C& c = dynamic_cast<C&>(p);
         std::cout << "C";
