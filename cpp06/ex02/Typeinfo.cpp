@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/01 12:40:42 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/01 12:42:46 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "C.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <exception>
 
 Base * generate(void)
 {
