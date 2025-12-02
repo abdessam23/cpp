@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/01 20:18:47 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/02 13:27:43 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,31 @@ void identify(Base* p)
 }
 void identify(Base& p)
 {
-    if (dynamic_cast<A*>(&p))
-    {
-         std::cout << "A" <<std::endl;
-         return;
+    try{
+        dynamic_cast<A&>(p);
+        std::cout << "A" <<std::endl;
+        return;
     }
-    if (dynamic_cast<B*>(&p))
-    {
-         std::cout << "B" <<std::endl;
-         return;
+    catch(std::exception& e)
+    {}
+    
+    try{
+        dynamic_cast<B&>(p);
+        std::cout << "B" <<std::endl;
+        return;
     }
-    if (dynamic_cast<C*>(&p))
+    catch(std::exception& e)
+    {}
+    
+    try{
+        dynamic_cast<C&>(p);
+        std::cout << "C" <<std::endl;
+        return;
+     
+    }
+    catch(std::exception& e)
     {
-         std::cout << "C" <<std::endl;
-         return;
+        std::cout <<"it is not a type of A ,B or C"<< std::endl;
     }
 }
 
