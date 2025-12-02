@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 19:44:34 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/02 13:31:42 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/02 13:46:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 int main()
 {
     Base *b = generate();
-    Base& p = *b;
+    identify(b);
+    Base *a = generate();
+    Base& p = *a;
     identify(p);
     delete b;
+    delete a;
 }

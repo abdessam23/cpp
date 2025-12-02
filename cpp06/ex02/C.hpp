@@ -6,13 +6,14 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:15:05 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/01 20:13:53 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/02 13:39:52 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
-class Base;
+// class Base;
+#include "Base.hpp"
 class C:public Base 
 {
     public:
