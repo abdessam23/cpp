@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/16 17:10:44 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/03 12:18:45 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,28 +54,24 @@ int  Bureaucrat::getGrade() const
 {
     return grade;
 }
- std::ostream& operator<<(std::ostream& out, Bureaucrat& obj)
- {
+std::ostream& operator<<(std::ostream& out, Bureaucrat& obj)
+{
     out << obj.getName()  << " ,Bureaucrat Grade : " << obj.getGrade();
     return out; 
- } 
+} 
 
 void Bureaucrat::increase()
 {
     grade--;
     if (grade < 1)
-    {
         throw Bureaucrat::GradeTooHighException();
-    }
 }
 
 void Bureaucrat::decrease()
 {
     grade++;
     if (grade > 150)
-    {
         throw Bureaucrat::GradeTooLowException();
-    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what()  const throw()

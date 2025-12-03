@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/17 15:38:41 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/03 12:32:13 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include "Form.hpp"
 #include <iostream>
-
 #include <exception>
 class Form;
 class Bureaucrat

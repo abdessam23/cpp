@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/17 15:56:10 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/03 12:33:58 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void Bureaucrat::signForm(Form& obj)
    
     if (obj.getSign())
     {
-        std::cout << *this << " signed " << obj << std::endl;
+        std::cout << *this << " signed " << obj ;
     }
     else
     {
