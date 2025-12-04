@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/04 11:51:38 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 11:56:38 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Form::Form():name("Boss"),n(0),grade_to_s(1), grade_to_x(60){}
     {
         throw Form::GradeTooLowException();
     }
+    n = false;
 }
  
 Form::Form(const Form& other):name(other.name),n(other.n),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
@@ -34,9 +35,7 @@ Form::Form(const Form& other):name(other.name),n(other.n),grade_to_s(other.grade
 Form& Form::operator=(const Form& other)
 {
     if (this != &other)
-    {
        *this = other;
-    }
     return *this;
 }
 
