@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 13:08:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 15:02:52 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:24:57 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 
 class ShrubberyCreationForm : public AForm
 {
+    private:
+        std::string target;
+        ShrubberyCreationForm();
     public:
-        ShrubberyCreationForm(std::string target);
+        ShrubberyCreationForm(std::string& target);
         ShrubberyCreationForm(ShrubberyCreationForm& other);
         ShrubberyCreationForm& operator=(ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
