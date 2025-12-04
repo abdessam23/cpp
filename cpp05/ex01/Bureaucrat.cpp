@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/03 12:33:58 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 11:39:29 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,16 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 void Bureaucrat::signForm(Form& obj)
 {
-   
-    if (obj.getSign())
+    try
     {
-        std::cout << *this << " signed " << obj ;
+        obj.beSigned(*this);
+        std::cout << this->getName() << " signed " << obj.getName() << std::endl;
+    
     }
-    else
+    catch(const std::exception& e)
     {
-        std::cerr << *this << " couldn't signed " << obj << " because : ";
+        std::cerr << this->getName() << " couldn't signed " << obj.getName() << " because : " << e.what() << '\n';
     }
-    obj.beSigned(*this);
 }
 Bureaucrat::~Bureaucrat()
 {

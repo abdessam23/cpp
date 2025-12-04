@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/17 15:51:06 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 11:51:38 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Form::Form():name("Boss"),n(0),grade_to_s(1), grade_to_x(60){}
 
- Form::Form(const std::string name,bool n,const int grade_to_s,const int grade_to_x):name(name),n(n),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
+ Form::Form(const std::string& name,bool n,const int grade_to_s,const int grade_to_x):name(name),n(n),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
  {
      if (grade_to_s < 1 || grade_to_x < 1)
     {
