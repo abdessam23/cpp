@@ -50,10 +50,6 @@ class AForm
         int get_Gts() const;
         int get_Gtx() const;
         bool getSign() const;
-        void  setName(std::string name);
-        void set_Gts(int n1);
-        void set_Gtx(int n2);
-        void setSign(bool n3);
         
 };
 std::ostream& operator<<(std::ostream& out,const AForm& obj);
