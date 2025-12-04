@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/03 12:15:04 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:05:36 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
    Bureaucrat();
 public:
     
-    Bureaucrat(const std::string name,int grade);
+    Bureaucrat(const std::string& name,int grade);
     Bureaucrat(const Bureaucrat& other);
     Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
@@ -35,11 +35,13 @@ public:
     void decrease();
     class GradeTooHighException: public std::exception
     {
+        public:
         const char* what() const throw();
     };
     
     class GradeTooLowException: public std::exception
     {
+        public:
         const char* what() const throw();
     };
     

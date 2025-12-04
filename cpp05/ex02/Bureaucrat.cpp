@@ -6,10 +6,9 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 15:04:10 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:07:36 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Bureaucrat.hpp"
 
@@ -17,7 +16,7 @@ Bureaucrat::Bureaucrat()
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade):name(name),grade(grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade):name(name),grade(grade)
 {
     if (grade < 1)
     {
@@ -29,15 +28,13 @@ Bureaucrat::Bureaucrat(const std::string name, int grade):name(name),grade(grade
     }
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other):name(other.name),grade(other.grade)
 {
-    name = other.name;
-    grade = other.grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-    if (this == &other)
+    if (this != &other)
     {
         name = other.name;
         grade = other.grade;
@@ -54,7 +51,7 @@ int  Bureaucrat::getGrade() const
 {
     return grade;
 }
- std::ostream& operator<<(std::ostream& out,const Bureaucrat& obj)
+ std::ostream& operator<<(std::ostream& out, Bureaucrat& obj)
  {
     out << obj.getName()  << " ,Bureaucrat Grade : " << obj.getGrade();
     return out; 
@@ -99,8 +96,6 @@ void Bureaucrat::signAForm(AForm& obj)
     {
         std::cerr << this->getName() << " couldn't signed " << obj.getName() << " because : " << e.what() << '\n';
     }
-    
-    
 }
 
 void Bureaucrat::executeAForm(AForm const& Form) const

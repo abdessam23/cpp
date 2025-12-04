@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:11:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 15:16:02 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:16:23 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ Intern::Intern(const Intern& other)
 Intern& Intern::operator=(const Intern& other)
 {
     if (this != &other)
-    {
         *this = other;
-    }
     return *this;
 }
 
@@ -43,7 +41,7 @@ AForm* Intern::makeForm(std::string form,std::string target)
            aform = new PresidentialPardonForm(target);
         else
             throw(Intern::Internexcept());
-        std::cout << "Intern creates " << aform->getName() << std::endl;
+        std::cout << "Intern create : " << aform->getName() << std::endl;
         return aform;
     }
     catch(const std::exception& e)

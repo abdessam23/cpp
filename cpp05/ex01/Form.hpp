@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:11 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/04 11:51:50 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:06:26 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ class Form
         void beSigned(Bureaucrat& obj);
         class GradeTooHighException: public std::exception
         {
+            public:
             const char* what() const throw();
         };
         class GradeTooLowException: public std::exception
         {
+            public:
             const char* what() const throw();
         };
         

@@ -26,6 +26,7 @@ AForm::AForm():name("Boss"),n(0),grade_to_s(1), grade_to_x(60){}
     {
         throw AForm::GradeTooLowException();
     }
+    n = false;
 }
  
 AForm::AForm(const AForm& other):name(other.name),n(other.n),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
@@ -34,9 +35,7 @@ AForm::AForm(const AForm& other):name(other.name),n(other.n),grade_to_s(other.gr
 AForm& AForm::operator=(const AForm& other)
 {
     if (this != &other)
-    {
        *this = other;
-    }
     return *this;
 }
 

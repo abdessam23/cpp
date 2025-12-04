@@ -24,7 +24,6 @@ class AForm
         int grade_to_s;
         int grade_to_x;
         AForm();
-         
     public:
         AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
         AForm(const AForm& other);
@@ -33,10 +32,12 @@ class AForm
         void beSigned(const Bureaucrat& obj);
         class GradeTooHighException: public std::exception
         {
+            public:
             const char* what() const throw();
         };
         class GradeTooLowException: public std::exception
         {
+            public:
             const char* what() const throw();
         };
         class signedExecpt : public std::exception

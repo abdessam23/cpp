@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 12:03:53 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:12:40 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,13 @@ class Bureaucrat
         void executeAForm(AForm const& AForm) const;
         class GradeTooHighException: public std::exception
         {
+            public:
             const char* what() const throw();
         };
         
         class GradeTooLowException: public std::exception
         {
+            public:
             const char* what() const throw();
         };
         

@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/04 11:39:29 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:03:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat()
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade):name(name),grade(grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade):name(name),grade(grade)
 {
     if (grade < 1)
     {
@@ -29,15 +29,13 @@ Bureaucrat::Bureaucrat(const std::string name, int grade):name(name),grade(grade
     }
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other):name(other.name),grade(other.grade)
 {
-    name = other.name;
-    grade = other.grade;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
-    if (this == &other)
+    if (this != &other)
     {
         name = other.name;
         grade = other.grade;

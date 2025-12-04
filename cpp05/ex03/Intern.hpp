@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:21:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/23 15:14:42 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/04 12:14:42 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 class Intern
 {
-    private:
     public:
         Intern();
         Intern(const Intern& other);
@@ -28,7 +27,8 @@ class Intern
         AForm* makeForm(std::string s1,std::string s2);
         class Internexcept: public std::exception
         {
-          const char* what() const throw();  
+          public:
+            const char* what() const throw();  
         };
         
 };
