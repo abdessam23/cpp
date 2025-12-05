@@ -25,10 +25,10 @@ class AForm
         int grade_to_x;
         AForm();
     public:
-        AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x);
+        AForm(const std::string& name,const int grade_to_s,const int grade_to_x);
         AForm(const AForm& other);
         AForm& operator=(const AForm& other);
-        ~AForm();
+        virtual ~AForm();
         void beSigned(const Bureaucrat& obj);
         class GradeTooHighException: public std::exception
         {

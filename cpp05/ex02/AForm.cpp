@@ -14,28 +14,30 @@
 
 
 
-AForm::AForm():name("Boss"),n(0),grade_to_s(1), grade_to_x(60){}
+AForm::AForm(){}
 
- AForm::AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x):name(name),n(n),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
+ AForm::AForm(const std::string& name,const int grade_to_s,const int grade_to_x):name(name),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
  {
      if (grade_to_s < 1 || grade_to_x < 1)
-    {
         throw AForm::GradeTooHighException();
-    }
     if (grade_to_s > 150 || grade_to_x > 150)
-    {
         throw AForm::GradeTooLowException();
-    }
     n = false;
 }
  
-AForm::AForm(const AForm& other):name(other.name),n(other.n),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
+AForm::AForm(const AForm& other):name(other.name),n(false),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
 {}
+
 
 AForm& AForm::operator=(const AForm& other)
 {
     if (this != &other)
-       *this = other;
+    {
+        name = other.getName();
+        grade_to_s = other.get_Gts();
+        grade_to_x = other.get_Gtx();
+        n = other.n;
+    }
     return *this;
 }
 
