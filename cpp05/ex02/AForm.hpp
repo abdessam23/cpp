@@ -47,8 +47,8 @@ class AForm
         };
         virtual void execute(Bureaucrat const & executor) const  = 0 ;
         const std::string getName() const;
-        const int get_Gts() const;
-        const int get_Gtx() const;
+        int get_Gts() const;
+        int get_Gtx() const;
         bool getSign() const;
         
 };

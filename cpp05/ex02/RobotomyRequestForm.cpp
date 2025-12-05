@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:04:48 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 15:43:32 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/05 11:04:12 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm& other):AForm(other
 }
 RobotomyRequestForm& RobotomyRequestForm::operator=(RobotomyRequestForm& other)
 {
-    if (this != &other)
-    {
-        setName(other.getName());
-        set_Gts(other.get_Gts());
-        set_Gtx(other.get_Gtx());
-        setSign(other.getSign());
-    }
+    (void)other;
     return *this;
 }
 

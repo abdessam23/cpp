@@ -38,12 +38,12 @@ const std::string AForm::getName() const
     return name;
 }
 
-const int AForm::get_Gts() const
+int AForm::get_Gts() const
 {
     return grade_to_s;
 }
 
-const int AForm::get_Gtx() const
+int AForm::get_Gtx() const
 {
     return grade_to_x;
 }

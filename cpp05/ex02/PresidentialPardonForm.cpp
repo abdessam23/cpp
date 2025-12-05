@@ -6,14 +6,14 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:05:33 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 15:47:01 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/05 11:04:00 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name):AForm(name,0,25,5)
+PresidentialPardonForm::PresidentialPardonForm(std::string& target):AForm("PresidentialPardonForm",25,5),target(target)
 {
 }
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other):AForm(other)
@@ -22,13 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other):AF
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& other)
 {
-    if (this != &other)
-    {
-        setName(other.getName());
-        set_Gts(other.get_Gts());
-        set_Gtx(other.get_Gtx());
-        setSign(other.getSign());
-    }
+    (void)other;
     return *this;
 }
 
