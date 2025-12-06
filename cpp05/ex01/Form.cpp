@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 09:37:35 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 10:02:47 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ bool Form::getSign()
 void Form::beSigned(Bureaucrat& obj)
 {
     if (obj.getGrade() <= grade_to_s)
-    {
         n = true;
-    }
     else
         throw Form::GradeTooLowException();
 }

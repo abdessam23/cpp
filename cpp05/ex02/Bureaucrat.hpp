@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/04 12:08:36 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 10:06:09 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AForm;
 class Bureaucrat
 {
     private:
-       std::string name;
+       const std::string name;
        int grade;
        Bureaucrat();
     public:

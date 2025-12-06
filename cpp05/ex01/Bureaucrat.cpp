@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 09:42:11 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 10:11:03 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade):name(name),grade(grad
         std:: cout << "Bureaucrat created!"<<std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other):grade(other.grade)
+Bureaucrat::Bureaucrat(const Bureaucrat& other):name(other.name),grade(other.grade)
 {
 }
 

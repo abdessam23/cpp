@@ -18,10 +18,12 @@ AForm::AForm():name("BOSS"),n(false),grade_to_s(4),grade_to_x(3){}
 
  AForm::AForm(const std::string& name,const int grade_to_s,const int grade_to_x):name(name),n(false),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
  {
-     if (grade_to_s < 1 || grade_to_x < 1)
+    if (grade_to_s < 1 || grade_to_x < 1)
         throw AForm::GradeTooHighException();
-    if (grade_to_s > 150 || grade_to_x > 150)
+    else if (grade_to_s > 150 || grade_to_x > 150)
         throw AForm::GradeTooLowException();
+    else
+        std::cout << "Aform generated!"<<std::endl;
 }
  
 AForm::AForm(const AForm& other):name(other.name),n(false),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
@@ -63,17 +65,17 @@ void AForm::beSigned(const Bureaucrat& obj)
 }
 const char* AForm::GradeTooHighException::what()  const throw()
 {
-    return "Grade too Hight .";
+    return "Grade too Hight . Try to use grade btween 1 to 150.";
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-    return "Grade too Low .";
+    return "Grade too Low . Try to use grade btween 1 to 150.";
 }
 
 const char* AForm::signedExecpt::what() const throw()
 {
-    return "the form not signed";
+    return "The form not signed";
 }
 AForm::~AForm()
 {
