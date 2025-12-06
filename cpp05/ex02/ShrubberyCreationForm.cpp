@@ -6,19 +6,21 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:03:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/05 10:16:57 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 10:43:50 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string& target):AForm("Shrubbery Creation",0,145,137),target(target)
+ShrubberyCreationForm::ShrubberyCreationForm():AForm("Shrubbery Creation",145,137),target("default")
+{
+}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string& target):AForm("Shrubbery Creation",145,137),target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& other):AForm(other)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& other):AForm(other),target(target)
 {
-    *this = other;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm& other)

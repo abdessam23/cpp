@@ -6,19 +6,22 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:05:33 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/05 11:04:00 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 10:45:00 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 
+PresidentialPardonForm::PresidentialPardonForm(std::string& target):AForm("PresidentialPardonForm",25,5),target("Default")
+{
+}
+
 PresidentialPardonForm::PresidentialPardonForm(std::string& target):AForm("PresidentialPardonForm",25,5),target(target)
 {
 }
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other):AForm(other)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other):AForm(other),target(other.target)
 {
-    *this = other;
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& other)
 {
