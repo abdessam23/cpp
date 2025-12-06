@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/05 10:44:07 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 09:37:35 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,14 @@
 
 Form::Form():name("Boss"),n(false),grade_to_s(1), grade_to_x(60){}
 
- Form::Form(const std::string& name,bool n,const int grade_to_s,const int grade_to_x):name(name),n(n),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
+ Form::Form(const std::string& name,const int grade_to_s,const int grade_to_x):name(name),n(false),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
  {
      if (grade_to_s < 1 || grade_to_x < 1)
-    {
         throw Form::GradeTooHighException();
-    }
-    if (grade_to_s > 150 || grade_to_x > 150)
-    {
+    else if (grade_to_s > 150 || grade_to_x > 150)
         throw Form::GradeTooLowException();
-    }
-    n = false;
+    else
+        std::cout << "Form created!"<< std::endl;
 }
  
 Form::Form(const Form& other):name(other.name),n(false),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
@@ -34,8 +31,7 @@ Form::Form(const Form& other):name(other.name),n(false),grade_to_s(other.grade_t
 
 Form& Form::operator=(const Form& other)
 {
-    if (this != &other)
-       *this = other;
+   (void)other;
     return *this;
 }
 
@@ -69,15 +65,16 @@ void Form::beSigned(Bureaucrat& obj)
 }
 const char* Form::GradeTooHighException::what()  const throw()
 {
-    return "Grade too Hight .";
+    return "Grade too Hight . Try to use grade btween 1 to 150.";
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return "Grade too Low .";
+    return "Grade too Low .Try to use grade btween 1 to 150.";
 }
 Form::~Form()
 {
+    std::cout << "Form destroyed!"<<std::endl;
 }
 
 std::ostream& operator<<(std::ostream& out, Form& obj)
