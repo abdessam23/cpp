@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:03:30 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 10:43:50 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 11:18:21 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 ShrubberyCreationForm::ShrubberyCreationForm():AForm("Shrubbery Creation",145,137),target("default")
 {
 }
-ShrubberyCreationForm::ShrubberyCreationForm(std::string& target):AForm("Shrubbery Creation",145,137),target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target):AForm("Shrubbery Creation",145,137),target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm& other):AForm(other),target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):AForm(other),target(other.target)
 {
 }
 
