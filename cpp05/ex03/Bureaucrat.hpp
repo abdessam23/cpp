@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 11:38:08 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 10:09:17 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 11:29:35 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include "AForm.hpp"
 #include <iostream>
-
 #include <exception>
+
 class AForm;
 class Bureaucrat
 {
@@ -25,7 +25,6 @@ class Bureaucrat
        int grade;
        Bureaucrat();
     public:
-        
         Bureaucrat(const std::string& name,int grade);
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat& operator=(const Bureaucrat& other);
@@ -51,4 +50,5 @@ class Bureaucrat
         
 };
 std::ostream& operator<<(std::ostream& out,const Bureaucrat& obj);
+
 

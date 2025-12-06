@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 10:11:40 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 11:29:57 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,18 @@ void Bureaucrat::increase()
 {
     grade--;
     if (grade < 1)
+    {
         throw Bureaucrat::GradeTooHighException();
+    }
 }
 
 void Bureaucrat::decrease()
 {
     grade++;
     if (grade > 150)
+    {
         throw Bureaucrat::GradeTooLowException();
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what()  const throw()

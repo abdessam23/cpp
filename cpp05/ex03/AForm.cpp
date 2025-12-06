@@ -14,33 +14,28 @@
 
 
 
-AForm::AForm():name("Boss"),n(0),grade_to_s(1), grade_to_x(60){}
+AForm::AForm():name("BOSS"),n(false),grade_to_s(4),grade_to_x(3){}
 
- AForm::AForm(const std::string name,bool n,const int grade_to_s,const int grade_to_x):name(name),n(n),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
+ AForm::AForm(const std::string& name,const int grade_to_s,const int grade_to_x):name(name),n(false),grade_to_s(grade_to_s), grade_to_x(grade_to_x)
  {
-     if (grade_to_s < 1 || grade_to_x < 1)
-    {
+    if (grade_to_s < 1 || grade_to_x < 1)
         throw AForm::GradeTooHighException();
-    }
-    if (grade_to_s > 150 || grade_to_x > 150)
-    {
+    else if (grade_to_s > 150 || grade_to_x > 150)
         throw AForm::GradeTooLowException();
-    }
+    else
+        std::cout << "Aform generated!"<<std::endl;
 }
  
-AForm::AForm(const AForm& other):name(other.name),n(other.n),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
+AForm::AForm(const AForm& other):name(other.name),n(false),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
 {}
 
 AForm& AForm::operator=(const AForm& other)
 {
-    if (this != &other)
-    {
-       *this = other;
-    }
+   (void)other;
     return *this;
 }
 
-std::string AForm::getName() const
+const std::string AForm::getName() const
 {
     return name;
 }
@@ -70,36 +65,20 @@ void AForm::beSigned(const Bureaucrat& obj)
 }
 const char* AForm::GradeTooHighException::what()  const throw()
 {
-    return "Grade too Hight .";
+    return "Grade too Hight . Try to use grade btween 1 to 150.";
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-    return "Grade too Low .";
+    return "Grade too Low . Try to use grade btween 1 to 150.";
 }
 
 const char* AForm::signedExecpt::what() const throw()
 {
-    return "the form not signed";
+    return "The form not signed";
 }
 AForm::~AForm()
 {
-}
-void   AForm::setName(std::string name)
-{
-    name = name;
-}
-void AForm::set_Gts(int n1)
-{
-    grade_to_s = n1;
-}
-void  AForm::set_Gtx(int n2)
-{
-    grade_to_x = n2;
-}
-void  AForm::setSign(bool n3)
-{
-    n = n3;
 }
 std::ostream& operator<<(std::ostream& out,const AForm& obj)
 {
