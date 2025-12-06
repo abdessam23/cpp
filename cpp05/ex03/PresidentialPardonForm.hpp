@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 12:28:40 by abdo              #+#    #+#             */
-/*   Updated: 2025/11/19 12:16:50 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 10:44:07 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@
 
 class PresidentialPardonForm : public AForm
 {
+    private:
+        const std::string target;
+        PresidentialPardonForm();
     public:
-        PresidentialPardonForm(std::string name);
+        PresidentialPardonForm(std::string& target);
         PresidentialPardonForm(PresidentialPardonForm& other);
         PresidentialPardonForm& operator=(PresidentialPardonForm& other);
         ~PresidentialPardonForm();
