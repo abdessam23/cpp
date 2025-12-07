@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 09:47:18 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/07 10:35:30 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,11 @@ int main()
     try
     {
         Bureaucrat a("Boss", 2);
-        Form b("contract",0,3);
+        Form b("contract",2,3);
         a.signForm(b);  
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
-    
 }

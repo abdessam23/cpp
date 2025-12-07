@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 10:28:07 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/07 10:29:46 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,12 @@ int main()
 {
 
     Bureaucrat a("boss",15);
-    ShrubberyCreationForm b("home");
-    ShrubberyCreationForm c("pl");
-    c = b;
-    std::cout << c.getTarget()<< std::endl; 
     Intern someRandomIntern;
     AForm* rrf = someRandomIntern.makeForm("presidential pardon", "boss");
     std::cout << *rrf ;
     AForm* rf = someRandomIntern.makeForm("shrubbery creation", "home");
     std::cout << *rf ;
-    AForm* f = someRandomIntern.makeForm("robotomy request", "robot");
+    AForm* f = someRandomIntern.makeForm("robotomy request", "bender");
     std::cout << *f;
     try{
         f->beSigned(a);

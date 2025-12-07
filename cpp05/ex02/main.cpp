@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 11:20:08 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/07 10:32:11 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
     
     try
     {
-        Bureaucrat b("boss",150);
+        Bureaucrat b("boss",1);
         ShrubberyCreationForm a("contrat");
         RobotomyRequestForm l("robot");
         a.beSigned(b);

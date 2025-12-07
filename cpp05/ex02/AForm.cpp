@@ -23,7 +23,7 @@ AForm::AForm():name("BOSS"),n(false),grade_to_s(4),grade_to_x(3){}
     else if (grade_to_s > 150 || grade_to_x > 150)
         throw AForm::GradeTooLowException();
     else
-        std::cout << "Aform generated!"<<std::endl;
+        std::cout << "Form generated!"<<std::endl;
 }
  
 AForm::AForm(const AForm& other):name(other.name),n(false),grade_to_s(other.grade_to_s), grade_to_x(other.grade_to_x)
@@ -79,6 +79,7 @@ const char* AForm::signedExecpt::what() const throw()
 }
 AForm::~AForm()
 {
+    std::cout << "Form " << this->getName() << " destroyed"<< std::endl;
 }
 std::ostream& operator<<(std::ostream& out,const AForm& obj)
 {

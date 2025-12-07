@@ -6,14 +6,15 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:20:57 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 09:30:35 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/07 10:31:42 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
-
+#include <ctime>
+#include <cstdlib>
 
 class RobotomyRequestForm : public AForm
 {
