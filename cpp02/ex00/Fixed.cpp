@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 17:42:53 by abdo              #+#    #+#             */
-/*   Updated: 2025/10/30 16:21:19 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/06 17:51:46 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Fixed::Fixed(): f(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(Fixed& a)
+Fixed::Fixed(const Fixed& a)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = a;

@@ -21,7 +21,7 @@ class Fixed
     static const int fraction = 8;
     public:
         Fixed();
-        Fixed(Fixed& a);
+        Fixed(const Fixed& a);
         Fixed& operator=(const Fixed& a);
         ~Fixed();
         const int getRawBits() const;
