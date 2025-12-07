@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:05:33 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 10:03:39 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/07 10:26:22 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& oth
 }
 PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm& other)
 {
-    (void)other;
+    if (this != &other)
+        target = other.target;
     return *this;
 }
 
