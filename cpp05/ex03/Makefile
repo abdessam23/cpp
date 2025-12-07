@@ -1,4 +1,4 @@
-NAME=AForm
+NAME=Intern
 
 CXX=c++
 

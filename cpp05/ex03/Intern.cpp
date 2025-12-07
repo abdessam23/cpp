@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:11:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/04 12:16:23 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/07 09:42:43 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Intern& Intern::operator=(const Intern& other)
 
 AForm* Intern::makeForm(std::string form,std::string target)
 {
-       try
+    try
     {
        AForm* aform;
         if (form == "shrubbery creation")
