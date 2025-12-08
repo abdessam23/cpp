@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 10:37:35 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 18:06:33 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void Bureaucrat::signForm(Form& obj)
     catch(const std::exception& e)
     {
         std::cerr << this->getName() << " couldn't signed " << obj.getName() << " because : " << e.what() << '\n';
+        
     }
 }
 Bureaucrat::~Bureaucrat()

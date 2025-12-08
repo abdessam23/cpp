@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:18:15 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 10:02:47 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 17:58:10 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void Form::beSigned(Bureaucrat& obj)
 }
 const char* Form::GradeTooHighException::what()  const throw()
 {
-    return "Grade too Hight . Try to use grade btween 1 to 150.";
+    return "Grade too Hight .";
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return "Grade too Low .Try to use grade btween 1 to 150.";
+    return "Grade too Low .";
 }
 Form::~Form()
 {
