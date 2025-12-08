@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:04:48 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/08 16:11:23 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 16:27:17 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
     else if (executor.getGrade() > this->get_Gtx())
         throw RobotomyRequestForm::GradeTooLowException();
     else{
-        srand(time(0));
         int a = rand();
         std::cout << "Drrrrrrrrrr!" <<std::endl;
         if (a % 2 == 0)

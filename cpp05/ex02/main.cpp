@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/08 16:19:40 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 16:27:25 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 int main()
 {
+    srand(time(NULL));
     std::cout << "\n===== TEST 1: Sign + Execute Shrubbery =====\n";
     try {
         Bureaucrat boss("Boss", 1);
