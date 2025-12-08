@@ -6,16 +6,13 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/08 16:27:25 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 17:34:28 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -23,60 +20,63 @@
 
 int main()
 {
-    srand(time(NULL));
-    std::cout << "\n===== TEST 1: Sign + Execute Shrubbery =====\n";
+    srand(time(0));
+    std::cout << "\n\n";
     try {
         Bureaucrat boss("Boss", 1);
         ShrubberyCreationForm s("home");
-        boss.signAForm(s);
-        boss.executeAForm(s);
+        boss.signForm(s);
+        boss.executeForm(s);
     }
     catch (std::exception &e) { std::cout << e.what() << "\n"; }
 
-    std::cout << "\n===== TEST 2: Execute without signing =====\n";
+    std::cout << "\n\n";
     try {
         Bureaucrat boss("Boss", 1);
         ShrubberyCreationForm s("garden");
-        boss.executeAForm(s);  // should fail: not signed
+        boss.executeForm(s);
     }
-    catch (std::exception &e) { std::cout << e.what() << "\n"; }
+    catch (std::exception &e) 
+    { 
+        std::cout << e.what() << "\n";
+    }
 
-    std::cout << "\n===== TEST 3: Sign with too low grade =====\n";
+    std::cout << "\n\n";
     try {
         Bureaucrat noob("Noob", 150);
         ShrubberyCreationForm s("fail");
-        noob.signAForm(s);  // should fail
+        noob.signForm(s);
     }
     catch (std::exception &e) { std::cout << e.what() << "\n"; }
 
-    std::cout << "\n===== TEST 4: Execute with too low grade =====\n";
+    std::cout << "\n\n";
     try {
         Bureaucrat low("Low", 150);
         Bureaucrat boss("Boss", 1);
         ShrubberyCreationForm s("home2");
 
-        boss.signAForm(s);
-        low.executeAForm(s);  // should fail: executor too weak
+        boss.signForm(s);
+        low.executeForm(s);
     }
     catch (std::exception &e) { std::cout << e.what() << "\n"; }
 
-    std::cout << "\n===== TEST 5: Robotomy randomness =====\n";
+    std::cout << "\n\n";
     try {
         Bureaucrat boss("Boss", 1);
         RobotomyRequestForm r("Bender");
-        boss.signAForm(r);
+        boss.signForm(r);
 
         for (int i = 0; i < 5; i++)
-            boss.executeAForm(r);  // prints success/failure randomly
+            boss.executeForm(r);
     }
     catch (std::exception &e) { std::cout << e.what() << "\n"; }
 
-    std::cout << "\n===== TEST 6: Presidential Pardon =====\n";
+    std::cout << "\n\n";
     try {
         Bureaucrat boss("Boss", 1);
         PresidentialPardonForm p("Arthur Dent");
-        boss.signAForm(p);
-        boss.executeAForm(p);
+        boss.signForm(p);
+        boss.executeForm(p);
     }
     catch (std::exception &e) { std::cout << e.what() << "\n"; }
 
