@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 11:29:57 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 17:10:14 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
     return "Grade too Low .";
 }
 
-void Bureaucrat::signAForm(AForm& obj)
+void Bureaucrat::signForm(AForm& obj)
 {
     try
     {
@@ -96,16 +96,15 @@ void Bureaucrat::signAForm(AForm& obj)
     }
 }
 
-void Bureaucrat::executeAForm(AForm const& Form) const
+void Bureaucrat::executeForm(AForm const& Form) const
 {
     try{
-        
         Form.execute(*this);
-        std:: cout << this->getName() << " executed "  << Form.getName(); 
+        std:: cout << this->getName() << " executed "  << Form.getName() <<std::endl;; 
     }
     catch(const std::exception& e)
     {
-         std::cerr << this->getName() << " couldn't execute " << Form.getName() << " because : " << e.what();
+         std::cerr << this->getName() << " couldn't execute " << Form.getName() << " because : " << e.what() <<std::endl;
     }
 }
 Bureaucrat::~Bureaucrat()

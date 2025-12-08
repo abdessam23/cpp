@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:11:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 09:42:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 17:24:14 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ AForm* Intern::makeForm(std::string form,std::string target)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << "\n";
         return NULL;
     }
     
