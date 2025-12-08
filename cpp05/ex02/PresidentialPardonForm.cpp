@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:05:33 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 10:25:53 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 16:02:36 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm():AForm("PresidentialPardonForm",
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string& target):AForm("PresidentialPardonForm",25,5),target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target):AForm("PresidentialPardonForm",25,5),target(target)
 {
 }
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm& other):AForm(other),target(other.target)

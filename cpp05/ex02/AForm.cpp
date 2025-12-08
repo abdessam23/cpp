@@ -75,7 +75,7 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 const char* AForm::signedExecpt::what() const throw()
 {
-    return "The form not signed";
+    return "The form not signed \n";
 }
 AForm::~AForm()
 {

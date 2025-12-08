@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 15:04:48 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 10:26:09 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 16:11:23 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ void RobotomyRequestForm::execute(const Bureaucrat& executor) const
     else{
         srand(time(0));
         int a = rand();
+        std::cout << "Drrrrrrrrrr!" <<std::endl;
         if (a % 2 == 0)
             std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
         else
-            std::cout << "The robotomy failed.";
+            std::cout << "The robotomy failed." << std::endl;
     }
 }
 

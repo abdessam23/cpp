@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/06 10:10:55 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/08 16:13:58 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void Bureaucrat::executeAForm(AForm const& Form) const
     try{
         
         Form.execute(*this);
-        std:: cout << this->getName() << " executed "  << Form.getName(); 
+        std:: cout << this->getName() << " executed "  << Form.getName() <<std::endl; 
     }
     catch(const std::exception& e)
     {
