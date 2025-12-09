@@ -79,7 +79,6 @@ const char* AForm::signedExecpt::what() const throw()
 }
 AForm::~AForm()
 {
-    std::cout << "Form " << this->getName() << " destroyed"<< std::endl;
 }
 std::ostream& operator<<(std::ostream& out,const AForm& obj)
 {

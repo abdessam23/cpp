@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/09 13:11:29 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/09 13:16:45 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void Bureaucrat::executeForm(AForm const& Form) const
          std::cerr << this->getName() << " couldn't execute " << Form.getName() << " because : " << e.what()<<std::endl;
     }
 }
+
 Bureaucrat::~Bureaucrat()
 {
 }
