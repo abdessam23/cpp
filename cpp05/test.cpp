@@ -21,13 +21,14 @@ void fun3()
 }
 int main()
 {
+    fun3();   
     try
     {
-        fun3();   
+       
     }
-    catch( int  e)
+    catch(...)
     {
-        std::cerr <<"throw int : "<< e << '\n';
+        std::cerr <<"throw int  "<< '\n';
     }
     std::cout << "the program end"<< std::endl;
 

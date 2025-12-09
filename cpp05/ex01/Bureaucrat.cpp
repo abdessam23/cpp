@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:19:52 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/08 18:06:33 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/09 11:31:37 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int  Bureaucrat::getGrade() const
 {
     return grade;
 }
- std::ostream& operator<<(std::ostream& out, Bureaucrat& obj)
+std::ostream& operator<<(std::ostream& out, Bureaucrat& obj)
  {
     out << obj.getName()  << " ,Bureaucrat Grade : " << obj.getGrade();
     return out; 
