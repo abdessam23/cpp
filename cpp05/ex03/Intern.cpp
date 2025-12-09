@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:11:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/09 12:25:49 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/09 13:02:52 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,36 @@ Intern& Intern::operator=(const Intern& other)
     return *this;
 }
 
+AForm* shrubberyCreation(const std::string& target)
+{
+    return (new ShrubberyCreationForm(target));
+}
+AForm* RobotomyRequest(const std::string& target)
+{
+    return (new RobotomyRequestForm(target));
+}
+AForm* PresidentialPardon(const std::string& target)
+{
+    return (new PresidentialPardonForm(target));
+}
 
 AForm* Intern::makeForm(std::string form,std::string target)
 {
-    try
+
+    std::string formname[3] = {"shrubbery creation","robotomy request","presidential pardon"};
+    AForm* (*p[3])(const std::string& ) = {&shrubberyCreation,&RobotomyRequest,&PresidentialPardon};
+    for(int i = 0; i < 3;i++)
     {
-       AForm* aform;
-        if (form == "shrubbery creation")
-           aform = new ShrubberyCreationForm(target);
-        else if (form == "robotomy request")
-           aform = new RobotomyRequestForm(target);
-        else if (form == "presidential pardon")
-           aform = new PresidentialPardonForm(target);
-        else
-            throw(Intern::Internexcept());
-        std::cout << "Intern create : " << aform->getName() << std::endl;
-        return aform;
+        if (form == formname[i])
+        {
+            std::cout << "Intern create : " << form << std::endl;
+            return p[i](target);
+        }
     }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << "\n";
-        return NULL;
-    }
-    
+    std::cout << "there no form with name"<< std::endl;
+    return NULL;
 }
 
-const char* Intern::Internexcept::what() const throw()
-{
-    return "There no form with this name. ";
-}
 Intern::~Intern()
 {
 }

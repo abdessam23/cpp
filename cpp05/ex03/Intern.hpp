@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 13:21:13 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/04 12:14:42 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/09 13:00:05 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ class Intern
         Intern& operator=(const Intern& other);
         ~Intern();
         AForm* makeForm(std::string s1,std::string s2);
-        class Internexcept: public std::exception
-        {
-          public:
-            const char* what() const throw();  
-        };
-        
+        // AForm* shrubberyCreation(const std::string& target);
+        // AForm* RobotomyRequest(const std::string& target);
+        // AForm* PresidentialPardon(const std::string& target);
 };
 
+AForm* shrubberyCreation(const std::string& target);
+AForm* RobotomyRequest(const std::string& target);
+AForm* PresidentialPardon(const std::string& target);
