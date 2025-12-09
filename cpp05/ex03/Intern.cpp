@@ -6,7 +6,7 @@
 /*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/23 15:11:18 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/08 17:24:14 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/09 12:05:20 by abdo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ Intern::Intern(const Intern& other)
 }
 Intern& Intern::operator=(const Intern& other)
 {
-    if (this != &other)
-        *this = other;
+    (void)other;
     return *this;
 }
 
