@@ -19,17 +19,18 @@
 
 class Intern
 {
+    
     public:
         Intern();
         Intern(const Intern& other);
         Intern& operator=(const Intern& other);
         ~Intern();
         AForm* makeForm(std::string s1,std::string s2);
-        // AForm* shrubberyCreation(const std::string& target);
-        // AForm* RobotomyRequest(const std::string& target);
-        // AForm* PresidentialPardon(const std::string& target);
+        AForm* shrubberyCreation(std::string& target);
+        AForm* RobotomyRequest(std::string& target);
+        AForm* PresidentialPardon(std::string& target);
+        static std::string formname[3];
+        static AForm* (*p[3])(std::string& );
+    
 };
 
-AForm* shrubberyCreation(const std::string& target);
-AForm* RobotomyRequest(const std::string& target);
-AForm* PresidentialPardon(const std::string& target);

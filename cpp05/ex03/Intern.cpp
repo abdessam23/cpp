@@ -12,6 +12,9 @@
 
 #include "Intern.hpp"
 
+
+// AForm* (Intern::*p[3])(std::string& ) = {&Intern::shrubberyCreation,&Intern::RobotomyRequest,&Intern::PresidentialPardon};
+// std::string Intern::formname[3]= {"shrubbery creation","robotomy request","presidential pardon"};
 Intern::Intern()
 {
 }
@@ -26,15 +29,15 @@ Intern& Intern::operator=(const Intern& other)
     return *this;
 }
 
-AForm* shrubberyCreation(const std::string& target)
+AForm* Intern::shrubberyCreation(std::string& target)
 {
     return (new ShrubberyCreationForm(target));
 }
-AForm* RobotomyRequest(const std::string& target)
+AForm* Intern::RobotomyRequest(std::string& target)
 {
     return (new RobotomyRequestForm(target));
 }
-AForm* PresidentialPardon(const std::string& target)
+AForm* Intern::PresidentialPardon(std::string& target)
 {
     return (new PresidentialPardonForm(target));
 }
@@ -43,7 +46,7 @@ AForm* Intern::makeForm(std::string form,std::string target)
 {
 
     std::string formname[3] = {"shrubbery creation","robotomy request","presidential pardon"};
-    AForm* (*p[3])(const std::string& ) = {&shrubberyCreation,&RobotomyRequest,&PresidentialPardon};
+    AForm* (Intern::*p[3])(const std::string& ) = {&Intern::shrubberyCreation,&Intern::RobotomyRequest,&Intern::PresidentialPardon};
     for(int i = 0; i < 3;i++)
     {
         if (form == formname[i])
