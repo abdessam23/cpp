@@ -26,11 +26,11 @@ class Intern
         Intern& operator=(const Intern& other);
         ~Intern();
         AForm* makeForm(std::string s1,std::string s2);
-        AForm* shrubberyCreation(std::string& target);
-        AForm* RobotomyRequest(std::string& target);
-        AForm* PresidentialPardon(std::string& target);
-        static std::string formname[3];
-        static AForm* (*p[3])(std::string& );
+        ShrubberyCreationForm* shrubberyCreation(std::string& target);
+        RobotomyRequestForm* RobotomyRequest(std::string& target);
+        PresidentialPardonForm* PresidentialPardon(std::string& target);
+        // static std::string formname[3];
+        // static AForm* (*p[3])(std::string& );
     
 };
 

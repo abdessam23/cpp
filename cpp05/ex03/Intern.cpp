@@ -29,15 +29,15 @@ Intern& Intern::operator=(const Intern& other)
     return *this;
 }
 
-AForm* Intern::shrubberyCreation(std::string& target)
+ShrubberyCreationForm* Intern::shrubberyCreation(std::string& target)
 {
     return (new ShrubberyCreationForm(target));
 }
-AForm* Intern::RobotomyRequest(std::string& target)
+RobotomyRequestForm* Intern::RobotomyRequest(std::string& target)
 {
     return (new RobotomyRequestForm(target));
 }
-AForm* Intern::PresidentialPardon(std::string& target)
+PresidentialPardonForm* Intern::PresidentialPardon(std::string& target)
 {
     return (new PresidentialPardonForm(target));
 }
