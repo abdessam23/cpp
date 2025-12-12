@@ -19,6 +19,8 @@ Intern::Intern()
 {
 }
 
+
+
 Intern::Intern(const Intern& other)
 {
     *this = other;
@@ -46,7 +48,7 @@ AForm* Intern::makeForm(std::string form,std::string target)
 {
 
     std::string formname[3] = {"shrubbery creation","robotomy request","presidential pardon"};
-    AForm* (Intern::*p[3])(const std::string& ) = {&Intern::shrubberyCreation,&Intern::RobotomyRequest,&Intern::PresidentialPardon};
+    AForm* (Intern::*p[3])(std::string& ) = {&Intern::shrubberyCreation,&Intern::RobotomyRequest,&Intern::PresidentialPardon};
     for(int i = 0; i < 3;i++)
     {
         if (form == formname[i])
