@@ -13,8 +13,6 @@
 #include "Intern.hpp"
 
 
-// AForm* (Intern::*p[3])(std::string& ) = {&Intern::shrubberyCreation,&Intern::RobotomyRequest,&Intern::PresidentialPardon};
-// std::string Intern::formname[3]= {"shrubbery creation","robotomy request","presidential pardon"};
 Intern::Intern()
 {
 }
@@ -31,15 +29,15 @@ Intern& Intern::operator=(const Intern& other)
     return *this;
 }
 
-ShrubberyCreationForm* Intern::shrubberyCreation(std::string& target)
+AForm* Intern::shrubberyCreation(std::string& target)
 {
     return (new ShrubberyCreationForm(target));
 }
-RobotomyRequestForm* Intern::RobotomyRequest(std::string& target)
+AForm* Intern::RobotomyRequest(std::string& target)
 {
     return (new RobotomyRequestForm(target));
 }
-PresidentialPardonForm* Intern::PresidentialPardon(std::string& target)
+AForm* Intern::PresidentialPardon(std::string& target)
 {
     return (new PresidentialPardonForm(target));
 }
@@ -49,12 +47,13 @@ AForm* Intern::makeForm(std::string form,std::string target)
 
     std::string formname[3] = {"shrubbery creation","robotomy request","presidential pardon"};
     AForm* (Intern::*p[3])(std::string& ) = {&Intern::shrubberyCreation,&Intern::RobotomyRequest,&Intern::PresidentialPardon};
+    Intern a;
     for(int i = 0; i < 3;i++)
     {
         if (form == formname[i])
         {
             std::cout << "Intern create : " << form << std::endl;
-            return p[i](target);
+            return (a.*p[i])(target);
         }
     }
     std::cout << "there no form with name"<< std::endl;
