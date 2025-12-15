@@ -12,9 +12,15 @@
 
 #include "ScalarConverter.hpp"
 
+int  check_arg(const std::string str)
+{
+    
+}
+
 int main(int ac, char **argv)
 {
     if (ac != 2)
         return 1;
+    check_arg(argv[1]);
     ScalarConverter::convert(argv[1]);
 }
