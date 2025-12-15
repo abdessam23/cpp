@@ -16,15 +16,12 @@ ScalarConverter::ScalarConverter()
 {
 }
 
-ScalarConverter::ScalarConverter(const ScalarConverter& other)
+ScalarConverter::ScalarConverter(const ScalarConverter&)
 {
-    *this = other;
 }
 
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter&)
 {
-    if (this != &other)
-        *this = other;
     return *this;
 }
 
@@ -34,7 +31,7 @@ ScalarConverter::~ScalarConverter()
 
 
 
-void to_Char(const std::string& str)
+void ScalarConverter::toChar(const std::string& str)
 {
     try {
            if (str.length() > 1 && !std::isnan(atof(str.c_str())))
@@ -55,7 +52,7 @@ void to_Char(const std::string& str)
         std::cerr << "char: "<< e.what() << '\n';
     }
 } 
-void to_Int(std::string& str)
+void ScalarConverter::toInt(const std::string& str)
 {
      try
     {
@@ -73,7 +70,7 @@ void to_Int(std::string& str)
     }
 }
 
-void to_Float(std::string& str)
+void ScalarConverter::toFloat(const std::string& str)
 {
      try
     {
@@ -96,7 +93,7 @@ void to_Float(std::string& str)
     }
 }
 
-void to_Double(const std::string& str)
+void ScalarConverter::toDouble(const std::string& str)
 {
     try
     {
@@ -121,10 +118,10 @@ void to_Double(const std::string& str)
 
 void ScalarConverter::convert(std::string str)
 { 
-   to_Char(str);
-   to_Int(str);
-   to_Float(str);
-   to_Double(str); 
+   ScalarConverter::toChar(str);
+   ScalarConverter::toInt(str);
+   ScalarConverter::toFloat(str);
+   ScalarConverter::toDouble(str); 
 }
 
 
