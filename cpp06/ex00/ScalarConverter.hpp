@@ -29,3 +29,7 @@ class ScalarConverter
         };    
 };
 
+void to_Int(const std::string& str);
+void to_Float(const std::string& str);
+void to_Double(const std::string& str);
+void to_Char(const std::string& str);

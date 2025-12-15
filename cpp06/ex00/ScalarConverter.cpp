@@ -32,13 +32,25 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-void ScalarConverter::convert(std::string str)
-{ 
-    
-   
-    
-}
 
+
+void to_Char(const std::string& str)
+{
+    try {
+           if (str.length() > 1 && !std::isnan(atof(str.c_str())))
+           {
+               std::cout << "char : "<< "'*'" <<std::endl;
+           }
+           else if (isprint(str[0]) && !isdigit(str[0]) &&  str.length() == 1 )
+               std::cout << "char : "<< str[0] <<std::endl;
+           else 
+               throw(ScalarConverter::convertexcpt());
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "char: "<< e.what() << '\n';
+    }
+} 
 void to_Int(std::string& str)
 {
      try
@@ -82,7 +94,7 @@ void to_Float(std::string& str)
 
 void to_Double(const std::string& str)
 {
-     try
+    try
     {
         if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
         {
@@ -103,6 +115,13 @@ void to_Double(const std::string& str)
     }
 }
 
+void ScalarConverter::convert(std::string str)
+{ 
+   to_Char(str);
+   to_Int(str);
+   to_Float(str);
+   to_Double(str); 
+}
 const char* ScalarConverter::convertexcpt::what() const throw()
 {
     return "impossible";
