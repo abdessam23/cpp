@@ -21,12 +21,7 @@ class ScalarConverter
     ScalarConverter& operator=(const ScalarConverter& other);
     public:
         ~ScalarConverter();
-        static void convert(std::string str);
-        class convertexcpt: public std::exception
-        {
-            public:
-            const char* what() const throw();
-        };    
+        static void convert(std::string str);  
 };
 
 void to_Int(const std::string& str);

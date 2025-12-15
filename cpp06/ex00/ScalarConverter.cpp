@@ -41,10 +41,14 @@ void to_Char(const std::string& str)
            {
                std::cout << "char : "<< "'*'" <<std::endl;
            }
-           else if (isprint(str[0]) && !isdigit(str[0]) &&  str.length() == 1 )
-               std::cout << "char : "<< str[0] <<std::endl;
+           else if (str.length() == 1)
+          {
+            if (isdigit(str[0]) &&  !isprint(atoi(str.c_str())))
+                throw std::runtime_error("Non displyable");
+            std::cout << "char : "<< str[0] <<std::endl;
+          }
            else 
-               throw(ScalarConverter::convertexcpt());
+               throw std::runtime_error("Impossible");
     }
     catch(const std::exception& e)
     {
@@ -61,7 +65,7 @@ void to_Int(std::string& str)
             std::cout << "int: "<< n <<std::endl;
         }
         else
-            throw (ScalarConverter::convertexcpt());
+             throw std::runtime_error("Impossible");
     }
     catch(const std::exception& e)
     {
@@ -84,7 +88,7 @@ void to_Float(std::string& str)
                 std::cout << "float: "<< n << ".0f"<<std::endl;  
         }
         else
-            throw(ScalarConverter::convertexcpt());
+             throw std::runtime_error("Impossible");
     }
     catch(const std::exception& e)
     {
@@ -107,7 +111,7 @@ void to_Double(const std::string& str)
                 std::cout << "double: "<< n <<".0"<<std::endl;   
         }
         else
-            throw(ScalarConverter::convertexcpt());
+             throw std::runtime_error("Impossible");
     }
     catch(const std::exception& e)
     {
@@ -122,8 +126,5 @@ void ScalarConverter::convert(std::string str)
    to_Float(str);
    to_Double(str); 
 }
-const char* ScalarConverter::convertexcpt::what() const throw()
-{
-    return "impossible";
-}
+
 
