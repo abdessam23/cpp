@@ -58,37 +58,25 @@ void ScalarConverter::toInt(const std::string& str)
     std::cout <<"Int: ";
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if (n > INT_MAX  || n < INT_MIN || !isNumber(str))
-    {
+    if (isNumber(str)||( *end == 'f' && *(end + 1) == '\0' &&  n <= INT_MAX  && n >= INT_MIN))
+        std::cout << static_cast<int>(n)<<std::endl;
+    else
         std::cout << "impossible" <<std::endl;
-        return;
-    }
-    std::cout << static_cast<int>(n)<<std::endl;
 }
 
 void ScalarConverter::toFloat(const std::string& str)
 {
-     try
-    {
-        if (isNumber(str) || isNanInf(str))
+          if (isNumber(str) || isNanInf(str))
         {
-            float n = atof(str.c_str());
-             
+            char* end = NULL;
+            double n = std::strtod(str.c_str(), &end);
             if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
-            {
-                std::cout << "float: "<< n <<"f"<<std::endl;
-            }
-            else
-                std::cout << "float: "<< n << ".0f"<<std::endl;  
+                std::cout << "Float: "<<static_cast<float>(n)<< "f" <<std::endl;   
         }
         else
-             throw std::runtime_error("Impossible");
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "float: "<< e.what() << "\n";
-    }
+             std::cerr << "Float: "<<"impossible" << "\n";
 }
+
 bool isNanInf(const std::string& str)
 {
     if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf"  
