@@ -12,6 +12,8 @@
 
 #include "ScalarConverter.hpp"
 #include <cmath>
+bool isNumber(const std::string& str);
+bool isNanInf(const std::string& str);
 ScalarConverter::ScalarConverter()
 {
 }
@@ -56,9 +58,11 @@ void ScalarConverter::toInt(const std::string& str)
 {
      try
     {
-        if (isdigit(str[0]))
+        if (isNumber(str))
         {
-            int n = atoi(str.c_str());
+            long n = atol(str.c_str());
+            if (n > INT_MAX  || n < INT_MIN)
+                throw std::overflow_error("impossible");
             std::cout << "int: "<< n <<std::endl;
         }
         else
@@ -74,9 +78,10 @@ void ScalarConverter::toFloat(const std::string& str)
 {
      try
     {
-        if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
+        if (isNumber(str) || isNanInf(str))
         {
             float n = atof(str.c_str());
+             
             if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
             {
                 std::cout << "float: "<< n <<"f"<<std::endl;
@@ -92,12 +97,40 @@ void ScalarConverter::toFloat(const std::string& str)
         std::cerr << "float: "<< e.what() << "\n";
     }
 }
+bool isNanInf(const std::string& str)
+{
+    if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
+        return true;
+    return false;
+}
+
+bool isNumber(const std::string& str)
+{
+    size_t i = 0;
+    int c = 0;
+    if (str[i] == '-' || str[i] == '+')
+        i++;
+    if (i  == str.length() || !isdigit(str[i]))
+        return false;
+    while (i < str.length())
+    {
+        if (!isdigit(str[i]) && str[i] !='.')
+            return false;
+        if (str[i] == '.')
+            c++;
+        i++;
+    }
+    if (c > 1 || str[str.length() - 1] == '.' )
+        return false;
+    return true; 
+}
+
 
 void ScalarConverter::toDouble(const std::string& str)
 {
     try
     {
-        if (isdigit(str[0]) || str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
+        if (isNumber(str) || isNanInf(str))
         {
             double n = atof(str.c_str());
             if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
@@ -123,5 +156,3 @@ void ScalarConverter::convert(std::string str)
    ScalarConverter::toFloat(str);
    ScalarConverter::toDouble(str); 
 }
-
-
