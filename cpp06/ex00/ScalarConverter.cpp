@@ -55,22 +55,15 @@ void ScalarConverter::toChar(const std::string& str)
 } 
 void ScalarConverter::toInt(const std::string& str)
 {
-     try
+    std::cout <<"Int: ";
+    char* end = NULL;
+    double n = std::strtod(str.c_str(), &end);
+    if (n > INT_MAX  || n < INT_MIN || !isNumber(str))
     {
-        if (isNumber(str))
-        {
-            long n = atol(str.c_str());
-            if (n > INT_MAX  || n < INT_MIN)
-                throw std::overflow_error("impossible");
-            std::cout << "int: "<< n <<std::endl;
-        }
-        else
-             throw std::runtime_error("Impossible");
+        std::cout << "impossible" <<std::endl;
+        return;
     }
-    catch(const std::exception& e)
-    {
-            std::cerr<< "int : " << e.what() << "\n";
-    }
+    std::cout << static_cast<int>(n)<<std::endl;
 }
 
 void ScalarConverter::toFloat(const std::string& str)
@@ -108,19 +101,31 @@ bool isNumber(const std::string& str)
 {
     size_t i = 0;
     int c = 0;
-    if (str[i] == '-' || str[i] == '+')
+    while (i < str.length() && str[i] == ' ')
+        i++;
+    if (i < str.length() && (str[i] == '-' || str[i] == '+'))
         i++;
     if (i  == str.length() || !isdigit(str[i]))
         return false;
     while (i < str.length())
     {
-        if (!isdigit(str[i]) && str[i] !='.')
-            return false;
-        if (str[i] == '.')
-            c++;
+        if (isdigit(str[i]))
+        {
+            i++;
+            continue;
+        }
+        else if (str[i] == '.')
+        {
+            if (++c > 1 || i + 1 == str.length() || !isdigit(str[i+ 1]))
+                return false;
+        }
+        else
+            break;
         i++;
     }
-    if (c > 1 || str[str.length() - 1] == '.' )
+    while (i < str.length() && str[i] == ' ')
+        i++;
+    if (i != str.length())
         return false;
     return true; 
 }
