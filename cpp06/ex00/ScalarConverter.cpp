@@ -31,22 +31,27 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-void printOutput(const std::string s1)
-{
-    std::cout << s1 ;
-}
-
 void ScalarConverter::toChar(const std::string& str)
 {
-    printOutput("char : ");
+    std::cout <<"char: ";
+    if (str.length() == 1 && !isdigit(str[0]))
+    {
+        if (isprint(str[0]))
+            std::cout << str[0]<<std::endl;
+        else
+            std::cout <<"Non displayable" <<std::endl;
+        return;
+    }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if (isNanInf(str) ||(n < 0  || n > 127))
+    if ( *end != '\0' || !isNumber(str) 
+                      || n < 0  || n > 127
+                      || n != static_cast<int>(n))
         std::cout<<"Impossible" <<std::endl;
     else if (!isprint(static_cast<int>(n)))
         std::cout<<"Non displayable" <<std::endl;
     else 
-        std::cout << static_cast<char>(n)<<std::endl;
+        std::cout<<"'" << static_cast<char>(n)<<"'"<<std::endl;
 } 
 void ScalarConverter::toInt(const std::string& str)
 {
