@@ -13,6 +13,7 @@
 #pragma once
 #include <iostream>
 #include <climits>
+#include <cstdlib>
 
 
 class ScalarConverter

@@ -31,28 +31,22 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-
+void printOutput(const std::string s1)
+{
+    std::cout << s1 ;
+}
 
 void ScalarConverter::toChar(const std::string& str)
 {
-    try {
-           if (str.length() > 1 && !std::isnan(atof(str.c_str())))
-           {
-               std::cout << "char : "<< "'*'" <<std::endl;
-           }
-           else if (str.length() == 1)
-          {
-            if (isdigit(str[0]) &&  !isprint(atoi(str.c_str())))
-                throw std::runtime_error("Non displyable");
-            std::cout << "char : "<< str[0] <<std::endl;
-          }
-           else 
-               throw std::runtime_error("Impossible");
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "char: "<< e.what() << '\n';
-    }
+    printOutput("char : ");
+    char* end = NULL;
+    double n = std::strtod(str.c_str(), &end);
+    if (isNanInf(str) ||(n < 0  || n > 127))
+        std::cout<<"Impossible" <<std::endl;
+    else if (!isprint(static_cast<int>(n)))
+        std::cout<<"Non displayable" <<std::endl;
+    else 
+        std::cout << static_cast<char>(n)<<std::endl;
 } 
 void ScalarConverter::toInt(const std::string& str)
 {
@@ -99,7 +93,8 @@ void ScalarConverter::toFloat(const std::string& str)
 }
 bool isNanInf(const std::string& str)
 {
-    if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf")
+    if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf"  
+        || str == "-inff" || str == "+inf" || str == "+inff")
         return true;
     return false;
 }
@@ -128,11 +123,11 @@ bool isNumber(const std::string& str)
 
 void ScalarConverter::toDouble(const std::string& str)
 {
-    try
-    {
+   
         if (isNumber(str) || isNanInf(str))
         {
-            double n = atof(str.c_str());
+            char* end = NULL;
+            double n = std::strtod(str.c_str(), &end);
             if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
             {
                 std::cout << "double: "<< n<<std::endl;
@@ -141,12 +136,9 @@ void ScalarConverter::toDouble(const std::string& str)
                 std::cout << "double: "<< n <<".0"<<std::endl;   
         }
         else
-             throw std::runtime_error("Impossible");
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "Double: "<< e.what() << "\n";
-    }
+             std::cerr << "Double: "<<"impossible" << "\n";
+    
+  
 }
 
 void ScalarConverter::convert(std::string str)
