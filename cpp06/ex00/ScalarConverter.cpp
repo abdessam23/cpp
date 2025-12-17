@@ -44,7 +44,9 @@ void ScalarConverter::toChar(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if ( *end != '\0' || !isNumber(str) || n < 0  || n > 127)
+    if ( *end != '\0' || !isNumber(str) 
+                      || n < 0  || n > 127
+                      || n != static_cast<int>(n))
         std::cout<<"Impossible" <<std::endl;
     else if (!isprint(static_cast<int>(n)))
         std::cout<<"Non displayable" <<std::endl;
@@ -61,10 +63,19 @@ void ScalarConverter::toInt(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if (isNumber(str)||( *end == 'f' && *(end + 1) == '\0' &&  n <= INT_MAX  && n >= INT_MIN))
-        std::cout << static_cast<int>(n)<<std::endl;
-    else
+    if (*end == 'f' && *(end + 1) == '\0')
+        ;
+    else if (*end != '\0')
+    {
         std::cout << "impossible" <<std::endl;
+        return;
+    }
+    if (n > INT_MAX  || n < INT_MIN || n != static_cast<int>(n))
+    {
+        std::cout << "impossible" <<std::endl;
+        return;
+    }
+    std::cout << static_cast<int>(n)<<std::endl;
 }
 
 void ScalarConverter::toFloat(const std::string& str)
