@@ -53,6 +53,17 @@ void ScalarConverter::toChar(const std::string& str)
     else 
         std::cout<<"'" << static_cast<char>(n)<<"'"<<std::endl;
 } 
+
+bool isvalidlitral(double n, char* end)
+{
+    if (*end == 'f' && *(end + 1) == '\0')
+        ;
+    else if (*end != '\0')
+        return false;
+    if (n > INT_MAX  || n < INT_MIN || n != static_cast<int>(n))
+       return false;
+    return true;
+}
 void ScalarConverter::toInt(const std::string& str)
 {
     std::cout <<"Int: ";
@@ -63,14 +74,7 @@ void ScalarConverter::toInt(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if (*end == 'f' && *(end + 1) == '\0')
-        ;
-    else if (*end != '\0')
-    {
-        std::cout << "impossible" <<std::endl;
-        return;
-    }
-    if (n > INT_MAX  || n < INT_MIN || n != static_cast<int>(n))
+    if (!isvalidlitral(n,end))
     {
         std::cout << "impossible" <<std::endl;
         return;
@@ -80,15 +84,34 @@ void ScalarConverter::toInt(const std::string& str)
 
 void ScalarConverter::toFloat(const std::string& str)
 {
-          if (isNumber(str) || isNanInf(str))
+    std::cout << "Float: ";
+        char* end = NULL;
+        double n = std::strtod(str.c_str(), &end);
+        if (*end == 'f' && *(end + 1) == '\0')
+            ;
+        else if (*end != '\0')
         {
-            char* end = NULL;
-            double n = std::strtod(str.c_str(), &end);
-            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
-                std::cout << "Float: "<<static_cast<float>(n)<< "f" <<std::endl;   
+            std::cout << "impossible\n";
+            return;
+        }
+        if (std::isnan(n))
+        {
+            std::cout << "nanf\n";
+            return;
+        }
+        if(std::isinf(n))
+        {
+            std::cout <<(n<0?"-inff":"inff")<<std::endl;
+            return;
+        }
+        float f = static_cast<float>(n);
+        if(f == static_cast<int>(n))
+        {
+            std::cout << f<< ".0f"<<std::endl;
         }
         else
-             std::cerr << "Float: "<<"impossible" << "\n";
+            std::cout <<f<<"f"<<std::endl;
+            
 }
 
 bool isNanInf(const std::string& str)
@@ -157,6 +180,6 @@ void ScalarConverter::convert(std::string str)
 { 
    ScalarConverter::toChar(str);
    ScalarConverter::toInt(str);
-//    ScalarConverter::toFloat(str);
+   ScalarConverter::toFloat(str);
 //    ScalarConverter::toDouble(str); 
 }
