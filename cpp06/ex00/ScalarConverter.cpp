@@ -44,9 +44,7 @@ void ScalarConverter::toChar(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if ( *end != '\0' || !isNumber(str) 
-                      || n < 0  || n > 127
-                      || n != static_cast<int>(n))
+    if ( *end != '\0' || !isNumber(str) || n < 0  || n > 127)
         std::cout<<"Impossible" <<std::endl;
     else if (!isprint(static_cast<int>(n)))
         std::cout<<"Non displayable" <<std::endl;
@@ -56,6 +54,11 @@ void ScalarConverter::toChar(const std::string& str)
 void ScalarConverter::toInt(const std::string& str)
 {
     std::cout <<"Int: ";
+    if (str.length() == 1 && !isdigit(str[0]))
+    {
+        std::cout << static_cast<int>(str[0])<<std::endl;
+        return;
+    }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
     if (isNumber(str)||( *end == 'f' && *(end + 1) == '\0' &&  n <= INT_MAX  && n >= INT_MIN))
@@ -143,6 +146,6 @@ void ScalarConverter::convert(std::string str)
 { 
    ScalarConverter::toChar(str);
    ScalarConverter::toInt(str);
-   ScalarConverter::toFloat(str);
-   ScalarConverter::toDouble(str); 
+//    ScalarConverter::toFloat(str);
+//    ScalarConverter::toDouble(str); 
 }
