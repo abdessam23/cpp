@@ -184,7 +184,7 @@ void ScalarConverter::toDouble(const std::string& str)
             std::cout << n<< ".0"<<std::endl;
         }
         else
-            std::cout <<n<<"f"<<std::endl;
+            std::cout <<n<<std::endl;
 
 }
 
