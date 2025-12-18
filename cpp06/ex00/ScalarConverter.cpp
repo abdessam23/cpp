@@ -64,6 +64,7 @@ bool isvalidlitral(double n, char* end)
        return false;
     return true;
 }
+
 void ScalarConverter::toInt(const std::string& str)
 {
     std::cout <<"Int: ";
@@ -185,7 +186,6 @@ void ScalarConverter::toDouble(const std::string& str)
         }
         else
             std::cout <<n<<std::endl;
-
 }
 
 void ScalarConverter::convert(std::string str)
