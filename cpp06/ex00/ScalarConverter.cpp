@@ -158,22 +158,34 @@ bool isNumber(const std::string& str)
 
 void ScalarConverter::toDouble(const std::string& str)
 {
-   
-        if (isNumber(str) || isNanInf(str))
+	std::cout << "Double: ";
+        char* end = NULL;
+        double n = std::strtod(str.c_str(), &end);
+        if (*end == 'f' && *(end + 1) == '\0')
+            ;
+        else if (*end != '\0')
         {
-            char* end = NULL;
-            double n = std::strtod(str.c_str(), &end);
-            if (std::isnan(atof(str.c_str())) || std::isinf(atof(str.c_str())) || str.find('.') != std::string::npos)
-            {
-                std::cout << "double: "<< n<<std::endl;
-            }
-            else
-                std::cout << "double: "<< n <<".0"<<std::endl;   
+            std::cout << "impossible\n";
+            return;
+        }
+        if (std::isnan(n))
+        {
+            std::cout << "nan\n";
+            return;
+        }
+        if(std::isinf(n))
+        {
+            std::cout <<(n<0?"-inf":"inf")<<std::endl;
+            return;
+        }
+     
+        if(n == static_cast<int>(n))
+        {
+            std::cout << n<< ".0"<<std::endl;
         }
         else
-             std::cerr << "Double: "<<"impossible" << "\n";
-    
-  
+            std::cout <<n<<"f"<<std::endl;
+
 }
 
 void ScalarConverter::convert(std::string str)
