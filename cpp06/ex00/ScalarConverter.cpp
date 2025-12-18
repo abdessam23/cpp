@@ -193,5 +193,5 @@ void ScalarConverter::convert(std::string str)
    ScalarConverter::toChar(str);
    ScalarConverter::toInt(str);
    ScalarConverter::toFloat(str);
-//    ScalarConverter::toDouble(str); 
+   ScalarConverter::toDouble(str); 
 }
