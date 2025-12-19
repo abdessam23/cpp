@@ -12,8 +12,8 @@
 
 #include "ScalarConverter.hpp"
 #include <cmath>
-bool isNumber(const std::string& str);
-bool isNanInf(const std::string& str);
+
+// bool isNanInf(const std::string& str);
 ScalarConverter::ScalarConverter()
 {
 }
@@ -115,15 +115,15 @@ void ScalarConverter::toFloat(const std::string& str)
             
 }
 
-bool isNanInf(const std::string& str)
-{
-    if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf"  
-        || str == "-inff" || str == "+inf" || str == "+inff")
-        return true;
-    return false;
-}
+// bool isNanInf(const std::string& str)
+// {
+//     if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf"  
+//         || str == "-inff" || str == "+inf" || str == "+inff")
+//         return true;
+//     return false;
+// }
 
-bool isNumber(const std::string& str)
+bool  ScalarConverter::isNumber(const std::string& str)
 {
     size_t i = 0;
     int c = 0;

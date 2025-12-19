@@ -23,7 +23,7 @@ class ScalarConverter
         ScalarConverter(const ScalarConverter&);
         ScalarConverter& operator=(const ScalarConverter&);
          ~ScalarConverter();
-
+        static bool isNumber(const std::string& str);
         static void toInt(const std::string& str);
         static void toFloat(const std::string& str);
         static void toDouble(const std::string& str);
