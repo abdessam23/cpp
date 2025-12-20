@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Templete.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 14:14:42 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 14:19:39 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/20 13:46:03 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ template <typename T> void swap(T& a, T& b)
 
 template<typename T> T min(T a,T b)
 {
-    return (a <= b) ? a : b;
+    return (a < b) ? a : b;
 }
 
 template <typename T> T max(T a,T b)
 {
-    return (a > b) ? a : b;
+    return (a > b) ? a : b; 
 }

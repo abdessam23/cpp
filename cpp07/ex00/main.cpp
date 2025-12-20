@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 14:22:07 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/07 14:22:29 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/20 13:47:44 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int main()
    std::cout << min(a,b)<<std::endl; 
   
    std::cout << "Max"<< std::endl;
-   std::cout <<  max(a,b) <<std::endl; 
+   std::cout <<  max(a,b) <<std::endl;
 }
