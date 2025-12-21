@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/21 14:49:31 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/21 15:44:24 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void ScalarConverter::toInt(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if (!isvalidlitral(n,end))
+    if (!isvalidlitral(n,end) || str.empty())
     {
         std::cout << "impossible" <<std::endl;
         return;
@@ -85,6 +85,11 @@ void ScalarConverter::toInt(const std::string& str)
 void ScalarConverter::toFloat(const std::string& str)
 {
     std::cout << "Float: ";
+        if (str.empty() || str == "f")
+        {
+            std::cout << "impossible\n";
+            return;
+        }
         char* end = NULL;
         double n = std::strtod(str.c_str(), &end);
         if (*end == 'f' && *(end + 1) == '\0')
@@ -114,13 +119,6 @@ void ScalarConverter::toFloat(const std::string& str)
             
 }
 
-// bool isNanInf(const std::string& str)
-// {
-//     if (str == "nan"  || str == "inf" || str == "-nan"  || str == "-inf"  
-//         || str == "-inff" || str == "+inf" || str == "+inff")
-//         return true;
-//     return false;
-// }
 
 bool  ScalarConverter::isNumber(const std::string& str)
 {
@@ -159,6 +157,12 @@ bool  ScalarConverter::isNumber(const std::string& str)
 void ScalarConverter::toDouble(const std::string& str)
 {
 	std::cout << "Double: ";
+        if (str.empty() || str == "f")
+        {
+            std::cout << "impossible\n";
+            return;
+        }
+        std::cout <<"here\n";
         char* end = NULL;
         double n = std::strtod(str.c_str(), &end);
         if (*end == 'f' && *(end + 1) == '\0')
@@ -178,7 +182,6 @@ void ScalarConverter::toDouble(const std::string& str)
             std::cout <<(n<0?"-inf":"inf")<<std::endl;
             return;
         }
-     
         if(n == static_cast<int>(n))
         {
             std::cout << n<< ".0"<<std::endl;
