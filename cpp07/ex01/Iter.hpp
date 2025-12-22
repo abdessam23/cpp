@@ -6,11 +6,11 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 12:33:47 by abhimi            #+#    #+#             */
-/*   Updated: 2025/12/22 12:46:34 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/22 13:22:59 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 template<typename T1,typename T2,typename T3> void Iter(const T1 ar[],const T2 len,const T3 size)
 {
-    
+    return;
 }
