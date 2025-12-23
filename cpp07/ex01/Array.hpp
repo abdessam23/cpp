@@ -77,11 +77,7 @@ Array<T> Array<T>::operator=(const Array<T>& other)
     return *this;
 }
 
-// template<typename T>
-// Array<T> Array<T>::operator[](const int index)
-// {
 
-// }
 
 template<typename T>
 Array<T>::~Array()
