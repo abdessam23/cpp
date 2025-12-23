@@ -10,18 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+
 template<typename T> 
 class Array
 {
 private:
-    static  int N;
-    T data[N];
+    
+    T* data;
+    size_t N;
     Array();
 public:
-    Array(const int size);
+    
+    Array(const size_t size);
     Array(const Array& other);
     Array operator=(const Array& other);
-    Array operator[](const int index)
+    Array operator[](const size_t index)
     {
         return data[index];
     }
@@ -37,13 +41,13 @@ public:
 };
 
 template<typename T> 
-Array<T>::Array(const int size)
+Array<T>::Array(const size_t size):N(size)
 {
-    Array::N = size;
+     data = new T[size];
 }
 
 template<typename T> 
-Array<T>::Array()
+Array<T>::Array():N(10)
 {
     
 }
@@ -63,9 +67,11 @@ Array<T> Array<T>::operator=(const Array<T>& other)
 {
     if (this != &other)
     {
+         delete[] data;
+         data = new  T[other.N];
         for (int i = 0; i < N ;i++)
         {
-            data[i] = other.data[i];
+            data[i] =  other.data[i];
         }
     }
     return *this;
@@ -80,6 +86,6 @@ Array<T> Array<T>::operator=(const Array<T>& other)
 template<typename T>
 Array<T>::~Array()
 {
-    
+    delete[] data;
 }
 
