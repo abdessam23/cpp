@@ -25,9 +25,13 @@ public:
     {
         return data[index];
     }
-    bool operator!=(Array& arr)
+    bool operator!=(Array& arr) const
     {
-        return data[N] != arr[N];
+        for (int i = 0;i < N;i++)
+        {
+            if (data[i] != arr.data[i])
+                return true;
+        }
     }
     ~Array();
 };
