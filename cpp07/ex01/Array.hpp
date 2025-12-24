@@ -16,15 +16,46 @@ template<typename T>
 class Array
 {
 private:
-    
-    T* data;
     int N;
-    Array();
+    T* data;
+    Array():N(10)
+    {
+    }
 public:
-    
-    Array(const int size);
-    Array(const Array& other);
-    Array& operator=(const Array& other);
+      
+    Array(const int size)
+    {
+     data = new T[size];
+     for(int i = 0; i < N;i++)
+     {
+        data[i] = 0;
+     }
+    }
+    Array(const Array& other):N(other.N),data(new T[other.N])
+    {
+    if (this != &other)
+    {
+        // std::cout << other.data[0];
+        for (int i = 0; i < N ;i++)
+        {
+            data[i] =  other.data[i];
+        }
+    }
+    }
+    Array& operator=(const Array& other)
+    {
+        if (this != &other)
+        {
+             N = other.N;
+             delete data;
+             data = new  T[other.N];
+            for (int i = 0; i < N ;i++)
+            {
+                data[i] =  other.data[i];
+            }
+        }
+        return *this;
+    }
     T& operator[](int index) const
     {
         if (index  < 0 || index >= N)
@@ -39,56 +70,11 @@ public:
                 return true;
         }
     }
-    ~Array();
+    ~Array()
+    {
+        delete[] data;
+    }
 };
 
-template<typename T> 
-Array<T>::Array(const int size):N(size)
-{
-     data = new T[size];
-     for(int i = 0; i < N;i++)
-     {
-        data[i] = 0;
-     }
-}
 
-template<typename T> 
-Array<T>::Array():N(10)
-{
-    
-}
-template<typename T> 
-Array<T>::Array(const Array<T>& other):N(other.N),data(new T[other.N])
-{
-    if (this != &other)
-    {
-        // std::cout << other.data[0];
-        for (int i = 0; i < N ;i++)
-        {
-            data[i] =  other.data[i];
-        }
-    }
-}
-template<typename T>
-Array<T>& Array<T>::operator=(const Array<T>& other)
-{
-    if (this != &other)
-    {
-         N = other.N;
-         delete data;
-         data = new  T[other.N];
-        for (int i = 0; i < N ;i++)
-        {
-            data[i] =  other.data[i];
-        }
-    }
-    return *this;
-}
-
-
-template<typename T>
-Array<T>::~Array()
-{
-    delete[] data;
-}
 

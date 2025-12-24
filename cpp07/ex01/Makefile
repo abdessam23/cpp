@@ -6,9 +6,9 @@ CXXFLAGS=-Wall -Wextra -Werror --std=c++98
 
 RM=rm 
 
-SRC= Array.hpp main.cpp
+SRC=  main.cpp
 
-OBJ= Array.o main.o
+OBJ= main.o
 
 
 all:$(NAME)

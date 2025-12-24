@@ -6,13 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:57:29 by abhimi            #+#    #+#             */
-/*   Updated: 2025/12/24 12:58:52 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/24 13:09:39 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <iostream>
 #include "Array.hpp"
+#include <cstdlib>
 
 #define MAX_VAL 10
 
