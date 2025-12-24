@@ -6,7 +6,12 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 12:53:05 by abhimi            #+#    #+#             */
-/*   Updated: 2025/12/23 12:53:06 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/24 16:45:32 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+template<typename T> 
+void Iter(T* array, int len, const T& f(array[])) 
+{
+    
+}
