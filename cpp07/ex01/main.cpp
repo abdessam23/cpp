@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:57:29 by abhimi            #+#    #+#             */
-/*   Updated: 2025/12/24 12:19:13 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/24 12:58:52 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,29 @@ int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
     numbers[0] = 7;
-    std::cout << numbers[0];
-    // int* mirror = new int[MAX_VAL];
-    // srand(time(0));
-    // for (int i = 0; i < MAX_VAL; i++)
-    // {
-    //     const int value = rand();
-    //     numbers[i] = value;
-    //     mirror[i] = value;
-    // }
-    // //SCOPE
-    // {
-    //     Array<int> tmp = numbers;
-    //     Array<int> test(tmp);
-    // }
+    std::cout << numbers[0] << "\n";
+    int* mirror = new int[MAX_VAL];
+    srand(time(0));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
 
-    // for (int i = 0; i < MAX_VAL; i++)
-    // {
-    //     if (mirror[i] != numbers[i])
-    //     {
-    //         std::cerr << "didn't save the same value!!" << std::endl;
-    //         return 1;
-    //     }
-    // }
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
     try
     {
         numbers[-2] = 0;
@@ -64,6 +64,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    // delete [] mirror;//
+    delete [] mirror;//
     return 0;
 }

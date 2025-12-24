@@ -58,11 +58,11 @@ Array<T>::Array():N(10)
     
 }
 template<typename T> 
-Array<T>::Array(const Array<T>& other):N(other.N),data(new T(other.N))
+Array<T>::Array(const Array<T>& other):N(other.N),data(new T[other.N])
 {
     if (this != &other)
     {
-        std::cout << other.data[0];
+        // std::cout << other.data[0];
         for (int i = 0; i < N ;i++)
         {
             data[i] =  other.data[i];
@@ -74,7 +74,8 @@ Array<T>& Array<T>::operator=(const Array<T>& other)
 {
     if (this != &other)
     {
-         delete[] data;
+         N = other.N;
+         delete data;
          data = new  T[other.N];
         for (int i = 0; i < N ;i++)
         {
