@@ -18,15 +18,17 @@ class Array
 private:
     
     T* data;
-    size_t N;
+    int N;
     Array();
 public:
     
-    Array(const size_t size);
+    Array(const int size);
     Array(const Array& other);
-    Array operator=(const Array& other);
-    Array operator[](const size_t index)
+    Array& operator=(const Array& other);
+    T& operator[](int index) const
     {
+        if (index  < 0 || index >= N)
+            throw std::out_of_range("index out of range");
         return data[index];
     }
     bool operator!=(Array& arr) const
@@ -41,9 +43,13 @@ public:
 };
 
 template<typename T> 
-Array<T>::Array(const size_t size):N(size)
+Array<T>::Array(const int size):N(size)
 {
      data = new T[size];
+     for(int i = 0; i < N;i++)
+     {
+        data[i] = 0;
+     }
 }
 
 template<typename T> 
@@ -52,18 +58,19 @@ Array<T>::Array():N(10)
     
 }
 template<typename T> 
-Array<T>::Array(const Array<T>& other)
+Array<T>::Array(const Array<T>& other):N(other.N),data(new T(other.N))
 {
     if (this != &other)
     {
+        std::cout << other.data[0];
         for (int i = 0; i < N ;i++)
         {
-            data[i] = other.data[i];
+            data[i] =  other.data[i];
         }
     }
 }
 template<typename T>
-Array<T> Array<T>::operator=(const Array<T>& other)
+Array<T>& Array<T>::operator=(const Array<T>& other)
 {
     if (this != &other)
     {
@@ -76,7 +83,6 @@ Array<T> Array<T>::operator=(const Array<T>& other)
     }
     return *this;
 }
-
 
 
 template<typename T>
