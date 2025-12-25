@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:57:29 by abhimi            #+#    #+#             */
-/*   Updated: 2025/12/25 11:04:10 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/25 11:05:49 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int main(int, char**)
     {
        std::cout <<  numbers[i]<<std::endl;
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

@@ -56,6 +56,7 @@ public:
         }
         return *this;
     }
+    
     T& operator[](int index) const
     {
         if (index  < 0 || index >= N )
