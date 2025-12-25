@@ -6,11 +6,16 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2025/12/25 10:24:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/25 10:30:31 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Iter.hpp"
+
+void castfloat(float& n)
+{
+    n = static_cast<int>(n);
+}
 
 void addString(std::string& str)
 {
@@ -35,6 +40,14 @@ int main()
     for(size_t i = 0;i < 3;i++)
     {
         std::cout << str[i]<<",";
+    }
+    std::cout << std::endl;
+    
+    float f[4] = {1.5,7.4,3.9,5.2};
+    Iter(f,4,castfloat);
+    for(size_t i = 0;i < 4;i++)
+    {
+        std::cout << f[i]<<",";
     }
     std::cout << std::endl;
     return 0;
