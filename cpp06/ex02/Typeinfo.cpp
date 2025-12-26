@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Typeinfo.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abdo <abdo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/02 13:27:43 by abdo             ###   ########.fr       */
+/*   Updated: 2025/12/26 10:26:20 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 Base * generate(void)
 {
-    std::srand(std::time(0));
+    std::srand(time(0));
     int randomNum = std::rand();
     if (randomNum % 3 == 0)
         return (new A());
@@ -43,7 +43,7 @@ void identify(Base* p)
         return;
     }
     if (dynamic_cast<C*> (p))
-     {
+    {
         std::cout << "C" <<std::endl;
         return;
     }

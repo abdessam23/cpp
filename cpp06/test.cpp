@@ -4,7 +4,7 @@ using namespace std;
 // Base Class declaration
 class Base {
 public:
-    virtual void print() {
+    virtual  void print() {
         cout << "Base" << endl;
     }
 };
@@ -16,20 +16,31 @@ public:
         cout << "Derived1" << endl;
     }
 };
+class Derived2 : public Base
+{
+    public :
+        void print()
+        {
+            cout << "derived2" << endl;
+        }
+};
 
 int main() {
-    Derived1 d1;
+    // Derived1 d1;
 
     // Base class pointer holding
     // Derived1 Class object
-    Base* bp = &d1;
+    Derived2* bp  = new Derived2();
 
     // Dynamic_casting
-    Derived1* dp2 = dynamic_cast<Derived1*>(bp);
-    if (dp2 == nullptr)
-        cout << "Casting Failed" << endl;
-    else
+    if (dynamic_cast<Derived1*>(bp))
+    {
+        Derived1* dp2 = dynamic_cast<Derived1*>(bp);
         cout << "Casting Successful" << endl;
+    }
+    else
+        cout << "Casting Failed" << endl;
+        
 
     return 0;
 }
