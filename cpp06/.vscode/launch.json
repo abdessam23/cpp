@@ -7,10 +7,10 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
-                "${workspaceFolder}/cpp06/ex01/main.cpp",
+                "${workspaceFolder}/cpp06/a.out",
                 "${workspaceFolder}/cpp06/ex01/Serializer.cpp",
                 "-o",
-                "${workspaceFolder}/cpp06/ex01/main"
+                "${workspaceFolder}/cpp06/a.out"
             ],
             "group": {
                 "kind": "build",
