@@ -6,12 +6,13 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/27 12:27:45 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/27 12:33:56 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cmath>
+#include <cfloat> 
 #include <cerrno>
 
 ScalarConverter::ScalarConverter()
@@ -96,7 +97,7 @@ void ScalarConverter::toFloat(const std::string& str)
         double n = std::strtod(str.c_str(), &end);
         if (*end == 'f' && *(end + 1) == '\0')
             ;
-        else if (*end != '\0' || errno == ERANGE)
+        else if (*end != '\0' || n > FLT_MAX || n < FLT_MIN)
         {
             std::cout << "impossible\n";
             return;
