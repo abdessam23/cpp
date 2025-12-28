@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 11:51:39 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/20 10:33:03 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/28 11:20:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 int main(int ac, char **argv)
 {
     if (ac != 2)
-        return 1;
+        return 0;
     ScalarConverter::convert(argv[1]);
 }
