@@ -6,29 +6,23 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/28 11:29:28 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/28 12:24:26 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cmath>
 
-ScalarConverter::ScalarConverter()
-{
-}
+ScalarConverter::ScalarConverter(){}
 
-ScalarConverter::ScalarConverter(const ScalarConverter&)
-{
-}
+ScalarConverter::ScalarConverter(const ScalarConverter&){}
 
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter&)
-{
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter&){
     return *this;
 }
 
-ScalarConverter::~ScalarConverter()
-{
-}
+ScalarConverter::~ScalarConverter(){}
+
 
 void ScalarConverter::toChar(const std::string& str)
 {
