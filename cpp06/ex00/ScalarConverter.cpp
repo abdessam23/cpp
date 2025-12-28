@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/28 09:32:05 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/28 11:03:54 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScalarConverter::~ScalarConverter()
 void ScalarConverter::toChar(const std::string& str)
 {
     std::cout <<"char: ";
-    if (str.length() == 1 && !isdigit(str[0]))
+    if (str.length() <= 1 && !isdigit(str[0]))
     {
         if (isprint(str[0]))
             std::cout << str[0]<<std::endl;
@@ -93,12 +93,11 @@ void ScalarConverter::toFloat(const std::string& str)
             return;
         }
         char* end = NULL;
-        errno = 0;
         double n = std::strtod(str.c_str(), &end);
-        std::cout << "double n: "<< n<<std::endl;
+     
         if (*end == 'f' && *(end + 1) == '\0')
             ;
-        else if (*end != '\0' || n > FLT_MAX || n < FLT_MIN)
+        else if (*end != '\0')
         {
             std::cout << "impossible\n";
             return;
