@@ -14,11 +14,7 @@ public:
 };
 
 int main() {
-        int x = 0x41424344; // ASCII: 'A' 'B' 'C' 'D'
-        char* p = reinterpret_cast<char*>(&x);
-
-        std::cout << p[0] << p[1] << p[2] << p[3] << "\n";
-        std::cout << p << "\n";
-    
+       Base *b =  new Derived();
+       Derived* k = dynamic_cast<Derived*> (b);
     
 }
