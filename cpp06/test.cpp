@@ -12,14 +12,12 @@ public:
         std::cout << ++x <<std::endl;
     }
 };
-
 int main() {
-       Base *b =  new Base();
-       Derived* k = dynamic_cast<Derived*> (b);
-       if(!k)
-        std::cout << "casting failed "<< std::endl;
-        else
-            std::cout << "casting successfuly"<< std::endl;
+    int x = 42;
 
-    
+    int* vp = &x;                    // implicit conversion to void*
+    void* ip = static_cast<void*>(vp);  // static_cast back to int*
+
+    std::cout << *vp << std::endl;    // prints 42
 }
+
