@@ -14,7 +14,12 @@ public:
 };
 
 int main() {
-       Base *b =  new Derived();
+       Base *b =  new Base();
        Derived* k = dynamic_cast<Derived*> (b);
+       if(!k)
+        std::cout << "casting failed "<< std::endl;
+        else
+            std::cout << "casting successfuly"<< std::endl;
+
     
 }
