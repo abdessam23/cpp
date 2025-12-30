@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:06:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/30 09:56:31 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/30 11:48:26 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
     Data ptr;
     ptr.n = 5;
-    ptr.p = 65;
+    ptr.p = 'c';
     ptr.s = "hello";
     std::cout << "---------Serialize---------" <<std::endl;
     uintptr_t b =  Serializer::serialize(&ptr);
@@ -26,8 +26,9 @@ int main()
     Data* deserialize = Serializer::deserialize(b);
     deserialize->n = 6;
     deserialize->s = "world";
+     deserialize->p = 'A';
     std::cout << "int : " <<ptr.n <<std::endl;
-    std::cout << "char : " << deserialize->p <<std::endl;
+    std::cout << "char : " << ptr.p <<std::endl;
     std::cout << "string : " << ptr.s <<std::endl;
 
     
