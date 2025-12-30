@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/26 10:26:20 by abhimi           ###   ########.fr       */
+/*   Updated: 2025/12/29 15:24:46 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 Base * generate(void)
 {
-    std::srand(time(0));
     int randomNum = std::rand();
     if (randomNum % 3 == 0)
         return (new A());

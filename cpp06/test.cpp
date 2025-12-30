@@ -13,11 +13,11 @@ public:
     }
 };
 int main() {
-    int x = 42;
+    int x = 0x12345678;
+    char* bytes = reinterpret_cast<char*>(&x);
 
-    int* vp = &x;                    // implicit conversion to void*
-    void* ip = static_cast<void*>(vp);  // static_cast back to int*
+    for (int i = 0; i < sizeof(int); ++i)
+        std::cout << std::hex << (int)bytes[i] << " ";
 
-    std::cout << *vp << std::endl;    // prints 42
 }
 
