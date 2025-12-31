@@ -1,11 +1,15 @@
 #include <iostream>
 
+void print(int& s)
+{
+  
+    std::cout << s<<std::endl;
+
+}
+
 int main()
 {
-    int a =5;
-
-    int* b = static_cast<int*>(&a);
-    char* c = reinterpret_cast<char*>(b);
-    std::cout << *b <<std::endl;
-    std::cout << c <<std::endl;
+    const int s = 5;
+    
+    print(const_cast<int&>(s));
 }
