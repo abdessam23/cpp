@@ -10,6 +10,7 @@ void print(int& s)
 int main()
 {
     const int s = 5;
-    
+    int*  p;
+    int   c = p;
     print(const_cast<int&>(s));
 }
