@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:06:19 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/30 11:48:26 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/01 10:33:49 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 int main()
 {
-    Data ptr;
-    ptr.n = 5;
-    ptr.p = 'c';
-    ptr.s = "hello";
+    Data* ptr = new Data();
+    ptr->n = 5;
+    ptr->p = 'c';
+    ptr->s = "hello";
     std::cout << "---------Serialize---------" <<std::endl;
-    uintptr_t b =  Serializer::serialize(&ptr);
+    uintptr_t b =  Serializer::serialize(ptr);
     std::cout << "intptr : "<< std::hex << b <<std::endl;
     std::cout << "---------Deserialize---------" <<std::endl;
     Data* deserialize = Serializer::deserialize(b);
     deserialize->n = 6;
     deserialize->s = "world";
-     deserialize->p = 'A';
-    std::cout << "int : " <<ptr.n <<std::endl;
-    std::cout << "char : " << ptr.p <<std::endl;
-    std::cout << "string : " << ptr.s <<std::endl;
+    deserialize->p = 'A';
+    std::cout << "int : " <<ptr->n <<std::endl;
+    std::cout << "char : " << ptr->p <<std::endl;
+    std::cout << "string : " << ptr->s <<std::endl;
 
     
 }
