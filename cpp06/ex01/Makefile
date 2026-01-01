@@ -5,9 +5,9 @@ CXXFLAGS= -Wall -Wextra -Werror --std=c++98
 
 RM= rm -rf 
 
-SRC= Serializer.cpp main.cpp
+SRC= Serializer.cpp Data.cpp main.cpp
 
-OBJ=Serializer.o main.o
+OBJ=Serializer.o Data.o main.o
 
 all: $(NAME)
 

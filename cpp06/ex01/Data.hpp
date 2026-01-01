@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:35:26 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/01 11:12:55 by abhimi           ###   ########.fr       */
+/*   Created: 2026/01/01 11:04:42 by abhimi            #+#    #+#             */
+/*   Updated: 2026/01/01 11:28:30 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#ifndef DATA_H
+#define DATA_H
+#include <iostream>
 
-
-
-Serializer::Serializer(){}
-Serializer::Serializer(const Serializer&){}
-Serializer& Serializer::operator=(const Serializer&){ return *this;}
-uintptr_t Serializer::serialize(Data* ptr)
+class Data
 {
-    return (reinterpret_cast<uintptr_t>(ptr));
-}
-Data* Serializer::deserialize(uintptr_t raw)
-{
-    return (reinterpret_cast<Data*>(raw));
-}
-
-Serializer::~Serializer()
-{
-}
+    private:
+    Data(const Data&);
+    Data& operator=(const Data&);
+    
+    public:
+        int n ;
+        char p;
+        std::string s;
+        Data();
+        ~Data();
+};
+#endif
