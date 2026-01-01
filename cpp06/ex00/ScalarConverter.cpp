@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/28 12:24:26 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/01 10:13:35 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <cmath>
+#include <cfloat>
 
 ScalarConverter::ScalarConverter(){}
 
@@ -37,9 +38,7 @@ void ScalarConverter::toChar(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if ( *end != '\0' || !isNumber(str) 
-                      || n < 0  || n > 127
-                      || n != static_cast<int>(n))
+    if ( *end != '\0' || !isNumber(str) || n < 0  || n > 127)
         std::cout<<"impossible" <<"\n";
     else if (!isprint(static_cast<int>(n)))
         std::cout<<"Non displayable" <<"\n";
@@ -51,9 +50,9 @@ bool isvalidlitral(double n, char* end)
 {
     if (*end == 'f' && *(end + 1) == '\0')
         ;
-    else if (*end != '\0')
+    else if (*end != '\0' || *(end-1) == '.')
         return false;
-    if (n > INT_MAX  || n < INT_MIN || n != static_cast<int>(n))
+    if (n > INT_MAX  || n < INT_MIN)
        return false;
     return true;
 }
@@ -89,7 +88,7 @@ void ScalarConverter::toFloat(const std::string& str)
      
         if (*end == 'f' && *(end + 1) == '\0')
             ;
-        else if (*end != '\0')
+        else if (*end != '\0' || *(end-1) == '.')
         {
             std::cout << "impossible" <<"\n";
             return;
@@ -101,7 +100,10 @@ void ScalarConverter::toFloat(const std::string& str)
         }
         if(std::isinf(n))
         {
-            std::cout <<(n<0?"-inff":"inff")<<"\n";
+            if (isNumber(str))
+                std::cout << "impossible" <<"\n";
+            else 
+                std::cout <<(n<0?"-inff":"inff")<<"\n";
             return;
         }
         float f = static_cast<float>(n);
@@ -160,7 +162,7 @@ void ScalarConverter::toDouble(const std::string& str)
         double n = std::strtod(str.c_str(), &end);
         if (*end == 'f' && *(end + 1) == '\0')
             ;
-        else if (*end != '\0')
+        else if (*end != '\0' || *(end-1) == '.')
         {
             std::cout << "impossible" <<"\n";
             return;
@@ -172,7 +174,10 @@ void ScalarConverter::toDouble(const std::string& str)
         }
         if(std::isinf(n))
         {
-            std::cout <<(n<0?"-inf":"inf")<<"\n";
+            if (isNumber(str))
+                std::cout << "impossible" <<"\n";
+            else 
+                std::cout <<(n<0?"-inf":"inf")<<"\n";
             return;
         }
         if(n == static_cast<int>(n))
