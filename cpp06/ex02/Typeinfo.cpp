@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Typeinfo.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2025/12/29 15:24:46 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/03 10:27:38 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Base * generate(void)
 
 void identify(Base* p)
 {
+    std::cout<<"Identify by pointer"<<std::endl;
     if (dynamic_cast<A*> (p))
     {
         std::cout << "A" <<std::endl;
@@ -49,8 +50,10 @@ void identify(Base* p)
 }
 void identify(Base& p)
 {
+    std::cout<<"Identify by reference"<<std::endl;
     try{
-        dynamic_cast<A&>(p);
+       A& a = dynamic_cast<A&>(p);
+       (void)a;
         std::cout << "A" <<std::endl;
         return;
     }
@@ -58,7 +61,8 @@ void identify(Base& p)
     {}
     
     try{
-        dynamic_cast<B&>(p);
+        B& b = dynamic_cast<B&>(p);
+        (void)b;
         std::cout << "B" <<std::endl;
         return;
     }
@@ -66,14 +70,14 @@ void identify(Base& p)
     {}
     
     try{
-        dynamic_cast<C&>(p);
+        C& c = dynamic_cast<C&>(p);
+        (void)c;
         std::cout << "C" <<std::endl;
         return;
      
     }
     catch(std::exception& e)
     {
-        std::cout <<"it is not a type of A ,B or C"<< std::endl;
     }
 }
 
