@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:15:05 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/03 09:57:42 by abhimi           ###   ########.fr       */
+/*   Created: 2026/01/01 11:04:42 by abhimi            #+#    #+#             */
+/*   Updated: 2026/01/01 11:28:30 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Base.hpp"
-class C:public Base 
+#ifndef DATA_H
+#define DATA_H
+#include <iostream>
+
+class Data
 {
+    private:
+    Data(const Data&);
+    Data& operator=(const Data&);
+    
     public:
+        int n ;
+        char p;
+        std::string s;
+        Data();
+        ~Data();
 };
-
-
+#endif

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:15:05 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/03 09:57:42 by abhimi           ###   ########.fr       */
+/*   Created: 2026/01/01 11:05:53 by abhimi            #+#    #+#             */
+/*   Updated: 2026/01/01 11:07:38 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Base.hpp"
-class C:public Base 
-{
-    public:
-};
+#include "Data.hpp"
 
-
+Data::Data(){}
+Data::Data(const Data&){}
+Data& Data::operator=(const Data&){ return *this;}
+Data::~Data(){}

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:15:05 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/03 09:57:42 by abhimi           ###   ########.fr       */
+/*   Created: 2025/11/25 11:51:39 by abdo              #+#    #+#             */
+/*   Updated: 2025/12/28 11:20:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Base.hpp"
-class C:public Base 
+#include "ScalarConverter.hpp"
+
+
+int main(int ac, char **argv)
 {
-    public:
-};
-
-
+    if (ac != 2)
+        return 0;
+    ScalarConverter::convert(argv[1]);
+}

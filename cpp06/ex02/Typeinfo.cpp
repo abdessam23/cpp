@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:39:36 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/03 10:34:47 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/03 09:51:25 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Base * generate(void)
 
 void identify(Base* p)
 {
-    // std::cout<<"Identify by pointer"<<std::endl;
+    std::cout<< "Identify by pointer" << std::endl;
     if (dynamic_cast<A*> (p))
     {
         std::cout << "A" <<std::endl;
@@ -50,7 +50,7 @@ void identify(Base* p)
 }
 void identify(Base& p)
 {
-    // std::cout<<"Identify by reference"<<std::endl;
+    std::cout<< "Identify by reference" << std::endl;
     try{
        A& a = dynamic_cast<A&>(p);
        (void)a;
@@ -77,7 +77,6 @@ void identify(Base& p)
      
     }
     catch(std::exception& e)
-    {
-    }
+    {}
 }
 

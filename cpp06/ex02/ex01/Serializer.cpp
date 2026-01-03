@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 11:15:05 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/03 09:57:42 by abhimi           ###   ########.fr       */
+/*   Created: 2025/11/29 15:35:26 by abdo              #+#    #+#             */
+/*   Updated: 2026/01/01 11:12:55 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Base.hpp"
-class C:public Base 
+#include "Serializer.hpp"
+
+
+
+Serializer::Serializer(){}
+Serializer::Serializer(const Serializer&){}
+Serializer& Serializer::operator=(const Serializer&){ return *this;}
+uintptr_t Serializer::serialize(Data* ptr)
 {
-    public:
-};
+    return (reinterpret_cast<uintptr_t>(ptr));
+}
+Data* Serializer::deserialize(uintptr_t raw)
+{
+    return (reinterpret_cast<Data*>(raw));
+}
 
-
+Serializer::~Serializer()
+{
+}
