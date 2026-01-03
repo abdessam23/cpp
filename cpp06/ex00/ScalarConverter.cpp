@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 11:23:09 by abdo              #+#    #+#             */
-/*   Updated: 2026/01/01 10:13:35 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/03 10:46:13 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void ScalarConverter::toInt(const std::string& str)
     }
     char* end = NULL;
     double n = std::strtod(str.c_str(), &end);
-    if (!isvalidlitral(n,end) || str.empty())
+    if (!isvalidlitral(n,end) || str.empty() || !isNumber(str))
     {
         std::cout << "impossible" <<"\n";
         return;
