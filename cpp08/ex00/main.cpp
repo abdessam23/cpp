@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 10:43:06 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/04 11:21:46 by abhimi           ###   ########.fr       */
+/*   Created: 2026/01/04 11:11:15 by abhimi            #+#    #+#             */
+/*   Updated: 2026/01/04 11:22:22 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#pragma once
-#include <iostream>
-#include <exception>
-
-template<typename T,int N>int  easyfind(T* a,int index)
+#include "easyfind.hpp"
+#include <vector>
+int main()
 {
-    if (index < 0 || index >= a.size())
-        throw std::out_of_range("out of bound");
-    for(int i = 0;i < a.size();i++)
+    int a[] = {1,5,6,3,6};
+    try
     {
-        if (a[i] == index)
-            return i;
+        std::cout << easyfind(a,6) <<std::endl;
     }
-    throw std::out_of_range("Not founded");
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    
 }
