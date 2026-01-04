@@ -6,23 +6,26 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 10:43:06 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/04 11:21:46 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/04 11:38:34 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#pragma once
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
+
 #include <iostream>
 #include <exception>
 
-template<typename T,int N>int  easyfind(T* a,int index)
+template<typename T> 
+int    easyfind(T& a,int value)
 {
-    if (index < 0 || index >= a.size())
-        throw std::out_of_range("out of bound");
     for(int i = 0;i < a.size();i++)
     {
-        if (a[i] == index)
+        if (a[i] == value)
             return i;
     }
-    throw std::out_of_range("Not founded");
+    throw std::out_of_range("Not found");
 }
+
+#endif 
