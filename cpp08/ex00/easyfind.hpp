@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 10:43:06 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/04 11:38:34 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/04 11:45:19 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 template<typename T> 
 int    easyfind(T& a,int value)
 {
-    for(int i = 0;i < a.size();i++)
+    for(size_t i = 0;i < a.size();i++)
     {
         if (a[i] == value)
             return i;

@@ -8,7 +8,7 @@ RM=rm -rf
 
 SRC= main.cpp
 
-OBJ=main.o
+OBJ= main.o
 
 all:$(NAME)
 
@@ -17,7 +17,7 @@ $(NAME):$(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-fclean:
+fclean:clean
 	$(RM) $(NAME)
 
 re: fclean all	
