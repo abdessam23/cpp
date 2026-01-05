@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/05 12:31:47 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/05 12:49:02 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,39 @@ void Span::addNumber(const int n)
 int Span::shortestSpan()
 {
     try{
-        if (s.size() == 0 || s.size() == 1)
-            return(s[1] - s[0]);
+        if (s.size() != 0 && s.size() != 1)
+        {
+            std::set<int>::iterator it = s.begin();
+            int i = *it;
+            std::advance(it,1);
+            return (*it - i);
+        }
         else
-            throw std::out_of_range("span is full");
+            throw std::runtime_error("the span empty or has only one element");
     }
     catch(const std::exception& e)
     {
         std::cout << e.what() <<std::endl;
+        return 0;
     }
 }
 int Span::longestSpan()
 {
     try{
-        if (s.size() == 0 || s.size() == 1)
-            return(s[s.size() - 1] - s[0]);
+        
+        if (s.size() != 0 && s.size() != 1)
+        {
+             std::set<int>::iterator it = s.begin();
+            int i = *it;
+            it = s.end();
+            return (*it - i);
+        }
         else
-            throw std::out_of_range("span is full");
+            throw std::runtime_error("the span empty or has only one element");;
     }
     catch(const std::exception& e)
     {
         std::cout << e.what() <<std::endl;
+        return 0;
     }
 }
