@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 10:56:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/05 11:18:04 by abhimi           ###   ########.fr       */
+/*   Created: 2026/01/05 11:19:12 by abhimi            #+#    #+#             */
+/*   Updated: 2026/01/05 11:20:34 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Span.hpp"
 
-class Span
+
+int main()
 {
-    private:
-        unsigned int N;
-        Span();
-    public:
-        Span(unsigned int n);
-        Span(const Span& other);
-        Span& operator=(const Span& other);
-        ~Span();     
-};
+    Span p = Span(5);
+}
