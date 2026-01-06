@@ -1,16 +1,23 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 int main()
 {
-    vector<int> a(6,5);
-    // for (int x: a)
-    //     cout << x<<"\n";
-    for(int i = 0; i < 6;i++)
-    {
-        cout<< a[i]<<"\n";
-        a.push_back(i);
-    }
-    
-    cout <<a.size()<<std::endl;
+   stack<int> n;
+   n.push(4);
+   
+   n.push(7);
+   n.push(3);
+   n.push(9);
+   n.push(77);
+   std::cout << n.top()<<endl;
+   n.pop();
+   cout << n.top()<<endl;
+   n.pop();
+   cout << n.top()<<endl;
+   n.pop();
+   cout << n.top()<<endl;
+   n.pop();
+   cout << n.top()<<endl;
 }
