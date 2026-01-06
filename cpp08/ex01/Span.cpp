@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/06 11:08:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/06 11:12:55 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int Span::longestSpan()
         {
             std::set<int>::iterator it = s.begin();
             std::set<int>::iterator i = it;
-            std::advance(it,N - 1);
+            std::advance(it,s.size()-1);
             return (*it - *i);
         }
         else
