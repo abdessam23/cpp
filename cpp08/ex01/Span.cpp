@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/05 12:57:32 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/06 09:56:19 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,27 @@ void Span::addNumber(const int n)
     {
         std::cout << e.what() <<std::endl;
     }
-}
+}    
 int Span::shortestSpan()
 {
     try{
         if (s.size() != 0 && s.size() != 1)
         {
-            std::set<int>::iterator it = s.begin();
-            int i = *it;
-            std::advance(it,1);
-            return (*it - i);
+             std::set<int>::iterator it;
+             int shortest = 0;
+            for (it = s.begin(); it != s.end();++it)
+            {
+                int i = *it;
+                std::cout << "i : "<< i <<std::endl;
+                std::advance(it,1);
+                 std::cout << "it : "<< *it <<std::endl;
+                if (shortest > (*it - i))
+                    shortest = *it - i;
+            }
+            return shortest;
+            // int i = *it;
+            // std::advance(it,1);
+            // return (*it - i);
         }
         else
             throw std::runtime_error("the span empty or has only one element");
