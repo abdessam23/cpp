@@ -8,7 +8,7 @@ int main()
   a.push_back(1);
   a.push_front(9);
 
-//   a.pop_back();
+
   std::list<int>::iterator it = a.begin();
   std::advance(it,3);
   a.erase(it);
