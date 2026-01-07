@@ -1,23 +1,22 @@
 #include <iostream>
-#include <vector>
+#include <list>
 #include <stack>
 using namespace std;
 int main()
 {
-   stack<int> n;
-   n.push(4);
-   
-   n.push(7);
-   n.push(3);
-   n.push(9);
-   n.push(77);
-   std::cout << n.top()<<endl;
-   n.pop();
-   cout << n.top()<<endl;
-   n.pop();
-   cout << n.top()<<endl;
-   n.pop();
-   cout << n.top()<<endl;
-   n.pop();
-   cout << n.top()<<endl;
+  std::list<int> a = {3,6,7};
+  a.push_back(1);
+  a.push_front(9);
+
+//   a.pop_back();
+  std::list<int>::iterator it = a.begin();
+  std::advance(it,3);
+  a.erase(it);
+//   a.clear();
+//   if (a.empty())
+//    cout << "yes is empty!\n";
+  for(auto i :a)
+  {
+      cout << i <<"\n";
+  }
 }
