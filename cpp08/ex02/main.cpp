@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:41:26 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/07 09:51:18 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/07 10:05:43 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 
 int main()
 {
-    MutantStack<int> a;
-    a.push(2);
-    a.push(4);
-    a.push(5);
-    a.push(7);
-    a.push(4);
-    a.push(8);
-    while (!a.empty())
+    MutantStack<std::string> a;
+    // MutantStack<int> b = a;
+    a.push(" stack.");
+    a.push(" my first");
+    a.push(" is");
+    a.push(" this");
+    a.push(" world");
+    a.push("hello");   
+    MutantStack<std::string> b = a;
+    while (!b.empty())
     {
-        std::cout << a.top() << std::endl;
-        a.pop();
+        std::cout << b.top() ;
+        b.pop();
     }
     
     
