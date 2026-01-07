@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/07 10:02:11 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/07 10:26:26 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ template<typename T> class MutantStack
         T& top(){
             return st.top();
         }
+        
         void push(const T& n)
         {
             st.push(n);
