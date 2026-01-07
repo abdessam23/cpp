@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/07 09:49:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/07 09:57:46 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 #define MUTANTSTACK_TPP
 
 #include <iostream>
-#include<list>
+#include<stack>
 
 template<typename T> class MutantStack
 {
     private:
-        std::list<T> st;
+        std::stack<T> st;
        
     public:
         MutantStack(){}
-        MutantStack(const MutantStack& other){}
-        MutantStack& operator=(const MutantStack& other){}
+        MutantStack(const MutantStack& other){
+            *this = other;
+        }
+        MutantStack& operator=(const MutantStack& other){
+            if (this != &other)
+            {
+                this->st = other.st;
+            }
+            return *this;
+        }
         ~MutantStack(){}
         T& top(){
             return st.top();
