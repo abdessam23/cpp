@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/08 12:38:49 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/08 12:48:53 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,21 @@ class MutantStack : public std::stack<T,container>
               
                 // Iterator(const Iterator& other){*this = other; }
                 // Iterator& operator=(const Iterator& ){return *this;}
-                // ~Iterator(){}
-                // Iterator& operator++(int){
-                //     *(this++);
-                //     return *this;}
+                ~Iterator(){}
+                Iterator& operator++(){
+                    ++this->it;
+                    return *this;}
                 Iterator operator++(int){
                     Iterator tmp = *this;
                     this->it++;
                     return tmp;}
-                // Iterator& operator--(int){
-                //     it--;
-                //     return *this;}
-                // Iterator operator--(){
-                //     Iterator tmp = *this;
-                //     *(this--);
-                //     return tmp;}
+                  Iterator& operator--(){
+                    --this->it;
+                    return this;}
+                Iterator operator--(int){
+                    Iterator tmp = *this;
+                    this->it--;
+                    return tmp;}
                 T& operator*() const
                 {
                     return *it;
@@ -66,7 +66,10 @@ class MutantStack : public std::stack<T,container>
         {
             return Iterator(this->c.begin());
         }
-        
+        Iterator end() 
+        {
+            return Iterator(this->c.end()-1);
+        }
 
 };
 
