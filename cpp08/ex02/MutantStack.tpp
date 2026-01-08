@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/08 11:07:23 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/08 11:27:59 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class MutantStack : public std::stack<T,container>
                 T* it;
             public:
                 Iterator(T* it):it(it){}
-                Iterator(const Iterator&){}
+                Iterator(const Iterator& other){*this = other; }
                 Iterator& operator=(const Iterator& ){return *this;}
                 ~Iterator(){}
                 Iterator& operator++(int){
@@ -61,9 +61,9 @@ class MutantStack : public std::stack<T,container>
                     return it;
                 }
         };
-        Iterator& begin()
+        Iterator begin() 
         {
-            return this->c.begin();
+            return Iterator(std::MutantStack<T, container>()::c.);
         }
         
 
