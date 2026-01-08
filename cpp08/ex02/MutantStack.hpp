@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.tpp                                    :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/08 15:11:53 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/08 15:21:22 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 #include <iostream>
 #include<stack>
 
-template<typename T,typename container = std::deque<T>> 
+template<typename T,typename container = std::deque<T> > 
 class MutantStack : public std::stack<T,container>
 {
     private:       
     public:
         class iterator;
-        MutantStack():std::stack<T,container>(){}
+        MutantStack():std::stack<T,container>(){} 
         MutantStack(const MutantStack& other){
             *this = other;
         }
-        MutantStack& operator=(const MutantStack& other)= default;
+        // MutantStack& operator=(const MutantStack& other)= default;
         ~MutantStack(){}
         class iterator
         {
@@ -34,8 +34,8 @@ class MutantStack : public std::stack<T,container>
                typename container::iterator it;
             public:
                 iterator(typename container::iterator it):it(it){}
-                iterator(const iterator& other)= default;
-                iterator& operator=(const iterator& )= default;
+                // iterator(const iterator& other)= default;
+                // iterator& operator=(const iterator& )= default;
                 ~iterator(){}
                 iterator& operator++(){
                     --this->it;
