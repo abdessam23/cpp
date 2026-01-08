@@ -6,15 +6,17 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:41:26 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/08 12:54:15 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/08 14:47:31 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.tpp"
+#include <deque>
 
 
 int main()
 {
+
     MutantStack<std::string> a;
    
     a.push("hello");
@@ -23,12 +25,14 @@ int main()
    std::cout << *it << std::endl;
    it++;
    std::cout << *it << std::endl;
-    // MutantStack<std::string> b = a;
-    // while (!a.empty())
-    // {
-    //     std::cout << a.top() ;
-    //     a.pop();
-    // }
+   
+
+    MutantStack<std::string> b = a;
+    while (!b.empty())
+    {
+        std::cout << b.top() ;
+        b.pop();
+    }
     
     
 }
