@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/08 14:52:23 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/08 15:11:53 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,50 +21,65 @@ class MutantStack : public std::stack<T,container>
 {
     private:       
     public:
-        class Iterator;
+        class iterator;
         MutantStack():std::stack<T,container>(){}
         MutantStack(const MutantStack& other){
             *this = other;
         }
-        // MutantStack& operator=(const MutantStack& other){
-           
-        // }
+        MutantStack& operator=(const MutantStack& other)= default;
         ~MutantStack(){}
-        class Iterator
+        class iterator
         {
             private:
                typename container::iterator it;
             public:
-                Iterator(typename container::iterator it):it(it){}
-                Iterator(const Iterator& other)= default;
-                Iterator& operator=(const Iterator& )= default;
-                ~Iterator(){}
-                Iterator& operator++(){
+                iterator(typename container::iterator it):it(it){}
+                iterator(const iterator& other)= default;
+                iterator& operator=(const iterator& )= default;
+                ~iterator(){}
+                iterator& operator++(){
                     --this->it;
                     return *this;}
-                Iterator operator++(int){
-                    Iterator tmp = *this;
+                iterator operator++(int){
+                    iterator tmp = *this;
                     this->it--;
                     return tmp;}
-                  Iterator& operator--(){
-                    --this->it;
-                    return this;}
-                Iterator operator--(int){
-                    Iterator tmp = *this;
-                    this->it--;
+                iterator& operator--(){
+                    this->it++;
+                    return *this;
+                }
+                iterator operator--(int){
+                    iterator tmp = *this;
+                    this->it++;
                     return tmp;}
+                bool operator==(const iterator& p)
+                {
+                    return (this == p);
+                }
+                bool operator!=(const iterator& p)
+                {
+                    return (this->it != p.it);
+                }
+                bool operator>(const iterator& p)
+                {
+                    return (this > p);
+                }
+                bool operator<(const iterator& p)
+                {
+                    return (this < p);
+                }
                 T& operator*() const
                 {
                     return *it;
                 }
         };
-        Iterator begin() 
+        iterator begin() 
         {
-            return Iterator(this->c.end()- 1);
+            return iterator(this->c.end()- 1);
         }
-        Iterator end() 
+        iterator end() 
         {
-            return Iterator(this->c.begin());
+            return iterator(this->c.begin());
         }
 
 };
