@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:41:26 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/08 12:49:07 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/08 12:54:15 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int main()
    
     a.push("hello");
     a.push("Man");
-    MutantStack<std::string>::Iterator it  = a.end();
+    MutantStack<std::string>::Iterator it  = a.begin();
    std::cout << *it << std::endl;
-//    it++;
-//    std::cout << *it << std::endl;
+   it++;
+   std::cout << *it << std::endl;
     // MutantStack<std::string> b = a;
     // while (!a.empty())
     // {
