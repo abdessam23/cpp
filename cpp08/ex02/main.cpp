@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:41:26 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/09 10:34:46 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/09 10:36:59 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 
 int main()
 {
-
-
-   
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
@@ -34,7 +31,6 @@ int main()
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
     --it;
-  
     while (it != ite)
     {
     std::cout << *it << std::endl;
