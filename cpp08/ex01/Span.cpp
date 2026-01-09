@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/06 11:28:46 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/09 10:58:19 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Span::addNumber(const int n)
 {
     try{
         if (s.size() <= N)
-            s.insert(n);
+            s.push_back(n);
         else
             throw std::out_of_range("span is full");
     }
@@ -42,14 +42,19 @@ int Span::shortestSpan()
 {
     //  3 6 9 11 17
     try{
-        if (s.size() != 0 && s.size() != 1)
+        if (s.size() > 1)
         {
-             std::set<int>::iterator it = s.begin();
+            std::set<int> st;
+            for(size_t i = 0; i < s.size();i++)
+            {
+                st.insert(s[i]);
+            }
+             std::set<int>::iterator it = st.begin();
              int shortest;
              std::set<int>::iterator i = it;
             ++it;
              shortest = *it - *i;
-            for (; it != s.end();++it,++i)
+            for (; it != st.end();++it,++i)
             {
                 if (shortest > (*it - *i))
                     shortest = *it - *i;
@@ -70,11 +75,16 @@ int Span::longestSpan()
 {
     try{
         
-        if (s.size() != 0 && s.size() != 1)
+        if (s.size() > 1)
         {
-            std::set<int>::iterator it = s.begin();
+            std::set<int> st;
+            for(size_t i = 0; i < s.size();i++)
+            {
+                st.insert(s[i]);
+            }
+            std::set<int>::iterator it = st.begin();
             std::set<int>::iterator i = it;
-            std::advance(it,s.size()-1);
+            std::advance(it,st.size()-1);
             return (*it - *i);
         }
         else
