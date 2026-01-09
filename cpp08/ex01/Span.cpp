@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/09 10:58:19 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/09 11:00:00 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 Span::Span(){}
 Span::Span(unsigned int n):N(n){}
-Span::Span(const Span& other):N(other.N){}
+Span::Span(const Span& other):N(other.N),s(other.s){}
 Span& Span::operator=(const Span& other)
 {
     if (this != &other)
     {
         N = other.N;
+        s = other.s;
     }
     return *this;
 }
