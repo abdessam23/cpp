@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/09 10:44:22 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/09 10:47:02 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ template<typename T,typename container = std::deque<T> >
 class MutantStack : public std::stack<T,container>
 {
     private:       
-    
     public:
-        
         MutantStack():std::stack<T,container>(){} 
         MutantStack(const MutantStack& other):std::stack<T,container>(other){
             *this = other;
