@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/10 10:11:03 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/10 10:34:48 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,26 @@ int main()
 {
     int arr[4] = {1,2,3,5};
     std::string str[]= {"hello","world","ok"};
+   std::cout<<"----------------Array of int -------------- \n\n" ;
     Iter(arr,4,addone);
     for(size_t i = 0;i < 4;i++)
     {
         std::cout << arr[i]<<",";
     }
+    std::cout<<"\n\n-------------------String -------------- \n\n";
 
-    std::cout << std::endl;
      Iter(str,3,addString);
     for(size_t i = 0;i < 3;i++)
     {
         std::cout << str[i]<<",";
     }
-    std::cout << std::endl;
-    
+    std::cout<<" \n\n-------------------Float -------------- \n\n";
     float f[4] = {1.5,7.4,3.9,5.2};
     Iter(f,4,castfloat);
     for(size_t i = 0;i < 4;i++)
     {
         std::cout << f[i]<<",";
     }
-    std::cout << std::endl;
+    std::cout << "\n\n";
     return 0;
 }
