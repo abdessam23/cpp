@@ -4,7 +4,7 @@ CXX=c++
 
 CXXFLAGS=-Wall -Wextra -Werror --std=c++98
 
-RM=rm 
+RM=rm  -rf
 
 SRC=  main.cpp
 
