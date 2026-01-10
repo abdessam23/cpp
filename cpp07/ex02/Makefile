@@ -4,7 +4,7 @@ CXX=c++
 
 CXXFLAGS=-Wall -Wextra -Werror -g --std=c++98
 
-RM=rm 
+RM=rm -rf
 
 SRC=  main.cpp
 
@@ -23,3 +23,5 @@ fclean: clean
 	$(RM) $(NAME)
 
 re : fclean all
+
+.PHONY: re clean fclean all 

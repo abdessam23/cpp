@@ -35,7 +35,6 @@ public:
     {
     if (this != &other)
     {
-        // std::cout << other.data[0];
         for (int i = 0; i < N ;i++)
         {
             data[i] =  other.data[i];
