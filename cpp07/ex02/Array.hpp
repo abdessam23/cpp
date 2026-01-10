@@ -70,6 +70,10 @@ class Array
                     return true;
             }
         }
+        size_t size()
+        {
+            return sizeof();
+        }
         ~Array()
         {
             delete[] data;
