@@ -19,27 +19,27 @@ class Array
         unsigned int N;
         T* data;
     public:
-         Array()
+        Array():N(1)
         {
-            data = new T[0];
+            data = new T[N];
         }
-        Array(const int size):N(size)
+        Array(const int n):N(n)
         {
-         data = new T[size];
-         for(size_t i = 0; i < N;i++)
-         {
-            data[i] = 0;
-         }
+            data = new T[N];
+            for(size_t i = 0; i < N;i++)
+            {
+               data[i] = 0;
+            }
         }
         Array(const Array& other):N(other.N),data(new T[other.N])
         {
-        if (this != &other)
-        {
-            for (size_t i = 0; i < N ;i++)
+            if (this != &other)
             {
-                data[i] =  other.data[i];
+                for (size_t i = 0; i < N ;i++)
+                {
+                    data[i] =  other.data[i];
+                }
             }
-        }
         }
         Array& operator=(const Array& other)
         {
@@ -70,9 +70,9 @@ class Array
                     return true;
             }
         }
-        size_t size()
+        size_t size() const
         {
-            return sizeof();
+            return N;
         }
         ~Array()
         {

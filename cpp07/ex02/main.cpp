@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:57:29 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/10 12:49:21 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/10 13:47:32 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 #include <iostream>
 #include "Array.hpp"
 #include <cstdlib>
-#define MAX_VAL 720
+#define MAX_VAL 10
 
 int main(int, char**)
 {
     Array<int> a;
-    a = Array<int>(5);
-    for (size_t  i =0; i < 5;i++)
-    {
-        a[i] = i + 4;
-    }
-   
-    std::cout << a.size()<<std::endl;
+    std::cout << a[0] << std::endl;
     // Array<int> numbers(MAX_VAL);
     // numbers[0] = 7;
     // std::cout << numbers[0] << "\n";
@@ -53,7 +47,7 @@ int main(int, char**)
     // }
     // try
     // {
-    //     numbers[-2] = 0;
+    //     numbers[-1] = 0;
     // }
     // catch(const std::exception& e)
     // {
@@ -61,7 +55,7 @@ int main(int, char**)
     // }
     // try
     // {
-    //     numbers[MAX_VAL] = 0;
+    //     numbers[-2] = 0;
     // }
     // catch(const std::exception& e)
     // {
