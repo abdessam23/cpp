@@ -19,9 +19,9 @@ class Array
         unsigned int N;
         T* data;
     public:
-        Array():N(1)
+        Array():N(0)
         {
-            data = new T[N];
+            data = NULL;
         }
         Array(const int n):N(n)
         {
@@ -61,14 +61,6 @@ class Array
             if (index >= N )
                 throw std::out_of_range("index out of range");
             return data[index];
-        }
-        bool operator!=(Array& arr) const
-        {
-            for (size_t i = 0;i < N;i++)
-            {
-                if (data[i] != arr.data[i])
-                    return true;
-            }
         }
         size_t size() const
         {
