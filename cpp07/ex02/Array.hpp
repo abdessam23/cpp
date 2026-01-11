@@ -43,13 +43,14 @@ class Array
         {
             if (this != &other)
             {
-                 N = other.N;
-                 delete data;
-                 data = new  T[other.N];
-                for (size_t i = 0; i < N ;i++)
+               T* tmpdata = new  T[other.N];
+                for (size_t i = 0; i < other.N ;i++)
                 {
-                    data[i] =  other.data[i];
+                    tmpdata[i] =  other.data[i];
                 }
+                N = other.N;
+                delete[] data;
+                data = tmpdata;
             }
             return *this;
         }
