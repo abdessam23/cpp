@@ -23,6 +23,7 @@ class Array
         {
             data = NULL;
         }
+
         Array(const int n):N(n)
         {
             data = new T[N];
@@ -31,14 +32,15 @@ class Array
                data[i] = 0;
             }
         }
+
         Array(const Array& other):N(other.N),data(new T[other.N])
         {
-           
             for (size_t i = 0; i < N ;i++)
             {
                 data[i] =  other.data[i];
             }
         }
+
         Array& operator=(const Array& other)
         {
             if (this != &other)
