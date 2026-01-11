@@ -24,13 +24,9 @@ class Array
             data = NULL;
         }
 
-        Array(const int n):N(n)
+        Array(unsigned int n):N(n)
         {
             data = new T[N];
-            for(size_t i = 0; i < N;i++)
-            {
-               data[i] = 0;
-            }
         }
 
         Array(const Array& other):N(other.N),data(new T[other.N])
