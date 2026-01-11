@@ -24,9 +24,8 @@ class Array
             data = NULL;
         }
 
-        Array(unsigned int n):N(n)
+        Array(unsigned int n):N(n), data(new T[N])
         {
-            data = new T[N];
         }
 
         Array(const Array& other):N(other.N),data(new T[other.N])
@@ -63,6 +62,7 @@ class Array
         {
             return N;
         }
+
         ~Array()
         {
             delete[] data;
