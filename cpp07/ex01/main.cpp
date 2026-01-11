@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/10 10:34:48 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/10 11:44:58 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,19 @@ void addString(std::string& str)
 {
     str += " changed";
 }
-void addone(int& a)
+void addone(const int& a)
 {
-    a+=1;
+    std::cout<<a<<std::endl;
 }
 int main()
 {
     int arr[4] = {1,2,3,5};
-    std::string str[]= {"hello","world","ok"};
+    std::string str[3]= {"hello","world","ok"};
    std::cout<<"----------------Array of int -------------- \n\n" ;
     Iter(arr,4,addone);
-    for(size_t i = 0;i < 4;i++)
-    {
-        std::cout << arr[i]<<",";
-    }
     std::cout<<"\n\n-------------------String -------------- \n\n";
 
-     Iter(str,3,addString);
+    Iter(str,3,addString);
     for(size_t i = 0;i < 3;i++)
     {
         std::cout << str[i]<<",";

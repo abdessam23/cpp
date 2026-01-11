@@ -33,12 +33,10 @@ class Array
         }
         Array(const Array& other):N(other.N),data(new T[other.N])
         {
-            if (this != &other)
+           
+            for (size_t i = 0; i < N ;i++)
             {
-                for (size_t i = 0; i < N ;i++)
-                {
-                    data[i] =  other.data[i];
-                }
+                data[i] =  other.data[i];
             }
         }
         Array& operator=(const Array& other)
