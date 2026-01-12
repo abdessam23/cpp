@@ -1,7 +1,8 @@
 #include <iostream>
-
+//........test insertion ..............
 int  main()
 {
+    
     int arr[] = {4,5,8,7,9,1,0};
     for (int i =1;i < 7;i++)
     {
