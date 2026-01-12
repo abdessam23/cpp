@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/10 11:44:58 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/12 08:49:26 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void castfloat(float& n)
 
 void addString(std::string& str)
 {
-    str += " changed";
+    str += " changed ";
 }
 void addone(const int& a)
 {
