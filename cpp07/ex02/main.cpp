@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:57:29 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/11 13:37:37 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/12 08:37:04 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
