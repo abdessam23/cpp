@@ -3,17 +3,16 @@
 int  main()
 {
     int arr[] = {4,5,8,7,9,1,0};
-    for (int i =0;i < 7;i++)
+    for (int i =1;i < 7;i++)
     {
-        for (int j =i + 1;j < 7;j++)
+        int k = arr[i];
+        int j = i -1;
+       while (j >= 0 && arr[j] >= k)
         {
-            if (arr[j] < arr[i])
-            {
-                int tmp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = tmp;
-            }
+           arr[j + 1] = arr[j];
+           j = j-1;
         }
+        arr[j + 1] = k;
     }
     for(int i =0;i < 7;i++)
     {
