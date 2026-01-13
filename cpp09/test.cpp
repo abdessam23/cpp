@@ -1,23 +1,25 @@
 #include <iostream>
 //........test insertion ..............
-
-
+int bsearch(int *a, int target)
+{
+     int mid,left ,right;
+    left = 0;
+    right = 8;
+    while (left <= right)
+    {
+        mid = left + (right - left)/2;
+        if (a[mid] == target)
+            return mid;
+        else if (a[mid] > target)
+            right = mid - 1;
+        else
+            left = mid + 1;
+    }
+    return -1;
+}
 int main()
 {
-    int a[]= {8,4,2,6,0,99,43,3,71};
-    for (int i = 1; i < 9;i++)
-    {
-        int j = i - 1;
-        int key = a[i];
-        while (j >= 0 && a[j] > key)
-        {
-            a[j + 1] = a[j];
-            j--;
-        }
-        a[j + 1] = key;
-    }
-    for (int i = 0;i < 9;i++)
-    {
-        std::cout << a[i] <<std::endl;
-    }
+    int a[]= {0,2,3,4,6,8,43,71,81};
+    std::cout<< bsearch(a,43) << std::endl;
+   
 }
