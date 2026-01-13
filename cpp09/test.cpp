@@ -1,24 +1,25 @@
 #include <iostream>
+#include <vector>
 //........test insertion ..............
-int bsearch(int *a, int target)
+int bsearch(std::vector<int>& a, int target)
 {
-     int mid,left ,right;
+    int left,mid,right;
     left = 0;
-    right = 3;
+    right = a.size()-1;
     while (left <= right)
     {
-        mid = left + (right - left)/2;
+        mid = left +(right - left)/2;
         if (a[mid] == target)
             return mid;
-        else if (a[mid] > target)
-            right = mid - 1;
+        else if (a[mid] < target)
+            left = mid + 1;
         else
-            left = mid + 1 ;
+            right = mid - 1;
     }
     return -1;
 }
 int main()
 {
-    int a[]= {2,7};
-    std::cout<< bsearch(a,2) << std::endl;
+   std::vector<int> a= {2,7,9,12,14};
+    std::cout<< bsearch(a,7) << std::endl;
 }
