@@ -11,15 +11,14 @@ int bsearch(int *a, int target)
         if (a[mid] == target)
             return mid;
         else if (a[mid] > target)
-            right = mid - 1;
+            right = mid;
         else
-            left = mid + 1;
+            left = mid;
     }
     return -1;
 }
 int main()
 {
-    int a[]= {0,2,3,4,6,8,43,71,81};
+    int a[]= {0,2};
     std::cout<< bsearch(a,43) << std::endl;
-   
 }
