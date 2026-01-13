@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/13 12:35:31 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/13 12:45:53 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,21 @@ int check_arg(char **arg)
     }
     return 1;
 }
+
+void fill_string(char** arg,std::string &str)
+{
+    int i = 1;
+    while (arg[i])
+    {
+       str += arg[i]; 
+       i++;
+    }
+    for(int i = 0;i < str.length();i++)
+    {
+        std::cout << str[i] <<std::endl;
+    }
+}
+
 int main(int ac, char** arg)
 {
     if(ac < 2)
@@ -47,8 +62,13 @@ int main(int ac, char** arg)
         std::cerr<< "Invalid input"<< std::endl;
         return 1;
     }
+    std::string  str;
+    fill_string(arg,str);
+    for(int i = 0;i < str.length();i++)
+    {
+        std::cout << str[i] <<std::endl;
+    }
     
-    std::cout << "all fine" <<std::endl;
     return 0;
     
 }
