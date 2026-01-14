@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/14 09:51:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/14 11:19:52 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <cstdlib>
 #include <climits>
 #include <algorithm>
+#include <chrono>
 
 int Is_valid(char* str)
 {
@@ -97,7 +98,6 @@ int main(int ac, char** arg)
     {
         std::cout << arr[i] <<" ";
     }
-     std::cout << "\n";
     return 0;
     
 }
