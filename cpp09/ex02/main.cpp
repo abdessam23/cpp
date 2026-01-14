@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/14 09:12:42 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/14 09:51:14 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void fill_string(char** arg,std::vector<std::string> &str)
     }
 }
    
-
 int main(int ac, char** arg)
 {
     if(ac < 2)
@@ -79,9 +78,9 @@ int main(int ac, char** arg)
     for(int i = 0;i < str.size();i++)
     {
         double n = std::strtod(str[i].c_str(),NULL);
-        if (n < INT_MIN || n > INT_MAX )
+        if (n < 0 || n > INT_MAX )
         {
-            std::cerr << "Error : overflow" << std::endl;
+            std::cerr << "Error : only positive integers ." << std::endl;
             return 1;
         }
         else
