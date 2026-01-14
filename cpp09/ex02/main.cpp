@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/13 14:44:08 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/14 09:12:42 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <vector>
 #include <cstdlib>
 #include <climits>
+#include <algorithm>
 
 int Is_valid(char* str)
 {
@@ -85,12 +86,19 @@ int main(int ac, char** arg)
         }
         else
             arr.push_back(n);
-    }
+    } 
+    std::cout << "The array before sorting : ";
     for(int i = 0;i < arr.size();i++)
     {
-        std::cout << arr[i] <<std::endl;
+        std::cout << arr[i] <<" ";
     }
-    
+    std::sort(arr.begin(),arr.end());
+    std::cout << "\n\nThe array after sorting : ";
+    for(int i = 0;i < arr.size();i++)
+    {
+        std::cout << arr[i] <<" ";
+    }
+     std::cout << "\n";
     return 0;
     
 }
