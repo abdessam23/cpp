@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/21 15:57:29 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/15 11:57:02 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/15 11:58:34 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 int main(int, char**)
 {
-    const Array<int> s(4);
-    // s[9] = 4;
+    Array<int> s(4);
+    s[9] = 4;
     std::cout << s[3]; 
     // Array<int> numbers(MAX_VAL);
     // int* mirror = new int[MAX_VAL];

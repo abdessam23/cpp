@@ -59,7 +59,7 @@ class Array
                 throw std::out_of_range("index out of range");
             return data[index];
         }
-        const  T& operator[](size_t index) const
+        const  T& operator[](size_t index) const 
         {
             if (index >= N )
                 throw std::out_of_range("index out of range");
