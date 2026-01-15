@@ -53,7 +53,13 @@ class Array
             return *this;
         }
 
-        T& operator[](const size_t index) 
+        T& operator[](size_t index) 
+        {
+            if (index >= N )
+                throw std::out_of_range("index out of range");
+            return data[index];
+        }
+        const  T& operator[](size_t index) const
         {
             if (index >= N )
                 throw std::out_of_range("index out of range");
