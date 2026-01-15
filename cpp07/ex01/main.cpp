@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/15 11:14:54 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/15 11:15:27 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
     const int a = 4;
    const std::string str[3]= {"hello","world","ok"};
     std::cout<<"----------------Array of int -------------- \n\n" ;
-    iter(arr,a,addone1);
+    iter(arr,a,addone);
     std::cout<<"\n\n-------------------String -------------- \n\n";
     iter(str,3,addString);
     for(size_t i = 0;i < 3;i++)
