@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/13 18:06:26 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/15 11:14:54 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,24 @@ void castfloat(float& n)
     n = static_cast<int>(n);
 }
 
-void addString(std::string& str)
+void addString(const std::string str)
 {
-    str += " changed ";
+   std::cout << str;
 }
-void addone(const int& a)
-{
-    std::cout<<a<<std::endl;
-}
-int  addone1(const int& a)
+void addone(int& a)
 {
     std::cout<<a<<std::endl;
 }
+
 int main()
 {
 
     int arr[4] = {1,2,3,5};
     const int a = 4;
-    std::string str[3]= {"hello","world","ok"};
-   std::cout<<"----------------Array of int -------------- \n\n" ;
+   const std::string str[3]= {"hello","world","ok"};
+    std::cout<<"----------------Array of int -------------- \n\n" ;
     iter(arr,a,addone1);
     std::cout<<"\n\n-------------------String -------------- \n\n";
-
     iter(str,3,addString);
     for(size_t i = 0;i < 3;i++)
     {
