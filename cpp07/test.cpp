@@ -2,8 +2,8 @@
 
 int main()
 {
-    int c = -2;
+    size_t c = 2147483648;
 
-    size_t a = c;
+    int  a =c;
     std::cout << a<< std::endl;
 }
