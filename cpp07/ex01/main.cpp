@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 09:58:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/16 09:31:57 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/16 09:39:12 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,7 @@ int main()
     iter(arr,a,addone);
     std::cout<<"\n\n-------------------String -------------- \n\n";
     iter(str,3,addString);
-    // for(size_t i = 0;i < 3;i++)
-    // {
-    //     std::cout << str[i]<<",";
-    // }
+  
     std::cout<<" \n\n-------------------Float -------------- \n\n";
     float f[4] = {1.5,7.4,3.9,5.2};
     iter(f,4,castfloat);
