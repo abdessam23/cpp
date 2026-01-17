@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-//........test insertion ..............
+
 // int bsearch(std::vector<int>& a, int target)
 // {
 //     int left,mid,right;
