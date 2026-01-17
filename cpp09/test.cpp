@@ -21,7 +21,7 @@
 // }
 
 
-int binarysearch(std::vector<int>& a, int target)
+int binarvysearch(std::vector<int>& a, int target)
 {
     int left = 0;
     int right = a.size();
