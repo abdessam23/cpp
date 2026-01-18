@@ -40,6 +40,13 @@ int bnshearch(std::vector<int>& v, int target)
 int main()
 {
    std::vector<int> a= {2,7,1,6,18,34,61,28,9,12,14};
+   int h = a.size()/2;
+   std::vector<int> b;
+   for(int i = 0;i< h;i++)
+   {
+        
+   }
+
    std::sort(a.begin(),a.end());
   
 std::cout<<bnshearch(a,6) << std::endl;
