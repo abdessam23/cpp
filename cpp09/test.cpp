@@ -61,25 +61,40 @@ int main()
         }
         i++;
    }
-   std::vector<int> b;
+   std::cout <<" a: ";
+    for (int i = 0; i < a.size();i++)
+   {
+        if ((i  + 1 < a.size()))
+        {
+             std::cout << "{"<<a[i] << ","<< a[i+1] << "}" << " ";
+            i++;
+        }
+       
+   }
+   std::vector<int> b(a.size()/2 - 1);
+    int j = 0;
     for (int i = 0; i < a.size();i++)
    {
         if (i%2 != 0)
-            b[i] = a[i];
-        //  std::cout << a[i] << " ";
-        // std::cout << b[i] << " ";
-        // a.erase(a.begin() + i);
+        {
+            b[j] = a[i];
+            j++;
+            a.erase(a.begin() + i);
+        }
+        
+        
    }
 
-//     for (int i = 0; i < a.size();i++)
-//    {
-//         std::cout << a[i] << " ";
-//    }
-
-//     for (int i = 0; i <b.size();i++)
-//    {
-//         std::cout << b[i] << " ";
-//    }
+    std::cout <<"\na: ";
+    for (int i = 0; i < a.size();i++)
+   {
+        std::cout << a[i] << " ";
+   }
+   std::cout <<"\nb: ";
+    for (int i = 0; i <b.size();i++)
+   {
+        std::cout << b[i] << " ";
+   }
 //    std::sort(a.begin(),a.end());
 //    std::cout<<bnshearch(a,6) << std::endl;
 
