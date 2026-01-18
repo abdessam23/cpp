@@ -73,16 +73,15 @@ int main()
    }
    std::vector<int> b(a.size()/2 - 1);
     int j = 0;
-    for (int i = 0; i < a.size();i++)
+     for (int i = 0; i < a.size();i++)
    {
         if (i%2 != 0)
         {
+           std::cout <<"\n"<< a[i] << " i : "  << i<<"\n";
             b[j] = a[i];
             j++;
-            a.erase(a.begin() + i);
+          //   a.erase(a.begin() + i);
         }
-        
-        
    }
 
     std::cout <<"\na: ";
