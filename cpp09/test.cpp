@@ -106,12 +106,8 @@ void merge(std::vector<int>& P,int l,int m,int r)
 {
      std::vector<int> c1,c2;
      int i = 0;
-     while (l <= m)
-     {
-          c1[i] = P[l];
-          i++;
-          l++;
-     }
+     int n1 = m - l + 1;
+     int n2 = r - m;
      for(int i = 0;i< m;i++)
      {
           c1[i] = P[l + i];
@@ -121,7 +117,10 @@ void merge(std::vector<int>& P,int l,int m,int r)
      {
           c1[i] = P[m + i + 1];
      }
-     while (l < m )
+     i = 0;
+     int j = 0;
+     int k = l;
+     while (i <  &&  )
      {
          
      }
