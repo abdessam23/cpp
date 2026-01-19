@@ -108,21 +108,49 @@ void merge(std::vector<int>& P,int l,int m,int r)
      int i = 0;
      int n1 = m - l + 1;
      int n2 = r - m;
-     for(int i = 0;i< m;i++)
+     std::cout << "c1: ";
+     for(int i = 0;i<n1;i++)
      {
           c1[i] = P[l + i];
+          std::cout << c1[i] << " ";
      }
-
-     for(int i = 0;i< r;i++)
+     std::cout << "c2: ";
+     for(int i = 0;i< n2;i++)
      {
-          c1[i] = P[m + i + 1];
+          c2[i] = P[m + i + 1];
+          std::cout << c2[i] << " ";
      }
      i = 0;
      int j = 0;
      int k = l;
-     while (i <  &&  )
+     while (i <  n1 && j < n2)
      {
-         
+          if (c1[i] <= c2[j])
+          {
+               P[k] = c1[i];
+               i++;
+          }
+          else
+          {
+               P[k] = c2[j];
+               i++;
+          }
+          k++;
+     }
+  
+
+     while (i < n1)
+     {
+          P[k] = c1[i];
+          i++;
+          k++;
+     }
+
+     while (j < n2)
+     {
+          P[k] = c1[j];
+          j++;
+          k++;
      }
      
 }
@@ -131,16 +159,21 @@ void mergsort(std::vector<int>& t,int left,int right)
 {
      if(left <= right)
           return;
+     std::cout << "here";
      int mid = left+ (right - left)/2;
      mergsort(t,left,mid);
      mergsort(t,mid+1,right);
      merge(t,left,mid,right);
-
 }
 
 int main()
 {
    std::vector<int> a= {2,7,1,6,18,34,61,28,9,12,14};
-   mergsort(a,0,a.size() - 1);
+   int n = a.size() - 1;
+   mergsort(a,0,n);
+   for (int i = 0;i < a.size();i++)
+   {
+        std::cout << a[i] << std::endl;
+   }
 }
 
