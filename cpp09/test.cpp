@@ -102,14 +102,26 @@
 // //    std::cout<<bnshearch(a,6) << std::endl;
 
 // }
+void merge(std::vector<int>& P,int l,int m,int r)
+{
+     std::vector<int> c1,c2;
+     while (condition)
+     {
+          /* code */
+     }
+     
 
+}
 
 void mergsort(std::vector<int>& t,int left,int right)
 {
      if(left <= right)
-     {
-          
-     }
+          return;
+     int mid = left+ (right - left)/2;
+     mergsort(t,left,mid);
+     mergsort(t,mid+1,right);
+     merge(t,left,mid,right);
+
 }
 
 int main()
