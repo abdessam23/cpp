@@ -73,14 +73,16 @@ int main()
    }
    std::vector<int> b(a.size()/2 - 1);
     int j = 0;
+    std::pair<int,int> p;
      for (int i = 0; i < a.size();i++)
    {
-        if (i%2 != 0)
+        if (i + 1 < a.size())
         {
-           std::cout <<"\n"<< a[i] << " i : "  << i<<"\n";
-            b[j] = a[i];
+          p.first = a[i];
+          p.second = a[i + 1];
             j++;
-          //   a.erase(a.begin() + i);
+          if (i != 0)
+               a.erase(a.begin() + i);
         }
    }
 
