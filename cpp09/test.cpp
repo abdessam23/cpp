@@ -61,6 +61,7 @@ int main()
         }
         i++;
    }
+
    std::cout <<" a: ";
     for (int i = 0; i < a.size();i++)
    {
@@ -71,9 +72,9 @@ int main()
         }
        
    }
+
    std::vector<int> b(a.size()/2 - 1);
     int j = 0;
-    std::pair<int,int> p;
      for (int i = 0; i < a.size();i++)
    {
         if (i + 1 < a.size())
@@ -91,8 +92,9 @@ int main()
    {
         std::cout << a[i] << " ";
    }
+
    std::cout <<"\nb: ";
-    for (int i = 0; i <b.size();i++)
+   for (int i = 0; i <b.size();i++)
    {
         std::cout << b[i] << " ";
    }
