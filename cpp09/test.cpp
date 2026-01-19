@@ -105,12 +105,27 @@
 void merge(std::vector<int>& P,int l,int m,int r)
 {
      std::vector<int> c1,c2;
-     while (condition)
+     int i = 0;
+     while (l <= m)
      {
-          /* code */
+          c1[i] = P[l];
+          i++;
+          l++;
+     }
+     for(int i = 0;i< m;i++)
+     {
+          c1[i] = P[l + i];
+     }
+
+     for(int i = 0;i< r;i++)
+     {
+          c1[i] = P[m + i + 1];
+     }
+     while (l < m )
+     {
+         
      }
      
-
 }
 
 void mergsort(std::vector<int>& t,int left,int right)
