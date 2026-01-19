@@ -139,7 +139,6 @@ void merge(std::vector<int>& P,int l,int m,int r)
           }
           k++;
      }
-  
 
      while (i < n1)
      {
@@ -150,7 +149,7 @@ void merge(std::vector<int>& P,int l,int m,int r)
 
      while (j < n2)
      {
-          P[k] = c1[j];
+          P[k] = c2[j];
           j++;
           k++;
      }
