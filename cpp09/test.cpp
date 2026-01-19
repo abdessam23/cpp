@@ -104,22 +104,24 @@
 // }
 void merge(std::vector<int>& P,int l,int m,int r)
 {
-     std::vector<int> c1,c2;
+     
      int i = 0;
      int n1 = m - l + 1;
      int n2 = r - m;
-     std::cout << "c1: ";
+     std::vector<int> c1(n1),c2(n2);
+     std::cout << "\nc1: ";
      for(int i = 0;i<n1;i++)
      {
           c1[i] = P[l + i];
           std::cout << c1[i] << " ";
      }
-     std::cout << "c2: ";
+     std::cout << "\nc2: ";
      for(int i = 0;i< n2;i++)
      {
           c2[i] = P[m + i + 1];
           std::cout << c2[i] << " ";
      }
+       std::cout << "\n";
      i = 0;
      int j = 0;
      int k = l;
@@ -133,7 +135,7 @@ void merge(std::vector<int>& P,int l,int m,int r)
           else
           {
                P[k] = c2[j];
-               i++;
+               j++;
           }
           k++;
      }
@@ -157,9 +159,8 @@ void merge(std::vector<int>& P,int l,int m,int r)
 
 void mergsort(std::vector<int>& t,int left,int right)
 {
-     if(left <= right)
+     if(left >= right)
           return;
-     std::cout << "here";
      int mid = left+ (right - left)/2;
      mergsort(t,left,mid);
      mergsort(t,mid+1,right);
