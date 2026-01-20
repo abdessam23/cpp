@@ -67,6 +67,39 @@
 //      merge(a,left,middle,right);
 // }
 
+void insertionsort(std::vector<int>& arr)
+{
+    for (int i = 1;i<arr.size();i++)
+    {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+int binarySearch(std::vector<int>& a, int target)
+{
+     int left = 0;
+     int right = a.size() - 1;
+     while (left >= right)
+     {
+         int middle = left + (right - left)/2;
+         if (a[middle] == target)
+               return middle;
+          else if (a[middle] < target)
+               left = middle + 1;
+          else
+               right = middle - 1;
+     }
+     return -1;
+
+}
+
 void split_element(std::vector<int>& arr)
 {
     size_t n = arr.size()/2; 
@@ -98,22 +131,23 @@ void split_element(std::vector<int>& arr)
     if (size%2 != 0)
           a1[n] = arr[size];
 
-     
-    std::cout << "\na1 : ";
-    for(int i = 0;i < a1.size();i++)
-    {
-        std::cout << a1[i] << " ";
-    }
-
+     insertionsort(a2);
     std::cout << "\na2 : ";
-    for(int i = 0;i <a2.size();i++)
+    for(int i = 0;i < a2.size();i++)
     {
         std::cout << a2[i] << " ";
     }
+
+    std::cout << "\na1 : ";
+    for(int i = 0;i <a1.size();i++)
+    {
+        std::cout << a1[i] << " ";
+    }
     std::cout <<std::endl;
-    
 }
-void sortelemet(std::vector<int>& a)
+
+
+void sort_pair(std::vector<int>& a)
 {
      for (int i = 0; i < a.size();i++)
      {
@@ -130,10 +164,10 @@ void sortelemet(std::vector<int>& a)
 // {4,1,3,5,6,2,8,0}
 int main()
 {
-   std::vector<int> a= {4,1,3,5,6,2,8,0,7,4};
+   std::vector<int> a= {4,1,3,5,6,2,8,0,7,4,};
    int n = a.size();
 //    mergsort(a,0,n);
-     sortelemet(a);
+     sort_pair(a);
       std::cout << "a : ";
     for(int i = 0;i < n;i++)
     {

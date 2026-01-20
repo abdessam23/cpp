@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 14:40:01 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 15:18:23 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
     void intopair(std::vector<int>& arr);
     void split_element(std::vector<int>& arr);
     void insertionsort(std::vector<int>& arr);
+    void sort_pair(std::vector<int>& a);
 };
 
 PmergeMe::PmergeMe()
@@ -97,6 +98,22 @@ void PmergeMe::split_element(std::vector<int>& arr)
     }
     if (size%2 != 0)
           a1[n] = arr[size];
-    insertionsort(a1);
+    insertionsort(a2);
     
+    
+}
+
+void sort_pair(std::vector<int>& a)
+{
+     for (int i = 0; i < a.size();i++)
+     {
+          if (i + 1 < a.size() && a[i] > a[i + 1])
+          {
+               int tmp;
+               tmp = a[i];
+               a[i] = a[i + 1];
+               a[i + 1]  = tmp;
+          }
+          i++;
+     }
 }
