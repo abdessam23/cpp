@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 12:05:02 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 12:36:25 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class PmergeMe
 {
 private:
     std::vector<int> arr;
-    int n;
+    unsigned int n;
 public:
     PmergeMe();
     PmergeMe(unsigned int n);
@@ -26,6 +26,8 @@ public:
     PmergeMe& operator=(const PmergeMe& other);
     ~PmergeMe();
     void intopair(std::vector<int>& arr);
+    void split_element(std::vector<int>& arr);
+    
     
     
 };
@@ -51,4 +53,36 @@ void PmergeMe::intopair(std::vector<int>& a)
           }
           i++;
     }
+}
+void split_element(std::vector<int>& arr)
+{
+    size_t n = arr.size()/2; 
+    std::vector<int> a1(n);
+    std::vector<int> a2(n);
+    for(int i = 0;i < n;i++)
+    {
+        if (i%2 == 0)
+        {
+            a1[i] = arr[i];
+        }
+    }
+     for(int i = 0;i < n;i++)
+    {
+        if (i%2 != 0)
+        {
+            a1[i] = arr[i];
+        }
+    }
+    std::cout << "a1 : ";
+    for(int i = 0;i < n;i++)
+    {
+        std::cout << a1[i] << " ";
+    }
+
+    std::cout << "a2 : ";
+    for(int i = 0;i < n;i++)
+    {
+        std::cout << a2[i] << " ";
+    }
+    
 }

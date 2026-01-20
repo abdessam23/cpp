@@ -67,6 +67,41 @@
 //      merge(a,left,middle,right);
 // }
 
+void split_element(std::vector<int>& arr)
+{
+    size_t n = arr.size()/2; 
+    std::vector<int> a1(n);
+    std::vector<int> a2(n);
+    int j = 0;
+    for(int i = 0;i < n;i++)
+    {
+        if (j%2 == 0)
+        {
+            a1[i] = arr[j];
+        }
+        j++;
+    }
+     for(int i = 0;i < n;i++)
+    {
+        if (i%2 != 0)
+        {
+            a2[i] = arr[i];
+        }
+    }
+    std::cout << "\na1 : ";
+    for(int i = 0;i < n;i++)
+    {
+        std::cout << a1[i] << " ";
+    }
+
+    std::cout << "\na2 : ";
+    for(int i = 0;i < n;i++)
+    {
+        std::cout << a2[i] << " ";
+    }
+    std::cout <<std::endl;
+    
+}
 void sortelemet(std::vector<int>& a)
 {
      for (int i = 0; i < a.size();i++)
@@ -84,16 +119,16 @@ void sortelemet(std::vector<int>& a)
 // {4,1,3,5,6,2,8,0}
 int main()
 {
-   std::vector<int> a= {4,1};
-   int n = a.size() - 1;
+   std::vector<int> a= {4,1,3,5,6,2,8,0,7};
+   int n = a.size();
 //    mergsort(a,0,n);
      sortelemet(a);
-      std::cout << "arr finale : ";
-   for (int i = 0;i < a.size();i++)
-     {
-          std::cout << a[i] << " ";
-     }
-      std::cout << "\n";
+      std::cout << "a : ";
+    for(int i = 0;i < n;i++)
+    {
+        std::cout << a[i] << " ";
+    }
+     split_element(a);
    
 }
 
