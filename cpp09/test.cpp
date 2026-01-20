@@ -70,32 +70,41 @@
 void split_element(std::vector<int>& arr)
 {
     size_t n = arr.size()/2; 
-    std::vector<int> a1(n);
+    size_t size = arr.size();
     std::vector<int> a2(n);
+    
+    
     int j = 0;
-    for(int i = 0;i < n;i++)
+    for(int i = 0;i < arr.size();i++)
     {
-        if (j%2 == 0)
+        if (i%2 != 0 && j < n)
         {
-            a1[i] = arr[j];
-        }
-        j++;
+            a2[j] = arr[i];
+            j++;
+        } 
     }
-     for(int i = 0;i < n;i++)
+    j = 0;
+    if (size%2 != 0)
+          n+= 1;
+    std::vector<int> a1(n);
+     for(int i = 0;i < arr.size();i++)
     {
-        if (i%2 != 0)
+        if (i%2 == 0 && j < n)
         {
-            a2[i] = arr[i];
+            a1[j] = arr[i];
+            j++;
         }
     }
+    if (size%2 != 0)
+          a1[n] = arr[size];
     std::cout << "\na1 : ";
-    for(int i = 0;i < n;i++)
+    for(int i = 0;i < a1.size();i++)
     {
         std::cout << a1[i] << " ";
     }
 
     std::cout << "\na2 : ";
-    for(int i = 0;i < n;i++)
+    for(int i = 0;i <a2.size();i++)
     {
         std::cout << a2[i] << " ";
     }
