@@ -82,22 +82,28 @@ void insertionsort(std::vector<int>& arr)
     }
 }
 
-int binarySearch(std::vector<int>& a, int target)
+int serchLineir(std::vector<int>& a, int target)
 {
-     int left = 0;
-     int right = a.size() - 1;
-     while (left >= right)
+     for (int i = 0; i < a.size(); i++)
      {
-         int middle = left + (right - left)/2;
-         if (a[middle] == target)
-               return middle;
-          else if (a[middle] < target)
-               left = middle + 1;
-          else
-               right = middle - 1;
+          if (target < a[i]) {
+               return i;
+          }
      }
      return -1;
+}
 
+int binarySearch(std::vector<int>& a, int target, int start, int end)
+{
+     std::cout << "start "  << start << ", end " << end << std::endl;
+     if (start >= end) {
+          return start;
+     }
+     int mid = start+(end - start) / 2;
+     if (a[mid] < target) {start = mid+1;}
+     else {end = mid;}
+     return binarySearch(a, target, start, end-1);
+     // return serchLineir(a, target);
 }
 
 void split_element(std::vector<int>& arr)
@@ -132,18 +138,32 @@ void split_element(std::vector<int>& arr)
           a1[n] = arr[size];
 
      insertionsort(a2);
+     std::cout << "\na2 : ";
+    for(int i = 0;i < a2.size();i++)
+    {
+        std::cout << a2[i] << " ";
+    }
+        std::cout << "\na1 : ";
+    for(int i = 0;i <a1.size();i++)
+    {
+        std::cout << a1[i] << " ";
+    }
+    std::cout <<std::endl;
+     for(int i = 0;i < a1.size();i++)
+     {
+          int s = binarySearch(a2,a1[i], 0, a2.size()-1);
+          std::cout << " index : " << s <<std::endl;
+          a2.insert(a2.begin() + s, a1[i]);
+
+     }
+    
     std::cout << "\na2 : ";
     for(int i = 0;i < a2.size();i++)
     {
         std::cout << a2[i] << " ";
     }
 
-    std::cout << "\na1 : ";
-    for(int i = 0;i <a1.size();i++)
-    {
-        std::cout << a1[i] << " ";
-    }
-    std::cout <<std::endl;
+
 }
 
 
@@ -164,7 +184,7 @@ void sort_pair(std::vector<int>& a)
 // {4,1,3,5,6,2,8,0}
 int main()
 {
-   std::vector<int> a= {4,1,3,5,6,2,8,0,7,4,};
+   std::vector<int> a= {4,1,3,5,6,2,8,0,7};
    int n = a.size();
 //    mergsort(a,0,n);
      sort_pair(a);
