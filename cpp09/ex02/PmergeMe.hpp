@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 11:44:52 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 12:05:02 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,17 @@ PmergeMe::~PmergeMe()
 {
 }
 
-void PmergeMe::intopair(std::vector<int>& arr)
+void PmergeMe::intopair(std::vector<int>& a)
 {
-    for (int i = 0; i < n;i++)
-    {
-        
+    for (int i = 0; i < a.size();i++)
+     {
+          if (i + 1 < a.size() && a[i] > a[i + 1])
+          {
+               int tmp;
+               tmp = a[i];
+               a[i] = a[i + 1];
+               a[i + 1]  = tmp;
+          }
+          i++;
     }
 }
