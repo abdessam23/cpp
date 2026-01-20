@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 10:56:47 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 20:23:50 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int main(int ac, char** arg)
     std::vector<std::string>  str;
      std::vector<int>  arr;
     fill_string(arg,str);
+    
     
     for(int i = 0;i < str.size();i++)
     {

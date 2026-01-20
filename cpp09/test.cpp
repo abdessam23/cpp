@@ -2,6 +2,13 @@
 #include <vector>
 #include <algorithm>
 
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <cstdlib>
+#include <climits>
+#include <algorithm>
+
 
 // void merge(std::vector<int>& v,int l,int m,int r)
 // {
@@ -182,18 +189,81 @@ void sort_pair(std::vector<int>& a)
      }
 }
 // {4,1,3,5,6,2,8,0}
-int main()
-{
-   std::vector<int> a= {4,1,3,5,6,2,8,0,7};
-   int n = a.size();
-//    mergsort(a,0,n);
-     sort_pair(a);
-      std::cout << "a : ";
-    for(int i = 0;i < n;i++)
-    {
-        std::cout << a[i] << " ";
-    }
-     split_element(a);
+// int main()
+// {
+//    std::vector<int> a= {4,1,3,5,6,2,8,0,7};
+//    int n = a.size();
+// //    mergsort(a,0,n);
+//      sort_pair(a);
+//       std::cout << "a : ";
+//     for(int i = 0;i < n;i++)
+//     {
+//         std::cout << a[i] << " ";
+//     }
+//      split_element(a);
    
+// }
+
+
+void fill_string(char** arg,std::vector<std::string> &str)
+{
+    int i = 1;
+    std::string s;
+     std::string tmp;
+    while (arg[i])
+    {
+       s += arg[i] ; 
+       s += " ";
+       i++;
+    }
+    std::stringstream ss(s);
+    while(ss >>tmp)
+    {
+        str.push_back(tmp);
+    }
+}
+
+int main(int ac, char** arg)
+{
+    if(ac < 2)
+    {
+        std::cerr<< "Error please enter one integers or more "<< std::endl;
+        return 1;
+    }
+    // if (!check_arg(arg))
+    // {
+    //     std::cerr<< "Invalid input"<< std::endl;
+    //     return 1;
+    // }
+    std::vector<std::string>  str;
+     std::vector<int>  arr;
+    fill_string(arg,str);
+    
+    
+    for(int i = 0;i < str.size();i++)
+    {
+        double n = std::strtod(str[i].c_str(),NULL);
+        if (n < 0 || n > INT_MAX )
+        {
+            std::cerr << "Error : only positive integers ." << std::endl;
+            return 1;
+        }
+        else
+            arr.push_back(n);
+    } 
+    
+    std::cout << "The array before sorting : ";
+    for(int i = 0;i < arr.size();i++)
+    {
+        std::cout << arr[i] <<" ";
+    }
+    std::sort(arr.begin(),arr.end());
+    std::cout << "\n\nThe array after sorting : ";
+    for(int i = 0;i < arr.size();i++)
+    {
+        std::cout << arr[i] <<" "; 
+    }
+    return 0;
+    
 }
 

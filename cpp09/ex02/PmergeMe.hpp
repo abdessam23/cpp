@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 15:18:23 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 20:18:48 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <utility>
 #include <vector>
 
+template <typename T>
 class PmergeMe
 {
 private:
