@@ -97,6 +97,8 @@ void split_element(std::vector<int>& arr)
     }
     if (size%2 != 0)
           a1[n] = arr[size];
+
+     
     std::cout << "\na1 : ";
     for(int i = 0;i < a1.size();i++)
     {
@@ -128,7 +130,7 @@ void sortelemet(std::vector<int>& a)
 // {4,1,3,5,6,2,8,0}
 int main()
 {
-   std::vector<int> a= {4,1,3,5,6,2,8,0,7};
+   std::vector<int> a= {4,1,3,5,6,2,8,0,7,4};
    int n = a.size();
 //    mergsort(a,0,n);
      sortelemet(a);

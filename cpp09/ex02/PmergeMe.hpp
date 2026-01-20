@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 12:36:25 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 14:40:01 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ public:
     ~PmergeMe();
     void intopair(std::vector<int>& arr);
     void split_element(std::vector<int>& arr);
-    
-    
-    
+    void insertionsort(std::vector<int>& arr);
 };
 
 PmergeMe::PmergeMe()
@@ -54,35 +52,51 @@ void PmergeMe::intopair(std::vector<int>& a)
           i++;
     }
 }
-void split_element(std::vector<int>& arr)
+
+void PmergeMe::insertionsort(std::vector<int>& arr)
+{
+    for (int i = 1;i<arr.size();i++)
+    {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+void PmergeMe::split_element(std::vector<int>& arr)
 {
     size_t n = arr.size()/2; 
-    std::vector<int> a1(n);
+    size_t size = arr.size();
     std::vector<int> a2(n);
-    for(int i = 0;i < n;i++)
+    
+    int j = 0;
+    for(int i = 0;i < arr.size();i++)
     {
-        if (i%2 == 0)
+        if (i%2 != 0 && j < n)
         {
-            a1[i] = arr[i];
+            a2[j] = arr[i];
+            j++;
+        } 
+    }
+    j = 0;
+    if (size%2 != 0)
+          n+= 1;
+    std::vector<int> a1(n);
+     for(int i = 0;i < arr.size();i++)
+    {
+        if (i%2 == 0 && j < n)
+        {
+            a1[j] = arr[i];
+            j++;
         }
     }
-     for(int i = 0;i < n;i++)
-    {
-        if (i%2 != 0)
-        {
-            a1[i] = arr[i];
-        }
-    }
-    std::cout << "a1 : ";
-    for(int i = 0;i < n;i++)
-    {
-        std::cout << a1[i] << " ";
-    }
-
-    std::cout << "a2 : ";
-    for(int i = 0;i < n;i++)
-    {
-        std::cout << a2[i] << " ";
-    }
+    if (size%2 != 0)
+          a1[n] = arr[size];
+    insertionsort(a1);
     
 }
