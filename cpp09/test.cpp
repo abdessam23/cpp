@@ -3,63 +3,122 @@
 #include <algorithm>
 
 
-void merge(std::vector<int>& b,int l,int mid, int right)
+// void merge(std::vector<int>& b,int l,int mid, int right)
+// {
+//      int n1 = mid - l +1;
+//      int n2 = right - mid;
+//      std::vector<int> c1(n1),c2(n2);
+//      //  std::cout <<  "\n c1:  ";
+//      for (int i = 0; i < n1;i++)
+//      {
+//           c1[i] = b[l + i];
+//           // std::cout << c1[i] << " ";
+//      }
+//      //  std::cout <<  "\n c2:  ";
+//      for (int i = 0; i < n2;i++)
+//      {
+//           c2[i] = b[mid + 1 + i];
+//           // std::cout << c2[i] << " ";
+//      }
+//      int i = 0;
+//      int j = 0;
+//      int k = l;
+//      while (i < n1 &&  j < n2)
+//      {
+//          if (c1[i] <= c2[j])
+//          {
+//                b[k] = c1[i];
+//                i++;
+//          }
+//          else
+//          {
+//                b[k] = c2[j];
+//                j++;
+//          }
+//          k++;
+//      }
+
+//      while (i < n1)
+//      {
+//         b[k] = c1[i];
+//         i++;
+//         k++;
+//      }
+//       while (j < n2)
+//      {
+//         b[k] = c2[j];
+//         j++;
+//         k++;
+//      }
+// }
+
+// void mergsort(std::vector<int>& p,int left,int right)
+// {
+//      if(left >= right)
+//           return;
+//      int mid = left + (right - left)/2;
+//      mergsort(p,left,mid);
+//      mergsort(p,mid + 1,right);
+//      merge(p,left,mid,right);
+// }
+
+void merge(std::vector<int>& v,int l,int m,int r)
 {
-     int n1 = mid - l +1;
-     int n2 = right - mid;
+     int n1 = m - l + 1 ;
+     int n2 = r - m ;
      std::vector<int> c1(n1),c2(n2);
-     //  std::cout <<  "\n c1:  ";
-     for (int i = 0; i < n1;i++)
+     std::cout << "\nc1 : ";
+     for(int i = 0;i < n1;i++)
      {
-          c1[i] = b[l + i];
-          // std::cout << c1[i] << " ";
+          c1[i] = v[l + i];
+          std::cout << c1[i] << " ";
      }
-     //  std::cout <<  "\n c2:  ";
-     for (int i = 0; i < n2;i++)
+       std::cout << "\nc2 : ";
+     for(int i = 0;i < n2;i++)
      {
-          c2[i] = b[mid + 1 + i];
-          // std::cout << c2[i] << " ";
+          c2[i] = v[m + i  + 1];
+          std::cout << c2[i] << " ";
      }
      int i = 0;
      int j = 0;
      int k = l;
-     while (i < n1 &&  j < n2)
+     while (i < n1 && j < n2)
      {
-         if (c1[i] <= c2[j])
-         {
-               b[k] = c1[i];
+          if (c1[i] <= c2[j])
+          {
+               v[k] = c1[i];
                i++;
-         }
-         else
-         {
-               b[k] = c2[j];
+          }
+          else
+          {
+               v[k] = c2[j];
                j++;
-         }
-         k++;
+          }
+          k++;
      }
-
      while (i < n1)
      {
-        b[k] = c1[i];
-        i++;
-        k++;
+         v[k] = c1[i];
+         i++;
+         k++;
      }
-      while (j < n2)
+     while (j < n2)
      {
-        b[k] = c2[j];
-        j++;
-        k++;
+         v[k] = c2[j];
+         j++;
+         k++;
      }
 }
 
-void mergsort(std::vector<int>& p,int left,int right)
+
+void mergsort(std::vector<int>& a,int left,int right)
 {
      if(left >= right)
           return;
-     int mid = left + (right - left)/2;
-     mergsort(p,left,mid);
-     mergsort(p,mid + 1,right);
-     merge(p,left,mid,right);
+     int middle = left + (right - left)/2;
+     mergsort(a,left,middle);
+     mergsort(a,middle + 1, right);
+     merge(a,left,middle,right);
 }
 int main()
 {
