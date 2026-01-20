@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/14 11:21:47 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/20 10:56:47 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int main(int ac, char** arg)
         else
             arr.push_back(n);
     } 
+    
     std::cout << "The array before sorting : ";
     for(int i = 0;i < arr.size();i++)
     {

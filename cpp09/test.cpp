@@ -67,20 +67,7 @@ void mergsort(std::vector<int>& a,int left,int right)
      merge(a,left,middle,right);
 }
 
-// void insersort(std::vector<int>& v, int size)
-// {
-//      for (int i = 1;i < size;i++)
-//      {
-//           int key = v[i];
-//           int j = i - 1;
-//           while (j >= 0 && v[j] > key)
-//           {
-//                v[j + 1] = v[j];
-//                j--;
-//           }
-//           v[j + 1] = key;
-//      }
-// }
+// void 
 
 int main()
 {
