@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 15:32:50 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 15:45:10 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ int PmergeMe::Is_valid(char* str)
     int i = 0;
     while (str[i])
     {
-        if (!isdigit(str[i]) && str[i] != ' ')
+        if (!isdigit(str[i]) && str[i] != ' ' || str[i] != '+')
             return 0;
         i++;
     }
@@ -267,14 +267,15 @@ void PmergeMe::mergeinseert(std::vector<int>& arr)
 
 void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
 {
-     if (!PmergeMe::check_arg(arg))
-        throw std::runtime_error("Invalid input");
+    //  if (!PmergeMe::check_arg(arg))
+    //     throw std::runtime_error("Invalid input");
     std::vector<std::string>  str;
     PmergeMe::fill_string(arg,str);
+    char* end = NULL;
     for (int i = 0; i < str.size(); i++)
     {
-        double n = std::strtod(str[i].c_str(), NULL);
-        if (n < 0 || n > INT_MAX)
+        double n = std::strtod(str[i].c_str(), &end);
+        if (n < 0 || n > INT_MAX && *end != '\0')
         {
             throw std::runtime_error("Error : only positive integers .");
         }

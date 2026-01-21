@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 15:35:36 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 15:37:24 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int main(int ac, char** arg)
    }
    catch(const std::exception& e)
    {
-        
+        std::cout << e.what() << std::endl;
    }   
 }
