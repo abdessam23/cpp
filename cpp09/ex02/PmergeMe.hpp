@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:46:23 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 12:50:16 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ class PmergeMe
         // PmergeMe(std::vector<int>& arr,std::deque<int>& deq);
         // PmergeMe(std::deque<int>& deq);
         ~PmergeMe();
-        std::vector<int> getvector() const;
-        std::deque<int> getdeque() const;
         void intopair(std::vector<int>& arr);
         void split_element(std::vector<int>& arr);
         void insertionsort(std::vector<int>& arr);

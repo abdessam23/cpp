@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:45:34 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 12:55:00 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,6 @@ PmergeMe::PmergeMe(){}
 PmergeMe::PmergeMe(const PmergeMe&){}
 PmergeMe::~PmergeMe(){}
 PmergeMe& PmergeMe::operator=(const PmergeMe&){return *this;}
-std::vector<int> PmergeMe::getvector() const 
-{
-    return arr;
-}
-std::deque<int> PmergeMe::getdeque() const
-{
-    return deq;
-}
 void PmergeMe::intopair(std::vector<int>& a)
 {
     for (int i = 0; i < a.size();i++)
@@ -267,8 +259,8 @@ void PmergeMe::mergeinseert(std::deque<int>& a)
     sort_pair(a);  
     split_element(a);
 }
-void PmergeMe::mergeinseert(std::vector<int>& a)
+void PmergeMe::mergeinseert(std::vector<int>& arr)
 {
-    sort_pair(a);  
-    split_element(a);
+    sort_pair(arr);  
+    split_element(arr); 
 }
