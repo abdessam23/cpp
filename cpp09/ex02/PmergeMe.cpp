@@ -6,14 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:36:16 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 12:45:34 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
  
 PmergeMe::PmergeMe(){}
-PmergeMe::PmergeMe(std::vector<int>& arr,std::deque<int>& deq):arr(arr),deq(deq){} 
+// PmergeMe::PmergeMe(std::vector<int>& arr,std::deque<int>& deq):arr(arr),deq(deq){} 
 // PmergeMe::PmergeMe(std::deque<int>& deq){}
 PmergeMe::PmergeMe(const PmergeMe&){}
 PmergeMe::~PmergeMe(){}
@@ -260,4 +260,15 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
     {
         str.push_back(tmp);
     }
+}
+
+void PmergeMe::mergeinseert(std::deque<int>& a)
+{
+    sort_pair(a);  
+    split_element(a);
+}
+void PmergeMe::mergeinseert(std::vector<int>& a)
+{
+    sort_pair(a);  
+    split_element(a);
 }

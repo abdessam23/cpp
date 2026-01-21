@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:36:37 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 12:47:55 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,14 @@ for (int i = 0; i < str.size(); i++)
             deq.push_back(n);
         }
     }
-    PmergeMe a(arr,deq);
+    PmergeMe a;
     
     std::cout << "The array before sorting : ";
     for (int i = 0; i < arr.size(); i++)
     {
         std::cout << arr[i] << " ";
     }
-    a.sort_pair(a.getvector());  
-    a.split_element(a.arr);
+    a.mergeinseert(arr);
     std::cout << "\n\nThe array after sorting : ";
     for (int i = 0; i < arr.size(); i++)
     {
