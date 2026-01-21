@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include <deque>
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -9,13 +9,12 @@
 #include <climits>
 #include <algorithm>
 
-
 // void merge(std::vector<int>& v,int l,int m,int r)
 // {
 //      int n1 = m - l + 1 ;
 //      int n2 = r - m ;
 //      std::vector<int> c1(n1),c2(n2);
-     
+
 //      for(int i = 0;i < n1;i++)
 //      {
 //           c1[i] = v[l + i];
@@ -55,7 +54,6 @@
 //      }
 // }
 
-
 // void mergsort(std::vector<int>& a,int left,int right)
 // {
 //      if(left >= right)
@@ -74,9 +72,24 @@
 //      merge(a,left,middle,right);
 // }
 
-void insertionsort(std::vector<int>& arr)
+void intopair(std::vector<int> &a)
 {
-    for (int i = 1;i<arr.size();i++)
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (i + 1 < a.size() && a[i] > a[i + 1])
+        {
+            int tmp;
+            tmp = a[i];
+            a[i] = a[i + 1];
+            a[i + 1] = tmp;
+        }
+        i++;
+    }
+}
+
+void insertionsort(std::vector<int> &arr)
+{
+    for (int i = 1; i < arr.size(); i++)
     {
         int key = arr[i];
         int j = i - 1;
@@ -89,82 +102,77 @@ void insertionsort(std::vector<int>& arr)
     }
 }
 
-int serchLineir(std::vector<int>& a, int target)
+int binarySearch(std::vector<int> &a, int target, int start, int end)
 {
-     for (int i = 0; i < a.size(); i++)
-     {
-          if (target < a[i]) {
-               return i;
-          }
-     }
-     return -1;
+    if (start >= end)
+    {
+        return start;
+    }
+    int mid = start + (end - start) / 2;
+    if (a[mid] <= target)
+    {
+        return binarySearch(a, target, mid + 1, end);
+    }
+    else
+    {
+        return binarySearch(a, target, start, mid);
+    }
+    
 }
 
-int binarySearch(std::vector<int>& a, int target, int start, int end)
+void split_element(std::vector<int> &arr)
 {
-     if (start >= end) {
-          return start;
-     }
-     int mid = start+(end - start) / 2;
-     if (a[mid] < target) {start = mid+1;}
-     else {end = mid;}
-     return binarySearch(a, target, start, end-1);
-}
-
-void split_element(std::vector<int>& arr)
-{
-    size_t n = arr.size()/2; 
+    size_t n = arr.size() / 2;
     size_t size = arr.size();
     std::vector<int> a2(n);
-    
-    
+
     int j = 0;
-    for(int i = 0;i < arr.size();i++)
+    for (int i = 0; i < arr.size(); i++)
     {
-        if (i%2 != 0 && j < n)
+        if (i % 2 != 0 && j < n)
         {
             a2[j] = arr[i];
             j++;
-        } 
+        }
     }
     j = 0;
-    if (size%2 != 0)
-          n+= 1;
+    if (size % 2 != 0)
+        n += 1;
     std::vector<int> a1(n);
-     for(int i = 0;i < arr.size();i++)
+    for (int i = 0; i < arr.size(); i++)
     {
-        if (i%2 == 0 && j < n)
+        if (i % 2 == 0 && j < n)
         {
             a1[j] = arr[i];
             j++;
         }
     }
-    if (size%2 != 0)
-          a1[n] = arr[size];
-
-     insertionsort(a2);
-     for(int i = 0;i < a1.size();i++)
-     {
-          int s = binarySearch(a2,a1[i], 0, a2.size()-1);
-          a2.insert(a2.begin() + s, a1[i]);
-     }
+    if (size % 2 != 0)
+        a1[n] = arr[size];
+    insertionsort(a2);
+    for (int i = 0; i < a1.size(); i++)
+    {
+        int s = binarySearch(a2, a1[i], 0, a2.size() - 1);
+        a2.insert(a2.begin() + s, a1[i]);
+    }
+    arr = a2;
 }
 
-
-void sort_pair(std::vector<int>& a)
+void sort_pair(std::vector<int> &a)
 {
-     for (int i = 0; i < a.size();i++)
-     {
-          if (i + 1 < a.size() && a[i] > a[i + 1])
-          {
-               int tmp;
-               tmp = a[i];
-               a[i] = a[i + 1];
-               a[i + 1]  = tmp;
-          }
-          i++;
-     }
+    for (int i = 0; i < a.size(); i++)
+    {
+        if (i + 1 < a.size() && a[i] > a[i + 1])
+        {
+            int tmp;
+            tmp = a[i];
+            a[i] = a[i + 1];
+            a[i + 1] = tmp;
+        }
+        i++;
+    }
 }
+
 // {4,1,3,5,6,2,8,0}
 // int main()
 // {
@@ -178,33 +186,32 @@ void sort_pair(std::vector<int>& a)
 //         std::cout << a[i] << " ";
 //     }
 //      split_element(a);
-   
+
 // }
 
-
-void fill_string(char** arg,std::vector<std::string> &str)
+void fill_string(char **arg, std::vector<std::string> &str)
 {
     int i = 1;
     std::string s;
-     std::string tmp;
+    std::string tmp;
     while (arg[i])
     {
-       s += arg[i] ; 
-       s += " ";
-       i++;
+        s += arg[i];
+        s += " ";
+        i++;
     }
     std::stringstream ss(s);
-    while(ss >>tmp)
+    while (ss >> tmp)
     {
         str.push_back(tmp);
     }
 }
 
-int main(int ac, char** arg)
+int main(int ac, char **arg)
 {
-    if(ac < 2)
+    if (ac < 2)
     {
-        std::cerr<< "Error please enter one integers or more "<< std::endl;
+        std::cerr << "Error please enter one integers or more " << std::endl;
         return 1;
     }
     // if (!check_arg(arg))
@@ -212,35 +219,37 @@ int main(int ac, char** arg)
     //     std::cerr<< "Invalid input"<< std::endl;
     //     return 1;
     // }
-    std::vector<std::string>  str;
-     std::vector<int>  arr;
-    fill_string(arg,str);
-    
-    
-    for(int i = 0;i < str.size();i++)
+    std::vector<std::string> str;
+    std::vector<int> arr;
+    std::deque<int> deq;
+    fill_string(arg, str);
+
+    for (int i = 0; i < str.size(); i++)
     {
-        double n = std::strtod(str[i].c_str(),NULL);
-        if (n < 0 || n > INT_MAX )
+        double n = std::strtod(str[i].c_str(), NULL);
+        if (n < 0 || n > INT_MAX)
         {
             std::cerr << "Error : only positive integers ." << std::endl;
             return 1;
         }
         else
+        {
             arr.push_back(n);
-    } 
-    
-    std::cout << "The array before sorting : ";
-    for(int i = 0;i < arr.size();i++)
-    {
-        std::cout << arr[i] <<" ";
+            deq.push_back(n);
+        }
     }
-    std::sort(arr.begin(),arr.end());
-    std::cout << "\n\nThe array after sorting : ";
-    for(int i = 0;i < arr.size();i++)
+
+    std::cout << "The array before sorting : ";
+    for (int i = 0; i < arr.size(); i++)
     {
-        std::cout << arr[i] <<" "; 
+        std::cout << arr[i] << " ";
+    }
+    sort_pair(arr);
+    split_element(arr);
+    std::cout << "\n\nThe array after sorting : ";
+    for (int i = 0; i < arr.size(); i++)
+    {
+        std::cout << arr[i] << " ";
     }
     return 0;
-    
 }
-
