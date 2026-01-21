@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:55:00 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 15:32:50 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int PmergeMe::binarySearch(std::vector<int>& a, int target, int start, int end)
         if (a[mid] <= target)
             start = mid + 1;
         else
-            end = mid;
+            end = mid - 1;
     }
     return start;
 }
@@ -92,12 +92,11 @@ void PmergeMe::split_element(std::vector<int>& arr)
           a1[n] = arr[size];
     insertionsort(a2);
     for(int i = 0;i < a1.size();i++)
-     {
-          int s = binarySearch(a2,a1[i], 0, a2.size()-1);
-          a2.insert(a2.begin() + s, a1[i]);
-     }
-    
-    
+    {
+        int s = binarySearch(a2,a1[i], 0, a2.size()-1);
+        a2.insert(a2.begin() + s, a1[i]);
+    }
+    arr = a2;
 }
 
 void PmergeMe::sort_pair(std::vector<int>& a)
@@ -148,13 +147,15 @@ void PmergeMe::insertionsort(std::deque<int>& arr)
 
 int PmergeMe::binarySearch(std::deque<int>& a, int target, int start, int end)
 {
-     if (start >= end) {
-          return start;
-     }
-     int mid = start+(end - start) / 2;
-     if (a[mid] < target) {start = mid+1;}
-     else {end = mid;}
-     return binarySearch(a, target, start, end-1);
+    while (start <= end)
+    {
+        int mid = start + (end - start)/2;
+        if (a[mid] <= target)
+            start = mid + 1;
+        else
+            end = mid - 1;
+    }
+    return start;
 }
 
 void PmergeMe::split_element(std::deque<int>& arr)
@@ -192,8 +193,7 @@ void PmergeMe::split_element(std::deque<int>& arr)
           int s = binarySearch(a2,a1[i], 0, a2.size()-1);
           a2.insert(a2.begin() + s, a1[i]);
      }
-    
-    
+    arr = a2;
 }
 
 void PmergeMe::sort_pair(std::deque<int>& a)
@@ -263,4 +263,25 @@ void PmergeMe::mergeinseert(std::vector<int>& arr)
 {
     sort_pair(arr);  
     split_element(arr); 
+}
+
+void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
+{
+     if (!PmergeMe::check_arg(arg))
+        throw std::runtime_error("Invalid input");
+    std::vector<std::string>  str;
+    PmergeMe::fill_string(arg,str);
+    for (int i = 0; i < str.size(); i++)
+    {
+        double n = std::strtod(str[i].c_str(), NULL);
+        if (n < 0 || n > INT_MAX)
+        {
+            throw std::runtime_error("Error : only positive integers .");
+        }
+        else
+        {
+            arr.push_back(n);
+            deq.push_back(n);
+        }
+    }
 }

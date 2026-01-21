@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:50:16 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 15:32:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <climits>
 #include <vector>
 #include <deque>
+#include <exception>
 
 
 class PmergeMe
@@ -45,6 +46,7 @@ class PmergeMe
         void mergeinseert(std::vector<int>& a);
 
         int binarySearch(std::deque<int>& a, int target, int start, int end);
+        static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
         static void fill_string(char** arg,std::vector<std::string> &str);
         static int check_arg(char **arg);
         static int Is_valid(char* str);

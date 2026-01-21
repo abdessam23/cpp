@@ -6,12 +6,12 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 12:54:12 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 15:35:36 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-   
+
 int main(int ac, char** arg)
 {
     if(ac < 2)
@@ -19,43 +19,28 @@ int main(int ac, char** arg)
         std::cerr<< "Error please enter one integers or more "<< std::endl;
         return 1;
     }
-    if (!PmergeMe::check_arg(arg))
-    {
-        std::cerr<< "Invalid input"<< std::endl;
-        return 1;
-    }
-    std::vector<std::string>  str;
-    std::vector<int>  arr;
-    std::deque<int>  deq;   
-    PmergeMe::fill_string(arg,str);
+   try 
+   {
+         std::vector<int>  arr;
+        std::deque<int>  deq;
+        PmergeMe::valid_input(arg,arr,deq);  
+        PmergeMe a;
     
-    
-for (int i = 0; i < str.size(); i++)
-    {
-        double n = std::strtod(str[i].c_str(), NULL);
-        if (n < 0 || n > INT_MAX)
+        std::cout << "The array before sorting : ";
+        for (int i = 0; i < deq.size(); i++)
         {
-            std::cerr << "Error : only positive integers ." << std::endl;
-            return 1;
+            std::cout << deq[i] << " ";
         }
-        else
+        a.mergeinseert(deq);
+        std::cout << "\n\nThe array after sorting : ";
+        for (int i = 0; i < deq.size(); i++)
         {
-            arr.push_back(n);
-            deq.push_back(n);
+            std::cout << deq[i] << " ";
         }
-    }
-    PmergeMe a;
-    
-    std::cout << "The array before sorting : ";
-    for (int i = 0; i < arr.size(); i++)
-    {
-        std::cout << arr[i] << " ";
-    }
-    a.mergeinseert(arr);
-    std::cout << "\n\nThe array after sorting : ";
-    for (int i = 0; i < arr.size(); i++)
-    {
-        std::cout << arr[i] << " ";
-    }
-    
+        std::cout << "\n";
+   }
+   catch(const std::exception& e)
+   {
+        
+   }   
 }
