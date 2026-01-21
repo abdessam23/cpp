@@ -102,7 +102,6 @@ int serchLineir(std::vector<int>& a, int target)
 
 int binarySearch(std::vector<int>& a, int target, int start, int end)
 {
-     std::cout << "start "  << start << ", end " << end << std::endl;
      if (start >= end) {
           return start;
      }
@@ -110,7 +109,6 @@ int binarySearch(std::vector<int>& a, int target, int start, int end)
      if (a[mid] < target) {start = mid+1;}
      else {end = mid;}
      return binarySearch(a, target, start, end-1);
-     // return serchLineir(a, target);
 }
 
 void split_element(std::vector<int>& arr)
@@ -145,32 +143,11 @@ void split_element(std::vector<int>& arr)
           a1[n] = arr[size];
 
      insertionsort(a2);
-     std::cout << "\na2 : ";
-    for(int i = 0;i < a2.size();i++)
-    {
-        std::cout << a2[i] << " ";
-    }
-        std::cout << "\na1 : ";
-    for(int i = 0;i <a1.size();i++)
-    {
-        std::cout << a1[i] << " ";
-    }
-    std::cout <<std::endl;
      for(int i = 0;i < a1.size();i++)
      {
           int s = binarySearch(a2,a1[i], 0, a2.size()-1);
-          std::cout << " index : " << s <<std::endl;
           a2.insert(a2.begin() + s, a1[i]);
-
      }
-    
-    std::cout << "\na2 : ";
-    for(int i = 0;i < a2.size();i++)
-    {
-        std::cout << a2[i] << " ";
-    }
-
-
 }
 
 

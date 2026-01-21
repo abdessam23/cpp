@@ -6,15 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/20 20:18:48 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/21 09:52:15 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <utility>
 #include <vector>
 
-template <typename T>
+
 class PmergeMe
 {
 private:
@@ -30,6 +29,7 @@ public:
     void split_element(std::vector<int>& arr);
     void insertionsort(std::vector<int>& arr);
     void sort_pair(std::vector<int>& a);
+    int binarySearch(std::vector<int>& a, int target, int start, int end);
 };
 
 PmergeMe::PmergeMe()
@@ -70,6 +70,17 @@ void PmergeMe::insertionsort(std::vector<int>& arr)
     }
 }
 
+int PmergeMe::binarySearch(std::vector<int>& a, int target, int start, int end)
+{
+     if (start >= end) {
+          return start;
+     }
+     int mid = start+(end - start) / 2;
+     if (a[mid] < target) {start = mid+1;}
+     else {end = mid;}
+     return binarySearch(a, target, start, end-1);
+}
+
 void PmergeMe::split_element(std::vector<int>& arr)
 {
     size_t n = arr.size()/2; 
@@ -100,11 +111,16 @@ void PmergeMe::split_element(std::vector<int>& arr)
     if (size%2 != 0)
           a1[n] = arr[size];
     insertionsort(a2);
+    for(int i = 0;i < a1.size();i++)
+     {
+          int s = binarySearch(a2,a1[i], 0, a2.size()-1);
+          a2.insert(a2.begin() + s, a1[i]);
+     }
     
     
 }
 
-void sort_pair(std::vector<int>& a)
+void PmergeMe::sort_pair(std::vector<int>& a)
 {
      for (int i = 0; i < a.size();i++)
      {
