@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 11:45:36 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 14:45:37 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,21 +246,17 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
         str.push_back(tmp);
     }
 }
-
+#include <stack>
+std::stack<int> t;
 void PmergeMe::mergeinseert(std::deque<int>& a)
 {
     clock_t time_pro = clock();
     sort_pair(a);  
     split_element(a);
     time_pro = clock() - time_pro;
-    double n =  (double)time_pro;
-    time_pro =  time_pro / CLOCKS_PER_SEC;
-    std::cout << "\n Time requered to sort  std::deque<int>  is : " <<time_pro <<  " us" << std::endl;
-    std::ostringstream oss;
-    oss << time_pro; 
-    std::string str = oss.str(); 
-    
-    std::cout << "\n Time requered to sort  std::deque<int>  is : " <<str <<  " us" << std::endl;
+   double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
+    std::cout << "\n Time requered to sort  std::deque<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
+
 }
 void PmergeMe::mergeinseert(std::vector<int>& arr)
 {

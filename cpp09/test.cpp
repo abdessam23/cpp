@@ -104,19 +104,15 @@ void insertionsort(std::vector<int> &arr)
 
 int binarySearch(std::vector<int> &a, int target, int start, int end)
 {
-    if (start >= end)
+    while (start <= end)
     {
-        return start;
+        int mid = start + (end - start)/2;
+        if (a[mid] <= target)
+            start = mid + 1;
+        else
+            end = mid - 1;
     }
-    int mid = start + (end - start) / 2;
-    if (a[mid] <= target)
-    {
-        return binarySearch(a, target, mid + 1, end);
-    }
-    else
-    {
-        return binarySearch(a, target, start, mid);
-    }
+    return start;
     
 }
 
