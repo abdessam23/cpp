@@ -6,15 +6,13 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 15:45:10 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 11:45:36 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
  
 PmergeMe::PmergeMe(){}
-// PmergeMe::PmergeMe(std::vector<int>& arr,std::deque<int>& deq):arr(arr),deq(deq){} 
-// PmergeMe::PmergeMe(std::deque<int>& deq){}
 PmergeMe::PmergeMe(const PmergeMe&){}
 PmergeMe::~PmergeMe(){}
 PmergeMe& PmergeMe::operator=(const PmergeMe&){return *this;}
@@ -118,7 +116,7 @@ void PmergeMe::sort_pair(std::vector<int>& a)
 void PmergeMe::intopair(std::deque<int>& a)
 {
     for (int i = 0; i < a.size();i++)
-     {
+    {
           if (i + 1 < a.size() && a[i] > a[i + 1])
           {
                int tmp;
@@ -190,8 +188,8 @@ void PmergeMe::split_element(std::deque<int>& arr)
     insertionsort(a2);
     for(int i = 0;i < a1.size();i++)
      {
-          int s = binarySearch(a2,a1[i], 0, a2.size()-1);
-          a2.insert(a2.begin() + s, a1[i]);
+        int num = std::upper_bound(a2.begin(),a2.end(),a1[i]) - a2.begin();
+          a2.insert(a2.begin() + num, a1[i]);
      }
     arr = a2;
 }
@@ -201,12 +199,7 @@ void PmergeMe::sort_pair(std::deque<int>& a)
      for (int i = 0; i < a.size();i++)
      {
           if (i + 1 < a.size() && a[i] > a[i + 1])
-          {
-               int tmp;
-               tmp = a[i];
-               a[i] = a[i + 1];
-               a[i + 1]  = tmp;
-          }
+              std::swap(a[i],a[i + 1]);
           i++;
      }
 }
@@ -240,7 +233,7 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
 {
     int i = 1;
     std::string s;
-     std::string tmp;
+    std::string tmp;
     while (arg[i])
     {
        s += arg[i] ; 
@@ -256,26 +249,37 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
 
 void PmergeMe::mergeinseert(std::deque<int>& a)
 {
+    clock_t time_pro = clock();
     sort_pair(a);  
     split_element(a);
+    time_pro = clock() - time_pro;
+    double n =  (double)time_pro;
+    time_pro =  time_pro / CLOCKS_PER_SEC;
+    std::cout << "\n Time requered to sort  std::deque<int>  is : " <<time_pro <<  " us" << std::endl;
+    std::ostringstream oss;
+    oss << time_pro; 
+    std::string str = oss.str(); 
+    
+    std::cout << "\n Time requered to sort  std::deque<int>  is : " <<str <<  " us" << std::endl;
 }
 void PmergeMe::mergeinseert(std::vector<int>& arr)
 {
+    clock_t time_pro = clock();
     sort_pair(arr);  
-    split_element(arr); 
+    split_element(arr);
+    time_pro = clock() - time_pro;
+    std::cout << "\n Time requered to sort  std::vector<int>  is : " << static_cast<double>((time_pro/CLOCKS_PER_SEC)) <<  "us" << std::endl;
 }
 
 void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
 {
-    //  if (!PmergeMe::check_arg(arg))
-    //     throw std::runtime_error("Invalid input");
     std::vector<std::string>  str;
     PmergeMe::fill_string(arg,str);
     char* end = NULL;
     for (int i = 0; i < str.size(); i++)
     {
         double n = std::strtod(str[i].c_str(), &end);
-        if (n < 0 || n > INT_MAX && *end != '\0')
+        if ((n < 0 || n > INT_MAX) || *end != '\0')
         {
             throw std::runtime_error("Error : only positive integers .");
         }
