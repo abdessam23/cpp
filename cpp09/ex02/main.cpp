@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 14:59:21 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 15:18:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(int ac, char** arg)
             std::cout << deq[i] << " ";
         }
         a.mergeinseert(deq);
-        std::cout << "\n\nThe array after sorting : ";
+        std::cout << "\nThe array after sorting : ";
         for (int i = 0; i < deq.size(); i++)
         {
             std::cout << deq[i] << " ";

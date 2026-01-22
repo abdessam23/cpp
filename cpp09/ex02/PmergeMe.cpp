@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 15:12:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 15:27:02 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ void PmergeMe::intopair(std::vector<int>& a)
     for (int i = 0; i < a.size();i++)
      {
           if (i + 1 < a.size() && a[i] > a[i + 1])
-          {
-               int tmp;
-               tmp = a[i];
-               a[i] = a[i + 1];
-               a[i + 1]  = tmp;
-          }
+            std::swap(a[i],a[i + 1]);
           i++;
     }
 }
@@ -102,12 +97,7 @@ void PmergeMe::sort_pair(std::vector<int>& a)
      for (int i = 0; i < a.size();i++)
      {
           if (i + 1 < a.size() && a[i] > a[i + 1])
-          {
-               int tmp;
-               tmp = a[i];
-               a[i] = a[i + 1];
-               a[i + 1]  = tmp;
-          }
+            std::swap(a[i],a[i + 1]);
           i++;
      }
 }
@@ -118,12 +108,7 @@ void PmergeMe::intopair(std::deque<int>& a)
     for (int i = 0; i < a.size();i++)
     {
           if (i + 1 < a.size() && a[i] > a[i + 1])
-          {
-               int tmp;
-               tmp = a[i];
-               a[i] = a[i + 1];
-               a[i + 1]  = tmp;
-          }
+             std::swap(a[i],a[i + 1]);
           i++;
     }
 }
@@ -204,31 +189,6 @@ void PmergeMe::sort_pair(std::deque<int>& a)
      }
 }
 
-
-int PmergeMe::Is_valid(char* str)
-{
-    int i = 0;
-    while (str[i])
-    {
-        if (!isdigit(str[i]) && str[i] != ' ' || str[i] != '+')
-            return 0;
-        i++;
-    }
-    return 1;
-}
-
-int PmergeMe::check_arg(char **arg)
-{
-    int i =1;
-    while (arg[i])
-    {
-       if (!Is_valid(arg[i]))
-        return 0;
-       i++;
-    }
-    return 1;
-}
-
 void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
 {
     int i = 1;
@@ -246,8 +206,7 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
         str.push_back(tmp);
     }
 }
-#include <stack>
-std::stack<int> t;
+
 void PmergeMe::mergeinseert(std::deque<int>& a)
 {
     clock_t time_pro = clock();

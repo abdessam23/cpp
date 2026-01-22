@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 10:56:44 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 15:21:29 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ class PmergeMe
         int binarySearch(std::deque<int>& a, int target, int start, int end);
         static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
         static void fill_string(char** arg,std::vector<std::string> &str);
-        static int check_arg(char **arg);
-        static int Is_valid(char* str);
 };
 
 #endif
