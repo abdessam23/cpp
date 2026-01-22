@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 14:50:03 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 15:12:14 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,8 +254,11 @@ void PmergeMe::mergeinseert(std::deque<int>& a)
     sort_pair(a);  
     split_element(a);
     time_pro = clock() - time_pro;
-   double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
-    std::cout << "\n Time requered to sort  std::deque<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
+   double n = (((double)(time_pro) / CLOCKS_PER_SEC)* 1000000);
+    std::cout << "\nTime to process a range of " << a.size() 
+    << " element with std::deque<int>  is : "
+    << std::fixed << n 
+    <<  " us" << std::endl; 
 
 }
 void PmergeMe::mergeinseert(std::vector<int>& arr)
@@ -265,7 +268,8 @@ void PmergeMe::mergeinseert(std::vector<int>& arr)
     split_element(arr);
     time_pro = clock() - time_pro;
     double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
-    std::cout << "\n Time requered to sort  std::deque<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
+    std::cout << "\nTime to process a range of" << arr.size() << " element with std::vector<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
+
 }
 
 void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)

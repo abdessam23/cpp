@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/21 15:37:24 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 14:59:21 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int ac, char** arg)
             std::cout << deq[i] << " ";
         }
         std::cout << "\n";
+        a.mergeinseert(deq);
    }
    catch(const std::exception& e)
    {
