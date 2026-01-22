@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 15:21:29 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 15:36:43 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ class PmergeMe
         void split_element(std::vector<int>& arr);
         void insertionsort(std::vector<int>& arr);
         void sort_pair(std::vector<int>& a);
-        int  binarySearch(std::vector<int>& a, int target, int start, int end);
         void intopair(std::deque<int>& arr);
         void split_element(std::deque<int>& arr);
         void insertionsort(std::deque<int>& arr);
         void sort_pair(std::deque<int>& a);
         void mergeinseert(std::deque<int>& a);
         void mergeinseert(std::vector<int>& a);
-        int binarySearch(std::deque<int>& a, int target, int start, int end);
         static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
         static void fill_string(char** arg,std::vector<std::string> &str);
 };

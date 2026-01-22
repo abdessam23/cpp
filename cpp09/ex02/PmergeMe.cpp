@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 15:27:02 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 15:36:31 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,6 @@ void PmergeMe::insertionsort(std::vector<int>& arr)
     }
 }
 
-int PmergeMe::binarySearch(std::vector<int>& a, int target, int start, int end)
-{
-    while (start <= end)
-    {
-        int mid = start + (end - start)/2;
-        if (a[mid] <= target)
-            start = mid + 1;
-        else
-            end = mid - 1;
-    }
-    return start;
-}
-
 void PmergeMe::split_element(std::vector<int>& arr)
 {
     size_t n = arr.size()/2; 
@@ -86,8 +73,8 @@ void PmergeMe::split_element(std::vector<int>& arr)
     insertionsort(a2);
     for(int i = 0;i < a1.size();i++)
     {
-        int s = binarySearch(a2,a1[i], 0, a2.size()-1);
-        a2.insert(a2.begin() + s, a1[i]);
+        int num = std::upper_bound(a2.begin(),a2.end(),a1[i]) - a2.begin();
+          a2.insert(a2.begin() + num, a1[i]);
     }
     arr = a2;
 }
@@ -126,19 +113,6 @@ void PmergeMe::insertionsort(std::deque<int>& arr)
         }
         arr[j + 1] = key;
     }
-}
-
-int PmergeMe::binarySearch(std::deque<int>& a, int target, int start, int end)
-{
-    while (start <= end)
-    {
-        int mid = start + (end - start)/2;
-        if (a[mid] <= target)
-            start = mid + 1;
-        else
-            end = mid - 1;
-    }
-    return start;
 }
 
 void PmergeMe::split_element(std::deque<int>& arr)
