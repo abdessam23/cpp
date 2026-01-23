@@ -6,11 +6,11 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 15:18:18 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 09:38:24 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#include "PmergeMe1.hpp"
 
 int main(int ac, char** arg)
 {
@@ -23,7 +23,7 @@ int main(int ac, char** arg)
    {
          std::vector<int>  arr;
         std::deque<int>  deq;
-        PmergeMe::valid_input(arg,arr,deq);  
+        PmergeMe<container>::valid_input(arg,arr,deq);  
         PmergeMe a;
     
         std::cout << "The array before sorting : ";
