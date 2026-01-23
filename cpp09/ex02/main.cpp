@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 09:49:39 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 10:09:06 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,15 @@ int main(int ac, char** arg)
         {
             std::cout << deq[i] << " ";
         }
-        d.mergeinseert(deq);
+        double n = d.mergeinseert(deq);
         std::cout << "\nThe array after sorting : ";
         for (int i = 0; i < deq.size(); i++)
         {
             std::cout << deq[i] << " ";
         }
         std::cout << "\n";
-        a.mergeinseert(arr);
+        std::cout << "\nTime to process a range of " << deq.size() << " element with std::deque<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
+        std::cout << "\nTime to process a range of " << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<  a.mergeinseert(arr) <<  " us" << std::endl; 
    }
    catch(const std::exception& e)
    {

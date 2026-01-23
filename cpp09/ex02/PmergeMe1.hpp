@@ -6,12 +6,12 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 09:46:04 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 10:10:19 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PmergeMe_HPP
-#define PmergeMe_HPP
+#ifndef PmergeMe1_HPP
+#define PmergeMe1_HPP
 
 #include <iostream>
 #include <sstream>
@@ -36,9 +36,10 @@ class PmergeMe
         void split_element(container& arr);
         void insertionsort(container& arr);
         void sort_pair(container& a);
-        void mergeinseert(container& a);
+        double mergeinseert(container& a);
 };
 void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
 void fill_string(char** arg,std::vector<std::string> &str);
+#include "PmergeMe1.tpp"
 
 #endif

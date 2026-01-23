@@ -6,24 +6,27 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:13:05 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 09:42:54 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 10:10:07 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef PmergeMe1_TPP
+#define PmergeMe1_TPP
 #include "PmergeMe1.hpp"
 
 template <typename container>
 PmergeMe<container>::PmergeMe(){}
 template <typename container>
-PmergeMe<container>::PmergeMe(const PmergeMe&){}
-template <typename container>
-PmergeMe<container>::~PmergeMe(){}
+PmergeMe<container>::PmergeMe(const PmergeMe&){} 
+template <typename container> 
+PmergeMe<container>::~PmergeMe(){} 
 
 template <typename container>
 PmergeMe<container>& PmergeMe<container>::operator=(const PmergeMe<container>& ){return *this;}
 
 template <typename container>
-void PmergeMe<container>::intopair(container& a)
+void PmergeMe<container>::intopair(container& a) 
 {
     for (int i = 0; i < a.size();i++)
      {
@@ -100,14 +103,15 @@ void PmergeMe<container>::sort_pair(container& a)
 }
 
 template <typename container>
-void PmergeMe<container>::mergeinseert(container& arr)
+double PmergeMe<container>::mergeinseert(container& arr)   
 {
     clock_t time_pro = clock();
     sort_pair(arr);  
     split_element(arr);
     time_pro = clock() - time_pro;
     double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
-    std::cout << "\nTime to process a range of" << arr.size() << " element with std::vector<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
+    return n;
+    // std::cout << "\nTime to process a range of" << arr.size() << " element with std::vector<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
 
 }
 
@@ -131,3 +135,5 @@ void PmergeMe<container>::mergeinseert(container& arr)
 //         }
 //     }
 // }
+
+#endif
