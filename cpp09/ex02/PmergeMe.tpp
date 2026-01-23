@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:13:05 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 10:49:57 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 11:00:48 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ double PmergeMe<container>::mergeinseert(container& arr)
     sort_pair(arr);  
     split_element(arr);
     time_pro = clock() - time_pro;
-    double n = ((double)(time_pro) / CLOCKS_PER_SEC);
+    double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000);
     return n;
 }
 
