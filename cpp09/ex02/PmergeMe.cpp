@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 10:25:31 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 10:56:13 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
     std::vector<std::string>  str;
     fill_string(arg,str);
     char* end = NULL;
-    for (int i = 0; i < str.size(); i++)
+    for (size_t i = 0; i < str.size(); i++)
     {
         double n = std::strtod(str[i].c_str(), &end);
         if ((n < 0 || n > INT_MAX) || *end != '\0')
@@ -52,21 +52,21 @@ void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
 
 void mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
 {
-    PmergeMe<std::vector<int>> a;
-    PmergeMe<std::deque<int>> d;
+    PmergeMe<std::vector<int> > a;
+    PmergeMe<std::deque<int> > d;
 
     std::cout << "The array before sorting : ";
-    for (int i = 0; i < deq.size(); i++)
+    for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
         
     double n = d.mergeinseert(deq);
     std::cout << "\nThe array after sorting : ";
-    for (int i = 0; i < deq.size(); i++)
+    for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
 
     std::cout << "\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<< std::fixed << n <<  " us" << std::endl;
+    << deq.size() << " element with std::deque<int>  is : "<< std::fixed << n <<  " s";
     
     std::cout << "\nTime to process a range of " 
-    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<  a.mergeinseert(arr) <<  " us" << std::endl; 
+    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<  a.mergeinseert(arr) <<  " s" << std::endl; 
 }
