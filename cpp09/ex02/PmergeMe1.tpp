@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:13:05 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 09:39:06 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 09:42:54 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ template <typename container>
 PmergeMe<container>::PmergeMe(const PmergeMe&){}
 template <typename container>
 PmergeMe<container>::~PmergeMe(){}
+
 template <typename container>
-PmergeMe& PmergeMe<container>::operator=(const PmergeMe& ){return *this;}
+PmergeMe<container>& PmergeMe<container>::operator=(const PmergeMe<container>& ){return *this;}
 
 template <typename container>
 void PmergeMe<container>::intopair(container& a)

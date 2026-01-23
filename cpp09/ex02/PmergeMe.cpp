@@ -6,11 +6,11 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 09:40:23 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 09:46:53 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe.hpp"
+#include "PmergeMe1.hpp"
  
 // PmergeMe::PmergeMe(){}
 // PmergeMe::PmergeMe(const PmergeMe&){}
@@ -163,23 +163,23 @@
 //      }
 // }
 
-// void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
-// {
-//     int i = 1;
-//     std::string s;
-//     std::string tmp;
-//     while (arg[i])
-//     {
-//        s += arg[i] ; 
-//        s += " ";
-//        i++;
-//     }
-//     std::stringstream ss(s); 
-//     while(ss >>tmp)
-//     {
-//         str.push_back(tmp);
-//     }
-// }
+void fill_string(char** arg,std::vector<std::string> &str)
+{
+    int i = 1;
+    std::string s;
+    std::string tmp;
+    while (arg[i])
+    {
+       s += arg[i] ; 
+       s += " ";
+       i++;
+    }
+    std::stringstream ss(s); 
+    while(ss >>tmp)
+    {
+        str.push_back(tmp);
+    }
+}
 
 // void PmergeMe::mergeinseert(std::deque<int>& a)
 // {
@@ -205,10 +205,10 @@
 
 // }
 
-void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
+void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
 {
     std::vector<std::string>  str;
-    PmergeMe::fill_string(arg,str);
+    fill_string(arg,str);
     char* end = NULL;
     for (int i = 0; i < str.size(); i++)
     {
