@@ -7,7 +7,7 @@ CFLAGS= -Wall -Werror -Wextra -std=c++98
 RM = rm -rf
 SRC= PmergeMe.cpp main.cpp
 
-OBJ = PmergeMe.o main.OBJ
+OBJ = PmergeMe.o main.o
 
 all:$(NAME)
 
