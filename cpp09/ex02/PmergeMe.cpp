@@ -6,11 +6,11 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 10:12:10 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 10:25:31 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PmergeMe1.hpp"
+#include "PmergeMe.hpp" 
  
 void fill_string(char** arg,std::vector<std::string> &str)
 {
@@ -48,4 +48,25 @@ void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
             deq.push_back(n);
         }
     }
+}
+
+void mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
+{
+    PmergeMe<std::vector<int>> a;
+    PmergeMe<std::deque<int>> d;
+
+    std::cout << "The array before sorting : ";
+    for (int i = 0; i < deq.size(); i++)
+        std::cout << deq[i] << " ";
+        
+    double n = d.mergeinseert(deq);
+    std::cout << "\nThe array after sorting : ";
+    for (int i = 0; i < deq.size(); i++)
+        std::cout << deq[i] << " ";
+
+    std::cout << "\nTime to process a range of " 
+    << deq.size() << " element with std::deque<int>  is : "<< std::fixed << n <<  " us" << std::endl;
+    
+    std::cout << "\nTime to process a range of " 
+    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<  a.mergeinseert(arr) <<  " us" << std::endl; 
 }

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe1.tpp                                      :+:      :+:    :+:   */
+/*   PmergeMe.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:13:05 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 10:10:07 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/23 10:28:39 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef PmergeMe1_TPP
-#define PmergeMe1_TPP
-#include "PmergeMe1.hpp"
+#ifndef PmergeMe_TPP
+#define PmergeMe_TPP
+#include "PmergeMe.hpp"  
 
 template <typename container>
 PmergeMe<container>::PmergeMe(){}
@@ -109,31 +109,9 @@ double PmergeMe<container>::mergeinseert(container& arr)
     sort_pair(arr);  
     split_element(arr);
     time_pro = clock() - time_pro;
-    double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
+    double n = ((double)(time_pro) / CLOCKS_PER_SEC);
     return n;
-    // std::cout << "\nTime to process a range of" << arr.size() << " element with std::vector<int>  is : "<< std::fixed << n <<  " us" << std::endl; 
-
 }
 
-// template <typename container>
-// void PmergeMe<container>::valid_input(char** arg,container&  arr,container& deq)
-// {
-//     std::vector<std::string>  str;
-//     PmergeMe::fill_string(arg,str);
-//     char* end = NULL;
-//     for (int i = 0; i < str.size(); i++)
-//     {
-//         double n = std::strtod(str[i].c_str(), &end);
-//         if ((n < 0 || n > INT_MAX) || *end != '\0')
-//         {
-//             throw std::runtime_error("Error : only positive integers .");
-//         }
-//         else
-//         {
-//             arr.push_back(n);
-//             deq.push_back(n);
-//         }
-//     }
-// }
 
 #endif

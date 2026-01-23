@@ -1,50 +1,48 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2026/01/19 10:03:46 by abhimi            #+#    #+#             */
-// /*   Updated: 2026/01/22 15:36:43 by abhimi           ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
+/*   Updated: 2026/01/23 10:22:27 by abhimi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#ifndef PmergeMe_HPP
+#define PmergeMe_HPP
 
-// #ifndef PmergeMe_HPP
-// #define PmergeMe_HPP
+#include <iostream>
+#include <sstream>
+#include <cstdlib>
+#include <algorithm>
+#include <climits>
+#include <vector>
+#include <ctime>
+#include <deque>
+#include <exception>
 
-// #include <iostream>
-// #include <sstream>
-// #include <cstdlib>
-// #include <algorithm>
-// #include <climits>
-// #include <vector>
-// #include <ctime>
-// #include <deque>
-// #include <exception>
+template <typename container>
+class PmergeMe
+{
+    private:
+        PmergeMe(const PmergeMe& other);
+        PmergeMe& operator=(const PmergeMe& other);
+    public:
+        PmergeMe();
+        ~PmergeMe();
+        void intopair(container& arr);
+        void split_element(container& arr);
+        void insertionsort(container& arr);
+        void sort_pair(container& a);
+        double mergeinseert(container& a);
+        
+};
 
+void mergeinsert(std::vector<int>& arr,std::deque<int>& deq);
+void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
+void fill_string(char** arg,std::vector<std::string> &str);
+#include "PmergeMe.tpp" 
 
-// class PmergeMe
-// {
-//     private:
-//         PmergeMe(const PmergeMe& other);
-//         PmergeMe& operator=(const PmergeMe& other);
-//     public:
-//         PmergeMe();
-//         ~PmergeMe();
-//         void intopair(std::vector<int>& arr);
-//         void split_element(std::vector<int>& arr);
-//         void insertionsort(std::vector<int>& arr);
-//         void sort_pair(std::vector<int>& a);
-//         void intopair(std::deque<int>& arr);
-//         void split_element(std::deque<int>& arr);
-//         void insertionsort(std::deque<int>& arr);
-//         void sort_pair(std::deque<int>& a);
-//         void mergeinseert(std::deque<int>& a);
-//         void mergeinseert(std::vector<int>& a);
-//         static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
-//         static void fill_string(char** arg,std::vector<std::string> &str);
-// };
-
-// #endif
+#endif
