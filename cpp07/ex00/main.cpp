@@ -22,7 +22,7 @@ int main()
    std::cout << "a : " <<a << std::endl << "b : " <<b <<std::endl; 
    
    std::cout << "Min" << std::endl;
-   std::cout << min(a,b)<<std::endl; 
+   std::cout << min(6,4)<<std::endl; 
   
    std::cout << "Max"<< std::endl;
    std::cout <<  max(a,b) <<std::endl;
