@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/24 18:44:43 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/25 08:59:52 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
         double n = std::strtod(str[i].c_str(), &end);
         if ((n < 0 || n > INT_MAX) || *end != '\0')
         {
-            throw std::runtime_error("Error : only positive integers .");
+            throw std::runtime_error("Error : only positive integers.");
         }
         else
         {
