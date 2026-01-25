@@ -6,13 +6,15 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 10:56:21 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/09 10:51:46 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/22 09:49:43 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <set>
 #include <vector>
+#include <numeric>
+#include <algorithm>
 #include <exception>
 
 class Span

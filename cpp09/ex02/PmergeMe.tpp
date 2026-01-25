@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:13:05 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 11:00:48 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/25 08:44:14 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void PmergeMe<container>::insertionsort(container& arr)
         arr[j + 1] = key;
     }
 }
-
+template <typename container>
+int PmergeMe<container>::count = 0;
 template <typename container>
 void PmergeMe<container>::split_element(container& arr)
 {
@@ -72,7 +73,7 @@ void PmergeMe<container>::split_element(container& arr)
     if (size%2 != 0)
           n+= 1;
     container a1(n);
-     for(size_t i = 0;i < arr.size();i++)
+    for(size_t i = 0;i < arr.size();i++)
     {
         if (i%2 == 0 && j < n)
         {
@@ -85,8 +86,9 @@ void PmergeMe<container>::split_element(container& arr)
     insertionsort(a2);
     for(size_t i = 0;i < a1.size();i++)
     {
+         count++;
         int num = std::upper_bound(a2.begin(),a2.end(),a1[i]) - a2.begin();
-          a2.insert(a2.begin() + num, a1[i]);
+        a2.insert(a2.begin() + num, a1[i]);
     }
     arr = a2;
 }
@@ -108,6 +110,7 @@ double PmergeMe<container>::mergeinseert(container& arr)
     clock_t time_pro = clock();
     sort_pair(arr);  
     split_element(arr);
+    std::cout <<"number of comparesion " << count << std::endl;
     time_pro = clock() - time_pro;
     double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000);
     return n;

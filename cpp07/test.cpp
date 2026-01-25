@@ -1,8 +1,7 @@
-
 #include <iostream>
 
 template<typename T>
- void fun(T p){
+ void fun(const T& p){
     std::cout << p<< std::endl; 
  }
 

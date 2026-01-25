@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/23 10:22:27 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/24 18:36:41 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ template <typename container>
 class PmergeMe
 {
     private:
+        
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
     public:
+        static int count;
         PmergeMe();
         ~PmergeMe();
         void intopair(container& arr);
