@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/24 18:36:41 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/26 15:47:30 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <climits>
 #include <vector>
+#include <cmath> 
 #include <ctime>
 #include <deque>
 #include <exception>

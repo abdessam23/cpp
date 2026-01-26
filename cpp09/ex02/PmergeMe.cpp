@@ -6,12 +6,63 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/25 08:59:52 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/26 16:03:14 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp" 
- 
+
+
+size_t jacobsthal(size_t n)
+{
+    return ((pow(2,n + 1) + pow(-1,n))/3); 
+}
+
+void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd)
+{
+    for(size_t i = 0; i <arr.size();i+=2)
+    {
+        if (arr[i] < arr[i + 1])
+        {
+            a.push_back(a[i + 1]);
+            b.push_back(a[i]);
+        }
+        else
+        {
+            a.push_back(a[i]);
+            b.push_back(a[i + 1]);
+        }
+    }
+}
+
+void merge_insert(std::vector<int>& arr)
+{
+    std::vector<int> a,b;
+    int rem = -1;
+    create_pairs(arr,a,b,rem); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void fill_string(char** arg,std::vector<std::string> &str)
 {
     int i = 1;
