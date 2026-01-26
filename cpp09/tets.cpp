@@ -151,21 +151,28 @@ int binarySearch(std::vector<int> &a, int target, int start, int end)
     
 }
 
+// size_t jacobsthal(size_t n)
+// {
+//     if (n == 0) return 0;
+//     if (n == 1) return 1;
+
+//     size_t j0 = 0;
+//     size_t j1 = 1;
+//     size_t j2;
+
+//     for (size_t i = 2; i <= n; i++) {
+//         j2 = j1 + 2 * j0;
+//         j0 = j1;
+//         j1 = j2;
+//     }
+//     return j1;
+// }
+
 size_t jacobsthal(size_t n)
 {
     if (n == 0) return 0;
-    if (n == 1) return 1;
-
-    size_t j0 = 0;
-    size_t j1 = 1;
-    size_t j2;
-
-    for (size_t i = 2; i <= n; i++) {
-        j2 = j1 + 2 * j0;
-        j0 = j1;
-        j1 = j2;
-    }
-    return j1;
+    size_t power =  (1<< (n + 1));
+    return (n%2 == 0)? (power + 1)/ 3: (power - 1)/3;
 }
 
 void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd)
