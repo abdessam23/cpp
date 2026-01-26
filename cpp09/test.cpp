@@ -102,19 +102,19 @@
 //     }
 // }
 
-// int binarySearch(std::vector<int> &a, int target, int start, int end)
-// {
-//     while (start <= end)
-//     {
-//         int mid = start + (end - start)/2;
-//         if (a[mid] <= target)
-//             start = mid + 1;
-//         else
-//             end = mid - 1;
-//     }
-//     return start;
+int binarySearch(std::vector<int> &a, int target, int start, int end)
+{
+    while (start <= end)
+    {
+        int mid = start + (end - start)/2;
+        if (a[mid] <= target)
+            start = mid + 1;
+        else
+            end = mid - 1;
+    }
+    return start;
     
-// }
+}
 
 // void split_element(std::vector<int> &arr)
 // {

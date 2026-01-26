@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/26 16:03:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/26 18:02:32 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,65 @@ size_t jacobsthal(size_t n)
 
 void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd)
 {
-    for(size_t i = 0; i <arr.size();i+=2)
+    for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
         if (arr[i] < arr[i + 1])
         {
-            a.push_back(a[i + 1]);
-            b.push_back(a[i]);
+            a.push_back(arr[i + 1]);
+            b.push_back(arr[i]);
         }
         else
         {
-            a.push_back(a[i]);
-            b.push_back(a[i + 1]);
+            a.push_back(arr[i]);
+            b.push_back(arr[i + 1]);
         }
     }
+    if(arr.size()% 2 != 0)
+        odd = arr[arr.size() - 1];
 }
 
 void merge_insert(std::vector<int>& arr)
 {
-    std::vector<int> a,b;
+    std::vector<int> main,pend;
+    bool insert_first = false;
     int rem = -1;
-    create_pairs(arr,a,b,rem); 
+    create_pairs(arr,main,pend,rem);
+    merge_insert(main);
+    
+    if (!pend.empty())
+    {
+        main.insert(main.begin(),pend[0]);
+        insert_first = true;
+    }
+    
+    size_t k = 3;
+    while(jacobsthal(k) <= pend.size())
+    {
+        size_t j_idx = jacobsthal(k) -1;
+        size_t j_prev = jacobsthal(k - 1) -1;
+        for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
+        {
+            if (i == 0 && insert_first)
+                continue;
+            std::vector<int>::iterator  it = upper_bound(main.begin(),main.end(),pend[i]);
+            main.insert(it,pend[i]); 
+        }
+        k++;
+        
+    }
+    for (size_t i = 0; i < pend.size();i++)
+    {
+            if (i == 0 && insert_first)
+                continue;
+            std::vector<int>::iterator  it = upper_bound(main.begin(),main.end(),pend[i]);
+            main.insert(it,pend[i]); 
+    }
+    if (rem != -1)
+    {
+        std::vector<int>::iterator  it = upper_bound(main.begin(),main.end(),rem);
+            main.insert(it,rem); 
+    }
+    arr = main;
 }
 
 
