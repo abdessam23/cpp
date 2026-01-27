@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/26 15:47:30 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/27 09:58:38 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,33 @@
 #include <deque>
 #include <exception>
 
-template <typename container>
 class PmergeMe
 {
     private:
-        
+        PmergeMe();
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
     public:
         static int count;
-        PmergeMe();
         ~PmergeMe();
-        void intopair(container& arr);
-        void split_element(container& arr);
-        void insertionsort(container& arr);
-        void sort_pair(container& a);
-        double mergeinseert(container& a);
+        static size_t jacobsthal(size_t n);
+        static int binarySearch(std::deque<int> &a, int target, int start, int end);
+        static void create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b,int &odd);
+        static void merge_insert(std::deque<int>& arr);
+
+        static int binarySearch(std::vector<int> &a, int target, int start, int end);
+        static void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd);
+        static void merge_insert(std::vector<int>& arr);
+        static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq); 
+        static void fill_string(char** arg,std::vector<std::string> &str);
+      
+        static double ft_sort(std::vector<int>& a);
+        static double ft_sort(std::vector<int>& a);
         
 };
 
 void mergeinsert(std::vector<int>& arr,std::deque<int>& deq);
-void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq);
-void fill_string(char** arg,std::vector<std::string> &str);
+
 #include "PmergeMe.tpp" 
 
 #endif

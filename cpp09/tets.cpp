@@ -12,7 +12,7 @@
 #include <algorithm>
 
 // // Step 1: Create pairs and sort within each pair (larger first)
-// void create_pairs(std::vector<int> &arr, std::vector<int> &paired, int &straggler)
+// void create_pairs(std::deque<int> &arr, std::deque<int> &paired, int &straggler)
 // {
 //     paired.clear();
 //     straggler = -1;
@@ -38,7 +38,7 @@
 // }
 
 
-// int binarySearch(std::vector<int> &a, int target, int start, int end)
+// int binarySearch(std::deque<int> &a, int target, int start, int end)
 // {
 //     while (start <= end)
 //     {
@@ -53,7 +53,7 @@
 // }
 
 // // Step 2: Recursively sort pairs (treating every 2 elements as a pair)
-// void sort_pairs_recursive(std::vector<int> &paired, size_t pair_size)
+// void sort_pairs_recursive(std::deque<int> &paired, size_t pair_size)
 // {
 //     // Base case: if only one pair or less
 //     if (paired.size() <= pair_size * 2)
@@ -86,9 +86,9 @@
 // }
 
 // // Step 3: Extract main chain and pend chain
-// void extract_chains(std::vector<int> &paired, 
-//                     std::vector<int> &main_chain, 
-//                     std::vector<int> &pend_chain,
+// void extract_chains(std::deque<int> &paired, 
+//                     std::deque<int> &main_chain, 
+//                     std::deque<int> &pend_chain,
 //                     int straggler)
 // {
 //     main_chain.clear();
@@ -107,12 +107,12 @@
 // }
 
 // // Complete Ford-Johnson sort
-// void ford_johnson_sort(std::vector<int> &arr)
+// void ford_johnson_sort(std::deque<int> &arr)
 // {
 //     if (arr.size() <= 1)
 //         return;
     
-//     std::vector<int> paired;
+//     std::deque<int> paired;
 //     int straggler;
     
 //     // Step 1: Create pairs (larger, smaller, larger, smaller, ...)
@@ -122,7 +122,7 @@
 //     sort_pairs_recursive(paired, 1); // Start with pair_size = 1
     
 //     // Step 3: Extract chains
-//     std::vector<int> main_chain, pend_chain;
+//     std::deque<int> main_chain, pend_chain;
 //     extract_chains(paired, main_chain, pend_chain, straggler);
     
 //     // Step 4: Insert pend elements into main chain using binary search
@@ -136,7 +136,7 @@
 // }
 
 static int count = 0;
-int binarySearch(std::vector<int> &a, int target, int start, int end)
+int binarySearch(std::deque<int> &a, int target, int start, int end)
 {
     while (start <= end)
     {
@@ -175,7 +175,7 @@ size_t jacobsthal(size_t n)
     return (n%2 == 0)? (power + 1)/ 3: (power - 1)/3;
 }
 
-void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd)
+void create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b,int &odd)
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
@@ -194,12 +194,11 @@ void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b
         odd = arr[arr.size() - 1];
 }
 
-void merge_insert(std::vector<int>& arr)
+void merge_insert(std::deque<int>& arr)
 {
     if (arr.size() < 2)
         return;
-    std::vector<int> main,pend;
-    bool insert_first = false;
+    std::deque<int> main,pend;
     int rem = -1;
     create_pairs(arr,main,pend,rem);
     merge_insert(main);
@@ -218,14 +217,12 @@ void merge_insert(std::vector<int>& arr)
         size_t j_prev = jacobsthal(k - 1) -1;
         for (int i = j_idx; i > j_prev && i < pend.size();i--)
         {
-            // std::vector<int>::iterator  it = std::upper_bound(main.begin(),main.end(),pend[i]);
             int j = binarySearch(main, pend[i],0, main.size() - 1);
             main.insert(main.begin() + j,pend[i]);
             pend.erase(pend.begin() + i);
-            i++;
+            // i++;
         }
         k++;
-        
     }
    while(!pend.empty())
     {
@@ -235,63 +232,62 @@ void merge_insert(std::vector<int>& arr)
     }
     if (rem != -1)
     {
-        // std::vector<int>::iterator  it = std::upper_bound(main.begin(),main.end(),rem);
         int j = binarySearch(main, rem,0, main.size() - 1);
         main.insert(main.begin() + j,rem); 
     }
     arr = main;
 }
-void fill_string(char** arg,std::vector<std::string> &str)
-{
-    int i = 1;
-    std::string s;
-    std::string tmp;
-    while (arg[i])
-    {
-       s += arg[i] ; 
-       s += " ";
-       i++;
-    }
-    std::stringstream ss(s); 
-    while(ss >>tmp)
-    {
-        str.push_back(tmp);
-    }
-}
+// void fill_string(char** arg,std::vector<std::string> &str)
+// {
+//     int i = 1;
+//     std::string s;
+//     std::string tmp;
+//     while (arg[i])
+//     {
+//        s += arg[i] ; 
+//        s += " ";
+//        i++;
+//     }
+//     std::stringstream ss(s); 
+//     while(ss >>tmp)
+//     {
+//         str.push_back(tmp);
+//     }
+// }
 
 
-void valid_input(char** arg,std::vector<int>&  arr)
-{
-    std::vector<std::string>  str;
-    fill_string(arg,str);
-    char* end = NULL;
-    for (size_t i = 0; i < str.size(); i++)
-    {
-        double n = std::strtod(str[i].c_str(), &end);
-        if ((n < 0 || n > INT_MAX) || *end != '\0')
-        {
-            throw std::runtime_error("Error : only positive integers.");
-        }
-        else
-        {
-            arr.push_back(n);
+// void valid_input(char** arg,std::deque<int>&  arr)
+// {
+//     std::vector<std::string>  str;
+//     fill_string(arg,str);
+//     char* end = NULL;
+//     for (size_t i = 0; i < str.size(); i++)
+//     {
+//         double n = std::strtod(str[i].c_str(), &end);
+//         if ((n < 0 || n > INT_MAX) || *end != '\0')
+//         {
+//             throw std::runtime_error("Error : only positive integers.");
+//         }
+//         else
+//         {
+//             arr.push_back(n);
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 
-int main(int ac, char**arg)
-{
-    std::vector<int> b;
-    valid_input(arg,b);
-    merge_insert(b);
-    for (int i ;i < b.size();i++)
-    {
-        std::cout << b[i] << " ";
-    }
-    std::cout << "\n";
-      std::cout << "\n size : " << b.size() << "\n";
-      std::cout << "\n count : " << count << "\n";
+// int main(int ac, char**arg)
+// {
+//     std::deque<int> b;
+//     valid_input(arg,b);
+//     merge_insert(b);
+//     for (int i ;i < b.size();i++)
+//     {
+//         std::cout << b[i] << " ";
+//     }
+//     std::cout << "\n";
+//       std::cout << "\n size : " << b.size() << "\n";
+//       std::cout << "\n count : " << count << "\n";
 
-}
+// }
