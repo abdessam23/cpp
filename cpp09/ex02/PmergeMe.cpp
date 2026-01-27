@@ -6,13 +6,30 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 10:54:10 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/27 12:36:25 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp" 
 
 
+
+PmergeMe::PmergeMe(){}
+PmergeMe::PmergeMe(const PmergeMe&){}
+PmergeMe& PmergeMe::operator=(const PmergeMe&){ return *this;}
+PmergeMe::~PmergeMe(){}
+
+
+
+bool is_sorted(std::vector<int>& arr)
+{
+    for (size_t i = 0; i < arr.size() - 1;i++)
+    {
+        if (arr[i] > arr[i + 1])
+            return false;
+    }
+    return true;
+}
 
 int PmergeMe::binarySearch(std::vector<int> &a, int target, int start, int end)
 {
@@ -215,45 +232,6 @@ void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& de
     }
 }
 
-
-void fill_string(char** arg,std::vector<std::string> &str)
-{
-    int i = 1;
-    std::string s;
-    std::string tmp;
-    while (arg[i])
-    {
-       s += arg[i] ; 
-       s += " ";
-       i++;
-    }
-    std::stringstream ss(s); 
-    while(ss >>tmp)
-    {
-        str.push_back(tmp);
-    }
-}
-
-void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq)
-{
-    std::vector<std::string>  str;
-    fill_string(arg,str);
-    char* end = NULL;
-    for (size_t i = 0; i < str.size(); i++)
-    {
-        double n = std::strtod(str[i].c_str(), &end);
-        if ((n < 0 || n > INT_MAX) || *end != '\0')
-        {
-            throw std::runtime_error("Error : only positive integers.");
-        }
-        else
-        {
-            arr.push_back(n);
-            deq.push_back(n);
-        }
-    }
-}
-
 double PmergeMe::ft_sort(std::vector<int>& arr)   
 {
     clock_t time_pro = clock();
@@ -276,21 +254,29 @@ double PmergeMe::ft_sort(std::deque<int>& arr)
 
 void PmergeMe::mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
 {
-    std::vector<int> a;
-    std::deque<int> d;
-
+    double t1,t2 = 0;
+    if (arr.empty())
+    {
+        std::cerr << "there is no element\n";
+        return;  
+    }
     std::cout << "The array before sorting : ";
     for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
+        
+    if (!is_sorted(arr)) 
+    {
+        t1 = ft_sort(arr);
+        t2 = ft_sort(deq);
+    }
 
-    double n = ft_sort(deq);
     std::cout << "\nThe array after sorting : ";
-    for (size_t i = 0; i < deq.size(); i++)
-        std::cout << deq[i] << " ";
+    for (size_t i = 0; i < arr.size(); i++)
+        std::cout << arr[i] << " ";
 
     std::cout << "\n\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<< std::fixed << n <<  " ms";
+    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " ms";
     
     std::cout << "\nTime to process a range of " 
-    << arr.size() << " element with std::vector<int>  is : "<< std::fixed << ft_sort(arr)<<  " ms" << std::endl; 
+    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " ms" << std::endl;  
 }

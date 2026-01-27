@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 10:20:54 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/27 12:23:12 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ class PmergeMe
         PmergeMe();
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
+        ~PmergeMe();
     public:
         static int count;
-        ~PmergeMe();
+       
         static size_t jacobsthal(size_t n);
         static int binarySearch(std::deque<int> &a, int target, int start, int end);
         static void create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b,int &odd);
