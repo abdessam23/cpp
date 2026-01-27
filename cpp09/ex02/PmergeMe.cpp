@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 10:21:55 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/27 10:54:10 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,25 +216,6 @@ void PmergeMe::valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& de
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void fill_string(char** arg,std::vector<std::string> &str)
 {
     int i = 1;
@@ -311,5 +292,5 @@ void PmergeMe::mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
     << deq.size() << " element with std::deque<int>  is : "<< std::fixed << n <<  " ms";
     
     std::cout << "\nTime to process a range of " 
-    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<  arr.size() << ft_sort(deq)<<  " ms" << std::endl; 
+    << arr.size() << " element with std::vector<int>  is : "<< std::fixed << ft_sort(arr)<<  " ms" << std::endl; 
 }
