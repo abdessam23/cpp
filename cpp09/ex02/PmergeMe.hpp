@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 09:58:38 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/27 10:20:54 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,9 @@ class PmergeMe
         static void fill_string(char** arg,std::vector<std::string> &str);
       
         static double ft_sort(std::vector<int>& a);
-        static double ft_sort(std::vector<int>& a);
+        static double ft_sort(std::deque<int>& a);
+
+        static void mergeinsert(std::vector<int>& arr,std::deque<int>& deq);
         
 };
-
-void mergeinsert(std::vector<int>& arr,std::deque<int>& deq);
-
-#include "PmergeMe.tpp" 
-
 #endif
