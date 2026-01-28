@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 12:36:25 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/28 11:37:01 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,33 +93,39 @@ void PmergeMe::merge_insert(std::vector<int>& arr)
     int rem = -1;
     create_pairs(arr,main,pend,rem);
     merge_insert(main);
-    
+    std::vector<bool> inserted(pend.size(), false);
     if (!pend.empty())
     {
         int j = binarySearch(main, pend[0],0, main.size() - 1);
         main.insert(main.begin() + j,pend[0]);
-        pend.erase(pend.begin());
+        inserted[0] = true;
     }
     
     size_t k = 3;
-    while(jacobsthal(k) <= pend.size()) 
+    while(jacobsthal(k) <= pend.size())
     {
         size_t j_idx = jacobsthal(k) -1;
         size_t j_prev = jacobsthal(k - 1) -1;
         for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
         {
-            int j = binarySearch(main, pend[i],0, main.size() - 1);
-            main.insert(main.begin() + j,pend[i]);
-            pend.erase(pend.begin() + i);
-            // i++;
+            if (!inserted[i])
+            {
+                int j = binarySearch(main, pend[i],0, main.size() - 1);
+                main.insert(main.begin() + j,pend[i]);
+                inserted[i] = true;
+            }
         }
         k++;
     }
-   while(!pend.empty())
+    size_t i = pend.size();
+    while(i--> 0)
     {
-        int j = binarySearch(main, pend[0],0, main.size() - 1);
-        main.insert(main.begin() + j,pend[0]);
-        pend.erase(pend.begin());
+        if (!inserted[i])
+        {
+            int j = binarySearch(main, pend[i],0, main.size() - 1);
+            main.insert(main.begin() + j,pend[i]);
+            inserted[i] = true;
+        }
     }
     if (rem != -1)
     {
@@ -156,12 +162,12 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
     int rem = -1;
     create_pairs(arr,main,pend,rem);
     merge_insert(main);
-    
+    std::vector<bool> inserted(pend.size(), false);
     if (!pend.empty())
     {
         int j = binarySearch(main, pend[0],0, main.size() - 1);
         main.insert(main.begin() + j,pend[0]);
-        pend.erase(pend.begin());
+        inserted[0] = true;
     }
     
     size_t k = 3;
@@ -171,18 +177,24 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
         size_t j_prev = jacobsthal(k - 1) -1;
         for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
         {
-            int j = binarySearch(main, pend[i],0, main.size() - 1);
-            main.insert(main.begin() + j,pend[i]);
-            pend.erase(pend.begin() + i);
-            // i++;
+            if (!inserted[i])
+            {
+                int j = binarySearch(main, pend[i],0, main.size() - 1);
+                main.insert(main.begin() + j,pend[i]);
+                inserted[i] = true;
+            }
         }
         k++;
     }
-   while(!pend.empty())
+    size_t i = pend.size();
+    while(i--> 0)
     {
-        int j = binarySearch(main, pend[0],0, main.size() - 1);
-        main.insert(main.begin() + j,pend[0]);
-        pend.erase(pend.begin());
+        if (!inserted[i])
+        {
+            int j = binarySearch(main, pend[i],0, main.size() - 1);
+            main.insert(main.begin() + j,pend[i]);
+            inserted[i] = true;
+        }
     }
     if (rem != -1)
     {
@@ -236,7 +248,6 @@ double PmergeMe::ft_sort(std::vector<int>& arr)
 {
     clock_t time_pro = clock();
     merge_insert(arr);
-    // std::cout <<"number of comparesion " << count << std::endl;
     time_pro = clock() - time_pro;
     double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000);
     return n;
@@ -246,7 +257,6 @@ double PmergeMe::ft_sort(std::deque<int>& arr)
 {
     clock_t time_pro = clock();
     merge_insert(arr);
-    // std::cout <<"number of comparesion " << count << std::endl;
     time_pro = clock() - time_pro;
     double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000);
     return n;
@@ -271,8 +281,8 @@ void PmergeMe::mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
     }
 
     std::cout << "\nThe array after sorting : ";
-    for (size_t i = 0; i < arr.size(); i++)
-        std::cout << arr[i] << " ";
+    for (size_t i = 0; i < deq.size(); i++)
+        std::cout << deq[i] << " ";
 
     std::cout << "\n\nTime to process a range of " 
     << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " ms";
