@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 12:58:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/29 13:54:22 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ void find_data( std::map<std::string,float>& m,std::string& line)
 {
     int pos;
     float f;
-    if ((pos =line.find(" | ")) != std::string::npos)
+    if ((pos =line.find(",")) != std::string::npos)
     {
-        std::stringstream ss(line.substr(pos + 3,line.length()));
+        std::stringstream ss(line.substr(pos + 1,line.length()));
         ss >> f;
         m.insert({line.substr(0,pos),f});
     }
-    for(std::map<std::string,float >::const_iterator it = m.begin(); it != m.end();++it)
-    {
-        std::cout << " first : "<< it->first << " second : " << it->second << std::endl;
-    }
+    
 }
 
 bool check_data(char* d,double value)
