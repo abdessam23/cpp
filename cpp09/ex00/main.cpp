@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 12:39:20 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:52:24 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 
 
 
-void find_data(std::string line)
+void find_data( std::map<std::string,float>& m,std::string& line)
 {
     int pos;
-    std::map<std::string,std::string >  m;
+    float f;
     if ((pos =line.find(" | ")) != std::string::npos)
     {
-        m.insert({line.substr(0,pos),line.substr(pos + 3,line.length())});
+        std::stringstream ss(line.substr(pos + 3,line.length()));
+        ss >> f;
+        m.insert({line.substr(0,pos),f});
     }
-    else
-    m.insert({line,"notfound"});
-    std::map<std::string,std::string >::iterator it;
+    
 }
 
 bool check_data(char* d,double value)
@@ -78,8 +78,11 @@ void read_data(std::string str, std::map<std::string,float>& mp)
     std::ifstream database(str);
     while(std::getline(database,line))
     {
-        
+        if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
+            continue;
+        find_data(mp,line);
     }
+    
 }
 
 int main(int ac,char** arg)
@@ -93,7 +96,10 @@ int main(int ac,char** arg)
     std::ifstream file(s);
     std::map<std::string,float> mp;
     read_data("data.csv",mp);
-    
+    for(std::map<std::string,float >::const_iterator it = mp.begin(); it != mp.end();++it)
+    {
+        std::cout << " first : "<< it->first << " second : " << it->second << std::endl;
+    }
     
     if (!file.is_open())
     {
