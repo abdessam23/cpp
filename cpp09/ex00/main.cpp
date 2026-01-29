@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 12:21:40 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:29:45 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 
 
-void check_data(std::string line)
+void find_data(std::string line)
 {
     int pos;
     std::map<std::string,std::string >  m;
@@ -82,6 +82,7 @@ int main(int ac,char** arg)
     }
     std::string s = arg[1];
     std::ifstream file(s);
+    std::ifstream database("data.csv");
     
     if (!file.is_open())
     {
@@ -90,26 +91,17 @@ int main(int ac,char** arg)
     }
     std::string line;
     int y;
-    size_t m;
+    int m;
     int d;
     char dash[3];
     double value;
-    // std::tm tm= {};
     int i = 0;
     while(std::getline(file,line))
     {
-        if(i == 0)
-        {
-            if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
-                ;
-            else
-            {
-                std::cerr<< "Error : the file should start with 'date | value' ." <<std::endl;
-                return 1;
-            }
-            i++;
+     
+        if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
             continue;
-        }
+  
         std::stringstream ss(line);
        if ( !(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
        {
@@ -118,7 +110,7 @@ int main(int ac,char** arg)
        }
        if (!check_data(dash,value) || !check_date(y,m,d))
        {
-           std::cout << " "<< line <<std::endl;
+           std::cout << " => "<< line <<std::endl;
        }
        else 
         std::cout << line <<std::endl;
