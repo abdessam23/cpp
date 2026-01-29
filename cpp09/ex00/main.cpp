@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 12:52:24 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:58:14 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void find_data( std::map<std::string,float>& m,std::string& line)
         ss >> f;
         m.insert({line.substr(0,pos),f});
     }
-    
+    for(std::map<std::string,float >::const_iterator it = m.begin(); it != m.end();++it)
+    {
+        std::cout << " first : "<< it->first << " second : " << it->second << std::endl;
+    }
 }
 
 bool check_data(char* d,double value)
@@ -74,8 +77,13 @@ bool check_date(int y,int m,int d)
 }
 void read_data(std::string str, std::map<std::string,float>& mp)
 {
+
     std::string line;
     std::ifstream database(str);
+    if (!database.is_open())
+    {
+        std::cerr << "Can't open file of database .\n";
+    }
     while(std::getline(database,line))
     {
         if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
