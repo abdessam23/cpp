@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 13:54:22 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/29 14:09:39 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,6 @@ int main(int ac,char** arg)
     std::ifstream file(s);
     std::map<std::string,float> mp;
     read_data("data.csv",mp);
-    for(std::map<std::string,float >::const_iterator it = mp.begin(); it != mp.end();++it)
-    {
-        std::cout << " first : "<< it->first << " second : " << it->second << std::endl;
-    }
     
     if (!file.is_open())
     {
@@ -116,14 +112,13 @@ int main(int ac,char** arg)
     int m;
     int d;
     char dash[3];
-    double value;
+    float value;
     int i = 0;
     while(std::getline(file,line))
     {
      
         if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
             continue;
-  
         std::stringstream ss(line);
        if ( !(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
        {
@@ -135,7 +130,17 @@ int main(int ac,char** arg)
            std::cout << " => "<< line <<std::endl;
        }
        else 
-        std::cout << line <<std::endl;
-        i++;
+       {
+            int pos;
+            pos =line.find(" ");
+            for(std::map<std::string,float >::const_iterator it = mp.begin(); it != mp.end();++it)
+            {
+                if (it->first == line.substr(0,pos))
+                {
+                    std::cout << it->first << " => " <<value << " = " << value * it->second << std::endl;
+                     break;
+                }
+            }
+       }
     }
 }
