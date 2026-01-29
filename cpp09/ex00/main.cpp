@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 12:29:45 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/29 12:39:20 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,15 @@ bool check_date(int y,int m,int d)
     return true;
         
 }
+void read_data(std::string str, std::map<std::string,float>& mp)
+{
+    std::string line;
+    std::ifstream database(str);
+    while(std::getline(database,line))
+    {
+        
+    }
+}
 
 int main(int ac,char** arg)
 {
@@ -82,7 +91,9 @@ int main(int ac,char** arg)
     }
     std::string s = arg[1];
     std::ifstream file(s);
-    std::ifstream database("data.csv");
+    std::map<std::string,float> mp;
+    read_data("data.csv",mp);
+    
     
     if (!file.is_open())
     {
