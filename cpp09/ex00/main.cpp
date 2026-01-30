@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 10:32:18 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 10:46:30 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,28 @@ void read_data(std::string str, std::map<std::string,float>& mp)
     }
 }
 
+void find_result(std::map<std::string,float >& mp, std::string& line,float& value)
+{
+    int pos;
+    bool t = false;
+    pos =line.find(" ");
+    for(std::map<std::string,float >::const_iterator it = mp.begin(); it != mp.end();++it)
+    {
+        if (it->first == line.substr(0,pos))
+        {
+            t = true;
+            std::cout << it->first << " => " <<value << " = " << value * it->second << std::endl;
+             break;
+        }
+    }
+    if (!t)
+    {
+          std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
+           --ite;
+           std::cout << line.substr(0,pos) << " => " <<value << " = " << value * ite->second << std::endl;
+    }
+}
+
 void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
 {
     std::string line;
@@ -77,39 +99,21 @@ void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
     int i = 0;
     while(std::getline(file,line))
     {
-        bool t = false;
         if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
             continue;
         std::stringstream ss(line);
-       if ( !(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
-       {
-          std::cerr << "bad input.\n";
-          continue;
-       }
-       if (!check_data(dash,value) || !check_date(y,m,d))
-       {
-           std::cout << " => "<< line <<std::endl;
-       }
-       else 
-       {
-            int pos;
-            pos =line.find(" ");
-            for(std::map<std::string,float >::const_iterator it = mp.begin(); it != mp.end();++it)
-            {
-                if (it->first == line.substr(0,pos))
-                {
-                    t = true;
-                    std::cout << it->first << " => " <<value << " = " << value * it->second << std::endl;
-                     break;
-                }
-            }
-            if (!t)
-            {
-                  std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
-                   --ite;
-                   std::cout << line.substr(0,pos) << " => " <<value << " = " << value * ite->second << std::endl;
-            }
-       }
+        try{
+            if ( !(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
+                throw std::runtime_error("bad input.");
+            check_date(y,m,d);
+            check_char(dash);
+            check_value(value);
+            find_result(mp,line,value);
+        }
+        catch(std::exception& e)
+        {
+        std::cout << e.what() << std::endl;
+        }
     }
 }
 int main(int ac,char** arg)
@@ -122,9 +126,8 @@ int main(int ac,char** arg)
     std::string s = arg[1];
     std::ifstream file(s);
     std::map<std::string,float> mp;
-    read_data("data.csv",mp);
-    
     try{
+        read_data("data.csv",mp);
         if (!file.is_open())
         throw std::runtime_error("Can't open file .");
         read_input(file,mp);
