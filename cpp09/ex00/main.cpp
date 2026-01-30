@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 09:27:44 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 09:58:52 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <ctime> 
 #include <map>
 #include <sstream>
+#include <algorithm>
 
 
 
@@ -69,7 +70,6 @@ bool check_date(int y,int m,int d)
 }
 void read_data(std::string str, std::map<std::string,float>& mp)
 {
-
     std::string line;
     std::ifstream database(str);
     if (!database.is_open())
@@ -82,7 +82,6 @@ void read_data(std::string str, std::map<std::string,float>& mp)
             continue;
         find_data(mp,line);
     }
-    
 }
 
 int main(int ac,char** arg)
@@ -111,7 +110,7 @@ int main(int ac,char** arg)
     int i = 0;
     while(std::getline(file,line))
     {
-     
+        bool t = false;
         if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
             continue;
         std::stringstream ss(line);
@@ -132,9 +131,16 @@ int main(int ac,char** arg)
             {
                 if (it->first == line.substr(0,pos))
                 {
+                    t = true;
                     std::cout << it->first << " => " <<value << " = " << value * it->second << std::endl;
                      break;
                 }
+            }
+            if (!t)
+            {
+                  std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
+                   --ite;
+                   std::cout << ite->first << " => " <<value << " = " << value * ite->second << std::endl;
             }
        }
     }
