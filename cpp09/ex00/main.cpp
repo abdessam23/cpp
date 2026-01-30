@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 09:58:52 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 10:28:53 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,68 +14,50 @@
 #include <fstream>  
 #include <ctime> 
 #include <map>
+#include <exception>
 #include <sstream>
 #include <algorithm>
-
-
 
 void find_data( std::map<std::string,float>& m,std::string& line)
 {
     int pos;
     float f;
-    if ((pos =line.find(",")) != std::string::npos)
-    {
-        std::stringstream ss(line.substr(pos + 1,line.length()));
-        ss >> f;
-        m.insert({line.substr(0,pos),f});
-    }
-    
+    pos =line.find(",");
+    std::stringstream ss(line.substr(pos + 1,line.length()));
+    ss >> f;
+    m.insert({line.substr(0,pos),f});
 }
 
-bool check_data(char* d,double value)
+void  check_value(double value)
+{
+    if (value < 0)
+        throw std::runtime_error("Error: Not a positive number ");
+    if ( value > 1000)
+        throw std::runtime_error("Error: Too large number ");
+}
+
+
+void check_char(char* d)
 {
     if (d[0] != '-' || d[1] != '-' || d[2] != '|')
-    {
-        std::cerr << "invalid input ";
-        return false;
-    }
-    if (value < 0 || value > 1000)
-    {
-        std::cerr << "Error: value 0-1000";
-        return false;
-    }
-    return true;
-    
+        throw std::runtime_error("invalid input ");
 }
-bool check_date(int y,int m,int d)
+void check_date(int y,int m,int d)
 {
    if (y < 2008 || y > 2027)
-   {
-        std::cerr << "there no data about bitcoin in this year ";
-        return false;
-   }
-   
+        throw std::runtime_error("no data about bitcoin in this year ");
    if (m < 1 || m > 12)
-   {
-       std::cerr << "invalid month.";
-       return false;
-   }
+      throw std::runtime_error("invalid month.");
+   
     if (((m == 2 )&& (d < 1 || d > 29)) || ((m != 2 )&& (d < 1 || d > 31)))
-    {
-        std::cerr << "Error:invalid day ";
-        return false;
-    }
-    return true;
-        
+        throw std::runtime_error("Error:invalid day ");  
 }
 void read_data(std::string str, std::map<std::string,float>& mp)
 {
     std::string line;
     std::ifstream database(str);
     if (!database.is_open())
-    {
-        std::cerr << "Can't open file of database .\n";
-    }
+      throw std::runtime_error("Can't open file of database .\n");
     while(std::getline(database,line))
     {
         if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
@@ -84,23 +66,8 @@ void read_data(std::string str, std::map<std::string,float>& mp)
     }
 }
 
-int main(int ac,char** arg)
+void read_input(std::fstream& file)
 {
-    if (ac != 2)
-    {
-        std::cerr << "Please enter file name .\n";
-        return 1; 
-    }
-    std::string s = arg[1];
-    std::ifstream file(s);
-    std::map<std::string,float> mp;
-    read_data("data.csv",mp);
-    
-    if (!file.is_open())
-    {
-        std::cerr << "Can't open file .\n";
-        return 1;
-    }
     std::string line;
     int y;
     int m;
@@ -140,8 +107,29 @@ int main(int ac,char** arg)
             {
                   std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
                    --ite;
-                   std::cout << ite->first << " => " <<value << " = " << value * ite->second << std::endl;
+                   std::cout << line.substr(0,pos) << " => " <<value << " = " << value * ite->second << std::endl;
             }
        }
     }
+}
+int main(int ac,char** arg)
+{
+    if (ac != 2)
+    {
+        std::cerr << "Please enter file name .";
+        return 1; 
+    }
+    std::string s = arg[1];
+    std::ifstream file(s);
+    std::map<std::string,float> mp;
+    read_data("data.csv",mp);
+    
+    try{
+        if (!file.is_open())
+        throw std::runtime_error("Can't open file .");
+    }
+    catch(...)
+    
+   
+  
 }
