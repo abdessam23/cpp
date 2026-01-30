@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 10:46:30 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 11:07:21 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,16 @@ void find_data( std::map<std::string,float>& m,std::string& line)
     m.insert({line.substr(0,pos),f});
 }
 
-void  check_value(double value)
+
+
+void check_charval(char* d,float& value)
 {
+    if (d[0] != '-' || d[1] != '-' || d[2] != '|')
+        throw std::runtime_error("invalid input ");
     if (value < 0)
         throw std::runtime_error("Error: Not a positive number ");
     if ( value > 1000)
         throw std::runtime_error("Error: Too large number ");
-}
-
-
-void check_char(char* d)
-{
-    if (d[0] != '-' || d[1] != '-' || d[2] != '|')
-        throw std::runtime_error("invalid input ");
 }
 void check_date(int y,int m,int d)
 {
@@ -99,15 +96,14 @@ void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
     int i = 0;
     while(std::getline(file,line))
     {
-        if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
-            continue;
         std::stringstream ss(line);
+        if ((line.find("date") != std::string::npos) || line.empty())// std::cout << "ok" <<std::endl;
+            continue;
         try{
             if ( !(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
                 throw std::runtime_error("bad input.");
             check_date(y,m,d);
-            check_char(dash);
-            check_value(value);
+            check_charval(dash,value);
             find_result(mp,line,value);
         }
         catch(std::exception& e)

@@ -6,7 +6,13 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:54 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/28 14:32:55 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 10:51:42 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
+
+
+
+#endif
