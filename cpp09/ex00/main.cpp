@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/29 14:09:39 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 09:27:44 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ bool check_data(char* d,double value)
 {
     if (d[0] != '-' || d[1] != '-' || d[2] != '|')
     {
-        std::cerr << "invalid input";
+        std::cerr << "invalid input ";
         return false;
     }
     if (value < 0 || value > 1000)
     {
-        std::cerr << "the value should be between 0 and 1000";
+        std::cerr << "Error: value 0-1000";
         return false;
     }
     return true;
@@ -50,7 +50,7 @@ bool check_date(int y,int m,int d)
 {
    if (y < 2008 || y > 2027)
    {
-        std::cerr << "there no data about bitcoin in this year.";
+        std::cerr << "there no data about bitcoin in this year ";
         return false;
    }
    
@@ -59,14 +59,9 @@ bool check_date(int y,int m,int d)
        std::cerr << "invalid month.";
        return false;
    }
-    if ((m == 2 )&& (d < 1 || m > 29))
+    if (((m == 2 )&& (d < 1 || d > 29)) || ((m != 2 )&& (d < 1 || d > 31)))
     {
-        std::cerr << "invalid day in this month.";
-        return false;
-    }
-    if ((m != 2 )&& (d < 1 || m > 31))
-    {
-        std::cerr << "invalid day in this month.";
+        std::cerr << "Error:invalid day ";
         return false;
     }
     return true;
