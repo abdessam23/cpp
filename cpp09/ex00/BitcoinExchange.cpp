@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 11:13:38 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 15:40:26 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void find_data( std::map<std::string,float>& m,std::string& line)
     pos =line.find(",");
     std::stringstream ss(line.substr(pos + 1,line.length()));
     ss >> f;
-    m.insert({line.substr(0,pos),f});
+    m.insert(std::make_pair(line.substr(0,pos),f));
 }
 
 
@@ -36,8 +36,9 @@ void check_charval(char* d,float& value)
 }
 void check_date(int y,int m,int d)
 {
-   if (y < 2008 || y > 2027)
-        throw std::runtime_error("no data about bitcoin in this year ");
+    (void) y;
+//    if (y < 2008 || y > 2027)
+//         throw std::runtime_error("no data about bitcoin in this year ");
    if (m < 1 || m > 12)
       throw std::runtime_error("invalid month.");
    
@@ -47,7 +48,7 @@ void check_date(int y,int m,int d)
 void read_data(std::string str, std::map<std::string,float>& mp)
 {
     std::string line;
-    std::ifstream database(str);
+    std::ifstream database(str.c_str());
     if (!database.is_open())
       throw std::runtime_error("Can't open file of database .\n");
     while(std::getline(database,line))
@@ -74,9 +75,9 @@ void find_result(std::map<std::string,float >& mp, std::string& line,float& valu
     }
     if (!t)
     {
-          std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
+        std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
            --ite;
-           std::cout << line.substr(0,pos) << " => " <<value << " = " << value * ite->second << std::endl;
+        std::cout << line.substr(0,pos) << " => " <<value << " = " << value * ite->second << std::endl;
     }
 }
 
@@ -88,11 +89,11 @@ void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
     int d;
     char dash[3];
     float value;
-    int i = 0;
+    
     while(std::getline(file,line))
     {
         std::stringstream ss(line);
-        if ((line.find("date") != std::string::npos) || line.empty())// std::cout << "ok" <<std::endl;
+        if ((line.find("date") != std::string::npos) || line.empty())
             continue;
         try{
             if (!(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
