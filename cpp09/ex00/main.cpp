@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 10:28:53 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/30 10:32:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void read_data(std::string str, std::map<std::string,float>& mp)
     }
 }
 
-void read_input(std::fstream& file)
+void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
 {
     std::string line;
     int y;
@@ -127,9 +127,10 @@ int main(int ac,char** arg)
     try{
         if (!file.is_open())
         throw std::runtime_error("Can't open file .");
+        read_input(file,mp);
     }
-    catch(...)
-    
-   
-  
+    catch(std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
