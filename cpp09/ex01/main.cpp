@@ -6,13 +6,20 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 10:05:14 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/31 10:50:29 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/31 11:08:28 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack>
 #include <iostream>
 #include <sstream>
+
+bool is_operator(char c)
+{
+    if (c == '*' || c == '/' || c == '+' || c == '-')
+        return 1;
+    return -1;
+}
 
 int mkoperation(int a, int b,char c)
 {
@@ -47,7 +54,7 @@ int main(int ac, char** arg)
     std::string str = arg[1];
     std::stack<int> stk;
     // std::stringstream ss(str);
-    
+    int a,b;
     for(size_t i = 0; i < str.length();i++)
     {
         if (i == 0 && !std::isdigit(str[i]))
@@ -55,10 +62,14 @@ int main(int ac, char** arg)
             std::cerr <<  "Error" << std::endl;
             return 1;
         }
-        else if (is_valid_number(str[i]))
+        if (is_operator(str[i]))
         {
-            stk.push(
+            b = stk.top();
+            stk.pop();
+            a = stk.top();
+            stk.pop();
+            stk.push(mkoperation(a,b,str[i]));
         }
-        
     }
+    std:: cout<< stk.top() << std::endl;
 }
