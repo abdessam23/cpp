@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 10:05:14 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/31 11:50:24 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/31 12:29:21 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,17 @@ int main(int ac, char** arg)
         {
             stk.push(str[i] - '0');
         }
+        else if (str[i] != ' ')
+        {
+            std::cerr <<  "Error" << std::endl;
+            return 1;
+        }
+        else
+        {
+            std::cerr <<  "Error" << std::endl;
+            return 1;
+        }
+            
     }
     std:: cout<< stk.top() << std::endl;
 }
