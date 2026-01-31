@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 10:05:14 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/31 11:08:28 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/31 11:50:24 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool is_operator(char c)
 {
     if (c == '*' || c == '/' || c == '+' || c == '-')
         return 1;
-    return -1;
+    return 0;
 }
 
 int mkoperation(int a, int b,char c)
@@ -40,7 +40,7 @@ int mkoperation(int a, int b,char c)
 }
 bool is_valid_number(char c)
 {
-    if (c >= 0 && c <= 9)
+    if (c >= '0' && c <= '9')
         return 1;
     return 0;
 }
@@ -69,6 +69,10 @@ int main(int ac, char** arg)
             a = stk.top();
             stk.pop();
             stk.push(mkoperation(a,b,str[i]));
+        }
+        else if (is_valid_number(str[i]))
+        {
+            stk.push(str[i] - '0');
         }
     }
     std:: cout<< stk.top() << std::endl;
