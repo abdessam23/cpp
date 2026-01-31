@@ -6,13 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 10:05:14 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/31 12:29:21 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/31 14:28:45 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack>
 #include <iostream>
 #include <sstream>
+#include <exception>
 
 bool is_operator(char c)
 {
@@ -21,7 +22,7 @@ bool is_operator(char c)
     return 0;
 }
 
-int mkoperation(int a, int b,char c)
+int mkoperation(int a, int b,char c,bool& error)
 {
     if (c == '*')
         return a * b;
@@ -29,7 +30,12 @@ int mkoperation(int a, int b,char c)
     {
         if (b != 0)
             return a / b;
-        else return -1;
+        else
+        {
+            error = true;
+            return 0;
+        } 
+            
     }
     else if (c == '+')
         return a + b;
@@ -45,6 +51,48 @@ bool is_valid_number(char c)
     return 0;
 }
 
+void rpnfun(std::stack<int>& stk,std::string& str)
+{
+    int a,b,result;
+     bool error;
+    for(size_t i = 0; i < str.length();i++)
+    {
+        if (str[i] == ' ')
+            continue;
+       
+        if (is_operator(str[i]))
+        {
+            if (stk.size() < 2)
+                throw std::runtime_error("Error");
+            
+            b = stk.top();
+            stk.pop();
+            a = stk.top();
+            stk.pop();
+            
+            error = false;
+            result = mkoperation(a,b,str[i],error);
+            
+            if (error)
+                throw std::runtime_error("Error");
+                
+            stk.push(result);
+        }
+
+        else if (is_valid_number(str[i]))
+        {
+            stk.push(str[i] - '0');
+        }
+        else
+            throw std::runtime_error("Error");
+            
+    }
+    if (stk.size() != 1)
+        throw std::runtime_error("Error");
+    else 
+        std:: cout<< stk.top() << std::endl;
+}
+
 int main(int ac, char** arg)
 {
     if (ac != 2)
@@ -53,38 +101,11 @@ int main(int ac, char** arg)
     }
     std::string str = arg[1];
     std::stack<int> stk;
-    // std::stringstream ss(str);
-    int a,b;
-    for(size_t i = 0; i < str.length();i++)
-    {
-        if (i == 0 && !std::isdigit(str[i]))
-        {
-            std::cerr <<  "Error" << std::endl;
-            return 1;
-        }
-        if (is_operator(str[i]))
-        {
-            b = stk.top();
-            stk.pop();
-            a = stk.top();
-            stk.pop();
-            stk.push(mkoperation(a,b,str[i]));
-        }
-        else if (is_valid_number(str[i]))
-        {
-            stk.push(str[i] - '0');
-        }
-        else if (str[i] != ' ')
-        {
-            std::cerr <<  "Error" << std::endl;
-            return 1;
-        }
-        else
-        {
-            std::cerr <<  "Error" << std::endl;
-            return 1;
-        }
-            
+    try{
+        rpnfun(stk,str);
     }
-    std:: cout<< stk.top() << std::endl;
+    catch(const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
