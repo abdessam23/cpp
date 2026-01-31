@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/30 15:40:26 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/01/31 09:09:06 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void check_charval(char* d,float& value)
 void check_date(int y,int m,int d)
 {
     (void) y;
-//    if (y < 2008 || y > 2027)
-//         throw std::runtime_error("no data about bitcoin in this year ");
+   if (y < 2008 || y > 2027)
+        throw std::runtime_error("no data about bitcoin in this year ");
    if (m < 1 || m > 12)
       throw std::runtime_error("invalid month.");
    
