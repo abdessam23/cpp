@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/22 09:50:38 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/01 16:12:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,16 @@ void Span::addNumber(const int n)
         s.push_back(n);
     else
         throw std::out_of_range("span is full");
-}    
+}
+
+void Span::addmultnumber(std::vector<int>& vec)   
+{
+   for (std::vector<int>::iterator it = vec.begin(); it != vec.end();++it)
+   {
+        addNumber(*it);
+   }
+}
+
 int Span::shortestSpan()
 {
      if (s.size() < 2)
