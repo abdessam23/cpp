@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/01 12:33:31 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/01 15:39:33 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,11 +126,6 @@ void PmergeMe::merge_insert(std::vector<int>& arr)
             inserted[i] = true;
         }
     }
-    // if (rem != -1)
-    // {
-    //     int j = binarySearch(main, rem,0, main.size() - 1);
-    //     main.insert(main.begin() + j,rem); 
-    // }
     arr = main;
 }
 
@@ -158,7 +153,6 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
     if (arr.size() < 2)
         return;
     std::deque<int> main,pend;
-    // int rem = -1;
     create_pairs(arr,main,pend);
     merge_insert(main);
     std::vector<bool> inserted(pend.size(), false);
@@ -195,11 +189,6 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
             inserted[i] = true;
         }
     }
-    // if (rem != -1)
-    // {
-    //     int j = binarySearch(main, rem,0, main.size() - 1);
-    //     main.insert(main.begin() + j,rem); 
-    // }
     arr = main;
 }
 
