@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 12:23:12 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/01 12:32:07 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ class PmergeMe
        
         static size_t jacobsthal(size_t n);
         static int binarySearch(std::deque<int> &a, int target, int start, int end);
-        static void create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b,int &odd);
+        static void create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b);
         static void merge_insert(std::deque<int>& arr);
 
         static int binarySearch(std::vector<int> &a, int target, int start, int end);
-        static void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd);
+        static void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b);
         static void merge_insert(std::vector<int>& arr);
         static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq); 
         static void fill_string(char** arg,std::vector<std::string> &str);

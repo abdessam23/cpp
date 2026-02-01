@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/28 11:37:01 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/01 12:33:31 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ size_t PmergeMe::jacobsthal(size_t n)
     return (n%2 == 0)? (power + 1)/ 3: (power - 1)/3;
 }
 
-void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b,int &odd)
+void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b)
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
@@ -82,7 +82,7 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
         }
     }
     if(arr.size()% 2 != 0)
-        odd = arr[arr.size() - 1];
+       b.push_back(arr[arr.size() - 1]);
 }
 
 void PmergeMe::merge_insert(std::vector<int>& arr)
@@ -90,8 +90,7 @@ void PmergeMe::merge_insert(std::vector<int>& arr)
     if (arr.size() < 2)
         return;
     std::vector<int> main,pend;
-    int rem = -1;
-    create_pairs(arr,main,pend,rem);
+    create_pairs(arr,main,pend);
     merge_insert(main);
     std::vector<bool> inserted(pend.size(), false);
     if (!pend.empty())
@@ -127,15 +126,15 @@ void PmergeMe::merge_insert(std::vector<int>& arr)
             inserted[i] = true;
         }
     }
-    if (rem != -1)
-    {
-        int j = binarySearch(main, rem,0, main.size() - 1);
-        main.insert(main.begin() + j,rem); 
-    }
+    // if (rem != -1)
+    // {
+    //     int j = binarySearch(main, rem,0, main.size() - 1);
+    //     main.insert(main.begin() + j,rem); 
+    // }
     arr = main;
 }
 
-void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b,int &odd)
+void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
@@ -151,7 +150,7 @@ void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<
         }
     }
     if(arr.size()% 2 != 0)
-        odd = arr[arr.size() - 1];
+        b.push_back(arr[arr.size() - 1]);
 }
 
 void PmergeMe::merge_insert(std::deque<int>& arr)
@@ -159,8 +158,8 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
     if (arr.size() < 2)
         return;
     std::deque<int> main,pend;
-    int rem = -1;
-    create_pairs(arr,main,pend,rem);
+    // int rem = -1;
+    create_pairs(arr,main,pend);
     merge_insert(main);
     std::vector<bool> inserted(pend.size(), false);
     if (!pend.empty())
@@ -196,11 +195,11 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
             inserted[i] = true;
         }
     }
-    if (rem != -1)
-    {
-        int j = binarySearch(main, rem,0, main.size() - 1);
-        main.insert(main.begin() + j,rem); 
-    }
+    // if (rem != -1)
+    // {
+    //     int j = binarySearch(main, rem,0, main.size() - 1);
+    //     main.insert(main.begin() + j,rem); 
+    // }
     arr = main;
 }
 
