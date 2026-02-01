@@ -7,7 +7,7 @@ CXXFLAGS= -Wall -Werror -Wextra -std=c++98
 RM = rm -rf
 SRC= RPN.cpp main.cpp
 
-OBJ = BitcoinExchange.o main.o
+OBJ = RPN.o main.o
 
 all:$(NAME)
 
