@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/01 16:12:18 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/04 16:28:54 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ int Span::longestSpan()
     if (s.size() < 2)
         throw std::runtime_error("the span empty or has only one element");
     std::sort(s.begin(),s.end());
+    std::cout << "end : " << s.back() << "\n" << "begin : "<< s.front() << std::endl;
     return (s.back() - s.front());
 }
