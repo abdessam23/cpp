@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:19:12 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/01 16:15:49 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/04 15:47:04 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int main()
     //     j++;
     //     sp.addNumber(j);
     // }
-   int  arr[5] = {7,4,5,9};
-    std::vector<int> v(arr[5] ,5);
+  
     sp.addmultnumber(v);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
