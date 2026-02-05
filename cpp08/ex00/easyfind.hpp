@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 10:43:06 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/04 11:45:19 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/05 14:47:44 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int    easyfind(T& a,int value)
         if (a[i] == value)
             return i;
     }
-    throw std::out_of_range("Not found");
+    throw std::out_of_range("Not  Ffound");
 }
 
 #endif 
