@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 10:09:40 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/27 10:20:10 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/07 13:24:17 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int main(int ac, char** arg)
         std::vector<int>  arr;
         std::deque<int>  deq;
         PmergeMe::valid_input(arg,arr,deq);
-         PmergeMe::mergeinsert(arr,deq); 
+         PmergeMe::mergeinsert(arr,deq);
+         std::cout << PmergeMe::count <<std::endl; 
+         
     }
    catch(const std::exception& e)
    {

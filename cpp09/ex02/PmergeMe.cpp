@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/01 15:39:33 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/07 13:31:01 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ PmergeMe::PmergeMe(const PmergeMe&){}
 PmergeMe& PmergeMe::operator=(const PmergeMe&){ return *this;}
 PmergeMe::~PmergeMe(){}
 
-
+int PmergeMe::count = 0;
 
 bool is_sorted(std::vector<int>& arr)
 {
@@ -36,6 +36,7 @@ int PmergeMe::binarySearch(std::vector<int> &a, int target, int start, int end)
     while (start <= end)
     {
         int mid = start + (end - start)/2;
+        count++;
         if (a[mid] <= target)
             start = mid + 1;
         else
@@ -70,6 +71,7 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
+        // count++;
         if (arr[i] < arr[i + 1])
         {
             a.push_back(arr[i + 1]);
@@ -265,12 +267,12 @@ void PmergeMe::mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
     if (!is_sorted(arr)) 
     {
         t1 = ft_sort(arr);
-        t2 = ft_sort(deq);
+        // t2 = ft_sort(deq);
     }
 
     std::cout << "\nThe array after sorting : ";
     for (size_t i = 0; i < deq.size(); i++)
-        std::cout << deq[i] << " ";
+        std::cout <<arr[i] << " ";
 
     std::cout << "\n\nTime to process a range of " 
     << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " ms";
