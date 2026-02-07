@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/07 13:39:09 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/07 14:01:20 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
-        // count++;
         if (arr[i] < arr[i + 1])
         {
             a.push_back(arr[i + 1]);
@@ -91,17 +90,6 @@ void PmergeMe::merge_insert(std::vector<int>& arr)
 {
     if (arr.size() < 2)
         return;
-    if (arr.size() == 2)
-    {
-        count++;
-        if (arr[0] < arr[1])
-        {
-            return;
-        }
-        else
-            std::swap(arr[0],arr[1]);
-        return ;
-    }
     std::vector<int> main,pend;
     create_pairs(arr,main,pend);
     merge_insert(main);
