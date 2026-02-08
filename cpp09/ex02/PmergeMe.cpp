@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/08 13:29:20 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/08 13:43:07 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,15 +162,22 @@ void PmergeMe::merge_insert(std::deque<int>& arr)
 {
     if (arr.size() < 2)
         return;
-    
+     if (arr.size() == 2)
+    {
+        count++;
+        if (arr[0] > arr[1])
+        {
+            std::swap(arr[0],arr[1]);
+        }
+        return;
+    }
     std::deque<int> main,pend;
     create_pairs(arr,main,pend);
     merge_insert(main);
     std::vector<bool> inserted(pend.size(), false);
     if (!pend.empty())
     {
-        int j = binarySearch(main, pend[0],0, main.size() - 1);
-        main.insert(main.begin() + j,pend[0]);
+        main.insert(main.begin(),pend[0]);
         inserted[0] = true;
     }
     
