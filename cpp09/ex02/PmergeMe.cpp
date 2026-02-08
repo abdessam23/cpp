@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/08 13:43:07 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/08 16:56:00 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,11 +104,11 @@ void PmergeMe::merge_insert(std::vector<int>& arr)
     create_pairs(arr,main,pend);
     merge_insert(main);
     std::vector<bool> inserted(pend.size(), false);
-    if (!pend.empty())
-    {
-        main.insert(main.begin(),pend[0]);
-        inserted[0] = true;
-    }
+    // if (!pend.empty())
+    // {
+    //     main.insert(main.begin(),pend[0]);
+    //     inserted[0] = true;
+    // }
     
     size_t k = 3;
     while(jacobsthal(k) <= pend.size())
