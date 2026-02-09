@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 11:11:15 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/05 14:38:15 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/09 14:07:57 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ int main()
     std::vector<int> a(2,6);
     try
     {
-        std::cout << easyfind(a,6) <<std::endl;
+        std::vector<int>::iterator it = easyfind(a,3);
+        std::cout << std::distance(a.begin(),it) <<std::endl;
     }
     catch(const std::exception& e)
     {

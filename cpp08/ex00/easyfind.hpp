@@ -6,14 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 10:43:06 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/09 13:56:51 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/09 14:05:22 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
-
+#include <algorithm>
 #include <iostream>
 #include <exception>
 
