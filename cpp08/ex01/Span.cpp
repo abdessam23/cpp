@@ -6,13 +6,13 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/10 17:44:43 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/10 18:06:34 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(){}
+Span::Span():N(0){}
 Span::Span(unsigned int n):N(n){}
 Span::Span(const Span& other):N(other.N),s(other.s){}
 Span& Span::operator=(const Span& other)
@@ -57,6 +57,7 @@ int Span::longestSpan()
 {
     if (s.size() < 2)
         throw std::runtime_error("the span empty or has only one element");
-    std::sort(s.begin(),s.end());
-    return (s.back() - s.front());
+    std::vector<int> tmp = s;
+    std::sort(tmp.begin(),tmp.end());
+    return (tmp.back() - tmp.front());
 }
