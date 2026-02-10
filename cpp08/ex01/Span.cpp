@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:07:30 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/04 16:32:21 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/10 17:44:43 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ Span::~Span(){}
 
 void Span::addNumber(const int n)
 {
-    if (s.size() <= N)
+    if (s.size() < N)
         s.push_back(n);
     else
         throw std::out_of_range("span is full");
 }
 
-void Span::addmultnumber(std::vector<int>& vec)   
+void Span::addrange(int range[], size_t len)    
 {
-   for (std::vector<int>::iterator it = vec.begin(); it != vec.end();++it)
+   for (size_t i = 0; i  < len;i++)
    {
-        addNumber(*it);
+        addNumber(range[i]);
    }
 }
 
@@ -46,9 +46,10 @@ int Span::shortestSpan()
 {
      if (s.size() < 2)
         throw std::runtime_error("the span empty or has only one element");
-   std::sort(s.begin(),s.end());
-   std::vector<int> arr(s.size());
-   std::adjacent_difference(s.begin(),s.end(),arr.begin()); 
+    std::vector<int> tmp = s;
+   std::sort(tmp.begin(),tmp.end());
+   std::vector<int> arr(tmp.size());
+   std::adjacent_difference(tmp.begin(),tmp.end(),arr.begin()); 
    return *std::min_element(arr.begin() + 1, arr.end());
    
 }
