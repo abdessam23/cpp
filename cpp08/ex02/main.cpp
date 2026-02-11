@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:41:26 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/11 16:24:47 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/11 17:39:33 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int main()
     mystack.push("world");
 
     std::cout << mystack.top() << std::endl;
-    
-    mystack.push("man");
+    mystack.pop();
     
     std::cout << mystack.size() << std::endl;
 
@@ -30,10 +29,10 @@ int main()
     mystack.push("are");
     mystack.push("you");
     mystack.push("today");
-    MutantStack<std::string> copy(mystack);
-    MutantStack<std::string>::iterator it;
+    const  MutantStack<std::string> copy(mystack);
+    MutantStack<std::string>::const_iterator it;
 
-    for(it =  copy.begin(); it != copy.end();++it)
+    for(it =  copy.begin(); it != copy.end();++it)  
     {
         std::cout << *it << std::endl;
     }    
