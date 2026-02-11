@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 12:04:53 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/11 17:45:03 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/11 17:47:08 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define MUTANTSTACK_TPP
 
 #include <iostream>
-#include<stack>
+#include <stack>
+#include <deque>
 
 template<typename T,typename container = std::deque<T> > 
 class MutantStack : public std::stack<T,container>
