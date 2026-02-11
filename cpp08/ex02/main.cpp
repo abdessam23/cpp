@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 09:41:26 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/09 10:36:59 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/11 16:24:47 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,26 @@
 
 int main()
 {
-    MutantStack<int> mstack;
-    mstack.push(5);
-    mstack.push(17);
-    std::cout << mstack.top() << std::endl;
-    mstack.pop();
-    std::cout << mstack.size() << std::endl;
-    mstack.push(3);
-    mstack.push(5);
-    mstack.push(737);
-    //[...]
-    mstack.push(0);
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
-    ++it;
-    --it;
-    while (it != ite)
-    {
-    std::cout << *it << std::endl;
-    ++it;
-    }
-    std::stack<int> s(mstack);
-    return 0;
+    MutantStack<std::string> mystack;
+    mystack.push("hello");
+    mystack.push("world");
+
+    std::cout << mystack.top() << std::endl;
     
+    mystack.push("man");
+    
+    std::cout << mystack.size() << std::endl;
+
+    mystack.push("man");
+    mystack.push("are");
+    mystack.push("you");
+    mystack.push("today");
+    MutantStack<std::string> copy(mystack);
+    MutantStack<std::string>::iterator it;
+
+    for(it =  copy.begin(); it != copy.end();++it)
+    {
+        std::cout << *it << std::endl;
+    }    
     
 }
