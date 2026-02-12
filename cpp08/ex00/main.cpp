@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 11:11:15 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/12 19:35:49 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/12 19:39:50 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,15 @@ int main()
     c.push_back(3);
     try
     {
+         std::vector<int>::iterator ita = easyfind(a,25);     
+        std::cout << std::distance(a.begin(),ita) <<std::endl; 
+        
         std::vector<int>::const_iterator it = easyfind(b,25);
         std::cout << std::distance(b.begin(),it) <<std::endl;
+
         std::list<int>::iterator itl = easyfind(v,3);     
         std::cout << std::distance(v.begin(),itl) <<std::endl; 
+        
         std::deque<int>::iterator itd = easyfind(c,44);  
         std::cout << std::distance(c.begin(),itd) <<std::endl;
     }
