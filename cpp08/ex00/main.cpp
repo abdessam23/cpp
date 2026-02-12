@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 11:11:15 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/12 18:56:43 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/12 19:35:49 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,26 @@ int main()
     a.push_back(5);
     a.push_back(25);
     a.push_back(3);
+    const std::vector<int> b(a);
     std::list<int> v;
     v.push_back(1);
     v.push_back(88);
     v.push_back(3);
     v.push_back(14);
     v.push_back(3);
-    // std::deque<int> c;
-    // c.push_back(6);
-    // c.push_back(3);
-    // c.push_back(44);
-    // c.push_back(2);
-    // c.push_back(3);
+    std::deque<int> c;
+    c.push_back(6);
+    c.push_back(3);
+    c.push_back(44);
+    c.push_back(2);
+    c.push_back(3);
     try
     {
-        std::vector<int>::iterator it = easyfind(a,25);
-        std::cout << std::distance(a.begin(),it) <<std::endl;
-        std::list<int>::iterator itl = easyfind(v,3); 
-        std::cout << std::distance(v.begin(),itl) <<std::endl;
-        std::deque<int>::iterator itd = easyfind(c,200);  
+        std::vector<int>::const_iterator it = easyfind(b,25);
+        std::cout << std::distance(b.begin(),it) <<std::endl;
+        std::list<int>::iterator itl = easyfind(v,3);     
+        std::cout << std::distance(v.begin(),itl) <<std::endl; 
+        std::deque<int>::iterator itd = easyfind(c,44);  
         std::cout << std::distance(c.begin(),itd) <<std::endl;
     }
     catch(const std::exception& e)
