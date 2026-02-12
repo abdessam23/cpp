@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 11:11:15 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/09 15:13:13 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/12 18:56:43 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int main()
     v.push_back(3);
     v.push_back(14);
     v.push_back(3);
-    std::deque<int> c;
-    c.push_back(6);
-    c.push_back(3);
-    c.push_back(44);
-    c.push_back(2);
-    c.push_back(3);
+    // std::deque<int> c;
+    // c.push_back(6);
+    // c.push_back(3);
+    // c.push_back(44);
+    // c.push_back(2);
+    // c.push_back(3);
     try
     {
         std::vector<int>::iterator it = easyfind(a,25);
