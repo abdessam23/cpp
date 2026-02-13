@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:19:12 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/10 18:54:33 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/13 10:22:46 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@ int main()
 {
     Span sp = Span(12);
     
-    int arr[] = {2,14,3,4,5,6,77,8,86,1};
+    std::vector<int> p;
+    p.push_back(5);
+    p.push_back(8);
+    p.push_back(3);
+    p.push_back(1);
+    p.push_back(5);
+    
     try{
         sp.addNumber(0);
-        sp.addrange(arr,arr + 10);
+        sp.addrange(p.begin(),p.end());
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
     }
