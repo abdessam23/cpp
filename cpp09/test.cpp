@@ -226,4 +226,5 @@ int main(int ac, char** arg)
         std::cout << arr[i] << " ";
     std::cout << std::endl;
     std::cout << count <<std::endl; 
+    std::cout << "size : " << arr.size() <<std::endl; 
 }
