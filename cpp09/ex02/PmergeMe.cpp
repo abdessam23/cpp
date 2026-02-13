@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/08 16:56:00 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/13 22:46:06 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,77 +67,99 @@ size_t PmergeMe::jacobsthal(size_t n)
     return (n%2 == 0)? (power + 1)/ 3: (power - 1)/3;
 }
 
-void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b)
-{
-    for(size_t i = 0; i + 1 <arr.size();i+=2)
-    {
-        count++;
-        if (arr[i] < arr[i + 1])
-        {
-            a.push_back(arr[i + 1]);
-            b.push_back(arr[i]);
-        }
-        else
-        {
-            a.push_back(arr[i]);
-            b.push_back(arr[i + 1]);
-        }
-    }
-    if(arr.size()% 2 != 0)
-       b.push_back(arr[arr.size() - 1]);
-}
 
-void PmergeMe::merge_insert(std::vector<int>& arr)
-{
-    if (arr.size() < 2)
-        return;
-    if (arr.size() == 2)
-    {
-        count++;
-        if (arr[0] > arr[1])
-        {
-            std::swap(arr[0],arr[1]);
-        }
-        return;
-    }
-    std::vector<int> main,pend;
-    create_pairs(arr,main,pend);
-    merge_insert(main);
-    std::vector<bool> inserted(pend.size(), false);
-    // if (!pend.empty())
-    // {
-    //     main.insert(main.begin(),pend[0]);
-    //     inserted[0] = true;
-    // }
+
+// void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b)
+// {
+//     for(size_t i = 0; i + 1 <arr.size();i+=2)
+//     {
+//         count++;
+//         if (arr[i] < arr[i + 1])
+//         {
+//             a.push_back(arr[i + 1]);
+//             b.push_back(arr[i]);
+//         }
+//         else
+//         {
+//             a.push_back(arr[i]);
+//             b.push_back(arr[i + 1]);
+//         }
+//     }
+//     if(arr.size()% 2 != 0)
+//        b.push_back(arr[arr.size() - 1]);
+// }
+
+// void PmergeMe::merge_insert(std::vector<int>& arr)
+// {
+//     if (arr.size() < 2)
+//         return;
+//     if (arr.size() == 2)
+//     {
+//         count++;
+//         if (arr[0] > arr[1])
+//         {
+//             std::swap(arr[0],arr[1]);
+//         }
+//         return;
+//     }
+//     std::vector<int> main,pend;
+  
+
+//     create_pairs(arr,main,pend);
+//       std::cout << "\nmain : " ;
+//     for (size_t i = 0; i < main.size(); i++)
+//         std::cout << main[i] << " ";
+//     std::cout <<std::endl;
+
+//     std::cout << "pend : " ;
+//     for (size_t i = 0; i < pend.size(); i++)
+//         std::cout << pend[i] << " ";
+//     std::cout <<std::endl;
+//     merge_insert(main);
+//     std::cout << "main : " ;
+//     for (size_t i = 0; i < main.size(); i++)
+//         std::cout << main[i] << " ";
+//     std::cout <<std::endl;
+
+//     std::cout << "pend : " ;
+//     for (size_t i = 0; i < pend.size(); i++)
+//         std::cout << pend[i] << " ";
+//     std::cout <<std::endl;
+//     std::vector<bool> inserted(pend.size(), false);
+//     // if (!pend.empty())
+//     // {
+//     //     main.insert(main.begin(),pend[0]);
+//     //     inserted[0] = true;
+//     // }
     
-    size_t k = 3;
-    while(jacobsthal(k) <= pend.size())
-    {
-        size_t j_idx = jacobsthal(k) -1;
-        size_t j_prev = jacobsthal(k - 1) -1;
-        for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
-        {
-            if (!inserted[i])
-            {
-                int j = binarySearch(main, pend[i],0, main.size() - 1);
-                main.insert(main.begin() + j,pend[i]);
-                inserted[i] = true;
-            }
-        }
-        k++;
-    }
-    size_t i = pend.size();
-    while(i--> 0)
-    {
-        if (!inserted[i])
-        {
-            int j = binarySearch(main, pend[i],0, main.size() - 1);
-            main.insert(main.begin() + j,pend[i]);
-            inserted[i] = true;
-        }
-    }
-    arr = main;
-}
+//     size_t k = 3;
+//     while(jacobsthal(k) <= pend.size())
+//     {
+//         size_t j_idx = jacobsthal(k) -1;
+//         size_t j_prev = jacobsthal(k - 1) -1;
+//         for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
+//         {
+//             if (!inserted[i])
+//             {
+//                 int j = binarySearch(main, pend[i],0, main.size() - 1);
+//                 main.insert(main.begin() + j,pend[i]);
+//                 inserted[i] = true;
+//             }
+//         }
+//         k++;
+//     }
+//     size_t i = pend.size();
+//     while(i--> 0)
+//     {
+//         if (!inserted[i])
+//         {
+//             int j = binarySearch(main, pend[i],0, main.size() - 1);
+//             main.insert(main.begin() + j,pend[i]);
+//             inserted[i] = true;
+//         }
+//     }
+//     arr = main;
+// }
 
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
 {
