@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 11:19:12 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/13 10:22:46 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/13 10:24:03 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
     p.push_back(8);
     p.push_back(3);
     p.push_back(1);
-    p.push_back(5);
+    p.push_back(12);
     
     try{
         sp.addNumber(0);
