@@ -69,13 +69,13 @@ void merge_insert(std::vector<int>& d)
     if (n < 2)
         return;
         
-    if (n == 2)
-    {
-        count++;
-        if (d[0] > d[1])
-            std::swap(d[0], d[1]);
-        return;
-    }
+    // if (n == 2)
+    // {
+    //     count++;
+    //     if (d[0] > d[1])
+    //         std::swap(d[0], d[1]);
+    //     return;
+    // }
     
     std::vector<int> a, b;
     create_pairs(d, a, b);
