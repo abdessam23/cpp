@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 11:11:15 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/13 10:36:40 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/02/17 09:54:53 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
     a.push_back(3);
     
     const std::vector<int> b(a);
-     std::vector<int>e(a);
+    
     std::list<int> v;
     v.push_back(1);
     v.push_back(88);
