@@ -28,9 +28,7 @@ int binarySearch(std::vector<int> &a, int target, int start, int end)
     
 }
 
-void create_pairs(std::vector<int>& d, 
-                           std::vector<int>& a,
-                           std::vector<int>& b)
+void create_pairs(std::vector<int>& d, std::vector<int>& a,std::vector<int>& b)
 {
     int n = d.size();
     
@@ -171,13 +169,13 @@ void merge_insert(std::vector<int>& d)
         
         for (int i = m - 1; i >= tk_prev; i--)
         {
-            if (i < (int)b.size() && !b_inserted[i])
+            if (i < b.size() && !b_inserted[i])
             {
        
                 int search_start = 0;
                 int search_end;
                 
-                if (i < (int)a_positions.size())
+                if (i < a_positions.size())
                 {
                    
                     search_end = a_positions[i] - 1;
@@ -203,7 +201,7 @@ void merge_insert(std::vector<int>& d)
                     result.insert(result.begin() + pos, b[i]);
                     b_inserted[i] = true;
                     
-                    for (int j = 0; j < (int)a_positions.size(); j++)
+                    for (int j = 0; j < a_positions.size(); j++)
                     {
                         if (a_positions[j] >= pos)
                             a_positions[j]++;
