@@ -326,5 +326,5 @@ int main(int ac, char** arg)
             break;
         }
     }
-    std::cout << "Correctly sorted: " << (sorted ? "YES" : "NO") << std::endl;
+    std::cout << "Correctly sorted : " << (sorted ? "YES" : "NO") << std::endl;
 }
