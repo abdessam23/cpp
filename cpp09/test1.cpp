@@ -79,8 +79,18 @@ void merge_insert(std::vector<int>& d)
     
     std::vector<int> a, b;
     create_pairs(d, a, b);
-    
-
+    std::cout << "\nmain after create pair : " ;
+    for(int i  = 0; i < a.size();i++)
+    {
+        std::cout << a[i] << " ";
+    }
+    std::cout <<"\n\n";
+      std::cout << "pend after create pair : " ;
+    for(int i  = 0; i < b.size();i++)
+    {
+        std::cout << b[i] << " ";
+    }
+    std::cout <<"\n\n";
     std::vector<std::pair<int, int> > mapping;
     for (int i = 0; i < (int)a.size(); i++)
     {
@@ -115,7 +125,18 @@ void merge_insert(std::vector<int>& d)
     }
     
     b = new_b;
-   
+    std::cout << "main after recursion : " ;
+    for(int i  = 0; i < a.size();i++)
+    {
+        std::cout << a[i] << " ";
+    }
+     std::cout <<"\n\n";
+      std::cout << "pend after recursion : " ;
+    for(int i  = 0; i < b.size();i++)
+    {
+        std::cout << b[i] << " ";
+    }
+     std::cout <<"\n\n";
  
     std::vector<int> result;
     std::vector<bool> b_inserted(b.size(), false);
