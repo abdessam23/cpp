@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/13 23:03:12 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/10 22:20:09 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,76 +87,163 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
        b.push_back(arr[arr.size() - 1]);
 }
 
-void PmergeMe::merge_insert(std::vector<int>& arr)
+void PmergeMe::merge_insert(std::vector<int>& d)
 {
-    if (arr.size() < 2)
-        return;
-    if (arr.size() == 2)
-    {
-        count++;
-        if (arr[0] > arr[1])
-        {
-            std::swap(arr[0],arr[1]);
-        }
-        return;
-    }
-    std::vector<int> main,pend;
-  
-
-    create_pairs(arr,main,pend);
-      std::cout << "\nmain : " ;
-    for (size_t i = 0; i < main.size(); i++)
-        std::cout << main[i] << " ";
-    std::cout <<std::endl;
-
-    std::cout << "pend : " ;
-    for (size_t i = 0; i < pend.size(); i++)
-        std::cout << pend[i] << " ";
-    std::cout <<std::endl;
-    merge_insert(main);
-    std::cout << "main : " ;
-    for (size_t i = 0; i < main.size(); i++)
-        std::cout << main[i] << " ";
-    std::cout <<std::endl;
-
-    std::cout << "pend : " ;
-    for (size_t i = 0; i < pend.size(); i++)
-        std::cout << pend[i] << " ";
-    std::cout <<std::endl;
-    std::vector<bool> inserted(pend.size(), false);
-    // if (!pend.empty())
-    // {
-    //     main.insert(main.begin(),pend[0]);
-    //     inserted[0] = true;
-    // }
+    int n = d.size();
     
-    size_t k = 3;
-    while(jacobsthal(k) <= pend.size())
+    if (n < 2)
+        return;   
+    std::vector<int> a, b;
+    create_pairs(d, a, b);
+    std::vector<std::pair<int, int> > mapping;
+    for (size_t i = 0; i < a.size(); i++)
     {
-        size_t j_idx = jacobsthal(k) -1;
-        size_t j_prev = jacobsthal(k - 1) -1;
-        for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
+        mapping.push_back(std::make_pair(a[i], b[i]));
+    }
+    
+    int straggler = -1;
+    bool has_straggler = (b.size() > a.size());
+    if (has_straggler)
+    {
+        straggler = b[b.size() - 1];
+    }
+     
+    merge_insert(a);
+   
+    std::vector<int> new_b;
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        for (size_t j = 0; j < mapping.size(); j++)
         {
-            if (!inserted[i])
+            if (mapping[j].first == a[i])
             {
-                int j = binarySearch(main, pend[i],0, main.size() - 1);
-                main.insert(main.begin() + j,pend[i]);
-                inserted[i] = true;
+                new_b.push_back(mapping[j].second);
+                break;
             }
         }
+    }
+    
+    if (has_straggler)
+    {
+        new_b.push_back(straggler);
+    }
+    b = new_b;
+    std::vector<int> result;
+    std::vector<bool> b_inserted(b.size(), false);
+
+    if (!b.empty())
+    {
+        result.push_back(b[0]);
+        b_inserted[0] = true;
+    }
+    
+
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        result.push_back(a[i]);
+    }
+    
+
+    std::vector<int> a_positions(a.size());
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        a_positions[i] = i + 1;
+    }
+    
+    int k = 2;
+    int ceil_n_half = (n + 1) / 2;
+    
+    while ((int)jacobsthal(k - 1) < ceil_n_half)
+    {
+        int tk = jacobsthal(k);
+        size_t tk_prev = jacobsthal(k - 1);
+        int m = std::min(tk, ceil_n_half);
+        
+        for (size_t i = m - 1; i >= tk_prev; i--)
+        {
+            if (i < b.size() && !b_inserted[i])
+            {
+       
+                int search_start = 0;
+                int search_end;
+                
+                if (i < a_positions.size())
+                {
+                   
+                    search_end = a_positions[i] - 1;
+                }
+                else
+                {
+                    
+                    search_end = result.size() - 1;
+                }
+                
+                
+                if (search_end < search_start)
+                {
+                    result.insert(result.begin(), b[i]);
+                    b_inserted[i] = true;
+                    
+                    for (size_t j = 0; j < a_positions.size(); j++)
+                        a_positions[j]++;
+                }
+                else
+                {
+                    int pos = binarySearch(result, b[i], search_start, search_end);
+                    result.insert(result.begin() + pos, b[i]);
+                    b_inserted[i] = true;
+                    
+                    for (size_t j = 0; j < a_positions.size(); j++)
+                    {
+                        if (a_positions[j] >= pos)
+                            a_positions[j]++;
+                    }
+                }
+            }
+        }
+        
         k++;
     }
-    size_t i = pend.size();
-    while(i--> 0)
+    
+
+    for (size_t i = 0; i < b.size(); i++)
     {
-        if (!inserted[i])
+        if (!b_inserted[i])
         {
-            int j = binarySearch(main, pend[i],0, main.size() - 1);
-            main.insert(main.begin() + j,pend[i]);
-            inserted[i] = true;
+            int search_start = 0;
+            int search_end;
+            
+            if (i < a_positions.size())
+            {
+                search_end = a_positions[i] - 1;
+            }
+            else
+            {
+                search_end = result.size() - 1;
+            }
+            
+            if (search_end < search_start)
+            {
+                result.insert(result.begin(), b[i]);
+                
+                for (size_t j = 0; j < a_positions.size(); j++)
+                    a_positions[j]++;
+            }
+            else
+            {
+                int pos = binarySearch(result, b[i], search_start, search_end);
+                result.insert(result.begin() + pos, b[i]);
+                
+                for (size_t j = 0; j < a_positions.size(); j++)
+                {
+                    if (a_positions[j] >= pos)
+                        a_positions[j]++;
+                }
+            }
         }
     }
-    arr = main;
+    
+    d = result;
 }
 
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
@@ -178,56 +265,164 @@ void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<
         b.push_back(arr[arr.size() - 1]);
 }
 
-void PmergeMe::merge_insert(std::deque<int>& arr)
+void PmergeMe::merge_insert(std::deque<int>& d)
 {
-    if (arr.size() < 2)
-        return;
-     if (arr.size() == 2)
+    int n = d.size();
+    
+    if (n < 2)
+        return;   
+    std::deque<int> a, b;
+    create_pairs(d, a, b);
+    std::deque<std::pair<int, int> > mapping;
+    for (size_t i = 0; i < a.size(); i++)
     {
-        count++;
-        if (arr[0] > arr[1])
-        {
-            std::swap(arr[0],arr[1]);
-        }
-        return;
-    }
-    std::deque<int> main,pend;
-    create_pairs(arr,main,pend);
-    merge_insert(main);
-    std::vector<bool> inserted(pend.size(), false);
-    if (!pend.empty())
-    {
-        main.insert(main.begin(),pend[0]);
-        inserted[0] = true;
+        mapping.push_back(std::make_pair(a[i], b[i]));
     }
     
-    size_t k = 3;
-    while(jacobsthal(k) <= pend.size())
+    int straggler = -1;
+    bool has_straggler = (b.size() > a.size());
+    if (has_straggler)
     {
-        size_t j_idx = jacobsthal(k) -1;
-        size_t j_prev = jacobsthal(k - 1) -1;
-        for (size_t i = j_idx; i > j_prev && i < pend.size();i--)
+        straggler = b[b.size() - 1];
+    }
+     
+    merge_insert(a);
+   
+    std::deque<int> new_b;
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        for (size_t j = 0; j < mapping.size(); j++)
         {
-            if (!inserted[i])
+            if (mapping[j].first == a[i])
             {
-                int j = binarySearch(main, pend[i],0, main.size() - 1);
-                main.insert(main.begin() + j,pend[i]);
-                inserted[i] = true;
+                new_b.push_back(mapping[j].second);
+                break;
             }
         }
+    }
+    
+    if (has_straggler)
+    {
+        new_b.push_back(straggler);
+    }
+    
+    b = new_b;
+    std::deque<int> result;
+    std::vector<bool> b_inserted(b.size(), false);
+
+    if (!b.empty())
+    {
+        result.push_back(b[0]);
+        b_inserted[0] = true;
+    }
+    
+
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        result.push_back(a[i]);
+    }
+    
+
+    std::deque<int> a_positions(a.size());
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        a_positions[i] = i + 1;
+    }
+    
+    int k = 2;
+    int ceil_n_half = (n + 1) / 2;
+    
+    while ((int)jacobsthal(k - 1) < ceil_n_half)
+    {
+        int tk = jacobsthal(k);
+        size_t tk_prev = jacobsthal(k - 1);
+        int m = std::min(tk, ceil_n_half);
+        
+        for (size_t i = m - 1; i >= tk_prev; i--)
+        {
+            if (i < b.size() && !b_inserted[i])
+            {
+       
+                int search_start = 0;
+                int search_end;
+                
+                if (i < a_positions.size())
+                {
+                   
+                    search_end = a_positions[i] - 1;
+                }
+                else
+                {
+                    
+                    search_end = result.size() - 1;
+                }
+                
+                
+                if (search_end < search_start)
+                {
+                    result.insert(result.begin(), b[i]);
+                    b_inserted[i] = true;
+                    
+                    for (size_t j = 0; j < a_positions.size(); j++)
+                        a_positions[j]++;
+                }
+                else
+                {
+                    int pos = binarySearch(result, b[i], search_start, search_end);
+                    result.insert(result.begin() + pos, b[i]);
+                    b_inserted[i] = true;
+                    
+                    for (size_t j = 0; j < a_positions.size(); j++)
+                    {
+                        if (a_positions[j] >= pos)
+                            a_positions[j]++;
+                    }
+                }
+            }
+        }
+        
         k++;
     }
-    size_t i = pend.size();
-    while(i--> 0)
+    
+
+    for (int i = 0; i < (int)b.size(); i++)
     {
-        if (!inserted[i])
+        if (!b_inserted[i])
         {
-            int j = binarySearch(main, pend[i],0, main.size() - 1);
-            main.insert(main.begin() + j,pend[i]);
-            inserted[i] = true;
+            int search_start = 0;
+            int search_end;
+            
+            if (i < (int)a_positions.size())
+            {
+                search_end = a_positions[i] - 1;
+            }
+            else
+            {
+                search_end = result.size() - 1;
+            }
+            
+            if (search_end < search_start)
+            {
+                result.insert(result.begin(), b[i]);
+                
+                for (int j = 0; j < (int)a_positions.size(); j++)
+                    a_positions[j]++;
+            }
+            else
+            {
+                int pos = binarySearch(result, b[i], search_start, search_end);
+                result.insert(result.begin() + pos, b[i]);
+                
+                for (int j = 0; j < (int)a_positions.size(); j++)
+                {
+                    if (a_positions[j] >= pos)
+                        a_positions[j]++;
+                }
+            }
         }
     }
-    arr = main;
+    
+    d = result;
 }
 
 void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
@@ -303,7 +498,7 @@ void PmergeMe::mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
     if (!is_sorted(arr)) 
     {
         t1 = ft_sort(arr);
-        // t2 = ft_sort(deq);
+        t2 = ft_sort(deq);
     }
 
     std::cout << "\nThe array after sorting : ";
