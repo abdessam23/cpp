@@ -1,18 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/23 09:10:02 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/13 22:25:06 by abhimi           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef PmergeMe_HPP
-#define PmergeMe_HPP
-
 #include <iostream>
 #include <sstream>
 #include <cstdlib>
@@ -24,31 +9,30 @@
 #include <deque>
 #include <exception>
 
+
 class PmergeMe
 {
-    private:
-        PmergeMe();
-        PmergeMe(const PmergeMe& other);
-        PmergeMe& operator=(const PmergeMe& other);
-        ~PmergeMe();
-    public:
-        static int count;
-       
-        static size_t jacobsthal(size_t n);
-        static int binarySearch(std::deque<int> &a, int target, int start, int end);
-        static void create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b);
-        static void merge_insert(std::deque<int>& arr);
+private:
+    std::vector<int> arr;
+    std::deque<int> deq;
+    PmergeMe();
+    PmergeMe(const PmergeMe& other);
+    PmergeMe& operator=(const PmergeMe& other);
 
-        static int binarySearch(std::vector<int> &a, int target, int start, int end);
-        static void create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b);
-        static void merge_insert(std::vector<int>& arr); 
-        static void valid_input(char** arg,std::vector<int>&  arr,std::deque<int>& deq); 
-        static void fill_string(char** arg,std::vector<std::string> &str);
-      
-        static double ft_sort(std::vector<int>& a);
-        static double ft_sort(std::deque<int>& a);
+    void valid_input(char** arg); 
+    void fill_string(char** arg,std::vector<std::string> &str);
+    size_t jacobsthal(size_t n);
 
-        static void mergeinsert(std::vector<int>& arr,std::deque<int>& deq);
-        
+    void merge_insert(std::vector<int>& a);
+    int binarySearch(std::vector<int> &a, int target, int start, int end);
+    void create_pairs(std::vector<int>& ar, std::vector<int>& a,std::vector<int>& b);
+
+    void merge_insert(std::deque<int>& a);
+    int binarySearch(std::deque<int> &a, int target, int start, int end);
+    void create_pairs(std::deque<int>& ar, std::deque<int>& a,std::deque<int>& b);
+public:
+    PmergeMe(char** arg);
+    void sort();
+    ~PmergeMe();
 };
-#endif
+
