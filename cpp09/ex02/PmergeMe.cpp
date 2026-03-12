@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 11:55:18 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/10 22:20:09 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/11 23:55:49 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,25 @@ int PmergeMe::binarySearch(std::deque<int> &a, int target, int start, int end)
     return start;
     
 }
+// size_t PmergeMe::jacobsthal(size_t n)
+// {
+//     if (n == 0) return 0;
+//     size_t power =  (1<< (n + 1));
+//     return (n%2 == 0)? (power + 1)/ 3: (power - 1)/3;
+// }
+
 size_t PmergeMe::jacobsthal(size_t n)
 {
     if (n == 0) return 0;
-    size_t power =  (1<< (n + 1));
-    return (n%2 == 0)? (power + 1)/ 3: (power - 1)/3;
+    if (n == 1) return 1;
+    size_t prev2 = 0, prev1 = 1, curr = 0;
+    for (size_t i = 2; i <= n; i++)
+    {
+        curr  = prev1 + 2 * prev2;
+        prev2 = prev1;
+        prev1 = curr;
+    }
+    return curr;
 }
 
 void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b)
@@ -470,7 +484,7 @@ double PmergeMe::ft_sort(std::vector<int>& arr)
     clock_t time_pro = clock();
     merge_insert(arr);
     time_pro = clock() - time_pro;
-    double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000);
+    double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
     return n;
 }
 
@@ -479,7 +493,7 @@ double PmergeMe::ft_sort(std::deque<int>& arr)
     clock_t time_pro = clock();
     merge_insert(arr);
     time_pro = clock() - time_pro;
-    double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000);
+    double n = ((double)(time_pro) / CLOCKS_PER_SEC * 1000000);
     return n;
 }
 
@@ -506,8 +520,8 @@ void PmergeMe::mergeinsert(std::vector<int>& arr,std::deque<int>& deq)
         std::cout <<arr[i] << " ";
 
     std::cout << "\n\nTime to process a range of " 
-    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " ms";
+    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " us";
     
     std::cout << "\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " ms" << std::endl;  
+    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;  
 }
