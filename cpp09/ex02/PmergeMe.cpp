@@ -41,7 +41,7 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
     }
     
 }
-
+int PmergeMe::count = 0;
 void PmergeMe::valid_input(char** arg)
 {
     std::vector<std::string>  str;
@@ -106,6 +106,8 @@ void PmergeMe::sort()
     
     std::cout << "\nTime to process a range of " 
     << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;  
+
+    std::cout << "counter : " << count <<std::endl;
 }
 
 int PmergeMe::binarySearch(std::deque<int> &a, int target, int start, int end)
@@ -305,6 +307,7 @@ int PmergeMe::binarySearch(std::vector<int> &a, int target, int start, int end)
     while (start <= end)
     {
         int mid = start + (end - start)/2;
+        count++; 
         if (a[mid] <= target)
             start = mid + 1;
         else
@@ -317,6 +320,7 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
+        count++;
         if (arr[i] < arr[i + 1])
         {
             a.push_back(arr[i + 1]);
@@ -352,7 +356,18 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     {
         straggler = b[b.size() - 1];
     }
-     
+
+    std::cout <<"\n**** before recursion a : " ;
+    for(size_t i = 0; i < a.size();i++)
+    {
+        std::cout << a[i] << " ";
+    }
+     std::cout <<"\n\n**** before recursion b : " ;
+    for(size_t i = 0; i < b.size();i++)
+    {
+        std::cout << b[i] << " ";
+    }
+
     merge_insert(a);
    
     std::vector<int> new_b;
@@ -373,6 +388,16 @@ void PmergeMe::merge_insert(std::vector<int>& d)
         new_b.push_back(straggler);
     }
     b = new_b;
+      std::cout <<"\n**** after recursion a : " ;
+    for(size_t i = 0; i < result.size();i++)
+    {
+        std::cout << result[i] << " ";
+    }
+     std::cout <<"\n\n**** after recursion b : " ;
+    for(size_t i = 0; i < b.size();i++)
+    {
+        std::cout << b[i] << " ";
+    }
     std::vector<int> result;
     std::vector<bool> b_inserted(b.size(), false);
 
@@ -387,7 +412,7 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     {
         result.push_back(a[i]);
     }
-    
+   
 
     std::vector<int> a_positions(a.size());
     for (size_t i = 0; i < a.size(); i++)
@@ -396,7 +421,7 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     }
     
     int k = 2;
-    size_t ceil_n_half = (n + 1) / 2;
+    size_t ceil_n_half = (n) / 2;
     
     while (jacobsthal(k - 1) < ceil_n_half)
     {

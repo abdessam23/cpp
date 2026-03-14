@@ -15,6 +15,7 @@ class PmergeMe
 private:
     std::vector<int> arr;
     std::deque<int> deq;
+    static int count; 
     PmergeMe();
     PmergeMe(const PmergeMe& other);
     PmergeMe& operator=(const PmergeMe& other);
