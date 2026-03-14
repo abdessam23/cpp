@@ -205,13 +205,13 @@ void PmergeMe::merge_insert(std::deque<int>& d)
     }
     
     int k = 2;
-    int ceil_n_half = (n + 1) / 2;
+    size_t ceil_n_half = (n + 1) / 2; 
     
-    while ((int)jacobsthal(k - 1) < ceil_n_half)
+    while (jacobsthal(k - 1) < ceil_n_half)
     {
-        int tk = jacobsthal(k);
+        size_t tk = jacobsthal(k);
         size_t tk_prev = jacobsthal(k - 1);
-        int m = std::min(tk, ceil_n_half);
+        size_t m = std::min(tk, ceil_n_half);
         
         for (size_t i = m - 1; i >= tk_prev; i--)
         {
@@ -396,13 +396,13 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     }
     
     int k = 2;
-    int ceil_n_half = (n + 1) / 2;
+    size_t ceil_n_half = (n + 1) / 2;
     
-    while ((int)jacobsthal(k - 1) < ceil_n_half)
+    while (jacobsthal(k - 1) < ceil_n_half)
     {
-        int tk = jacobsthal(k);
+        size_t tk = jacobsthal(k);
         size_t tk_prev = jacobsthal(k - 1);
-        int m = std::min(tk, ceil_n_half);
+        size_t m = std::min(tk, ceil_n_half);
         
         for (size_t i = m - 1; i >= tk_prev; i--)
         {
