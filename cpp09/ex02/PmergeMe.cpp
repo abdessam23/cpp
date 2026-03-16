@@ -389,9 +389,9 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     }
     b = new_b;
       std::cout <<"\n**** after recursion a : " ;
-    for(size_t i = 0; i < result.size();i++)
+    for(size_t i = 0; i < a.size();i++)
     {
-        std::cout << result[i] << " ";
+        std::cout << a[i] << " ";
     }
      std::cout <<"\n\n**** after recursion b : " ;
     for(size_t i = 0; i < b.size();i++)
@@ -420,8 +420,8 @@ void PmergeMe::merge_insert(std::vector<int>& d)
         a_positions[i] = i + 1;
     }
     
-    int k = 2;
-    size_t ceil_n_half = (n) / 2;
+    int k = 3;
+    size_t ceil_n_half = (n + 1) / 2;
     
     while (jacobsthal(k - 1) < ceil_n_half)
     {
@@ -448,7 +448,7 @@ void PmergeMe::merge_insert(std::vector<int>& d)
                     search_end = result.size() - 1;
                 }
                 
-                
+               
                 if (search_end < search_start)
                 {
                     result.insert(result.begin(), b[i]);
@@ -491,7 +491,7 @@ void PmergeMe::merge_insert(std::vector<int>& d)
             {
                 search_end = result.size() - 1;
             }
-            
+             std::cout << "b : "<< b[i] <<std::endl; 
             if (search_end < search_start)
             {
                 result.insert(result.begin(), b[i]);
