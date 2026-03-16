@@ -346,16 +346,11 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     create_pairs(d, a, b);
     std::vector<std::pair<int, int> > mapping;
     for (size_t i = 0; i < a.size(); i++)
-    {
         mapping.push_back(std::make_pair(a[i], b[i]));
-    }
-    
     int straggler = -1;
     bool has_straggler = (b.size() > a.size());
     if (has_straggler)
-    {
         straggler = b[b.size() - 1];
-    }
 
     std::cout <<"\n**** before recursion a : " ;
     for(size_t i = 0; i < a.size();i++)
@@ -384,9 +379,7 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     }
     
     if (has_straggler)
-    {
         new_b.push_back(straggler);
-    }
     b = new_b;
       std::cout <<"\n**** after recursion a : " ;
     for(size_t i = 0; i < a.size();i++)
