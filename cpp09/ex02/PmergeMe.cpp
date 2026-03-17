@@ -352,7 +352,7 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     if (has_straggler)
         straggler = b[b.size() - 1];
 
-    std::cout <<"\n**** before rcursion a : " ;
+    std::cout <<"\n**** before rEcursion a : " ;
     for(size_t i = 0; i < a.size();i++)
     {
         std::cout << a[i] << " ";
