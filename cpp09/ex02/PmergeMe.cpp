@@ -352,16 +352,16 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     if (has_straggler)
         straggler = b[b.size() - 1];
 
-    std::cout <<"\n**** before rEcursion a : " ;
-    for(size_t i = 0; i < a.size();i++)
-    {
-        std::cout << a[i] << " ";
-    }
-     std::cout <<"\n\n**** before recursion b : " ;
-    for(size_t i = 0; i < b.size();i++)
-    {
-        std::cout << b[i] << " ";
-    }
+    // std::cout <<"\n**** before rEcursion a : " ;
+    // for(size_t i = 0; i < a.size();i++)
+    // {
+    //     std::cout << a[i] << " ";
+    // }
+    //  std::cout <<"\n\n**** before recursion b : " ;
+    // for(size_t i = 0; i < b.size();i++)
+    // {
+    //     std::cout << b[i] << " ";
+    // }
 
     merge_insert(a);
    
@@ -381,16 +381,16 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     if (has_straggler)
         new_b.push_back(straggler);
     b = new_b;
-      std::cout <<"\n**** after recursion a : " ;
-    for(size_t i = 0; i < a.size();i++)
-    {
-        std::cout << a[i] << " ";
-    }
-     std::cout <<"\n\n**** after recursion b : " ;
-    for(size_t i = 0; i < b.size();i++)
-    {
-        std::cout << b[i] << " ";
-    }
+    //   std::cout <<"\n**** after recursion a : " ;
+    // for(size_t i = 0; i < a.size();i++)
+    // {
+    //     std::cout << a[i] << " ";
+    // }
+    //  std::cout <<"\n\n**** after recursion b : " ;
+    // for(size_t i = 0; i < b.size();i++)
+    // {
+    //     std::cout << b[i] << " ";
+    // }
     std::vector<int> result;
     std::vector<bool> b_inserted(b.size(), false);
 
