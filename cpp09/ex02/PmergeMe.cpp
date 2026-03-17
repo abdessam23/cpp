@@ -206,7 +206,7 @@ void PmergeMe::merge_insert(std::deque<int>& d)
         a_positions[i] = i + 1;
     }
     
-    int k = 2;
+    int k = 3;
     size_t ceil_n_half = (n + 1) / 2; 
     
     while (jacobsthal(k - 1) < ceil_n_half)
