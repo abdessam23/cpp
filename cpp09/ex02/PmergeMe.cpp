@@ -73,7 +73,7 @@ size_t PmergeMe::jacobsthal(size_t n)
 {
     if (n == 0) return 0;
      if (n == 1) return 1;
-    size_t power =  (1<< (n));
+    size_t power =  (1ULL << n);
     return (n%2 == 0)? (power - 1)/ 3: (power + 1)/3;
 }
 
