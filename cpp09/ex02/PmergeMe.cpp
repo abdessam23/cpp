@@ -53,7 +53,7 @@ void PmergeMe::valid_input(char** arg)
     for (size_t i = 0; i < str.size(); i++)
     {
         double n = std::strtod(str[i].c_str(), &end);
-        if (*end != '\0' || n < 0 || n > INT_MAX )
+        if (*end != '\0' || n < 0 || n > INT_MAX  || n != (int)n)
         {
             throw std::runtime_error("Error : only positive integers.");
         }
@@ -107,7 +107,7 @@ void PmergeMe::sort()
     std::cout << "\nTime to process a range of " 
     << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;  
 
-    std::cout << "counter : " << count <<std::endl;
+    // std::cout << "counter : " << count <<std::endl;
 }
 
 int PmergeMe::binarySearch(std::deque<int> &a, int target, int start, int end)
@@ -166,17 +166,31 @@ void PmergeMe::merge_insert(std::deque<int>& d)
     merge_insert(a);
    
     std::deque<int> new_b;
+        std::vector<bool> used(mapping.size(), false);
+
     for (size_t i = 0; i < a.size(); i++)
     {
         for (size_t j = 0; j < mapping.size(); j++)
         {
-            if (mapping[j].first == a[i])
+            if (!used[j] && mapping[j].first == a[i])
             {
                 new_b.push_back(mapping[j].second);
+                used[j] = true;
                 break;
             }
         }
     }
+    // for (size_t i = 0; i < a.size(); i++)
+    // {
+    //     for (size_t j = 0; j < mapping.size(); j++)
+    //     {
+    //         if (mapping[j].first == a[i])
+    //         {
+    //             new_b.push_back(mapping[j].second);
+    //             break;
+    //         }
+    //     }
+    // }
     
     if (has_straggler)
     {
@@ -351,46 +365,50 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     bool has_straggler = (b.size() > a.size());
     if (has_straggler)
         straggler = b[b.size() - 1];
-
-    // std::cout <<"\n**** before rEcursion a : " ;
-    // for(size_t i = 0; i < a.size();i++)
-    // {
-    //     std::cout << a[i] << " ";
-    // }
-    //  std::cout <<"\n\n**** before recursion b : " ;
-    // for(size_t i = 0; i < b.size();i++)
-    // {
-    //     std::cout << b[i] << " ";
-    // }
-
+    std::cout << "\n a : ";
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        std::cout << a[i] << " ";
+    }
+    std::cout << "\n b : ";
+    for (size_t i = 0; i < b.size(); i++)
+    {
+        std::cout << b[i] << " ";
+    }
+    
+    std::cout << "\n";
     merge_insert(a);
    
     std::vector<int> new_b;
-    for (size_t i = 0; i < a.size(); i++)
+    std::vector<bool> used(mapping.size(), false);
+
+for (size_t i = 0; i < a.size(); i++)
+{
+    for (size_t j = 0; j < mapping.size(); j++)
     {
-        for (size_t j = 0; j < mapping.size(); j++)
+        if (!used[j] && mapping[j].first == a[i])
         {
-            if (mapping[j].first == a[i])
-            {
-                new_b.push_back(mapping[j].second);
-                break;
-            }
+            new_b.push_back(mapping[j].second);
+            used[j] = true;
+            break;
         }
     }
+}
+    // for (size_t i = 0; i < a.size(); i++)
+    // {
+    //     for (size_t j = 0; j < mapping.size(); j++)
+    //     {
+    //         if (mapping[j].first == a[i])
+    //         {
+    //             new_b.push_back(mapping[j].second);
+    //             break;
+    //         }
+    //     }
+    // }
     
     if (has_straggler)
         new_b.push_back(straggler);
     b = new_b;
-    //   std::cout <<"\n**** after recursion a : " ;
-    // for(size_t i = 0; i < a.size();i++)
-    // {
-    //     std::cout << a[i] << " ";
-    // }
-    //  std::cout <<"\n\n**** after recursion b : " ;
-    // for(size_t i = 0; i < b.size();i++)
-    // {
-    //     std::cout << b[i] << " ";
-    // }
     std::vector<int> result;
     std::vector<bool> b_inserted(b.size(), false);
 
@@ -406,7 +424,17 @@ void PmergeMe::merge_insert(std::vector<int>& d)
         result.push_back(a[i]);
     }
    
-
+    std::cout << "\n a : ";
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        std::cout << a[i] << " ";
+    }
+    std::cout << "\n b : ";
+    for (size_t i = 0; i < b.size(); i++)
+    {
+        std::cout << b[i] << " ";
+    }
+    std::cout << "\n";
     std::vector<int> a_positions(a.size());
     for (size_t i = 0; i < a.size(); i++)
     {
@@ -484,7 +512,6 @@ void PmergeMe::merge_insert(std::vector<int>& d)
             {
                 search_end = result.size() - 1;
             }
-             std::cout << "b : "<< b[i] <<std::endl; 
             if (search_end < search_start)
             {
                 result.insert(result.begin(), b[i]);
@@ -507,4 +534,4 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     }
     
     d = result;
-}
+} 
