@@ -30,12 +30,10 @@ private:
     size_t jacobsthal(size_t n);
 
     void merge_insert(std::vector<int>& a);
-    void insert_element(sorthelper& v,std::vector<int>& result,std::vector<int>& b,size_t i);   
-    int binarySearch(std::vector<int> &a, int target, int start, int end);
+    void insert_element(sorthelper& v,std::vector<int>& result,std::vector<int>& b,size_t i); 
     void create_pairs(std::vector<int>& ar, std::vector<int>& a,std::vector<int>& b);
 
     void merge_insert(std::deque<int>& a);
-    int binarySearch(std::deque<int> &a, int target, int start, int end);
     void insert_element(sorthelper& v,std::deque<int>& result,std::deque<int>& b,size_t i); 
     void create_pairs(std::deque<int>& ar, std::deque<int>& a,std::deque<int>& b);
 public:

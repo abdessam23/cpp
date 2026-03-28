@@ -108,19 +108,6 @@ void PmergeMe::sort()
     << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;  
 }
 
-int PmergeMe::binarySearch(std::deque<int> &a, int target, int start, int end)
-{
-    while (start <= end)
-    {
-        int mid = start + (end - start)/2;
-        if (a[mid] <= target)
-            start = mid + 1;
-        else
-            end = mid - 1;
-    } 
-    return start;
-}
-
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
@@ -223,52 +210,28 @@ for (size_t i = 0; i < a.size(); i++)
 }
 
 
-void PmergeMe::insert_element(sorthelper& v,std::deque<int>& result,std::deque<int>& b,size_t i)
+void PmergeMe::insert_element(sorthelper& v,std::deque<int>& result,std::deque<int>& b,size_t i) 
 { 
     int search_end;
             
     if (i < v.a_positions.size()) 
-    {
         search_end = v.a_positions[i] - 1;
-    }
-    else
+    else 
+        search_end = result.size() - 1; 
+   
+    std::deque<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i]);
+    int idx = it - result.begin();
+    result.insert(it, b[i]); 
+    
+    v.b_inserted[i] = true;
+    for (size_t j = 0; j < v.a_positions.size(); j++)
     {
-        search_end = result.size() - 1;
+        if (v.a_positions[j] >= idx)
+            v.a_positions[j]++;  
     }
-    if (search_end < 0)
-    {
-        result.insert(result.begin(), b[i]); 
-        v.b_inserted[i] = true;
-        for (size_t j = 0; j < v.a_positions.size(); j++)
-            v.a_positions[j]++;
-    }
-    else
-    {
-        int pos = binarySearch(result, b[i], 0, search_end);
-        result.insert(result.begin() + pos, b[i]); 
-        v.b_inserted[i] = true;
-        for (size_t j = 0; j < v.a_positions.size(); j++)
-        {
-            if (v.a_positions[j] >= pos)
-                v.a_positions[j]++;  
-        }
-    }
+
 }
 
-int PmergeMe::binarySearch(std::vector<int> &a, int target, int start, int end)
-{
-    while (start <= end)
-    {
-        int mid = start + (end - start)/2;
-        count++; 
-        if (a[mid] <= target)
-            start = mid + 1;
-        else
-            end = mid - 1;
-    }
-    return start;
-    
-}
 void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vector<int>& b)
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
@@ -377,29 +340,22 @@ void PmergeMe::insert_element(sorthelper& v,std::vector<int>& result,std::vector
     int search_end;
             
     if (i < v.a_positions.size()) 
-    {
         search_end = v.a_positions[i] - 1;
-    }
     else
-    {
         search_end = result.size() - 1;
-    }
-    if (search_end < 0)
+   
+    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i]);
+    
+    int idx = it - result.begin();
+
+    result.insert(it, b[i]);
+
+    v.b_inserted[i] = true;
+
+    for (size_t j = 0; j < v.a_positions.size(); j++)
     {
-        result.insert(result.begin(), b[i]); 
-        v.b_inserted[i] = true;
-        for (size_t j = 0; j < v.a_positions.size(); j++)
-            v.a_positions[j]++;
+        if (v.a_positions[j] >= idx)
+            v.a_positions[j]++;  
     }
-    else
-    {
-        int pos = binarySearch(result, b[i], 0, search_end);
-        result.insert(result.begin() + pos, b[i]); 
-        v.b_inserted[i] = true;
-        for (size_t j = 0; j < v.a_positions.size(); j++)
-        {
-            if (v.a_positions[j] >= pos)
-                v.a_positions[j]++;  
-        }
-    }
+
 }
