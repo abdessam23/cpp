@@ -105,7 +105,8 @@ void PmergeMe::sort()
     << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " us";
     
     std::cout << "\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;  
+    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;
+    std::cout << "comparison : "<<PmergeMe::count << std::endl;   
 }
 
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
@@ -344,7 +345,7 @@ void PmergeMe::insert_element(sorthelper& v,std::vector<int>& result,std::vector
     else
         search_end = result.size() - 1;
    
-    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i]);
+    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i],CountingComp(count));
     
     int idx = it - result.begin();
 

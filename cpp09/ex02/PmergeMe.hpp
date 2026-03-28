@@ -37,7 +37,16 @@ private:
     void insert_element(sorthelper& v,std::deque<int>& result,std::deque<int>& b,size_t i); 
     void create_pairs(std::deque<int>& ar, std::deque<int>& a,std::deque<int>& b);
 public:
-    
+    struct CountingComp
+    {
+    int& count;
+    CountingComp(int& c) : count(c) {}
+    bool operator()(const int& a, const int& b) const
+    {
+        count++;
+        return a < b;
+    }
+    };
     PmergeMe(char** arg);
     void sort();
     ~PmergeMe();
