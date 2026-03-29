@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 10:05:14 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/01 11:57:27 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/29 23:44:09 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int main(int ac, char** arg)
     {
         return 1;
     }
-    std::string str = arg[1];
-    std::stack<int> stk;
+    RPN a(arg[1]);
     try{
-        rpnfun(stk,str);
-        std:: cout<< stk.top() << std::endl;
+        a.rpnfun();
+        std:: cout<< a.getstk().top() << std::endl;
     }
     catch(const std::exception& e)
     {

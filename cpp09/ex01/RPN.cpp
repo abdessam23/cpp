@@ -6,54 +6,63 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 11:53:38 by abhimi            #+#    #+#             */
-/*   Updated: 2026/02/01 11:56:57 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/29 23:59:42 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
 
-bool is_operator(char c)
+RPN::RPN(const std::string str):str(str)
+{
+    
+}
+RPN::RPN(const RPN& other):str(other.str){}
+RPN& RPN::operator=(const RPN& other) 
+{
+    this->str = other.str; 
+    return *this; 
+}
+RPN::~RPN()
+{
+    
+}
+
+int RPN::getstk() const  
+{
+    if (stk.empty())
+        throw std::runtime_error("Error : stack empty");
+    return stk.top();     
+}
+bool RPN::is_operator(char c)
 {
     if (c == '*' || c == '/' || c == '+' || c == '-')
         return 1;
     return 0;
 }
 
-int mkoperation(int a, int b,char c,bool& error)
+int RPN::mkoperation(int a, int b,char c)  
 {
-    if (c == '*')
-        return a * b;
-    else if (c == '/')
+    switch (c)
     {
-        if (b != 0)
+        case '*':
+            return a * b;
+        case '/':
+            if (b == 0)
+                throw std::runtime_error("Error : division by 0");
             return a / b;
-        else
-        {
-            error = true;
-            return 0;
-        } 
-            
+        case '+':
+            return a + b;
+        case '-':
+            return a - b;
+        default:
+             throw std::runtime_error("Error : unknown operator");;
     }
-    else if (c == '+')
-        return a + b;
-    else if (c == '-')
-        return a - b;
-    else 
-        return -1;
 }
 
-bool is_valid_number(char c)
-{
-    if (c >= '0' && c <= '9')
-        return 1;
-    return 0;
-}
-
-void rpnfun(std::stack<int>& stk,std::string& str)
+void RPN::rpnfun() 
 {
     int a,b,result;
-    bool error;
     
     for(size_t i = 0; i < str.length();i++)
     {
@@ -69,17 +78,11 @@ void rpnfun(std::stack<int>& stk,std::string& str)
             stk.pop();
             a = stk.top();
             stk.pop();
-            
-            error = false;
-            result = mkoperation(a,b,str[i],error);
-            
-            if (error)
-                throw std::runtime_error("Error");
-                
+            result = mkoperation(a,b,str[i]);    
             stk.push(result);
         }
 
-        else if (is_valid_number(str[i]))
+        else if (std::isdigit(str[i]))
         {
             stk.push(str[i] - '0');
         }
