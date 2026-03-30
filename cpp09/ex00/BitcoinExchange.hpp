@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:54 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 18:05:14 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 18:10:28 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,14 @@ class BitcoinExchange
         void check_charval(char* d,float& value);
         void check_date(int y,int m,int d);
         void find_result(std::string& line,float& value);
+        BitcoinExchange(); 
      
     public:
-        BitcoinExchange(); 
+        
         BitcoinExchange(const std::string& str);
         ~BitcoinExchange();
-        void read_data(std::string str);
+        void read_data(std::string data);
         void read_input();
 };
-
-BitcoinExchange::BitcoinExchange(){}
-BitcoinExchange::BitcoinExchange(const std::string& str):str(str)
-{
-} 
-
-BitcoinExchange::~BitcoinExchange()
-{
-}
-
-
-
-
-
 
 #endif

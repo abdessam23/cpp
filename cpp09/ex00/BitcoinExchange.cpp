@@ -6,13 +6,19 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 18:06:39 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 18:10:52 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange(){}
 
+BitcoinExchange::BitcoinExchange(const std::string& str):str(str){} 
+
+BitcoinExchange::~BitcoinExchange()
+{
+}
 void BitcoinExchange::find_data(std::string& line) 
 {
     int pos;
