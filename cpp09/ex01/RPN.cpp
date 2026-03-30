@@ -6,17 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 11:53:38 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/29 23:59:42 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 16:00:26 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
 
-RPN::RPN(const std::string str):str(str)
-{
-    
-}
+RPN::RPN(const std::string& str):str(str) {}
 RPN::RPN(const RPN& other):str(other.str){}
 RPN& RPN::operator=(const RPN& other) 
 {
@@ -34,14 +31,14 @@ int RPN::getstk() const
         throw std::runtime_error("Error : stack empty");
     return stk.top();     
 }
-bool RPN::is_operator(char c)
+bool RPN::is_operator(char c) const
 {
     if (c == '*' || c == '/' || c == '+' || c == '-')
         return 1;
     return 0;
 }
 
-int RPN::mkoperation(int a, int b,char c)  
+int RPN::mkoperation(int a, int b,char c)  const
 {
     switch (c)
     {
@@ -56,13 +53,12 @@ int RPN::mkoperation(int a, int b,char c)
         case '-':
             return a - b;
         default:
-             throw std::runtime_error("Error : unknown operator");;
+             throw std::runtime_error("Error : unknown operator");
     }
 }
 
 void RPN::rpnfun() 
 {
-    int a,b,result;
     
     for(size_t i = 0; i < str.length();i++)
     {
@@ -74,11 +70,11 @@ void RPN::rpnfun()
             if (stk.size() < 2)
                 throw std::runtime_error("Error");
             
-            b = stk.top();
+            int b = stk.top();
             stk.pop();
-            a = stk.top();
+            int a = stk.top();
             stk.pop();
-            result = mkoperation(a,b,str[i]);    
+            int  result = mkoperation(a,b,str[i]);    
             stk.push(result);
         }
 

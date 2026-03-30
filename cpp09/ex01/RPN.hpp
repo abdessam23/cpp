@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 09:18:25 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/29 23:59:47 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 15:50:18 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ private:
     std::string str;
     RPN(const RPN& other); 
     RPN& operator=(const RPN& other);
-    bool is_operator(char c);
-    int mkoperation(int a, int b,char c);
+    bool is_operator(char c) const;
+    int mkoperation(int a, int b,char c) const;
     
 public:
-    RPN(const std::string str);
+    RPN(const std::string& str);
     int getstk() const;
     ~RPN();
     void rpnfun();
