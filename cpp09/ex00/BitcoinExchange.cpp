@@ -6,14 +6,14 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/01/31 09:09:06 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 18:00:15 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 
-void find_data( std::map<std::string,float>& m,std::string& line)
+void BitcoinExchange::find_data(std::string& line)
 {
     int pos;
     float f;
@@ -25,7 +25,7 @@ void find_data( std::map<std::string,float>& m,std::string& line)
 
 
 
-void check_charval(char* d,float& value)
+void BitcoinExchange::check_charval(char* d,float& value)
 {
     if (d[0] != '-' || d[1] != '-' || d[2] != '|')
         throw std::runtime_error("invalid input ");
@@ -34,7 +34,7 @@ void check_charval(char* d,float& value)
     if ( value > 1000)
         throw std::runtime_error("Error: Too large number ");
 }
-void check_date(int y,int m,int d)
+void BitcoinExchange::check_date(int y,int m,int d)
 {
     (void) y;
    if (y < 2008 || y > 2027)
@@ -45,7 +45,7 @@ void check_date(int y,int m,int d)
     if (((m == 2 )&& (d < 1 || d > 29)) || ((m != 2 )&& (d < 1 || d > 31)))
         throw std::runtime_error("Error:invalid day ");  
 }
-void read_data(std::string str, std::map<std::string,float>& mp)
+void BitcoinExchange::read_data(std::string str)
 {
     std::string line;
     std::ifstream database(str.c_str());
@@ -55,11 +55,11 @@ void read_data(std::string str, std::map<std::string,float>& mp)
     {
         if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
             continue;
-        find_data(mp,line);
+        find_data(line);  
     }
 }
 
-void find_result(std::map<std::string,float >& mp, std::string& line,float& value)
+void BitcoinExchange::find_result(std::string& line,float& value) 
 {
     int pos;
     bool t = false;
@@ -81,7 +81,7 @@ void find_result(std::map<std::string,float >& mp, std::string& line,float& valu
     }
 }
 
-void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
+void BitcoinExchange::read_input() 
 {
     std::string line;
     int y;
@@ -90,6 +90,9 @@ void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
     char dash[3];
     float value;
     
+    std::ifstream file(str.c_str()); 
+    if (!file.is_open())
+        throw std::runtime_error("Can't open file .");
     while(std::getline(file,line))
     {
         std::stringstream ss(line);
@@ -100,7 +103,7 @@ void read_input(std::ifstream& file ,std::map<std::string,float>& mp)
                 throw std::runtime_error("bad input.");
             check_date(y,m,d);
             check_charval(dash,value);
-            find_result(mp,line,value);
+            find_result(line,value);
         }
         catch(std::exception& e)
         {
