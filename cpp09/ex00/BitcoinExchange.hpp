@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:54 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 17:57:35 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 18:05:14 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class BitcoinExchange
         std::string str;
         
 
-        void find_data( std::map<std::string,float>& m,std::string& line);
+        void find_data(std::string& line);
         void check_charval(char* d,float& value);
         void check_date(int y,int m,int d);
         void find_result(std::string& line,float& value);

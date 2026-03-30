@@ -6,21 +6,21 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 18:00:15 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 18:06:39 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 
-void BitcoinExchange::find_data(std::string& line)
+void BitcoinExchange::find_data(std::string& line) 
 {
     int pos;
     float f;
     pos =line.find(",");
     std::stringstream ss(line.substr(pos + 1,line.length()));
     ss >> f;
-    m.insert(std::make_pair(line.substr(0,pos),f));
+    mp.insert(std::make_pair(line.substr(0,pos),f));
 }
 
 

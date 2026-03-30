@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 12:44:04 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 17:18:51 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 18:06:19 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,9 @@ int main(int ac,char** arg)
         return 1; 
     }
     BitcoinExchange btc(arg[1]);
-    std::string s = arg[1];
-    std::ifstream file(s.c_str()); 
-    std::map<std::string,float> mp;
     try{
-        read_data("data.csv",mp);
-        if (!file.is_open())
-        throw std::runtime_error("Can't open file .");
-        read_input(file,mp);
+        btc.read_data("data.csv");
+        btc.read_input(); 
     }
     catch(std::exception& e)
     {
