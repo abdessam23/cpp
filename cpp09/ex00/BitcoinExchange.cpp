@@ -6,114 +6,116 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 18:10:52 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/31 20:06:15 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(){}
+BitcoinExchange::BitcoinExchange(const std::string& str) : str(str) {}
 
-BitcoinExchange::BitcoinExchange(const std::string& str):str(str){} 
+BitcoinExchange::~BitcoinExchange() {}
 
-BitcoinExchange::~BitcoinExchange()
+void BitcoinExchange::find_data(const std::string& line)  
 {
-}
-void BitcoinExchange::find_data(std::string& line) 
-{
-    int pos;
+    size_t pos = line.find(",");
+    if (pos == std::string::npos)
+        return;
+
+    std::string date = line.substr(0, pos);
     float f;
-    pos =line.find(",");
-    std::stringstream ss(line.substr(pos + 1,line.length()));
+    std::stringstream ss(line.substr(pos + 1));
     ss >> f;
-    mp.insert(std::make_pair(line.substr(0,pos),f));
+    mp.insert(std::make_pair(date, f));
 }
 
-
-
-void BitcoinExchange::check_charval(char* d,float& value)
+void BitcoinExchange::check_value(float value) const
 {
-    if (d[0] != '-' || d[1] != '-' || d[2] != '|')
-        throw std::runtime_error("invalid input ");
     if (value < 0)
-        throw std::runtime_error("Error: Not a positive number ");
-    if ( value > 1000)
-        throw std::runtime_error("Error: Too large number ");
+        throw std::runtime_error("Error: not a positive number.");
+    if (value > 1000)
+        throw std::runtime_error("Error: too large a number.");
 }
-void BitcoinExchange::check_date(int y,int m,int d)
+
+void BitcoinExchange::check_date(int y, int m, int d) const
 {
-    (void) y;
-   if (y < 2008 || y > 2027)
-        throw std::runtime_error("no data about bitcoin in this year ");
-   if (m < 1 || m > 12)
-      throw std::runtime_error("invalid month.");
-   
-    if (((m == 2 )&& (d < 1 || d > 29)) || ((m != 2 )&& (d < 1 || d > 31)))
-        throw std::runtime_error("Error:invalid day ");  
+    int days_in_month[] = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if (y < 2009 || y > 2027)
+        throw std::runtime_error("Error: year out of range.");
+    if (m < 1 || m > 12)
+        throw std::runtime_error("Error: invalid month.");
+    if (d < 1 || d > days_in_month[m - 1])
+        throw std::runtime_error("Error: invalid day.");
 }
-void BitcoinExchange::read_data(std::string str)
+
+void BitcoinExchange::find_result(const std::string& date, float value) const              
 {
-    std::string line;
-    std::ifstream database(str.c_str());
+    std::map<std::string, float>::const_iterator it = mp.lower_bound(date);
+
+    if (it == mp.end() || it->first != date)
+    {
+        if (it == mp.begin())
+            throw std::runtime_error("Error: no rate data before => " + date);
+        --it;
+    }
+    std::cout << date << " => " << value << " = " << value * it->second << std::endl;
+}
+
+void BitcoinExchange::read_data(const std::string& data) 
+{
+    std::string  line;
+    std::ifstream database(data.c_str());
+
     if (!database.is_open())
-      throw std::runtime_error("Can't open file of database .\n");
-    while(std::getline(database,line))
+        throw std::runtime_error("Error: could not open database file.");
+
+    while (std::getline(database, line))
     {
-        if (line.find("date") != std::string::npos)// std::cout << "ok" <<std::endl;
+        if (line.find("date") != std::string::npos)
             continue;
-        find_data(line);  
+        find_data(line);
     }
 }
 
-void BitcoinExchange::find_result(std::string& line,float& value) 
+void BitcoinExchange::read_input()
 {
-    int pos;
-    bool t = false;
-    pos =line.find(" ");
-    for(std::map<std::string,float >::const_iterator it = mp.begin(); it != mp.end();++it)
-    {
-        if (it->first == line.substr(0,pos))
-        {
-            t = true;
-            std::cout << it->first << " => " <<value << " = " << value * it->second << std::endl;
-             break;
-        }
-    }
-    if (!t)
-    {
-        std::map<std::string,float>::const_iterator ite =  mp.lower_bound(line.substr(0,pos));
-           --ite;
-        std::cout << line.substr(0,pos) << " => " <<value << " = " << value * ite->second << std::endl;
-    }
-}
+    std::string   line;
+    std::ifstream file(str.c_str());
 
-void BitcoinExchange::read_input() 
-{
-    std::string line;
-    int y;
-    int m;
-    int d;
-    char dash[3];
-    float value;
-    
-    std::ifstream file(str.c_str()); 
     if (!file.is_open())
-        throw std::runtime_error("Can't open file .");
-    while(std::getline(file,line))
+        throw std::runtime_error("Error: could not open file.");
+
+    while (std::getline(file, line))
     {
-        std::stringstream ss(line);
-        if ((line.find("date") != std::string::npos) || line.empty())
+        if (line.find("date") != std::string::npos || line.empty())
             continue;
-        try{
-            if (!(ss >> y >> dash[0] >> m >> dash[1]>> d >> dash[2] >> value))
-                throw std::runtime_error("bad input.");
-            check_date(y,m,d);
-            check_charval(dash,value);
-            find_result(line,value);
-        }
-        catch(std::exception& e)
+
+        int   y, m, d;
+        char  dash1, dash2, pipe;
+        float value;
+
+        std::stringstream ss(line);
+        if (!(ss >> y >> dash1 >> m >> dash2 >> d >> pipe >> value)
+            || dash1 != '-' || dash2 != '-' || pipe != '|')
         {
-        std::cout << e.what() << std::endl;
+            std::cerr << "Error: bad input => " << line << std::endl;
+            continue;
+        }
+
+        try {
+            check_date(y, m, d);
+            check_value(value);
+
+            std::stringstream date_ss;
+            date_ss << y << "-"
+                    << (m < 10 ? "0" : "") << m << "-"
+                    << (d < 10 ? "0" : "") << d;
+            find_result(date_ss.str(), value);
+        } catch (const std::exception& e) {
+            std::cerr << e.what() << std::endl;
         }
     }
 }
