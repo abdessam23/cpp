@@ -41,19 +41,19 @@ void PmergeMe::fill_string(char** arg,std::vector<std::string> &str)
     }
     
 }
-int PmergeMe::count = 0;
+
 void PmergeMe::valid_input(char** arg)
 {
     std::vector<std::string>  str;
     fill_string(arg,str);
     if (str.empty())
-        throw std::runtime_error("error : no input");
+        throw std::runtime_error("Error : no input");
     char* end = NULL;
 
     for (size_t i = 0; i < str.size(); i++)
     {
-        double n = std::strtod(str[i].c_str(), &end);
-        if (*end != '\0' || n <= 0 || n > INT_MAX  || n != (int)n)
+        long n = std::strtol(str[i].c_str(), &end,10); 
+        if (*end != '\0' || n <= 0 || n > INT_MAX)
         {
             throw std::runtime_error("Error : only positive integers.");
         }
@@ -79,7 +79,7 @@ size_t PmergeMe::jacobsthal(size_t n)
 
 void PmergeMe::sort()
 {
-    double t1,t2 = 0;
+    double t1 = 0,t2 = 0;
     if (arr.empty())
        throw std::runtime_error("there is no element\n");
   
@@ -87,14 +87,14 @@ void PmergeMe::sort()
     for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
      
-    clock_t time_a = clock();
+    clock_t time_a = std::clock();
     merge_insert(arr);
-    time_a = clock() - time_a;
+    time_a = std::clock() - time_a;
     t1 = ((double)(time_a) / CLOCKS_PER_SEC * 1000000);
 
-    clock_t time_d = clock();
+    clock_t time_d = std::clock();
     merge_insert(deq);
-    time_d = clock() - time_d;
+    time_d = std::clock() - time_d;
     t2 = ((double)(time_d) / CLOCKS_PER_SEC * 1000000);
   
     std::cout << "\nThe array after sorting : ";
@@ -105,8 +105,7 @@ void PmergeMe::sort()
     << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " us";
     
     std::cout << "\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;
-    std::cout << "comparison : "<<PmergeMe::count << std::endl;   
+    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;   
 }
 
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
@@ -130,7 +129,7 @@ void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<
 
 void PmergeMe::merge_insert(std::deque<int>& d)
 {
-    int n = d.size();
+    int n = (int)d.size();
     
     if (n < 2)
         return;   
@@ -237,7 +236,6 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
-        count++;
         if (arr[i] < arr[i + 1])
         {
             a.push_back(arr[i + 1]);
@@ -255,7 +253,7 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
 
 void PmergeMe::merge_insert(std::vector<int>& d)
 {
-    int n = d.size();
+    int n = (int)d.size();
     
     if (n < 2)
         return;   
@@ -277,18 +275,18 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     std::vector<int> new_b;
     std::vector<bool> used(mapping.size(), false);
 
-for (size_t i = 0; i < a.size(); i++)
-{
-    for (size_t j = 0; j < mapping.size(); j++)
+    for (size_t i = 0; i < a.size(); i++)
     {
-        if (!used[j] && mapping[j].first == a[i])
+        for (size_t j = 0; j < mapping.size(); j++)
         {
-            new_b.push_back(mapping[j].second);
-            used[j] = true;
-            break;
+            if (!used[j] && mapping[j].first == a[i])
+            {
+                new_b.push_back(mapping[j].second);
+                used[j] = true;
+                break;
+            }
         }
     }
-}
 
     if (has_straggler)
         new_b.push_back(straggler);
@@ -344,9 +342,7 @@ void PmergeMe::insert_element(sorthelper& v,std::vector<int>& result,std::vector
         search_end = v.a_positions[i] - 1;
     else
         search_end = result.size() - 1;
-   
-    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i],CountingComp(count));
-    
+    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i]);
     int idx = it - result.begin();
 
     result.insert(it, b[i]);

@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 14:32:47 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/31 20:06:15 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/31 23:54:20 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 BitcoinExchange::BitcoinExchange(const std::string& str) : str(str) {}
 
 BitcoinExchange::~BitcoinExchange() {}
-
+BitcoinExchange::BitcoinExchange(const BitcoinExchange&){} 
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange&){ return *this;}  
 void BitcoinExchange::find_data(const std::string& line)  
 {
     size_t pos = line.find(",");
@@ -90,7 +91,7 @@ void BitcoinExchange::read_input()
 
     while (std::getline(file, line))
     {
-        if (line.find("date") != std::string::npos || line.empty())
+        if (line == "date | value" || line.empty())
             continue;
 
         int   y, m, d;

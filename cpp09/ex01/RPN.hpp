@@ -6,7 +6,7 @@
 /*   By: abhimi <abhimi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 09:18:25 by abhimi            #+#    #+#             */
-/*   Updated: 2026/03/30 15:50:18 by abhimi           ###   ########.fr       */
+/*   Updated: 2026/03/30 17:14:15 by abhimi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class RPN
 private:
     std::stack<int> stk;
     std::string str;
+    RPN(); 
     RPN(const RPN& other); 
     RPN& operator=(const RPN& other);
     bool is_operator(char c) const;
