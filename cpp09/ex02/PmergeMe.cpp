@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-
+ 
 PmergeMe::PmergeMe()
 {
 }
@@ -87,7 +87,6 @@ void PmergeMe::sort()
     std::cout << "Before sorting : ";
     for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
-     
     gettimeofday(&start,NULL);
     merge_insert(arr);
     gettimeofday(&end,NULL);
@@ -108,7 +107,7 @@ void PmergeMe::sort()
     << arr.size() << " element with std::vector<int>  is : "<<t1 <<  " us";
     
     std::cout << "\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<<t2 <<  " us" << std::endl;   
+    << deq.size() << " element with std::deque<int>  is : "<<t2 <<  " us" << std::endl;  
 }
 
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
@@ -154,62 +153,52 @@ void PmergeMe::merge_insert(std::deque<int>& d)
     std::deque<int> new_b;
     std::deque<bool> used(mapping.size(), false);
 
-for (size_t i = 0; i < a.size(); i++)
-{
-    for (size_t j = 0; j < mapping.size(); j++)
+    for (size_t i = 0; i < a.size(); i++)
     {
-        if (!used[j] && mapping[j].first == a[i])
+        for (size_t j = 0; j < mapping.size(); j++)
         {
-            new_b.push_back(mapping[j].second);
-            used[j] = true;
-            break;
+            if (!used[j] && mapping[j].first == a[i])
+            {
+                new_b.push_back(mapping[j].second);
+                used[j] = true;
+                break;
+            }
         }
     }
-}
 
     if (has_straggler)
         new_b.push_back(straggler);
     b = new_b;
     sorthelper v; 
-    std::deque<int> result;
+    d.clear();
     v.b_inserted.assign(b.size(), false);
     if (!b.empty())
     {
-        result.push_back(b[0]);
+        d.push_back(b[0]);
         v.b_inserted[0] = true; 
     }
 
     for (size_t i = 0; i < a.size(); i++)
     {
-        result.push_back(a[i]);
+        d.push_back(a[i]);
         v.a_positions.push_back(i + 1); 
     }
 
     int k = 3;
-    size_t ceil_n_half = (n + 1) / 2;
-    
-    while (jacobsthal(k - 1) < ceil_n_half)
+
+    while (jacobsthal(k - 1) < b.size())
     {
         size_t tk = jacobsthal(k);
         size_t tk_prev = jacobsthal(k - 1);
-        size_t m = std::min(tk, ceil_n_half);
-        
+        size_t m = std::min(tk, b.size());
         for (size_t i = m - 1; i >= tk_prev; i--)
         {
-            if (i < b.size() && !v.b_inserted[i])
-              insert_element(v,result,b,i);
+            if (!v.b_inserted[i])
+              insert_element(v,d,b,i);
         }
         k++;
     }
-    
-
-    for (size_t i = 0; i < b.size(); i++)
-    {
-        if (!v.b_inserted[i]) 
-            insert_element(v,result,b,i);
-    }
-
-    d = result; 
+ 
 }
 
 
@@ -239,7 +228,7 @@ void PmergeMe::create_pairs(std::vector<int>& arr, std::vector<int>& a,std::vect
 {
     for(size_t i = 0; i + 1 <arr.size();i+=2)
     {
-        if (arr[i] < arr[i + 1])
+        if (arr[i] < arr[i + 1])   
         {
             a.push_back(arr[i + 1]);
             b.push_back(arr[i]);
@@ -294,58 +283,46 @@ void PmergeMe::merge_insert(std::vector<int>& d)
     if (has_straggler)
         new_b.push_back(straggler);
     b = new_b;
-    sorthelper v; 
-    std::vector<int> result;
+    sorthelper v;
+    d.clear(); 
     v.b_inserted.assign(b.size(), false);
     if (!b.empty())
     {
-        result.push_back(b[0]);
+        d.push_back(b[0]);
         v.b_inserted[0] = true; 
     }
 
     for (size_t i = 0; i < a.size(); i++)
     {
-        result.push_back(a[i]);
+        d.push_back(a[i]);
         v.a_positions.push_back(i + 1); 
     }
 
     int k = 3;
-    size_t ceil_n_half = (n + 1) / 2;
-    
-    while (jacobsthal(k - 1) < ceil_n_half)
+    while (jacobsthal(k - 1) < b.size())
     {
         size_t tk = jacobsthal(k);
         size_t tk_prev = jacobsthal(k - 1);
-        size_t m = std::min(tk, ceil_n_half);
+        size_t m = std::min(tk, b.size()); 
         
         for (size_t i = m - 1; i >= tk_prev; i--)
         {
-            if (i < b.size() && !v.b_inserted[i])
-              insert_element(v,result,b,i);
+            if (!v.b_inserted[i])
+              insert_element(v,d,b,i);
         }
         k++;
     }
-    
-
-    for (size_t i = 0; i < b.size(); i++)
-    {
-        if (!v.b_inserted[i]) 
-            insert_element(v,result,b,i);
-    }
-
-    d = result; 
 }
 
 
 void PmergeMe::insert_element(sorthelper& v,std::vector<int>& result,std::vector<int>& b,size_t i)
 { 
     int search_end;
-            
     if (i < v.a_positions.size()) 
         search_end = v.a_positions[i] - 1;
     else
         search_end = result.size() - 1;
-    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i]);
+    std::vector<int>::iterator it = std::lower_bound(result.begin(),result.begin() +  search_end + 1,b[i]);    
     int idx = it - result.begin();
 
     result.insert(it, b[i]);
