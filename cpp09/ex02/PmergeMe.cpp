@@ -52,7 +52,7 @@ void PmergeMe::valid_input(char** arg)
 
     for (size_t i = 0; i < str.size(); i++)
     {
-        long n = std::strtol(str[i].c_str(), &end,10); 
+        long int n = std::strtol(str[i].c_str(), &end,10); 
         if (*end != '\0' || n <= 0 || n > INT_MAX)
         {
             throw std::runtime_error("Error : only positive integers.");
@@ -84,7 +84,7 @@ void PmergeMe::sort()
     if (arr.empty())
        throw std::runtime_error("there is no element\n");
   
-    std::cout << "The array before sorting : ";
+    std::cout << "Before sorting : ";
     for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
      
@@ -100,7 +100,7 @@ void PmergeMe::sort()
     t2 = (end.tv_sec - start.tv_sec) * 1000000;
     t2 += (end.tv_usec - start.tv_usec);
   
-    std::cout << "\nThe array after sorting : ";
+    std::cout << "\nAfter sorting : ";
     for (size_t i = 0; i < arr.size(); i++)
         std::cout <<arr[i] << " ";
 
