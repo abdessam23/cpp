@@ -79,6 +79,7 @@ size_t PmergeMe::jacobsthal(size_t n)
 
 void PmergeMe::sort()
 {
+    struct timeval start ,end;
     double t1 = 0,t2 = 0;
     if (arr.empty())
        throw std::runtime_error("there is no element\n");
@@ -87,25 +88,27 @@ void PmergeMe::sort()
     for (size_t i = 0; i < deq.size(); i++)
         std::cout << deq[i] << " ";
      
-    clock_t time_a = std::clock();
+    gettimeofday(&start,NULL);
     merge_insert(arr);
-    time_a = std::clock() - time_a;
-    t1 = ((double)(time_a) / CLOCKS_PER_SEC * 1000000);
+    gettimeofday(&end,NULL);
+    t1 = (end.tv_sec - start.tv_sec) * 1000000;
+    t1 += (end.tv_usec - start.tv_usec);
 
-    clock_t time_d = std::clock();
+    gettimeofday(&start,NULL);
     merge_insert(deq);
-    time_d = std::clock() - time_d;
-    t2 = ((double)(time_d) / CLOCKS_PER_SEC * 1000000);
+    gettimeofday(&end,NULL);
+    t2 = (end.tv_sec - start.tv_sec) * 1000000;
+    t2 += (end.tv_usec - start.tv_usec);
   
     std::cout << "\nThe array after sorting : ";
     for (size_t i = 0; i < arr.size(); i++)
         std::cout <<arr[i] << " ";
 
     std::cout << "\n\nTime to process a range of " 
-    << arr.size() << " element with std::vector<int>  is : "<< std::fixed <<t1 <<  " us";
+    << arr.size() << " element with std::vector<int>  is : "<<t1 <<  " us";
     
     std::cout << "\nTime to process a range of " 
-    << deq.size() << " element with std::deque<int>  is : "<< std::fixed <<t2 <<  " us" << std::endl;   
+    << deq.size() << " element with std::deque<int>  is : "<<t2 <<  " us" << std::endl;   
 }
 
 void PmergeMe::create_pairs(std::deque<int>& arr, std::deque<int>& a,std::deque<int>& b) 
